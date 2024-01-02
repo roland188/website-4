@@ -1,0 +1,8 @@
+body {
+    --themeColor: #111;
+    --themeAssistColor: #f9a425;
+}
+
+.themeColor {
+    background-color: var(--themeColor)
+}

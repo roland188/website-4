@@ -1,0 +1,37 @@
+.maintainBox{
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	background-image: url(../../static/image/bg.png);
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	background-position:  center;
+}
+.mainCode{
+	width: 80%;
+	height: auto;
+	margin-top: 148upx;
+}
+.maintainCon{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+.mainTitle{
+	color: #545454;
+	font-size: 28upx;
+	font-weight: bold;
+	margin-top: 40upx;
+}
+.mainTime{
+	color: #545454;
+	font-size: 28upx;
+	margin-top: 23upx;
+}
+.btn{
+	width: 498upx;
+	height: auto;
+	margin-top: 138upx;
+}

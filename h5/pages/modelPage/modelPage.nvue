@@ -1,0 +1,272 @@
+<template>
+	<view class="mask">
+		<view class="maskContent content">
+			<view class="maskHeader text">
+				<!-- <image class="maskTop" src="../../static/image/xf/update.png" mode="widthFix"></image> -->
+			</view>
+			<view class="maskConBox">
+				<view class="conBox">
+					<text class="conTextTitle">{{title}}</text>
+					<text class="conText">{{content}}</text>
+				</view>
+				<view class="conBtnBox">
+					<view class="btnBox dowloadbg" :class="{btnBox1:updateFD === true}" @click="upOver"></view>
+					<view class="download dowloadbg" :style="'transform:translateX('+ indexs +'%)'"></view>
+					<text class="btnText">{{updates}}</text>
+				</view>
+			</view>
+
+			<view v-if="forceUpdate === 0" class="imgBox">
+				<!-- <image @click="close" class="noneCuo" src="../../static/image/cha4.png" mode="widthFix"></image> -->
+				<view @click="close" class="close">
+              <view class="left"></view>
+              <view class="right"></view>
+          </view>
+			</view>
+		</view>
+	</view>
+</template>
+
+<script>
+	export default {
+		data() {
+			return {
+				dataErr: {},
+				content: '',
+				title: '',
+				forceUpdate: null,
+				updates: '立即更新',
+				indexs: 0,
+				btnDom: '',
+				updateFD: false,
+				url: '',
+			}
+		},
+		onLoad(bmwTheme) {
+			let dataErr = uni.getStorageSync('modelJson');
+			console.log(dataErr)
+			this.title = dataErr.title;
+			this.content = dataErr.content;
+			this.forceUpdate = dataErr.forceUpdate
+			this.url = dataErr.url
+			this.updates = this.$store.state.update
+			this.updateFD = false
+			console.log(dataErr, this.updates, 555555555555555)
+		},
+		watch: {
+			"$store.state.update"(val) {
+				let that = this;
+				//监听值是否变化，赋值
+				if (val === '下载安装包失败' || val === '网络请求失败' || val === '立即更新' || val === '前往更新') {
+					that.updates = val
+				} else if (val >= 1) {
+					// if(val >= 2){
+					// 	that.updateFD = true
+					// }
+					that.updateFD = true
+					that.indexs = val
+					that.updates = `${val}%`
+				}
+
+			}
+		},
+		onBackPress() {
+			// #ifdef APP-PLUS
+			// forceUpdate 1是强更新，不给退出
+			// forceUpdate 0不是强制更新，可以退出
+			if (this.forceUpdate === 1) {
+				return true
+			} else {
+				return false
+			}
+			// #endif
+		},
+		methods: {
+
+			close(e) {
+				uni.navigateBacks()
+				// uni.$emit('advertising')
+			},
+			upOver(e) {
+				//更新第三步,点击下载按钮，值为立即更新或者前往更新做不同操作
+				if (this.updates === '立即更新') {
+					// 触发更新操作，modelUp在index中
+					uni.$emit('modelUp', {
+						content: '该更新了'
+					});
+				} else if (this.updates === '前往更新') { //2跳出去的
+
+					plus.runtime.openURL(this.url)
+				}
+			}
+		}
+	}
+</script>
+
+<style>
+.close{
+    /* justify-content: center; */
+    width: 60upx;
+    height: 60upx;
+    /* margin: 0 auto; */
+    position: relative;
+    border-width: 2;
+    border-style: solid;
+    border-color: white;
+    /* border: 1px solid red; */
+    border-radius: 100%;
+  }
+  .left{
+    position: absolute;
+    top: 8rpx;
+    left: 26rpx;
+    width: 5upx;
+    height: 40rpx;
+    transform: rotate(45deg);
+    background-color: white;
+  }
+  .right{
+    position: absolute;
+    top: 8rpx;
+    left: 26rpx;
+    width: 5upx;
+    height: 40rpx;
+    transform: rotate(-45deg);
+    background-color: white;
+  }
+	
+	.mask {
+		position: fixed;
+		left: 0;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		justify-content: center;
+		align-items: center;
+		background-color: rgba(0, 0, 0, 0.4);
+	}
+
+	.content {
+		width: 557upx;
+		/* background-color: #fff; */
+		border-radius: 16upx;
+		position: relative;
+	}
+
+	.text {
+		/* #ifndef APP-NVUE */
+		display: flex;
+		/* #endif */
+		width: 557upx;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		height: 280upx;
+		color: #FFFFFF;
+		/* background-color: #fff; */
+		border-top-left-radius: 32upx;
+		border-top-right-radius: 32upx;
+	}
+
+	.text image {
+		/* width: 100%; */
+	}
+
+	.conText {
+		font-size: 28upx !important;
+		line-height: 48upx;
+	}
+
+	.conTextTitle {
+		font-size: 28upx !important;
+		text-align: left;
+	}
+
+	.conBox {
+		min-height: 300upx !important;
+		overflow-y: scroll;
+	}
+
+	.maskConBox {
+		padding: 0px 50upx 50upx 50upx;
+		background-color: #fff;
+		display: flex;
+		align-items: center;
+	}
+
+	.conBtnBox {
+		display: flex;
+		width: 396upx;
+		align-items: center;
+		justify-content: center;
+		flex-wrap: nowrap;
+		flex-direction: row;
+		background-color: #fff;
+		height: 80upx;
+		position: relative;
+		border-radius: 60upx;
+		overflow: hidden;
+	}
+
+	.btnBox {
+		position: absolute;
+		width: 396upx;
+		color: #ffffff;
+		height: 80upx;
+		font-size: 12px;
+		z-index: 666;
+	}
+
+	.btnText {
+		color: #ffffff;
+		font-size: 28upx;
+		z-index: 999;
+	}
+
+	.btnBox1 {
+		background-image: linear-gradient(to right, #e1e1e1, #e1e1e1);
+	}
+
+	.download {
+		position: absolute;
+		width: 396upx;
+		color: #ffffff;
+		height: 80upx;
+		font-size: 12px;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+		left: -396upx;
+		z-index: 1;
+	}
+
+	.maskHeader {
+		background-image: linear-gradient(to bottom, #ffd530, #ffffff);
+		width: 577upx;
+		height: 280upx;
+		border-top-left-radius: 32upx;
+	}
+
+	.maskTop {
+		width: 557upx;
+		height: 280upx;
+		/* border-radius: 16px; */
+		margin: 0 auto;
+		border-top-left-radius: 32upx;
+	}
+
+	.imgBox {
+		align-items: center;
+		justify-content: center;
+		margin-top: 32upx;
+	}
+
+	.noneCuo {
+		width: 74upx;
+		height: 74upx;
+		margin: 0 auto;
+	}
+</style>

@@ -1,0 +1,195 @@
+.page {
+	position: relative;
+}
+.contents {
+	background-color: #fff;
+	border-bottom:1px solid #f4f4f4;
+	height: 136rpx;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	box-sizing: border-box;
+	padding: 0 30rpx;
+}
+.contenetsHeight{
+	height: 176rpx;
+}
+.contentImg {
+	display: flex;
+	flex-shrink: 0;
+	width: 96rpx;
+	height: 82rpx;
+	background: url(../../static/image/xf/game_loading.png) no-repeat;
+	border-radius: 16rpx;
+	margin-right: 16rpx;
+}
+.contents .contentImg1{
+	display: flex;
+	flex-shrink: 0;
+	background: url(../../static/image/xf/game_lost.png) no-repeat;
+}
+.returnWaterImg{
+	display: flex;
+	flex-shrink: 0;
+	width: 88rpx;
+	height: 88rpx;
+	background: url(../../static/image/xf/defaulthead.png) no-repeat;
+	border-radius: 50%;
+	margin-right: 16rpx;
+}
+.returnWaterImg1{
+    display: flex;
+    flex-shrink: 0;
+    width: 88rpx;
+    height: 88rpx;
+    border-radius: 50%;
+    margin-right: 16rpx;
+	background: url(../../static/image/xf/defaulthead.png) no-repeat;
+}
+/* .contents .returnWaterImg1{
+	display: flex;
+	flex-shrink: 0;
+	background: url(../../static/image/xf/batch.png) no-repeat;
+} */
+.contentLeft {
+	width: 460rpx;
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+}
+
+.textHeight {
+	width: 80%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.contentLeft text {
+	display: block;
+	font-size: 32rpx;
+}
+.contentLeft .type{
+	font-size: 24rpx;
+	/* line-height: 1.4; */
+}
+.contentLeft .color1 {
+	font-size: 15px;
+	color: #EAD4AB;
+	height: 40rpx;
+	line-height: 40rpx;
+	font-family:PingFang-SC-Bold;
+	font-weight:600;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.contentLeft .color2 {
+	height: 40rpx;
+	line-height: 42rpx;
+	font-size: 15px;
+	color: #FF5E5E;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.contentLeft .time {
+	color: #a7a7a7;
+	font-size: 12px;
+	margin-top: 4px;
+	line-height: 1;
+}
+
+.contentRight {
+	flex-grow: 1;
+	/* width: 35%; */
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+}
+
+.contentRight text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+	font-size: 20px;
+	color: #EAD4AB;
+	font-weight: bold;
+	font-family:DINAlternate;
+}
+.contentRight-one{
+    max-width: 290rpx;
+	display: flex;
+	align-items: center;
+	color: #EAD4AB;
+}
+.contentRight-one  view{
+	line-height: 1;
+	font-weight: bold;
+	font-family: DINAlternate;
+	margin-top: 10rpx;
+}
+.contentRight i {
+	width: 24rpx;
+	height: 30rpx;
+	vertical-align: top;
+	margin-left: 14rpx;
+    background: url(../../static/image/more.png) no-repeat;
+	background-size: cover;
+}
+
+.choose {
+	margin-top: 68rpx;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	padding: 0 30rpx 0 30rpx;
+}
+
+.choose view {
+	width: 158rpx;
+	height: 54rpx;
+	background-color: #FFFFFF;
+	border-radius: 12rpx;
+	text-align: center;
+	line-height: 54rpx;
+	font-size: 24rpx;
+}
+
+.choose .btnBgc {
+	background-color: #FFBF8A;
+	color: #FFFFFF;
+	opacity: 0.7;
+}
+
+.recordBgc {
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	padding-top: 278rpx;
+	box-sizing: border-box;
+}
+
+.recordBgc view {
+	font-size: 0;
+}
+
+.recordBgc image {
+	width: 290rpx;
+	height: 360rpx;
+	margin-bottom: 41rpx;
+}
+
+.recordBgc text {
+	display: block;
+	text-align: center;
+	color: #8A8989;
+	font-size: 14px;
+	line-height: 38rpx;
+}
+.recordBgc1{
+	padding-top: 96rpx;
+}

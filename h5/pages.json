@@ -1,0 +1,659 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/Startup/Startup",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+				
+				
+				
+			}
+		}, {
+			"path": "pages/index/index",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/gameList/gameList",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/search/search",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/gameWebView/gameWebView",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/webViewQQ/webViewQQ",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/preferential/preferential",
+			"style": {
+				"navigationStyle": "custom"
+				// "navigationBarBackgroundColor": "#0f0f0f",
+				// "navigationBarTextStyle": "white"
+			}
+		},
+		{
+			"path": "pages/vipDetail/vipDetail",
+			"style": {
+			  "app-plus": {
+				//禁用原生导航
+				"titleNView": false
+			  }
+			}
+		},
+		{
+			"path": "pages/vipLevel/vipLevel",
+			"style": {
+			  "app-plus": {
+				//禁用原生导航
+				"titleNView": false
+			  }
+			}
+		},
+		{
+			"path": "pages/actDetail/actDetail",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/webView/webView",
+			"style": {
+
+			}
+		},
+		{
+			"path": "pages/webNvue/webNvue",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/personal/personal",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/safetyCenter/safetyCenter",
+			"style": {
+                "navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/upPassword/upPassword",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/my/my",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/topUp/topUp",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/withdrawal/withdrawal",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		},
+		{
+			"path": "pages/setting/setting",
+			"style": {
+			}
+			
+		},
+		{
+			"path": "pages/gameRecord/gameRecord",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/Details/GameDetails/GameDetails",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/activeRecord/activeRecord",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/firstRecord/firstRecord",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/detailRecords/detailRecords",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/withdrawalRecord/withdrawalRecord",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/Details/showDetails/showDetails",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/returnWaterRecords/returnWaterRecords",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/other/other",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/Details/otherDetails/otherDetails",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/Details/monetaryDetails/monetaryDetails",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/BackwaterRecord/BackwaterRecord",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/Login/Login",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/forgetPsw/forgetPsw",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/addBank/addBank",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/webviewNotNav/webviewNotNav",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/bankList/bankList",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+            "path": "pages/loginPhone/loginPhone",
+            "style": {
+                "navigationStyle": "custom"
+            }
+        }, {
+			"path": "pages/recharge/recharge",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/account/account",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+
+			}
+		}, {
+			"path": "pages/drawing/drawing",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/Message/Message",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/messageDetail/messageDetail",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/highMargin/highMargin",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/customerService/customerService",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/drawing/drawingCu/drawingCu",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/addCurrency/addCurrency",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/highRebateMember/highRebateMember",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/addWallet/addWallet",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/interest/interest",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/interestRecords/interestRecords",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/interestDeposit/interestDeposit",
+			"style": {
+				"app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/maintain/maintain",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		},
+		{
+			"path": "pages/modelPage/modelPage",
+			"style": {
+				"navigationStyle": "custom",
+				"app-plus": {
+					"animationType": "fade-in",
+					"background": "transparent",
+					"backgroundColor": "rgba(0,0,0,0)",
+					"popGesture": "none"
+				}
+			}
+		}, {
+			"path": "pages/agent/agent",
+			"style": {
+				"navigationStyle": "custom"
+				// "navigationBarBackgroundColor": "#fff",
+				// "navigationBarTextStyle": "white"
+			}
+		}, {
+			"path": "pages/agent/union/union",
+			"style": {
+				"navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/agent/register/register",
+			"style": {
+                "navigationStyle": "custom"
+			}
+		}, {
+			"path": "pages/tutorial/tutorial",
+			"style": {
+				"navigationBarTitleText": "添加桌面教程",
+				"navigationBarBackgroundColor": "#000",
+				"navigationBarTextStyle": "white"
+			}
+		}, {
+			"path": "pages/jackpot/jackpot",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/wait/wait",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/bankRecharge/bankRecharge",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		}, {
+			"path": "pages/iplimit/iplimit",
+			"style": {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+
+		},
+		 // ================================= 自助详情 开始===================================
+		    {
+		      "path": "pages/subBuffetOffers/index",
+		      "style": {
+		        "app-plus": {
+		          //禁用原生导航
+		          "titleNView": false
+		        }
+		      }
+		    },
+		    {
+		      "path": "pages/subBuffetOffers/details",
+		      "style": {
+		        "app-plus": {
+		          //禁用原生导航
+		          "titleNView": false
+		        }
+		      }
+		    },
+		    {
+		      "path": "pages/subBuffetOffers/promoIntro",
+		      "style": {
+		        "app-plus": {
+		          //禁用原生导航
+		          "titleNView": false
+		        }
+		      }
+		    },
+		    {
+		      "path": "pages/subBuffetOffers/weekCheckIn",
+		      "style": {
+		        "app-plus": {
+		          //禁用原生导航
+		          "titleNView": false
+		        }
+		      }
+		    },
+		    // ================================= 自助详情 结束===================================
+		{
+		  "path": "pages/subCustomerService/subCustomerService",
+		  "style": {
+			"app-plus": {
+			  "titleNView": false
+			}
+		  }
+		},
+		{
+		  "path": "pages/subCustomerService/customerServiceTheme/home/home1",
+		  "style": {
+			"app-plus": {
+			  "titleNView": false
+			}
+		  }
+		},
+		{
+		  "path": "pages/subCustomerService/customerServiceTheme/home/home2",
+		  "style": {
+			"app-plus": {
+			  "titleNView": false
+			}
+		  }
+		},
+		{
+			"path" : "pages/activity/activity",
+			"style" : {
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+		},
+		{
+			"path": "pages/mallStore/mallStore",
+			"style": {
+			  // 积分商城
+			  "app-plus": {
+				//禁用原生导航
+				"titleNView": false
+			  }
+			}
+		  },
+		  {
+			"path": "pages/mallStore/records",
+			"style": {
+			  // 积分商城-奖品
+			  "app-plus": {
+				//禁用原生导航
+				"titleNView": false
+			  }
+			}
+		  },
+		  {
+			"path": "pages/mallStore/exchangeGoods",
+			"style": {
+			  // 积分商城-下单
+			  "app-plus": {
+				//禁用原生导航
+				"titleNView": false
+			  }
+			}
+		  },
+		  {
+			"path": "pages/mallStore/PersonInfo",
+			"style": {
+			  // 积分商城-个人地址管理
+			  "app-plus": {
+				//禁用原生导航
+				"titleNView": false
+			  }
+			}
+		  },
+		  {
+			"path": "pages/mallStore/prize",
+			"style": {
+			  // 积分商城-奖品
+			  "app-plus": {
+				//禁用原生导航
+				"titleNView": false
+			  }
+			}
+		  },
+		  {
+			"path": "pages/mallStore/rules",
+			"style": {
+			  // 腾币商城-规则
+			  "app-plus": {
+				//禁用原生导航
+				"titleNView": false
+			  }
+			}
+		  },
+		  {
+				"path": "pages/gamePage/gamePage",
+				"style": {
+				  // 游戏列表
+				  "app-plus": {
+					//禁用原生导航
+					"titleNView": false
+				  }
+				}
+		  }
+	],
+	// "tabBar": {
+	// 	"color": "#e3e3e3",
+	// 	"selectedColor": "#d9bb9b",
+	// 	"borderStyle": "white",
+	// 	"fontSize": "10px",
+	// 	"iconWidth": "20px",
+	// 	"spacing": "4px",
+	// 	"blurEffect": "dark",
+	// 	"backgroundColor": "#171717",
+	// 	"list": [{
+	// 		"pagePath": "pages/index/index",
+	// 		"iconPath": "static/image/tabbar/indexIcon.png",
+	// 		"selectedIconPath": "static/image/tabbar/indexIcon_active.png",
+	// 		"text": "首页"
+	// 	}, {
+	// 		"pagePath": "pages/subCustomerService/subCustomerService",
+	// 		"iconPath": "static/image/tabbar/customerService.png",
+	// 		"selectedIconPath": "static/image/tabbar/customerService_active.png",
+	// 		"text": "在线客服"
+	// 	}, {
+	// 		"pagePath": "pages/preferential/preferential",
+	// 		"iconPath": "static/image/tabbar/preferential.png",
+	// 		"selectedIconPath": "static/image/tabbar/preferential_active.png",
+	// 		"text": "优惠"
+	// 	},{
+	// 		"pagePath": "pages/vipLevel/vipLevel",
+	// 		"iconPath": "static/image/tabbar/vip.png",
+	// 		"selectedIconPath": "static/image/tabbar/vip_active.png",
+	// 		"text": "VIP"
+	// 	},{
+	// 		"pagePath": "pages/my/my",
+	// 		"iconPath": "static/image/tabbar/member.png",
+	// 		"selectedIconPath": "static/image/tabbar/member_active.png",
+	// 		"text": "会员中心"
+	// 	}]
+	// },
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "Welcome",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	},
+	"condition": { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "", //模式名称
+			"path": "", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
+	}
+}

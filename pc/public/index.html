@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <!-- <link href="./url.js?v=20121021230123" rel="preload" as="script"> -->
+    <!-- <link rel="icon" href="<%=BASE_URL%>favicon.ico"> -->
+    <link rel="shortcut icon" type="image/png" href=""/>
+</head>
+<script>
+  window.numVer = '2.0.1 - 009';
+</script>
+<script src="/url.js?v=<%=Date.now()%>"></script>
+<script type="text/javascript">
+  if(window.isMaskIosApp && localStorage.getItem('isVest') !== '0' && !localStorage.getItem('access_token')) window.location.href = '/vest.html'
+</script>
+<script src="/isOpenDom.js"></script>
+<!-- Matomo -->
+<script>
+  var _paq = window._paq = window._paq || [];
+  // if(window.projectImgUrl == 'amwnsr'){
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u=location.origin;
+      _paq.push(['setTrackerUrl', u+'/matomo/matomo.php']);
+      _paq.push(['setSiteId', '57']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src= '/matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  // }
+  </script>
+  <!-- End Matomo Code -->
+<body ontouchstart>
+  <script type="text/javascript" src="/extra.js"></script>
+    <div id="app"></div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-通用_-_搜寻">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="通用_-_搜寻" data-name="通用 - 搜寻" clip-path="url(#clip-通用_-_搜寻)">
+    <g id="Group_34699" data-name="Group 34699">
+      <rect id="Rectangle_55410" data-name="Rectangle 55410" width="24" height="24" fill="none"/>
+      <path id="Icon_ionic-ios-search" data-name="Icon ionic-ios-search" d="M26.242,24.9l-6.119-6.174a8.72,8.72,0,1,0-1.323,1.34L24.878,26.2a.942.942,0,0,0,1.329.034A.947.947,0,0,0,26.242,24.9Zm-12.971-4.76a6.884,6.884,0,1,1,4.87-2.016A6.844,6.844,0,0,1,13.271,20.141Z" transform="translate(-3.5 -3.496)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

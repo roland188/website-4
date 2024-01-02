@@ -1,0 +1,141 @@
+.header {
+	width: 100%;
+	text-align: center;
+	background-color: #FFFFFF;
+	box-sizing: border-box;
+}
+.headerMoney{
+	padding-top: 160rpx;
+	background-color:#ffffff;
+}
+.header .top-up{
+	margin-top: 56rpx;
+	border: none;
+}
+
+.header .topUpHeight{
+	margin-top: 96rpx;
+}
+.content{
+	margin-top: 20rpx;
+}
+.header .amount {
+	font-weight: 600;
+	font-size: 70rpx;
+	line-height: 1;
+	font-family: DIN-Bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-weight: bold;
+	display: flex;
+	align-items: flex-end;
+	color: #EAD4AB;
+}
+
+.amount i {
+	font-style: normal;
+	font-size: 46rpx;
+	display: inline-block;
+	font-weight: bold;
+	vertical-align: top;
+}
+
+.amount text {
+	font-size: 70rpx;
+}
+
+.flexLayout {
+	height: 96rpx;
+	line-height: 96rpx;
+	display: flex;
+	padding: 0 30rpx;
+	justify-content: space-between;
+	background-color: #ffffff;
+	flex-wrap: nowrap;
+	border-top: 2rpx solid #F4F4F4;
+}
+
+.flexLayout .orderNo {
+	margin: 0;
+}
+
+.upDown {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	margin-top: 20rpx;
+	box-sizing: border-box;
+	padding: 0 28rpx 0 29rpx;
+}
+
+.upDown view {
+	display: flex;
+	justify-content: space-between;
+	height: 96rpx;
+	line-height: 96rpx;
+	border-top: 1px solid #F4F4F4;
+}
+
+.time {
+	margin-top: 26rpx;
+	line-height: 1;
+}
+
+.flexLayout text {
+	font-size: 28rpx;
+	color: #EAD4AB;
+}
+
+.flexLayout .leftText {
+	color: #a7a7a7;
+	font-size: 28rpx;
+	font-family: PingFang-SC-Medium;
+}
+
+.flexLayout .orderNo {
+	display: flex;
+	flex-wrap: nowrap;
+	align-items: center;
+}
+
+.flexLayout i {
+	display: flex;
+	width: 29rpx;
+	height: 29rpx;
+	background-size: cover;
+	margin-left: 11rpx;
+}
+
+.flexLayout .borderNone {
+	border: none;
+}
+
+.footer {
+	height: 100%;
+	display: flex;
+	justify-content: flex-start;
+}
+.colors{
+	color: #FF5E5E !important;
+}
+.flexLayout .color{
+	color: #000000;
+}
+
+
+
+
+.headerStyle{
+	background-color: #ffffff;
+	padding-top: 87rpx;
+}
+.header .chain{
+	white-space: nowrap;
+}
+.states{
+	margin-top: 32rpx;
+	font-size: 30rpx;
+	color: #EAD4AC;
+	display: inline-block;
+}

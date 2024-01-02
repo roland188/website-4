@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+    <head>
+        <meta charset="utf-8">
+        <script>
+        function maskAppToNative(name,param) {
+            // console.log('maskAppToNative',name,param)
+            if (window.isMaskApp && window.AnalyticsWebInterface && window.AnalyticsWebInterface.onEvent) {
+                if (param) {
+                    window.AnalyticsWebInterface.onEvent(name,param);
+                } else {
+                    window.AnalyticsWebInterface.onEvent(name);
+                }
+			}
+        }
+        function maskAppOldToNative(name,param){
+            if (window.isMaskApp && window.ANDROID_JS_BRIDGE) {
+              if (window.ANDROID_JS_BRIDGE.gree_page)
+              if (param) {
+                   window.ANDROID_JS_BRIDGE.gree_page(name,param);
+                } else {
+                   window.ANDROID_JS_BRIDGE.gree_page(name);
+                }
+               
+            }
+        }
+    </script>
+	
+        <!-- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> -->
+        <meta name="viewport"
+            content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style"
+            content="black-translucent">
+        <meta name="full-screen" content="true">
+        <meta name="x5-fullscreen" content="true">
+        <meta name="360-fullscreen" content="true">
+        <link rel="shortcut icon" type="image/png"
+            href="/static/image/favicon/amjs.png">
+
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <!-- Add to homescreen for Safari on iOS -->
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <meta name="apple-mobile-web-app-title" content="Welcome" />
+        <link rel="apple-touch-icon-precomposed" type="image/png"
+            href="/static/image/favicon/amjs.png">
+
+        <!-- <script src="/static/url.js?v=20200826022"></script> -->
+        <script src="/static/url.js?v=<%=Date.now()%>"></script>
+        <script src="/static/extra.js?v=20200826022"></script>
+        <style>
+			body::after {
+				content: none!important
+			}
+			
+			@keyframes shadow-preload {
+				90% {
+					background-image: url(static/image/centerImg/shang.png)!important
+				}
+				100% {
+					background-image: url(static/image/centerImg/shang.png)!important
+				}
+			}
+			
+			@-webkit-keyframes shadow-preload {
+				0% {
+					background-image: url(static/image/centerImg/shang.png)!important
+				}
+				100% {
+					background-image: url(static/image/centerImg/shang.png)!important
+				}
+			}
+		</style>
+        <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.documentElement.style.fontSize = document.documentElement.clientWidth / 20 + "px"
+        })
+		</script>
+        <link rel="stylesheet" href="<%=BASE_URL%>static/index.<%=VUE_APP_INDEX_CSS_HASH%>.css">
+		<!-- Default Statcounter code  -->
+		<script type="text/javascript">
+			if(['m.betcome8.com','m.betcome1.com','m.betcome.net','m.betcome.xyz',
+			'm.betcome.one','m.betcome168.com','m.betcome188.com','m.betcome2023.com',
+			'm.betcome2024.com','m.betcome365.com','m.betcome6.com','m.betcome666.com','m.betcome789.com',
+			'm.betcome.lol','m.betcome.biz','m.betcome.ca','m.betcome.click','m.betcome.fun',
+			'm.bet66game.com','m.7bet77.com','m.88game.casino','m.bet77vip.com','m.bets661.com',
+			'm.2024bwin.com','m.2024vip.net', 'm.2024vip.top', 'm.2024vip.win','m.5bet168.com',
+			'm.7788bet.win','m.7788bets.com','m.7788bets.net','m.bet188vip.com','m.betgame99.com',
+			'm.bets4455.com','m.game2024app.com','m.lucky5566vip.com','m.lucky7788bet.com','m.vip4455.win',
+			'm.win365pay.com','m.win7788.vip','m.wins2020.com','m.wins2024.com','m.wins2026.com',].includes(window.location.host)){
+				var sc_project =12950259;
+				var sc_invisible = 1; 
+				var sc_security ="f02fa53e"; 
+				let statcounterTotal = {
+					'm.betcome8.com':{
+						sc_project:12950259,
+						sc_security: "f02fa53e"
+					},
+					'm.betcome1.com':{
+						sc_project:12950265,
+						sc_security: "d83e3659"
+					},
+					'm.betcome.net':{
+						sc_project:12950269,
+						sc_security: "bf3b095f"
+					},
+					'm.betcome.xyz':{
+						sc_project:12950270,
+						sc_security: "ab20f1d1"
+					},
+					'm.betcome.one':{
+						sc_project:12950271,
+						sc_security: "a924e59b"
+					},
+					'm.betcome168.com':{
+						sc_project:12950272,
+						sc_security: "cd4d510a"
+					},
+					'm.betcome188.com':{
+						sc_project:12950273,
+						sc_security: "c709db76"
+					},
+					'm.betcome2023.com':{
+						sc_project:12950274,
+						sc_security: "916106e9"
+					},
+					'm.betcome2024.com':{
+						sc_project:12950275,
+						sc_security: "9c0cce4a"
+					},
+					'm.betcome365.com':{
+						sc_project:12950276,
+						sc_security: "a5d7a44b"
+					},
+					'm.betcome6.com':{
+						sc_project:12950278,
+						sc_security: "6ed20f4d"
+					},
+					'm.betcome666.com':{
+						sc_project:12950279,
+						sc_security: "7c2d463f"
+					},
+					'm.betcome789.com':{
+						sc_project: 12950280,
+						sc_security: "84ed15ab"
+					},
+					'm.betcome.lol':{
+						sc_project: 12952703,
+						sc_security: "332321fc"
+					},
+					'm.betcome.biz':{
+						sc_project: 12952704,
+						sc_security: "e19da691"
+					},
+					'm.betcome.ca':{
+						sc_project: 12952705,
+						sc_security: "81b89f2f"
+					},
+					'm.betcome.click':{
+						sc_project: 12952706,
+						sc_security: "2fc2b26e"
+					},
+					'm.betcome.fun':{
+						sc_project: 12952707,
+						sc_security: "e82842d8"
+					},
+					'm.bet66game.com':{
+						sc_project: 12953346,
+						sc_security: "b34cff45"
+					},
+					'm.7bet77.com':{
+						sc_project: 12953347,
+						sc_security: "1587aca1"
+					},
+					'm.88game.casino':{
+						sc_project: 12953348,
+						sc_security: "ddcd8c6e"
+					},
+					'm.bet77vip.com':{
+						sc_project: 12953349,
+						sc_security: "a960b2d4"
+					},
+					'm.bets661.com':{
+						sc_project: 12953350,
+						sc_security: "4c695b5e"
+					},
+
+					'm.2024bwin.com':{
+						sc_project: 12953351,
+						sc_security: "fcabc90a"
+					},
+					'm.2024vip.net':{
+						sc_project: 12953352,
+						sc_security: "0d381ca0"
+					},
+					'm.2024vip.top':{
+						sc_project: 12953353,
+						sc_security: "d1ca7a1b"
+					},
+
+					'm.2024vip.win':{
+						sc_project: 12953354,
+						sc_security: "b24b7983"
+					},
+					'm.5bet168.com':{
+						sc_project: 12953356,
+						sc_security: "e52176c2"
+					},
+					'm.7788bet.win':{
+						sc_project: 12953358,
+						sc_security: "0cbea32b"
+					},
+					'm.7788bets.com':{
+						sc_project: 12953359,
+						sc_security: "bd043ac3"
+					},
+					'm.7788bets.net':{
+						sc_project: 12953360,
+						sc_security: "53f29f13"
+					},
+					'm.bet188vip.com':{
+						sc_project: 12953361,
+						sc_security: "cc50996e"
+					},
+					'm.betgame99.com':{
+						sc_project: 12953363,
+						sc_security: "6b5fd6fc"
+					},
+					'm.bets4455.com':{
+						sc_project: 12953364,
+						sc_security: "cd02d237"
+					},
+					'm.game2024app.com':{
+						sc_project: 12953365,
+						sc_security: "c588471c"
+					},
+					'm.lucky5566vip.com':{
+						sc_project: 12953366,
+						sc_security: "f56e1bd4"
+					},
+
+					'm.vip4455.win':{
+						sc_project: 12953368,
+						sc_security: "794b267d"
+					},
+					'm.win365pay.com':{
+						sc_project: 12953369,
+						sc_security: "7ee7593f"
+					},
+					'm.win7788.vip':{
+						sc_project: 12953370,
+						sc_security: "b0742b05"
+					},
+					'm.wins2020.com':{
+						sc_project: 12953371,
+						sc_security: "ea67f85b"
+					},
+					'm.wins2024.com':{
+						sc_project: 12953372,
+						sc_security: "39114044"
+					},
+					'm.wins2026.com':{
+						sc_project: 12953373,
+						sc_security: "a3e027e2"
+					},
+				}
+				var objStatcounterTotal = statcounterTotal[window.location.host] || {}
+				sc_project = objStatcounterTotal.sc_project
+				sc_security = objStatcounterTotal.sc_security
+				if(objStatcounterTotal){
+				  document.write('<script type="text/javascript" src="https://www.statcounter.com/counter/counter.js" async><\/script>')	
+				  document.write('<noscript><div class="statcounter"><a title="Web Analytics Made Easy - Statcounter" href="https://statcounter.com/" + '
+					+ 'target="_blank"><img class="statcounter"src="https://c.statcounter.com/' + objStatcounterTotal.sc_project + '/0/'  + objStatcounterTotal.sc_security + '/1/" alt="Web Analytics Made Easy - Statcounter" referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>');
+				}
+			}			
+		</script>
+		<!-- End of Statcounter Code -->
+        </head>
+        <body>
+            <div id="app"></div>
+            <span class="statistics"></span>
+
+        </body>
+        <script type="text/javascript">
+			var u = window.location.hostname;
+			var a = u.split(".");
+			function s() {
+				var h;
+				var p = a;
+				var w = window.location.protocol;
+				var z = p.length > 2 && p[0] == "m";
+				let o = u.substring(2, u.length);
+				let y = w + '//' + o
+				var m = /Android|webOS|iPhone|ipad|iPod|BlackBerry|XiaoMi/i.test(navigator.userAgent);
+				if (!m && z) {
+					window.location.href = y;
+				}
+			};
+			if (u !== 'localhost') {
+				s()
+			}
+		</script>
+    </html>

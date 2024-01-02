@@ -1,0 +1,80 @@
+body {
+	--themeBtn1:#FECB30;
+}
+/* ***********************按钮背景色开始 **************/
+.themeBtn1 { //第一套按钮背景色
+	background-color: #FECB30;
+	background-color: var(--themeBtn1);
+}
+.themeBtn2 { //
+	background-color: #007AFF;
+}
+.themeBtn3 { //
+	background-color: #09BB07;
+}
+/* 按钮背景色结束 */
+
+/************************** 边框 文字开始 *********************/
+.themeColor1 {//边框颜色
+	color: #FECB30;
+}
+/* 边框文字结束 */
+
+/*************************** 一级标题开始******************** */
+.themeTextOne1 {//一级标题
+	color: #1d1717;
+}
+/* 一级标题结束 */
+
+/**************************** 二级标题开始*********************** */
+.themeTextTwo1 {//二级标题
+	color: #a7a7a7;
+}
+/* 二级标题结束 */
+
+/***************************** 分割线开始 **************************/
+.themeSeparator1 {//分割线
+	border-color: #f4f4f4;
+}
+/* 分割线开始结束 */
+
+/******************************首页部分定制 ***********************/
+.indexTabColor{//首页tab切换默认主题色
+	color: #B2B2B2;
+}
+.indexTabActiveColor1 {//首页tab切换主题色
+	color: #67471E;
+}
+.indexTabActiveback1 {//首页tab切换主题色
+	background-color: #F7D365;
+}
+
+.indexMoneyColor1 {
+	color: #67471E;
+}
+.indexBtnLogin1{//首页登录按钮颜色
+	border-color: #0B62D0;
+	background-color: #82B3F6;
+	color: #0B62D0;
+}
+.indexBtnRes1{//首页注册按钮颜色
+	border-color: #67471E;
+	background-color: #F7D365;
+	color: #67471E;
+}
+.indexGameColor {//首页游戏主题色
+	color: #A87F29;
+}
+/******************************** 搜索部分定制 ******************/
+.searchColor1 { //历史搜索颜色
+	color: #2D2B4D;
+	background-color: #FFF3CE;
+}
+.searchBorder1{//边框焦点颜色
+	border-color: #FECB30;
+}
+/******************************** 游戏三级列表 ******************/
+.gameListActive1 {    
+	background-color: #FECB30;
+	color: #1D1717;
+}

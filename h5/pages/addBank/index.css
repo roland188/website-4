@@ -1,0 +1,23 @@
+.conent{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	padding: 0px 30upx;
+}
+.addCardUl{
+	margin-top: 30upx;
+	border-radius: 16upx;
+	background-color: #fff;
+}
+.contentCard{
+	display: flex;
+	align-items: center;
+}
+.inputColor{
+	font-size: 30upx!important;
+	font-weight: bold;
+}
+.codeText{
+	font-size: 28upx;
+	
+}

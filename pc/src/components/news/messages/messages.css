@@ -1,0 +1,183 @@
+.messages {
+    position: relative;
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    width: 1180px;
+    margin: 0 auto;
+}
+
+.messageItem {
+    padding: .1rem 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-bottom: .01rem solid;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    position: relative
+}
+
+.messageItem:last-child {
+    border: none
+}
+
+.messageItem .img {
+    width: .4rem;
+    height: .4rem;
+    margin-right: .15rem;
+    position: relative;
+    margin-top: .1rem
+}
+
+.messageItem .img img {
+    width: 100%;
+    height: 100%
+}
+
+.msgContainer {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    overflow: hidden
+}
+
+.msgTitle {
+    height: .22rem;
+    font-size: .16rem;
+    margin: .05rem 0
+}
+
+.msgContent,.msgTitle {
+    font-weight: 500;
+    text-align: left;
+    width: 75%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis
+}
+
+.msgContent {
+    height: .2rem;
+    font-size: .14rem
+}
+
+.msgTime {
+    position: absolute;
+    top: .26rem;
+    right: 0;
+    height: .09rem;
+    font-size: .14rem;
+    font-weight: 500
+}
+
+.msgBottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.allBtn,.msgBottom {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+}
+
+.allBtn {
+    width: 1.2rem;
+    height: .4rem;
+    border-radius: .2rem;
+    font-size: .15rem
+}
+
+.allDelete,.detailDelete {
+    margin-right: .15rem;
+    border: 1px solid
+}
+
+.allDelete:hover,.detailDelete:hover {
+    border-color: #54b9ff!important;
+    background: #54b9ff!important;
+    color: #fff
+}
+
+.allReaded,.backToList {
+    position: relative;
+    border: 1px solid
+}
+
+.allReaded:hover,.backToList:hover {
+    background: #54b9ff!important;
+    color: #fff
+}
+
+.allReadedDisable {
+    opacity: .5
+}
+
+.msgPagination {
+    position: absolute;
+    right: -15px;
+    bottom: 0
+}
+
+.msgDetailContent,.msgDetailTime,.msgDetailTitle {
+    text-align: left
+}
+
+.msgDetailTitle {
+    font-size: .16rem;
+    font-weight: 700;
+    line-height: .24rem;
+    margin-top: .2rem
+}
+
+.msgDetailTime {
+    font-size: .14rem;
+    font-weight: 500;
+    line-height: .2rem;
+    padding: .04rem 0 .16rem 0;
+    border-bottom: 1px solid
+}
+
+.msgDetailContent {
+    height: 3rem;
+    font-size: .14rem;
+    font-weight: 500;
+    line-height: .18rem;
+    margin-top: .2rem;
+    overflow: auto
+}
+
+.msgDetailBottom {
+    bottom: 0;
+    border-top: none;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end
+}
+
+.messages .el-pager li {
+    min-width: 20px!important;
+    color: #f4f4f4!important
+}
+
+.messages .el-pager li.active,.messages .el-pager li:hover {
+    color: #54b9ff!important
+}
+
+.messages .el-scrollbar__wrap {
+    overflow-x: hidden;
+    padding-right: .2rem
+}
+
+.messages .el-scrollbar__thumb {
+    background-color: #000!important
+}
+
+.messages .el-scrollbar__bar.is-vertical {
+    background: #f4f4f4
+}

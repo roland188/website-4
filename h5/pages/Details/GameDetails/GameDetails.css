@@ -1,0 +1,126 @@
+page {
+	background-color: #F7F7F7;
+}
+
+.header {
+	width: 100%;
+	text-align: center;
+	padding-top: 132rpx;
+	background-color: #ffffff;
+	box-sizing: border-box;
+}
+
+
+.header .amount {
+	font-weight: 600;
+	font-size: 70rpx;
+	line-height: 1;
+	font-family: DIN-Bold;
+	justify-content: center;
+	font-weight: bold;
+	display: flex;
+	align-items: flex-end;
+	margin-bottom: 32rpx;
+}
+.header .headerHeight{
+	height: 104rpx;
+	line-height: 104rpx;
+	padding: 0 30rpx;
+}
+.amount i {
+	font-style: normal;
+	font-size: 46rpx;
+	display: inline-block;
+	font-weight: bold;
+	line-height: 1;
+	vertical-align: top;
+	color: #EAD4AB;
+}
+
+.amount text {
+	font-size: 70rpx;
+	color: #EAD4AB;
+}
+
+.flexLayout {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	line-height: 1;
+	background-color: #ffffff;
+}
+
+.header .flexLayout {
+	margin-top: 61rpx;
+}
+
+.flexLayout view {
+	line-height: 1;
+}
+
+.flexLayout .orderNo {
+	margin: 0;
+	display: flex;
+	max-width: 100%;
+	flex-wrap: nowrap;
+	align-items: center;
+	color: #EAD4AB;
+}
+.flexLayout .orderNo uni-text{
+	display: inline-block;
+	max-width: 100%;
+}
+
+.upDown {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	box-sizing: border-box;
+	margin-top: 20rpx;
+}
+
+.upDown view {
+	display: flex;
+	justify-content: space-between;
+	height: 104rpx;
+	line-height: 104rpx;
+	border-top: 1px solid #F4F4F4;
+	color: #EAD4AB;
+	padding: 0 30rpx;
+}
+
+.leftText {
+	color:#a7a7a7;
+	font-size: 28rpx;
+}
+
+.flexLayout i {
+	display: flex;
+	width: 29rpx;
+	height: 29rpx;
+	margin-left: 11rpx;
+	/* background: url(../../../static/image/centerImg/startLogo2.png) no-repeat; */
+	background-size: cover;
+}
+
+.flexLayout .borderNone {
+	border: none;
+}
+
+.states{
+	margin-top: 32rpx;
+	font-size: 30rpx;
+	color: #FF5E5E;
+}
+.stateColor{
+	color: #EAD4AC;
+}
+.recordTextOne,.leftText{
+	span{
+		line-height: 1;
+		display: inline-block;
+	}
+}
+.recordTextOne{
+	max-width: 75%;
+}

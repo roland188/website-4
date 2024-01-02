@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_100189" data-name="Rectangle 100189" width="24" height="24" transform="translate(74 712)" fill="#DDD"/>
+    </clipPath>
+  </defs>
+  <g id="Mask_Group_87106" data-name="Mask Group 87106" transform="translate(-74 -712)" clip-path="url(#clip-path)">
+    <path id="Subtraction_66" data-name="Subtraction 66" d="M10.5,21C3.435,21,0,19.075,0,15.116A10.674,10.674,0,0,1,1.525,9.978,14.256,14.256,0,0,1,5.562,5.659H5.528c.412-.277,2.284-1.448,2.3-1.458L6.261.374a6.2,6.2,0,0,1,4.243,0,6.445,6.445,0,0,0,2.121.355A6.459,6.459,0,0,0,14.747.374L12.639,4.2l2.108,1.251c3.8,2.423,6.078,5.947,6.253,9.669C21,19.075,17.565,21,10.5,21Zm0-5.6h0l2.252,1.184a.227.227,0,0,0,.111.027.236.236,0,0,0,.234-.277l-.43-2.507,1.823-1.777a.238.238,0,0,0-.133-.4l-2.516-.367L10.715,9a.237.237,0,0,0-.427,0L9.163,11.281l-2.518.367a.237.237,0,0,0-.193.162.239.239,0,0,0,.06.243l1.822,1.777L7.9,16.338a.236.236,0,0,0,.234.277.245.245,0,0,0,.111-.027L10.5,15.4Z" transform="translate(75.5 713.5)" fill="#DDD" stroke="rgba(0,0,0,0)" stroke-miterlimit="10" stroke-width="2"/>
+  </g>
+</svg>

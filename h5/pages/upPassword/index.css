@@ -1,0 +1,120 @@
+page{
+	background-color: #fff;
+}
+.passwordBox {
+	width: 100%;
+	height: 100%;
+	background-color: rgba(217, 219, 226, 0.25);
+}
+
+.passwordTop {
+	padding: 10upx 43upx;
+	background-color: #fff;
+}
+
+.passwordList {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 32upx 0upx;
+	border-bottom: 2upx solid rgba(242, 242, 242, 0.6);
+}
+
+.passwordList:last-child {
+	border-bottom: none;
+}
+
+.passwordName {
+	font-size: 30upx;
+	margin-right: 32upx;
+	flex-grow: 0;
+	flex-shrink: 0;
+	font-weight: 600;
+	width: 180rpx;
+	line-height: 1.2;
+}
+
+.input {
+	flex-grow: 1;
+	font-size: 28upx;
+	border: none;
+	outline: none;
+}
+
+.passwordIcon {
+	flex-grow: 0;
+	flex-shrink: 0;
+	padding-left: 20upx;
+}
+
+.inputPlace {
+	font-size: 28upx;
+	color: #8A8989;
+}
+
+.showIcon {
+	width: 43upx;
+	height: 28upx;
+}
+
+.errText {
+	color: #F4333C;
+	text-align: center;
+	margin-top: 20upx;
+	font-size: 22upx;
+}
+
+.passBtn {
+	width: 40%;
+	height: 80upx;
+	margin: 0 auto;
+	margin-top: 70upx;
+	color: #fff;
+	text-align: center;
+	line-height: 80upx;
+	font-size: 28upx;
+	background-color: #D6AE66;
+	border-radius: 40upx;
+}
+
+.passWen {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 28upx;
+	margin-top: 26upx;
+}
+
+.passYou {
+	color: var(--textTwo);
+}
+
+.passLink {
+	color: var(--themeBtn);
+	/* text-decoration: underline; */
+	margin-left: 6upx;
+}
+
+.mwidth {
+	min-width: 130upx;
+}
+
+.phoneGet {
+	position: absolute;
+	top:50%;
+	right: 0;
+	transform: translateY(-50%);
+	padding: 4upx 18upx;
+	border-radius: 60upx;
+	font-size: 20upx;
+}
+
+.unDisabled {
+	border: 1px solid #D6AE66;
+	color: #D6AE66;
+}
+
+.disabled {
+	border: 1px solid #8A8989;
+	color: #8A8989;
+}

@@ -1,0 +1,60 @@
+.page {
+	background-color: #ffffff;
+	border-top: 1px solid #F0F0F0;
+}
+
+.amountInformation text {
+	font-size: 15px;
+}
+
+.amountInformation {
+	display: flex;
+	flex-direction: column;
+	padding: 0 30rpx 0 30rpx;
+}
+
+.amountInformation view {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	height: 110rpx;
+	border-top: 1px solid #f7f7f7;
+}
+
+.amountInformation view text {
+	flex-grow: 1;
+	height: 110rpx;
+	line-height: 110rpx;
+	color: #000;
+}
+
+.amountInformation .flexRight {
+	text-align: right;
+	color:  #000;
+	font-size: 14px;
+	opacity: 0.8;
+}
+
+.amountInformation i {
+	display: inline-block;
+	display: flex;
+	align-items: center;
+	vertical-align: middle;
+	font-style: normal;
+	width: 40rpx;
+	height: 40rpx;
+	background-size: 100% 100%;
+	margin-left: 11rpx;
+}
+
+.exit {
+	width: 540rpx;
+	height: 80rpx;
+	line-height: 80rpx;
+	border-radius: 30px;
+	color: #ffffff;
+	font-size: 15px;
+	text-align: center;
+	margin: 126rpx auto;
+	background-color:#FF6E6E;
+}

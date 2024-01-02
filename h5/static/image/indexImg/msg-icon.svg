@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24" height="24" viewBox="0 0 24 24">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_100148" data-name="Rectangle 100148" width="24" height="24" fill="#ff9000"/>
+    </clipPath>
+    <linearGradient id="linear-gradient" x1="0.5" x2="0.5" y2="1" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#ffa22c"/>
+      <stop offset="1" stop-color="#ff8c27"/>
+    </linearGradient>
+    <clipPath id="clip-header-客服">
+      <rect width="24" height="24"/>
+    </clipPath>
+  </defs>
+  <g id="header-客服" clip-path="url(#clip-header-客服)">
+    <g id="icon_Earline" clip-path="url(#clip-path)">
+      <circle id="Ellipse_7396" data-name="Ellipse 7396" cx="12" cy="12" r="12" fill="url(#linear-gradient)"/>
+      <path id="noun-online-customer-service-4068376_1_" data-name="noun-online-customer-service-4068376 (1)" d="M128.674,0a2.167,2.167,0,0,1,2.167,2.167V2.3a2.177,2.177,0,0,1-.078.576,6.978,6.978,0,0,1,4.11,6.242.824.824,0,0,1,.815.847v2.972a.843.843,0,0,1-.822.847h-.411a.772.772,0,0,1-.252-.047c-.319,1.664-1.784,2.992-4.354,3.954a.624.624,0,0,1-.533.318h-2.056a.636.636,0,0,1,0-1.271h2.057a.618.618,0,0,1,.6.472c2.4-.933,3.708-2.193,3.913-3.753a.86.86,0,0,1-.187-.529V9.959a.861.861,0,0,1,.13-.461,9.708,9.708,0,0,1-4.25-2.358c-1.1,1.512-3.345,3.907-6.549,4.09h-.018v1.7a.843.843,0,0,1-.822.847h-.412a.843.843,0,0,1-.822-.847V9.961a.843.843,0,0,1,.822-.847,6.977,6.977,0,0,1,4.1-6.239,2.165,2.165,0,0,1-.079-.579V2.171A2.167,2.167,0,0,1,127.913,0Zm-3.246,11.347a.634.634,0,0,1,.635.635v.055a.636.636,0,0,1-1.271,0v-.055A.641.641,0,0,1,125.429,11.351Zm5.5,0a.634.634,0,0,1,.635.635v.055a.635.635,0,0,1-1.271,0v-.055A.641.641,0,0,1,130.933,11.351Z" transform="translate(-116.293 1.996)" fill="#fff" fill-rule="evenodd"/>
+    </g>
+  </g>
+</svg>

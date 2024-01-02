@@ -1,0 +1,376 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no, viewport-fit=cover" />
+    <title>Please pass the following verification</title>
+    <style>
+        body {
+            margin: 0;
+        }
+
+        .title {
+            height: 18px;
+            margin: 15px;
+            font-size: 18px;
+            line-height: 18px;
+        }
+
+        #log {
+            display: none;
+            margin: 0;
+            word-break: break-all;
+        }
+
+        #log.log {
+            display: block;
+        }
+
+        #botion_index_loading {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            overflow: hidden;
+            transform: translate(-50%, -50%);
+        }
+
+        #captcha {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 260px;
+            height: 50px;
+            transform: translate(-50%, -50%);
+        }
+
+        /* loading */
+        .loader {
+            width: 40px;
+            height: 40px;
+        }
+
+        svg path,
+        svg rect {
+            fill: #3973ff;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="log"></div>
+    <div id="captcha"></div>
+
+    <div id="botion_index_loading">
+        <img class="botion_index_img loader" id="botion_img_loading" alt="loading" style="display: none;">
+    </div>
+    <script>
+        var debug = false;
+        var logEle = document.getElementById('log');
+        var isOffline = false;
+        var indexVersion = '1.0.0'; // The version number of the middle page, every time a file is modified, the version number needs to be upgraded
+        function log(str) {
+            if (!debug) {
+                return;
+            }
+            var p = document.createElement('p');
+            p.appendChild(document.createTextNode(str));
+            logEle.insertBefore(p, logEle.firstChild);
+            // while outputting errors to the console
+            console.log(str);
+        }
+        // error constructor
+        function newError(msg, code, detail) {
+                return {
+                    desc: {
+                        indexVersion: indexVersion,
+                        detail: detail
+                    },
+                    msg: msg,
+                    code: code
+                }
+            }
+            var plusReady = function (callback) {  
+    if (window.plus) {  
+        callback();  
+    } else {  
+        document.addEventListener('plusready', callback);  
+    }  
+};
+        (function () {
+            
+
+            var jsBridge = (function () {
+
+                var callbacks = {
+                    showBox: function () {
+                        captchaObj.showBox &&  captchaObj.showBox();
+                    }
+
+                };
+        
+
+                return {
+                    callback: function (type, data) {
+                        return callbacks[type](data);
+                    },
+                    callNative: function(data){
+                        plusReady(function () {  
+                            uni.postMessage({  
+                                data  
+                            }) 
+                        });
+                        
+                    }
+                }
+            })();
+            //  jsBridge
+            window.jsBridge = jsBridge;
+            // jsBridge and global global error capture should be loaded as early as possible to prevent errors in boc from being caught；
+            if (window.addEventListener) {
+                window.addEventListener('error', function (e) {
+                    jsBridge.callNative({
+						time:new Date().getTime(),
+                        type: 'error',
+                        data: newError("boc-index error", 60302, e.message)
+                    });
+                })
+            } else {
+                window.onerror = function (e) {
+                    jsBridge.callNative({
+						time:new Date().getTime(),
+                        type: 'error',
+                        data: newError("boc-index error", 60302, e.message)
+                    });
+                }
+            }
+        })();
+    </script>
+
+    <!-- Do not change the location of this link to prevent errors on the above page that cannot catch boc errors-->
+    <script src="https://static.botion.com/v1/boc.js"></script>
+    <script src="./uni.webview.1.5.1.js"></script> 
+    <script>
+        (function () {
+            var startTime = 0;
+            var clearID = 0;
+            var captcha = document.getElementById('captcha');
+            var loadingEle = document.getElementById('botion_index_loading');
+            var img = document.getElementById('botion_img_loading');
+
+            var query = location.href.split('?')[1];
+            // Compatible with Android 4.3 version style problem
+            var ua = navigator.userAgent.toLowerCase();
+            if(/Android/.test(window.navigator.userAgent) && /android\s([\w.]+)/.exec(ua)[1] <= 4.3) {
+                loadingEle.style.left = '45%';
+            }
+            
+            // Compatible with lower versions Object.assign
+            if (typeof Object.assign != 'function') {
+                // Must be writable: true, enumerable: false, configurable: true
+                Object.defineProperty(Object, "assign", {
+                    value: function assign(target, varArgs) { // .length of function is 2
+                    if (target == null) { // TypeError if undefined or null
+                        throw new TypeError('Cannot convert undefined or null to object');
+                    }
+
+                    var to = Object(target);
+
+                    for (var index = 1; index < arguments.length; index++) {
+                        var nextSource = arguments[index];
+
+                        if (nextSource != null) { // Skip over if undefined or null
+                        for (var nextKey in nextSource) {
+                            // Avoid bugs when hasOwnProperty is shadowed
+                            if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
+                            to[nextKey] = nextSource[nextKey];
+                            }
+                        }
+                        }
+                    }
+                    return to;
+                    },
+                    writable: true,
+                    configurable: true
+                });
+            }
+            // default allocation
+            var config = {
+                product: 'bind',
+                onError: function (e) {
+                    // insert version number in error message
+                    e.desc = Object.assign({}, e.desc, { indexVersion: indexVersion });
+                    jsBridge.callNative({
+						time:new Date().getTime(),
+                        type: 'error',
+                        data: e
+                    });
+                }
+            };
+            function setDebug() {
+                debug = true;
+                logEle.className = 'log';
+            }
+            
+            function paseURI() {
+                return JSON.parse(decodeURIComponent(query.split('=')[1]));
+            }
+
+            function checkArgs(args) {
+                // set loading
+                img.src = args['loading'] ? args['loading'] : './boc-loading.gif';
+
+                clearID = setTimeout(function () {
+                    img.style.display = 'inline-block';
+                }, 200);
+
+
+
+                // whether to open debug
+                if (args['debug']) {
+                    setDebug(true);
+                    startTime = (new Date()).getTime();
+                    log(JSON.stringify(args))
+                }
+
+                // set title
+                if (args['title'] && args['title'] != "") {
+                    var h3 = document.createElement('h3');
+                    h3.className = 'title';
+                    h3.appendChild(document.createTextNode(decodeURIComponent(args['title'])));
+                    captcha.appendChild(h3);
+                }
+
+                // Check required parameters
+                if (!args['captchaId']) {
+                    log('args error: ' + query);
+                }
+
+                // Use useLocalOffline to determine whether the downtime effect will be added
+                if (args['useLocalOffline']) {
+                    // Downtime enables its own method
+                    config.offlineCb = function () {
+
+                        isOffline = true;
+
+                        jsBridge.callNative({
+							time:new Date().getTime(),
+                            type: 'result',
+                            data: {
+                                captcha_id: args['captchaId'],
+                                challenge: args['challenge'],
+                                offline: true
+                            }
+                        });
+                    }
+                }
+            }
+
+            function mergeOptions(args) {
+                for (var k in args) {
+                    if (args.hasOwnProperty(k) &&
+                        ['debug', 'title',  args['type']].indexOf(k) === -1) {
+                        config[k] = args[k];
+                    }
+                }
+            }
+
+            if (!query) {
+                setDebug();
+                log('no query: ' + location.href);
+                return false;
+            }
+
+            // parsing parameters
+            var args = paseURI(query);
+
+            // check parameters
+            checkArgs(args);
+
+            // Merge configuration items
+            mergeOptions(args);
+
+            // Initialize verification code
+            var handler = function (captchaObj) {
+                window.captchaObj = captchaObj;
+                captchaObj
+                    .appendTo(captcha)
+                    .onSuccess(function () {
+                        var result = captchaObj.getValidate();
+                        log('Success validate: ' + result);
+                        jsBridge.callNative({
+							time:new Date().getTime(),
+                            type: 'result',
+                            data: result
+                        });
+
+                    })
+                    .onReady(function () {
+                        log('load time: ' + ((new Date()).getTime() - (startTime || 0)));
+                        
+            
+                        jsBridge.callNative({
+							time:new Date().getTime(),
+                            type: 'ready',
+                            data: {
+                                ready: 0
+                            }
+                        })
+                        
+
+                        if (!isOffline) {
+                            // Get mobile coreSDK data in non-downtime mode
+                            jsBridge.callNative({
+								time:new Date().getTime(),
+                                type: 'get'
+                            })
+                        }
+
+                        clearTimeout(clearID);
+                        loadingEle.style.display = 'none';
+                    })
+                    .onClose(function () {
+
+                        jsBridge.callNative({
+							time:new Date().getTime(),
+                            type: 'close'
+                        });
+                    })
+                    .onError(function (e) {
+                        e.desc && (e.desc.indexVersion = indexVersion);
+                     
+                        jsBridge.callNative({
+							time:new Date().getTime(),
+                            type: 'error',
+                            data: e
+                        });
+                    })
+                    .onFail(function (e) {
+                    
+                        jsBridge.callNative({
+							time:new Date().getTime(),
+                            type: 'fail',
+                            data: e
+                        });
+                    })
+            };
+            
+            try {
+              window.initBotion(config, handler);
+            } catch (error) {
+				
+              jsBridge.callNative({
+				  time:new Date().getTime(),
+                  type: 'error',
+                  data: newError("boc-index error", 60302, 'An error is reported during the loading verification process')
+              });
+            }
+
+        })();
+
+    </script>
+</body>
+
+</html>

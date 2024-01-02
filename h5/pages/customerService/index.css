@@ -1,0 +1,64 @@
+.customerService {
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+    overflow-y: auto;
+}
+
+.customerUl {
+    overflow-y: auto;
+    padding: 20upx;
+}
+
+.customeList {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30upx 30upx;
+    background-color: #fff;
+    border-radius: 12upx;
+    margin-bottom: 20upx;
+    font-size: 28upx;
+}
+
+.customeLeft {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+
+.customeRight {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.customeImg {
+    width: 100upx;
+    margin-right: 20upx;
+    height: auto;
+}
+
+.customName {
+    font-size: 30upx;
+}
+
+.customeNumber {
+    font-size: 24upx;
+    margin-top: 10upx;
+    color: #666;
+}
+
+.customeBtn {
+    width: 200upx;
+    height: 76upx;
+    padding: 10upx 20upx;
+    font-size: 24upx;
+    line-height: 28upx;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-radius: 64upx;
+    background: var(--loginNewBtn);
+    color: #fff;
+}

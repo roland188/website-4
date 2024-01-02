@@ -1,0 +1,211 @@
+.bgc {
+	width: 100%;
+	height: 100%;
+	background-color: #ffffff;
+	padding: 0 30rpx 0 30rpx;
+	border-top: 2rpx solid #F0F0F0;
+	position: relative;
+}
+
+.content {
+	padding-top: 30rpx;
+	box-sizing: border-box;
+}
+
+.chooseTime {
+	margin-top: 30rpx;
+}
+
+.chooseTimeTitle {
+	width: 100%;
+	font-size: 30rpx;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	line-height: 1;
+}
+
+.placeholderInput {
+	color: #a7a7a7;
+	font-size: 14px;
+}
+
+.chooseTimeTitle text {
+	flex-grow: 1;
+	color: #000;
+	font-weight:bold;
+	font-size: 30rpx;
+}
+
+.chooseTimeTitle view {
+	text-align: right;
+}
+
+.Time {
+	margin-top: 29rpx;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	width: 100%;
+}
+
+.picker input {
+	width: 260rpx;
+	height: 80rpx;
+	display: inline-block;
+	text-align: center;
+	font-size: 16px;
+}
+
+.Time .text_zhi {
+	width: 100upx;
+	height: 80rpx;
+	line-height: 80rpx;
+	font-size: 28rpx;
+	color: #333;
+	font-family: Alibaba PuHuiTi;
+	font-weight: 400;
+	text-align: center;
+	border: 0rpx solid #a7a7a7;
+	
+}
+.GameTime input{
+	border: 2rpx solid #e1e1e1;
+	
+}
+
+.orderNoTop {
+	margin-top: 30rpx;
+}
+
+.activityTop {
+	margin-top: 30rpx;
+}
+
+.activityTop input {
+	width: 100%;
+	border: 2rpx solid #e1e1e1;
+	margin-top: 28rpx;
+	height: 80rpx;
+	font-size: 14px;
+	border-radius: 10rpx;
+	padding-left: 20rpx;
+
+}
+
+.Time view {
+	border: 2rpx solid #a7a7a7;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	line-height: 80rpx;
+	display: inline-block;
+}
+
+.Time .footerTime {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	width: 264rpx;
+	height: 80rpx;
+	border: 0;
+	border: 2rpx solid #e1e1e1;
+	border-radius: 10rpx;
+}
+
+.footerTime .amountSymbols {
+	flex-shrink: 0;
+	flex-grow: 0;
+	padding: 0;
+	/* font-size: 40rpx; */
+	line-height: 80rpx;
+	font-style: normal;
+	border: none;
+	margin-left: 16rpx;
+}
+
+.footerTime input {
+	flex-grow: 1;
+	font-size: 14px;
+}
+
+.Time input {
+	height: 80rpx;
+    font-size: 14px;
+    border-radius: 10rpx;
+	padding-right: 10upx;
+}
+
+
+.realVideo .button {
+	margin-right: 21rpx;
+}
+
+.realVideo {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.buttons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	position: absolute;
+	bottom: 15%;
+	width: 100%;
+	left: 50%;
+	transform: translate(-50%,0);
+	position: absolute;
+	bottom: 0;
+}
+
+.buttons view {
+	font-size: 30rpx;
+	width: 50%;
+	height: 78rpx;
+	line-height: 78rpx;
+	color: #EAD4AB;
+	font-family: PingFangSC;
+	font-weight: 400;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+}
+.buttons .buttonLeft {
+    color: #fff;
+	background-color: #434039;
+}
+
+.buttons .buttonRight {
+	color: #000;
+	border: 0;
+	background-color: #EAD4AC;
+}
+
+.phlocation {
+	font-size: 14px;
+	color: #a7a7a7;
+	text-align: center;
+	line-height: 60rpx;
+}
+
+button::after {
+	border: none;
+}
+
+.rightIcon {
+	position: relative;
+}
+.rightIcon i{
+	position: absolute;
+	right: 16rpx;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 26rpx;
+	height: 18rpx;
+	display: inline-block;
+	background-size: 100% 100%;
+}

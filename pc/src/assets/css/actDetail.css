@@ -1,0 +1,16 @@
+.actDetail .el-dialog__body {
+        padding: 0.25rem 0.7rem 0.4rem 0.7rem !important;
+        box-sizing: border-box;
+        background-color: #fff !important;
+        border: 1px solid #efc77a;
+        border-bottom-left-radius: 0.2rem;
+        border-bottom-right-radius: 0.2rem;
+      }
+.actDetail .actDetailFooter {
+    border-top: 0.01rem solid #fff !important;
+    background-color: #fff !important;
+}
+
+.actDetail .actDetailFooter .actComplete {
+    color: #616161 !important;
+}

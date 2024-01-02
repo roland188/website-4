@@ -1,0 +1,36 @@
+/* 样式  by  琦琦 */
+.u-flex-all {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.u-flex-j {
+	display: flex;
+	justify-content: center;
+}
+
+.u-flex-a {
+	display: flex;
+	align-items: center;
+}
+.u-flex-sb{
+	display: flex;
+	justify-content: space-between;
+}
+.u-flex-sa{
+	display: flex;
+	justify-content: space-around;
+}
+.captchaStyle {
+	margin: 10upx 0;
+	line-height: 80upx;
+	border-radius: 10upx;
+	border: solid 1px #e3e2e2;
+	background-color: #e8e8e8;
+	color: #7c7c7c !important;
+	text-align: center;
+	cursor: pointer;
+}
+
+

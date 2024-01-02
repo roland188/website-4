@@ -1,0 +1,311 @@
+<template>
+	<view class="web">
+		<view class="kong" :style="{height:webPadding + 'px'}"></view>
+		<view v-if="headerShow" class="webHwader" :style="{width:webHeaderWidrh + 'px'}" @click="headerClick()">
+			<view class=" webRight m20">
+				<!-- <image @click="onGoBack()" class="backImg" src="@/static/image/mb/back1.png" mode=""></image> -->
+				<view @click="onGoBack()" class="backImg m20">{{ backText }}</view>
+			</view>
+			<view class="webConheader">
+				<text class="webTitle m20">{{title}}</text>
+			</view>
+			<view class="webRight  plNone">
+				<view v-if="platform === 'ios'" class="webUl ">
+					<text @click="cutScreen()" class="webCz m20 ">{{ qpText }}</text>
+				</view>
+				<view class="webUl" @tap="showScale()">
+					<text class="webCz m20">{{ fullText }}</text>
+				</view>
+			</view>
+		</view>
+		<view v-if="headerShow" class="headerShowKong"></view>
+		<view class="imgMore" :style="{width: webHeaderWidrh + 'px',top:webPadding+'px'}">
+			<image v-if="!headerShow" @click="showHeader()" class="imgMoreImg" src="../../static/image/show_game.png" mode="widthFix"></image>
+		</view>
+		<web-view id="webView" class="webRouter" :style="{height:wbeHeight + 'px'}" :webview-styles="webviewStyles" :src="url"></web-view>
+	</view>
+</template>
+<script>
+	let u = ''
+	export default {
+		data() {
+			return {
+				pagestart: '',
+				pagefinish: '',
+				title: '',
+				error: '',
+				canGoBack: false,
+				canGoForward: false,
+				wbeHeight: 0,
+				webHeaderWidrh: 375,
+				webPadding: 0,
+				webviewStyles: {
+					progress: {
+						color: '#8c0000'
+					}
+				},
+				url: '',
+				routerType: '',
+				urlCode: '',
+				headerShow: true,
+				host: '', //
+				req: {},
+				accessToken: '',
+				imgwidth: '',
+				cutScreenFlag: false,
+				oldUrl: '',
+				platform: '1',
+				wv: ''
+			}
+		},
+		computed:{
+			backText(){
+				return getApp().$t('返回')
+			},
+			qpText(){
+				return getApp().$t('切屏')
+			},
+			fullText(){
+				return getApp().$t('全屏')
+			}
+		},
+		onLoad() {
+			let self = this;
+			// #ifdef APP-PLUS
+			//取消锁定屏幕方向
+
+			// #endif
+			let dataGame = uni.getStorageSync('dataGame');
+			let platform = uni.getStorageSync('platform');
+			this.cutScreenFlag = uni.getStorageSync('cutScreenFlag') || false
+			self.platform = platform;
+			if (platform === 'ios') {
+				if (this.cutScreenFlag) {
+					// uni.setStorageSync('cutScreenFlag',this.cutScreenFlag)
+					plus.screen.lockOrientation('portrait-primary');
+				} else {
+					plus.screen.lockOrientation('landscape-primary');
+				}
+			}
+			// debugger
+			let reqHost = uni.getStorageSync('config_host');
+			let accessToken = uni.getStorageSync('access_token');
+			self.host = reqHost;
+			if (dataGame) {
+				self.url = dataGame.url;
+				self.oldUrl = dataGame.url;
+				self.urlCode = dataGame.urlCode
+				self.routerType = dataGame.type;
+				self.title = dataGame.title ? dataGame.title : self.$config.appName;
+				self.req = dataGame.req;
+			}
+			self.getHeight();
+		},
+		onShow() {
+			// #ifdef APP-PLUS
+			//取消锁定屏幕方向
+			plus.screen.unlockOrientation();
+			// #endif
+		},
+		onResize() {
+			let self = this;
+			uni.getSystemInfo({
+				success: function(res) {
+					console.log(res.windowWidth);
+					console.log(res.windowHeight);
+					if (res.windowWidth > res.windowHeight) {
+						console.log('横屏');
+						self.getHeight()
+					} else {
+						console.log('竖屏');
+						self.getHeight()
+					}
+				}
+			});
+		},
+		onUnload() {
+			// #ifdef APP-PLUS
+			// 锁定屏幕方向
+			plus.screen.lockOrientation('portrait-primary');
+			// #endif
+		},
+		methods: {
+			headerClick() {
+
+			},
+			cutScreen() {
+				this.url = ''
+				this.url = this.oldUrl
+				// this.wv.reload()
+				this.cutScreenFlag = !this.cutScreenFlag;
+				uni.setStorageSync('cutScreenFlag', this.cutScreenFlag)
+				let b = plus.webview.currentWebview();
+				b.reload()
+			},
+			// 解除锁定屏幕方向
+			unlockOrientation() {
+				plus.screen.unlockOrientation();
+			},
+			getHeight(type) {
+				let self = this;
+				uni.getSystemInfo({
+					success: function(res) {
+						let height = 60;
+						if (!self.headerShow) { //没有header
+							height = 0;
+						}
+						self.wbeHeight = res.screenHeight - height - res.statusBarHeight;
+						self.webHeaderWidrh = res.screenWidth;
+						self.webPadding = res.statusBarHeight;
+					}
+				});
+			},
+			// 点击箭头
+			showHeader() {
+				this.headerShow = true;
+				this.getHeight()
+			},
+			// 点击放大
+			showScale() {
+				this.headerShow = false;
+				this.getHeight()
+			},
+			onGoBack() { //首页 ，2搜索，3游戏列表，4活动，5公告  6缺省页
+				// console.log('this.routerType',this.routerType)
+				uni.navigateBacks();
+				// #ifdef APP-PLUS
+				// 锁定屏幕方向
+				plus.screen.lockOrientation('portrait-primary');
+				// #endif
+				// if (this.routerType == 1) {
+				// 	//首页 ，2搜索，3游戏列表，4活动，5公告  6缺省页
+				// 	uni.navigateTo({
+				// 		url: '../index/index'
+				// 	});
+				// } else if (this.routerType == 2) {
+				// 	//搜索
+				// 	uni.redirectTo({
+				// 		url: '../search/search' + this.urlCode
+				// 	});
+				// } else if (this.routerType == 3) {
+				// 	//首页
+				// 	uni.redirectTo({
+				// 		url: '../gameList/gameList' + this.urlCode
+				// 	});
+				// }
+			},
+
+		}
+	}
+</script>
+
+<style scoped>
+	.webBox {
+		flex-direction: column;
+		padding: 10px;
+		/* background-color: #007AFF; */
+	}
+
+	.webHwader {
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		height: 60px;
+		/* 	position: fixed;
+		top: 0px; */
+		/* background-color: #D6AE66; */
+		display: flex;
+		align-items: center;
+		z-index: 999;
+	}
+
+	.headerShowKong {
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		height: 0rpx;
+	}
+
+	.webRouter {
+		/* height: 600px; */
+	}
+
+	.webRight {
+		flex-direction: row;
+		align-items: center;
+		padding: 0px 15px;
+		min-width: 100px;
+		justify-content: space-between;
+		margin-top: 20rpx;
+		/* background-color: #270000; */
+
+	}
+
+	.webUl {
+		align-items: center;
+		justify-content: center;
+		/* background-color: #007AFF; */
+
+	}
+
+	.imgMore {
+		height: 20px;
+		position: fixed;
+		left: 0px;
+		top: 0px;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.m20 {
+		margin-top: 40upx;
+	}
+
+	.imgMoreImg {
+		width: 40px;
+		height: 20px;
+	}
+
+	.kong {
+		width: 100%;
+	}
+
+	.backImg {
+		width: 32upx;
+		height: 40upx;
+		/* background-color: #007AFF; */
+		width: 152upx;
+		height: 50upx;
+		margin-bottom: 20upx;
+		font-size: 14px;
+		transform: scale(.9);
+	}
+
+	.webConheader {
+		font-size: 16px;
+		text-align: center;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.plNone {
+		padding-left: 0px;
+		display: flex;
+		justify-content: flex-end;
+	}
+
+	.webTitle {
+		/* background-color: #000000; */
+	}
+
+	.webTitle,
+	.webCz {
+		font-size: 16px;
+	}
+
+	.mr20 {
+		margin-right: 20rpx;
+	}
+</style>

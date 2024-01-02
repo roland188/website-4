@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>正在加载，请稍后</title>
+	</head>
+	<style>
+		body,
+		html {}
+
+		.box1,
+		.box2 {
+			/* display: none; */
+		}
+
+		.mainTainBox {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-family: '微软雅黑';
+		}
+
+		.mainTainContent {
+			margin: 40px auto;
+		}
+
+		.mainImg {
+			display: block;
+			width: 100%;
+			margin: 0 auto;
+			margin-top: 30%;
+		}
+
+		.mainText {
+			color: #333333;
+			font-size: 14px;
+			text-align: center;
+			margin: 20px auto;
+		}
+
+		.mainBtn {
+			width: 120px;
+			height: 40px;
+			background: linear-gradient(90deg, rgba(240, 193, 113, 1) 0%, rgba(243, 218, 158, 1) 100%);
+			border-radius: 40px;
+			text-align: center;
+			color: #fff;
+			font-size: 16px;
+			line-height: 40px;
+			margin: 0 auto;
+		}
+
+		.onBtn {
+			display: none;
+			width: 120px;
+			height: 40px;
+			background: linear-gradient(90deg, rgba(240, 193, 113, 1) 0%, rgba(243, 218, 158, 1) 100%);
+			border-radius: 40px;
+			text-align: center;
+			color: #fff;
+			font-size: 16px;
+			line-height: 40px;
+			margin: 0 auto;
+			margin-bottom: 10px;
+		}
+
+		.loadingDian {
+			color: #333333;
+			font-size: 16px;
+			font-weight: bold;
+		}
+	</style>
+	<body>
+		<!-- 维护页面 -->
+		<div class="box1">
+			<div class="mainTainBox ">
+				<div class="mainTainContent">
+					<img class="mainImg" src="./static/image/indexImg/loading.gif" alt="">
+					<div class="mainText">
+						正在加载中，请稍后<span class="loadingDian"></span>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		window.onload = function() {
+			var q = document.querySelector('.loadingDian');
+			let d = ''
+			var s = 0;
+			var m = setInterval(function() {
+				s += 1;
+				d += '.'
+				q.innerHTML = d
+				if (s >= 5) {
+					s = 0;
+					d = ''
+				}
+			}, 1000)
+
+		}
+	</script>
+</html>

@@ -1,0 +1,126 @@
+.discount-layout{
+    .titps-top{
+        color: #BD3124;
+        background-color: rgba($color: #FFBF6B, $alpha: .57);
+        padding: 0.1rem 0.2rem;
+    }
+    .tipColor {
+        cursor: pointer;
+        margin: 0 0.05rem;
+        padding: 0.05rem 0.1rem;
+        border-radius: 0.05rem;
+        background-color: rgba(189, 49, 36, 1);
+        color: rgba(255, 255, 255, 1);
+        font-size: 13px;
+        text-align: center;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+    }
+    .fullColor {
+        text-align: center;
+        color: #9A9A9A;
+    }
+    .remk {
+        cursor: pointer;
+        padding: 0.05rem 0.1rem;
+        border-radius: 0.05rem;
+        background-color: #4095E5;
+        color: #fff;
+        text-align: center;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+    }
+    .tipbox {
+        text-align: center;
+        padding: 16px 0;
+        margin-bottom: 24px;
+        border-bottom: 1px solid #e8e8e8;
+        p {
+            line-height: 2.5;
+        }
+    }
+    .tipbox2{
+        text-align: center;
+        p {
+            line-height: 2.5;
+        }
+    }
+    .el-table {
+        margin: 0.2rem 0;
+        background-color: rgba(242, 242, 242, 1);
+        text-align: center;
+        border-radius: 0.1rem;
+        box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(187, 187, 187, 1);
+        .el-table__empty-block {
+            background-color: #f5f5f5;
+        }
+        ::v-deep.cell{
+            font-size: 0.2rem;
+        }
+        .isRed{
+            color: #BD3124;
+        }
+        .receive_btn{
+            cursor: pointer;
+            margin: 0.05rem auto;
+            min-width: 0.6rem;
+            width: max-content;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 0.3rem;
+            padding: 0 0.2rem;
+            border-radius: 0.3rem;
+            background-color: rgba(223, 182, 116, 1);
+            color: rgba(255, 255, 255, 1);
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+        }
+        .isReceive_btn{
+            cursor: pointer;
+            margin: 0.05rem auto;
+            min-width: 0.6rem;
+            width: max-content;
+            height: 0.3rem;
+            padding: 0 0.3rem;
+            border-radius: 0.3rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #9A9A9A;
+            color: rgba(255, 255, 255, 1);
+            font-size: 14px;
+            text-align: center;
+            box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.4);
+        }
+    }
+    .el-table__empty-block {
+        height: 34px !important;
+        min-height: 34px;
+        .el-table__empty-text {
+            color: #333;
+        }
+    }
+    .redBtn {
+        background: #e91919;
+    }
+}
+
+::v-deep{
+    .el-table{
+        padding-bottom: 0.1rem;
+        th.el-table__cell{
+            .cell{
+                text-align: center;
+                color: #9A9A9A;
+                font-size: 0.18rem;
+            }
+        }
+        td.el-table__cell{
+            .cell{
+                text-align: center;
+                font-size: 0.18rem;
+            }
+        }
+    }
+}

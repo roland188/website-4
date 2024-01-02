@@ -1,0 +1,254 @@
+.jackpot-page {
+    .header-box {
+        .header {
+            width: 100%;
+            height: 80upx;
+            padding: 0 0;
+            margin: 0 0;
+            line-height: 80upx;
+            text-align: center;
+            font-size: 30upx;
+            font-weight: 700;
+            color: #323233;
+            position: relative;
+            border-bottom: 1rpx solid #eee;
+            background-color: #f8f8f8;
+
+            .back-icon {
+                width: 26rpx;
+                height: 26rpx;
+                position: absolute;
+                top: 27rpx;
+                left: 28rpx;
+            }
+        }
+    }
+
+    .container-wrap {
+        width: 100%;
+        /* #ifdef APP-PLUS */
+        height: calc(100vh - 80upx - var(--status-bar-height));
+        /* #endif */
+        /* #ifdef H5 */
+        height: calc(100vh - 80upx);
+        /* #endif */
+        background-color: #fff;
+        font-family: "微软雅黑";
+        overflow: hidden;
+
+        .nav-wrap {
+            display: flex;
+            justify-content: space-around;
+
+            .nav {
+                font-size: 30rpx;
+                font-weight: 600;
+				text-align: center;
+                color: #1D1717;
+                padding: 12rpx 10rpx;
+				white-space: nowrap;
+				// overflow: hidden;
+				// text-overflow: ellipsis;
+            }
+
+            .navActive {
+                border-bottom: 2px solid #E5414A;
+                color: #E5414A;
+            }
+        }
+
+        .conent {
+            padding: 30rpx;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            overflow-y: auto;
+
+            .item-wrap {
+                .item {
+                    padding: 30rpx 40rpx;
+                    border-radius: 20rpx;
+                    color: #fff;
+                    position: relative;
+                    margin-bottom: 40rpx;
+
+                    .item-bg {
+                        width: 390rpx;
+                        height: 124rpx;
+                        position: absolute;
+                        left: 0px;
+                        top: 0px;
+                        opacity: 0.7;
+                    }
+
+                    .item-expired {
+                        width: 170rpx;
+                        height: 170rpx;
+                        position: absolute;
+                        top: 10rpx;
+                        right: 30rpx;
+                    }
+
+                    .text-detail-box {
+                        .text-detail-up {
+                            line-height: normal;
+                        }
+
+                        .text-detail-center {
+                            text-align: right;
+                            line-height: normal;
+                        }
+
+                        .text-detail-down {
+                            display: flex;
+
+                            .left-deso {
+                                flex: 1;
+                            }
+
+                            .right-receive {
+                                .receive-btn {
+                                    width: 170rpx;
+                                    height: 60rpx;
+                                    display: block;
+                                    text-align: center;
+                                    background-color: rgba(0, 0, 0, 0.2);
+                                    line-height: 60rpx;
+                                    color: #fff;
+                                    position: relative;
+                                    top: 20rpx;
+                                    border-radius: 130rpx;
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .noData {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: auto;
+
+            &>uni-image {
+                width: 528rpx;
+                height: 370rpx;
+            }
+        }
+    }
+
+    .jackpotPopup {
+        .content-wrap {
+            width: 600rpx;
+            align-items: center;
+            border-radius: 24rpx;
+            overflow: hidden;
+            background-color: #fff;
+
+            .head {
+                width: 100%;
+                text-align: center;
+                height: 68rpx;
+                line-height: 68rpx;
+                color: #333;
+                font-size: 28rpx;
+                font-weight: 600;
+                background: linear-gradient(267deg, #f6d8a3 0%, #fefdf9 100%);
+            }
+
+            .content {
+                padding: 32rpx;
+
+                .popNumber {
+                    font-size: 36rpx;
+                    color: #333;
+                    font-weight: 600;
+                    text-align: center;
+                    margin-bottom: 24rpx;
+                }
+
+                .popUpText {
+                    font-size: 28rpx;
+                    color: #333;
+                    text-align: center;
+                }
+            }
+
+            .receive {
+                padding: 30rpx 60rpx;
+
+                .receive-sub {
+                    background: linear-gradient(90deg, #f0c171 0%, #f3da9e 100%);
+                    border-radius: 96rpx;
+                    text-align: center;
+                    height: 70rpx;
+                    line-height: 70rpx;
+                    color: #333;
+                    font-weight: 600;
+                    font-size: 28rpx;
+                    padding: 14rpx 140rpx;
+                }
+            }
+        }
+    }
+
+    .flex-f-d-c {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .item-state-0 {
+        background: linear-gradient(135deg, #f0c171 0%, #f3da9e 100%);
+    }
+
+    .item-state-1 {
+        background: linear-gradient(135deg, #bcbdcd 0%, #ced2dd 100%);
+    }
+
+    .item-state-2 {
+        background: linear-gradient(135deg, #e1e1e1 0%, #e3e3e1 100%);
+    }
+
+    .textShadow {
+        text-shadow: 0 8rpx 4rpx #ababab;
+    }
+
+    .f14 {
+        font-size: 28rpx;
+    }
+
+    .f20 {
+        font-size: 40rpx;
+    }
+
+    .f28 {
+        font-size: 56rpx;
+    }
+
+    .f12 {
+        font-size: 24rpx;
+    }
+	.content-1{
+		width: 400rpx;
+		height: 80rpx;
+		margin: 30rpx 0 0 0;
+	}
+	.pl-dh{
+		background-color: #f5f5f5;
+		width: 100%;
+		height: 80rpx;
+		padding:  0 20rpx;
+		font-size: 24rpx;
+	}
+	.ps-0{
+		position: relative;
+	}
+	.colse{
+		position: absolute;
+		right: 30rpx;
+		top: 15rpx;
+	}
+}

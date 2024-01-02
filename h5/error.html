@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>维护中</title>
+</head>
+<style>
+    body,html{
+    }
+    .box1,.box2{
+        /* display: none; */
+    }
+    .mainTainBox{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: '微软雅黑';
+    }
+    .mainTainContent{
+        margin: 40px auto;
+    }
+    .mainImg{
+        display: block;
+        width:62.64%;
+        margin: 0 auto;
+    }
+    .mainText{
+        color: #A7A7A7;
+        font-size: 14px;
+        text-align: center;
+        margin: 20px auto;
+    }
+    .mainBtn{
+        width:120px;
+        height:40px;
+        background:linear-gradient(90deg,rgba(240,193,113,1) 0%,rgba(243,218,158,1) 100%);
+        border-radius:40px;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        line-height: 40px;
+        margin: 0 auto;
+    }
+    .onBtn{
+        display: none;
+        width:120px;
+        height:40px;
+        background:linear-gradient(90deg,rgba(240,193,113,1) 0%,rgba(243,218,158,1) 100%);
+        border-radius:40px;
+        text-align: center;
+        color: #fff;
+        font-size: 16px;
+        line-height: 40px;
+        margin: 0 auto;
+        margin-bottom: 10px;
+       
+    }
+</style>
+<body>
+    <!-- 维护页面 -->
+    <div class="box1">
+        <div class="mainTainBox ">
+            <div class="mainTainContent">
+                <img class="mainImg" src="/static/image/qq/updateImg.png" alt="">
+                <div class="mainText">
+                    哎呀，游戏维护中~
+                </div>
+                <div class="onBtn" >
+                    继续
+                </div>
+                <div class="mainBtn" id="btn1">
+                    返回大厅
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    window.onload = function () {
+        function Person (type) {
+            this.getQueryVariable = function () {
+                var query = window.location.search.substring(1);
+                var vars = query.split("&");
+                for (var i=0;i<vars.length;i++) {
+                        var pair = vars[i].split("=");
+                        if(pair[0] == type){return pair[1];}
+                }
+                return(false);
+            }
+        };
+        let variable = new Person('type');
+        let type = variable.getQueryVariable('type');
+        let mainText = document.querySelector(".mainText");
+        var onBtn = document.querySelector(".onBtn");
+        if (type === '2') {
+            onBtn.style.display = 'block';
+            mainText.innerHTML = ' 哎呀，您的钱包已被冻结，无法带入金额！'
+        }else{
+            onBtn.style.display = 'none';
+            mainText.innerHTML = ' 哎呀，游戏维护中~'
+        }
+        // 关闭
+        var btn = document.querySelector(".mainBtn");
+        btn.onclick = function(){
+            window.close();
+        }
+        // 继续
+        onBtn.onclick = function(){
+            let webUrl = localStorage.getItem("newGameUrl");
+            window.location.href = webUrl;
+        }
+    }
+
+    
+</script>
+</html>
