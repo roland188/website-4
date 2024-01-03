@@ -168,7 +168,9 @@ export default {
       uni.stopPullDownRefresh();
     }, 3000);
   },
-  onReachBottom() {},
+  onReachBottom() {
+      this.$refs.gameList && this.$refs.gameList.getGameList()
+  },
   // 热更返回问题
   // onBackPress() {
   //     // #ifdef APP-PLUS

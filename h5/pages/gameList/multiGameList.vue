@@ -1,7 +1,7 @@
 <!-- 游戏列表 -->
 <template>
   <!-- 右侧列表 -->
-  <view class="multiGameList">
+  <view class="multiGameList" v-bind:class="[laFlag ? 'over' : '']">
     <view class="game-type">
       <view v-if="gameMenus.length > 0">
         <view class="switch">
@@ -59,7 +59,7 @@
             placeholder-style="color:#999;font-size:1rem"
           />
           <image
-            src="@/static/image/gs2.svg"
+            src="../../static/image/gs2.svg"
             class="game-search_s"
             @click="searchGame()"
           ></image>
@@ -69,7 +69,6 @@
 
     <view v-if="dataList.length > 0" class="games">
       <block v-for="(item, index) in dataList" :key="index">
-        <!-- :class="[1,2,4,6].includes(id) ? 'game1' : ''"  -->
         <view class="game">
           <view
             class="inner inner1"
@@ -139,6 +138,8 @@ export default {
       pageSize: 21,
       gameKindId: "",
       over: false,
+      type:'',
+      laFlag: false,
     };
   },
   created() {},
@@ -150,18 +151,21 @@ export default {
   },
 
   onReachBottom() {
-    this.pageNo = this.pageNo + 1;
-    if (!this.over) {
-      if (this.switchIndex == 0) {
-        this.getVendorGame();
-      } else {
-        this.getGameByIds();
-      }
-    }
+    this.getGameList()
   },
   methods: {
     difference(item, index) {
       this.$emit("difference",item, index,);
+    },
+    getGameList(){
+      this.pageNo = this.pageNo + 1;
+      if (!this.over) {
+        if (this.type == 1) {
+          this.getVendorGame();
+        } else {
+          this.getGameByIds();
+        }
+      }
     },
     initData() {
       this.subNavIndex = 0;
@@ -170,30 +174,41 @@ export default {
       this.keyword = "";
       this.dataList = [];
       if (this.gameMenus?.length > 0) {
-        this.vendorId = this.gameMenus[0].ids;
         this.gameKindId = this.gameMenus[0].parentId;
-        this.getVendorGame();
+        this.vendorId = this.gameMenus[0].ids;
+        this.type = this.gameMenus[0].type;
+        if (this.type == 1) {
+          this.getVendorGame();
+        } else {
+          this.getGameByIds();
+        }
       } else {
         this.over = true;
       }
     },
     changeSwitchIndex(index) {
+      this.pageNo = 1
+      this.pageSize = 21
+      this.over = false
       this.switchIndex = index;
       this.dataList = [];
       this.keyword = "";
-      if (this.switchIndex == 1) this.getVendorGame();
-      else this.changeSubNavIndex(0,this.gameMenus[0]);
+      this.type = this.gameMenus[this.subNavIndex].type;
+      this.changeSubNavIndex(0,this.gameMenus[0]);
     },
     changeSubNavIndex(index, item) {
-      // console.log(this.gameMenus,"item==============",item);
+      this.pageNo = 1
+      this.pageSize = 21
+      this.over = false
       this.subNavIndex = index;
       this.getTabItemWidth();
       this.dataList = [];
       this.keyword = "";
+      this.laFlag = false;
       this.vendorId = item.ids || item.id;
       this.gameKindId = item.parentId || ''
-      console.log(item,'item')
-      if (this.switchIndex == 1) {
+      this.type = item.type;
+      if (this.type == 1) {
         this.getVendorGame();
       } else {
         this.getGameByIds();
@@ -288,12 +303,18 @@ export default {
       );
     },
     getGameByIds() {
-      this.$api.recommendGameA(this.gameKindId,this.vendorId, (err, res)=> {
+      let self = this;
+      let req = [self.pageNo, self.pageSize, self.vendorId, self.gameKindId];
+      self.$api.getGameByIds(
+        ...req,
+        function (err, res) {
+          self.laFlag = false;
           if (err) {
           } else {
-            this.dataList.push(...res.list);
-            if (this.pageNo >= res.pages) {
-              this.over = true;
+            self.dataList.push(...res.list);
+            self.isKong = true;
+            if (self.pageNo >= res.pages) {
+              self.over = true;
             }
           }
         },
@@ -560,6 +581,9 @@ export default {
       font-size: 28upx;
     }
   }
+}
+.over {
+	overflow: hidden;
 }
 </style>
   

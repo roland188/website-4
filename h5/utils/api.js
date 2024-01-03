@@ -273,6 +273,10 @@ api.hotGame = function(callback = null, isLoading = false) {
  * @param {Boolean} isLoading 是否显示加载
  * @return
  */
+
+api.recommendGameA = function(gameKindId,vendorId,callback = null, isLoading = false) {
+	server.get("/game/api/v1/game/recommendGame?gameKindId=" + gameKindId + "&vendorId=" + vendorId,null, callback, isLoading);
+};
 api.recommendGame = function(callback = null, isLoading = false) {
 	server.get("/game/api/v1/game/recommendGame", null, callback, isLoading);
 };
@@ -412,13 +416,7 @@ api.updatePassword = function(newpassword1, password, callback = null, isLoading
  * @param {Boolean} isLoading 是否显示加载
  * @return
  */
-api.getVendorGame = function(currentPage, pageSize, vendorId, gameKindId, callback = null, isLoading = true) {
-	var data = {
-		currentPage,
-		pageSize,
-		vendorId,
-		gameKindId,
-	};
+api.getVendorGame = function(data, callback = null, isLoading = true) {
 	server.post("/game/api/v1/manager/vendorGame", data, callback, isLoading);
 };
 /**

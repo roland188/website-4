@@ -34,7 +34,8 @@
       <LiveGameList :gameList="gameList" @difference="difference"  v-if="id != 0 && type == 3"/>
       <SportGameList  :gameList="gameList" @difference="difference" :gameId="id"  v-if="id != 0 && type == 2"/>
       <MultiGameList  
-        :gameId="id" 
+        :gameId="id"
+        ref="moreGameList"
         :gameMenus="gamemenus"
         @difference="difference" 
         v-if="id != 0 && type == 1"/>
@@ -105,6 +106,13 @@ export default {
 			})
   },
   methods: {
+    getGameList(){
+      console.log(11111)
+      if(this.id != 0 && this.type == 1){
+        console.log(22222)
+        this.$refs.moreGameList && this.$refs.moreGameList.getGameList()
+      }
+    },
     // 更改左侧列表选中
     changeRightData(leftArray) {
       setTimeout(() => {
