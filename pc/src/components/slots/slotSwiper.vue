@@ -5,7 +5,7 @@
         </div>
         <div class="inner">
             <swiper :options="swiperOption" @click-slide="clkItem">
-                  
+
                 <swiper-slide class="item" :class="{'img-wrap1':item.status == 0}" v-for="(item,index) in hotList" :key="index">
                     <div class="mask">
                         <div class="maskword">{{item.status == 1 ? $t('进入游戏') : $t('维护中')}}</div>
@@ -17,7 +17,7 @@
                 <!--以下看需要添加-->
                 <div class="swiper-pagination" slot="pagination"></div>
                 <div class="swiper-button-prev" slot="button-prev"></div>
-                <div class="swiper-button-next" slot="button-next"></div> 
+                <div class="swiper-button-next" slot="button-next"></div>
         </div>
     </div>
 </template>
@@ -70,7 +70,7 @@ export default {
                 vendorId: vendorId,
             };
             // hotGame
-            const res = await self.$http.get(self.$api.recommendGame + '?gameKindId=' + gameKindId +'&vendorId=' + vendorId, false);
+            const res = await self.$http.get(self.$api.recommendGame + '?gameKindId=' + vendorId +'&vendorId=' + gameKindId, false);
             if (res.code == 0) {
                 self.hotList = res.data;
             } else {
@@ -82,7 +82,7 @@ export default {
         // return
             let self = this;
                 var issafariBrowser = /Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent);
-                
+
             if (!self.$common.getUser()) {
                 // self.showLogin = true;
                 // self.$message.warning(this.$t('请登录'))
@@ -101,7 +101,7 @@ export default {
                 terminalType: 1
             }
             self.$common.setGameRequestData(datas)
-            
+
             const res = await self.$http.post(api.getToken, datas, true)
             if (res.code == 0) {
                 self.gameUrl = res.data;
@@ -111,7 +111,7 @@ export default {
                 // }else{
                     window.open(self.gameUrl)
                 // }
-                
+
                 }else{
                     window.open(self.gameUrl)
                 }
@@ -121,7 +121,7 @@ export default {
                 window.open('/error.html?type=1')
                 // self.winOpen.location.href = '/error.html?type=1';
                 }
-                
+
                 if (req.status === 0) {
                 self.$message.error(this.$t('维护中'))
                 }else{
@@ -142,9 +142,9 @@ export default {
     .swiper-button-next, .swiper-button-prev {
         background-size: 10px 24px;
         top:65%;
-        
+
     }
-    
+
 .swiper-button-prev:after, .swiper-button-next:after {
 
         font-size: 16px!important;
@@ -188,7 +188,7 @@ export default {
                 background-color: #d5d9de;
                 // overflow: hidden;
                 cursor: pointer;
-                
+
                 .mask {
                     position: absolute;
                     left: 0;
@@ -239,7 +239,7 @@ export default {
                     text-align: center;
                     color:white;
                 }
-                
+
             }
             .img-wrap1{
                 .mask {

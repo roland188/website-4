@@ -104,6 +104,12 @@
 </template>
 <script>
 export default {
+    props: {
+        dd: {
+        type: Object,
+        default: () => ({}),
+        },
+    },
     filters: {
         codeName(value, that) {
             let str = "";
@@ -163,7 +169,7 @@ export default {
         // },
     },
     created() {
-        this.id = this.$route.query.did;
+        this.id = this.dd.id;
         this.getData();
     },
     methods: {
@@ -275,7 +281,7 @@ export default {
         onBack() {
             // this.$router.go(-1);
             this.$router.push({
-                path: '/discount'
+                path: '/mcenter/discount'
             })
         },
     },

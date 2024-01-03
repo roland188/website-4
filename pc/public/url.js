@@ -27,26 +27,84 @@
 
     function t() {
         var c = [
-            {
+			{
                 "code": "viet",
-				"skin": "betc88",
-				"childCode": "st01",
-                "locale": 'en',
-                "name": "xoc88 - best bet coming｜Thương hiệu Casino chuyên nghiệp số 1 Việt Nam｜chuyên trang tổng hợp cá độ bóng đá, xổ số lô đề, casino trực tuyến, game bài, bắn cá giải trí",
-				"theme": "a056",
-				"winOpenTime": "6000",
-				"customerServiceStatus": 1,//0旧版本   1新版本
+                "skin": "kubet",
+                "childCode": "kbet",
+                "locale": 'vi',
+                "name": "ku bet",
+                "theme": "a054",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
                 "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
                 "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
                 "domains": [],
-                // "isMaskApp": 1,
-            }
+                "isMaskApp": 1,
+			},
+            {
+                "code": "bgga",
+                "skin": "bgga",
+                "childCode": "bgga",
+                "locale": 'pt',
+                "name": "BG.GAME",
+                "theme": "a055",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [5, 1, 7, 2, 3, 8, 4, 6,],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
+                "isMaskApp": 1,
+            },
+            {
+                "code": "ff10",
+                "skin": "betc88",
+                "childCode": "ff10",
+                "locale": 'vi',
+                "name": "bet come",
+                "theme": "a053",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
+                "isMaskApp": 1,
+            },
+			{
+                "code": "viet",
+                "skin": "betc88",
+                "childCode": "new8",
+                "locale": 'vi',
+				"name": "betcom",
+                "theme": "a053",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
+                "isMaskApp": 1,
+			},
+            {
+                "code": "svip",
+                "skin": "sovip",
+                "childCode": "svip",
+                "locale": 'vi',
+                "name": "sovip - best bet coming｜Thương hiệu Casino chuyên nghiệp số 1 Việt Nam｜chuyên trang tổng hợp cá độ bóng đá, xổ số lô đề, casino trực tuyến, game bài, bắn cá giải trí",
+                "theme": "a053",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [5, 1, 7, 2, 3, 8, 4, 6,],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
+            },
         ];
         if (!l) {
             if (a.length > 2) a = a.slice(a.length - 2);
             u = a.join(".");
         }
-        var o = c[0];
+        // var o = c[2];// bggame
+        var o = c[2];// bggame
+        var o = c[3];// kubet
+        // var o = c[4];// sovip
         console.log('-----', o)
         for (var x in c) {
             var i = c[x];
@@ -56,7 +114,12 @@
             }
         }
         //o.host = location.protocol + "//" + u + "/xxa";
+        // o.host ="https://appbet222.com/xxa"
+        // o.host = "https://tc20014.com/xxa"// bet come
+        // o.host = "https://tc00013.com/xxa/"// ku bet
+        // o.host = "https://tc20011.com/xxa"
         o.host = "https://lyjqv6pvv2.com/xxa";
+        // o.host = "https://tc20009.com/xxa"
         localStorage.setItem("host", o.host);
         sessionStorage.setItem("theme", parseInt(o.theme.slice(1)));
         window.theme = o.theme;

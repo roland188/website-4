@@ -23,7 +23,7 @@ export default {
         this.$config.theme = window.theme
         this.$config.baseURL = this.$common.getHost()
         this.$config.projectName = window.projectImgUrl
-        this.$i18n.locale = this.$config.language || "vi"
+        this.$i18n.locale = this.$config.language || "pt"
         // this.pageList();
     },
     methods: {

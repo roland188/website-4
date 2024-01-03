@@ -1,7 +1,7 @@
 <template>
  <div class="vipLayout-body">
     <div class="vip-banner-wrap"></div>
-    <div class="vip-level-main">
+    <div class="vip-level-main" :class="{'viet-bg': ['betc88','sovip'].includes(projectImgUrl)}">
       <div class="center-body">
         <div class="user-info-card">
           <div class="left-wrap">
@@ -9,7 +9,7 @@
               <div class="name">{{ $common.getUser().username }}</div>
               <div class="member-level">{{ levelInfo.vipName }}</div>
               <div class="vip-notice">
-               {{ $t('每日北京时间凌晨6点30分 系统进行VIP等级结算') }} 
+               {{ projectImgUrl !=='betc88' ? $t('每日北京时间凌晨6点30分 系统进行VIP等级结算') : $t('系统于越南时间每天凌晨5点30分进行VIP促销') }}
               </div>
             </div>
             <!-- 存款进度条-->
@@ -50,16 +50,20 @@
                 }}</span>
               </div>
             </div> -->
+
+
             <!-- 有效流水-->
             <div class="processWrap">
               <div class="process-top">
-                <span class="process-left">{{$t('有效流水')}}</span>
-                <span class="uponline" v-if="levelInfo.bet - levelInfo.upgradeBet >= 0">
-                  <!-- {{$t('已满足升级条件')}} -->
+                <span class="process-left">{{ projectImgUrl !=='betc88' ? $t('有效流水') : $t('存钱升级')}}</span>
+                <span class="uponline" v-if="projectImgUrl !=='betc88' ? levelInfo.bet - levelInfo.upgradeBet >= 0 :
+                levelInfo.recharge - levelInfo.upgradeRecharge  >= 0 ">
+                   {{$t('已满足升级条件')}}
                 </span>
                 <span class="uponline" v-else
                   >{{$t('晋升下级还需')}}：{{
-                    Math.abs(levelInfo.bet - levelInfo.upgradeBet)
+                    projectImgUrl !=='betc88' ?  Math.abs(levelInfo.bet - levelInfo.upgradeBet) :
+                        Math.abs(levelInfo.recharge - levelInfo.upgradeRecharge)
                   }}</span
                 >
               </div>
@@ -68,19 +72,23 @@
                   class="step-inner step-bg-02"
                   :style="{
                       width:
-                        getPercent(levelInfo.bet, levelInfo.upgradeBet) +
-                        '%',
+                         projectImgUrl !=='betc88' ? getPercent(levelInfo.bet, levelInfo.upgradeBet) +
+                        '%' :  getPercent(levelInfo.recharge, levelInfo.upgradeRecharge) +
+                        '%' ,
                     }"
                 ></div>
                 <span
                   class="step-num"
                   v-if="levelInfo.bet - levelInfo.upgradeBet >= 0"
                   >{{
-                    Math.floor(levelInfo.bet) + "/" + levelInfo.upgradeBet
+                    projectImgUrl !=='betc88' ? Math.floor(levelInfo.bet) + "/" + levelInfo.upgradeBet :
+                        Math.floor(levelInfo.recharge) + "/" + levelInfo.upgradeRecharge
                   }}</span
                 >
                 <span class="step-num" v-else>{{
-                  Math.floor(levelInfo.bet) + "/" + levelInfo.upgradeBet
+                    projectImgUrl !=='betc88' ?
+                  Math.floor(levelInfo.bet) + "/" + levelInfo.upgradeBet :
+                    Math.floor(levelInfo.recharge) + "/" + levelInfo.upgradeRecharge
                 }}</span>
               </div>
             </div>
@@ -89,7 +97,7 @@
                 累计存款：<span>{{ levelInfo.allRecharge || 0 }}</span>
               </div> -->
               <div class="deposit">
-                {{$t('历史累计有效流水')}}：<span>{{ levelInfo.allBet || 0 }}</span>
+                {{projectImgUrl !=='betc88' ? $t('历史累计有效流水') : $t('存款积累历史')}}：<span>{{ (projectImgUrl !=='betc88' ? levelInfo.allBet : levelInfo.allRecharge) || 0 }}</span>
               </div>
             </div>
           </div>
@@ -143,7 +151,7 @@
     </div>
   </div>
   </template>
-  
+
   <script>
    import VipTemp01 from "./components/vip01";
    import VipTemp02 from "./components/vip02";
@@ -151,7 +159,7 @@
    import VipTemp04 from "./components/vip04";
 
  export default {
-   
+
     components: {
     VipTemp01,
     VipTemp02,
@@ -194,11 +202,13 @@
     }),
     tempName:'VipTemp01',
     descriptionList: {}, // 活动说明
+    projectImgUrl: window.projectImgUrl
     };
   },
   created() {
-    this.getUserLevel()
+    // this.getUserLevel()
     this.getVipfaq()
+    this.getUserVIPlist()
   },
   methods:{
     async getVipfaq(){
@@ -215,6 +225,7 @@
 	},
     async getUserLevel(){
         let res = await this.$http.get(this.$api.getUserLevel)
+      console.info(777777, res)
         if (res.code == 0) {
         this.levelInfo = res.data;
       }
@@ -229,13 +240,17 @@
       });
       target.active = true;
     },
-    
+    async getUserVIPlist() {
+      let res = await this.$http.get(this.$api.getUserVIPlist);
+      if (res.code == 0) {
+        this.levelInfo = res.data.mnv;
+      }
+    },
   },
 
 };
   </script>
-  
+
   <style lang="scss">
   @import "./vipLevel.scss";
   </style>
-  

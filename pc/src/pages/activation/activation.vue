@@ -386,7 +386,7 @@ export default {
 <style lang="less" scoped>
 .activation {
     text-align: center;
-    width: 1920px;
+    width: 100%;
     background: url("../../assets/image/activityDatial.png") no-repeat;
     background-size: 100% 100%;
     padding-bottom: 100px;
@@ -550,7 +550,7 @@ export default {
             width: 100%;
             font-size: 0.18rem;
             font-weight: 700;
-            color: var(--themeLight);
+            color: var(--themeDark);
             position: relative;
             span {
                 font-weight: 400;

@@ -3,9 +3,10 @@
     "version": "0.1.0",
     "private": true,
     "scripts": {
-        "start": "npm run serve",
-        "serve": "vue-cli-service serve",
-        "build": "npm run scan && vue-cli-service build && node crc.js",
+        "kubet": "vue-cli-service serve --template=kubet",
+        "bgga": "vue-cli-service serve --template=bgga",
+        "build:kubet": "npm run scan && vue-cli-service build --template=kubet && node crc.js ",
+        "build:bgga": "npm run scan && vue-cli-service build --template=bgga && node crc.js ",
         "scan": "i18next-scanner --config  i18next-scaner.config.js",
         "toExcel": "node src/i18n/toExcel.js",
         "toJson": "node src/i18n/toJson.js"
@@ -32,7 +33,6 @@
         "vue": "^2.6.11",
         "vue-awesome-swiper": "^4.1.1",
         "vue-baberrage": "^3.2.4",
-        "vue-carousel-3d": "^1.0.1",
         "vue-clipboard2": "^0.3.1",
         "vue-draggable-float": "0.0.4",
         "vue-happy-scroll": "^2.1.1",

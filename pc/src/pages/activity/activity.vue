@@ -1,10 +1,12 @@
 <template>
-  <div >
+  <div class="page-activity">
     <!-- 公告 -->
     <div :class="noticeClass" @click="openNotice" style="position:sticky; top: 0px;">
       <Notice></Notice>
     </div>
-    <div class="banner-wrap"></div>
+    <div class="banner-wrap">
+      <img :src="$config.getLocaleImg('title_promotions','jpg')" alt="">
+    </div>
     <!-- 公告弹窗 -->
     <dialog-notice v-if="openDialog" @close="closeNotice"></dialog-notice>
     <div class="activity" v-infinite-scroll="load" :class="{ isDisabledScroll: isDisabledScroll }" style="overflow:auto;">
@@ -336,16 +338,20 @@ export default {
 };
 </script>
 
-<style lang="less">
+<style lang="scss" >
 .banner-wrap {
   height: 260px;
-  background: url('../../assets/image/gameImg/title_promotions.jpg') 50% 0 no-repeat;
+  // background: url('../../assets/image/gameImg/title_promotions.jpg') 50% 0 no-repeat;
+  img{
+    height: 100%;
+    width: 100%;
+  }
+}
+.page-activity{
+  background-color: $active-bgColor;
 }
 
 .notice {
-  // position: absolute;
-  // left: 0;
-  // top: 420px;
   width: 100%;
   background-color: rgba(0, 0, 0, .85);
   z-index: 99;
@@ -367,6 +373,14 @@ export default {
     width: 100%;
     max-width: 13.9rem;
     margin: 0 auto;
+    height: 100%;
+    overflow-y: scroll;
+    box-sizing: border-box;
+    scrollbar-width: none;
+    /* firefox */
+    -ms-overflow-style: none;
+    /* IE 10+ */
+    padding-top: 10px;
   .nav-wrap{
       width: 1.5rem;
       margin-top:.3rem;
@@ -375,25 +389,25 @@ export default {
           height: .4rem;
           line-height: .4rem;
           padding: 0 14px;
-          background: #000;
+          background: $active-btnColor;
           margin-bottom: 15px;
           text-align: center;
-          border: 1px solid #eac888;
+          border: 1px solid $theme-color;
           border-radius: 40px;
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.2);
           overflow:hidden; 
           text-overflow:ellipsis; 
           white-space:nowrap;
           cursor:pointer;
-          color: #eac888;
+          color: $theme-color;
           &:hover{
-            color: #000;
-          background: linear-gradient(225deg, #9b7c4c 0%, #ffe7c1 100%);
+          color: $active-color;
+          background: $active-btncolor1;
           }
       }
       .nav_active{
-        color: #000;
-       background: linear-gradient(225deg, #9b7c4c 0%, #ffe7c1 100%);
+        color: $active-color;
+        background: $active-btncolor1;
       }
   
   }
@@ -413,16 +427,6 @@ export default {
     background-color: #d3dce6;
   }
 
-  height: 100%;
-  overflow-y: scroll;
-  box-sizing: border-box;
-  scrollbar-width: none;
-  /* firefox */
-  -ms-overflow-style: none;
-  /* IE 10+ */
-  background-color: #0a0a0a;
-  padding-top: 10px;
-  border-top: 1px solid #1e1e1e;
 
   //列表
   .activityList {

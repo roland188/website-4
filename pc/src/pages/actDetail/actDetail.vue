@@ -11,7 +11,7 @@
 
       <!-- 头部 -->
       <div class="actDetailHeader">
-        <div class="themeLight" style="color: rgb(226, 210, 125);font-size: 20px;font-weight:600">{{$t('活动详情')}}</div>
+        <div class="themeDark" style="color: rgb(226, 210, 125);font-size: 20px;font-weight:600">{{$t('活动详情')}}</div>
         <div class="actDetailTime">
           <!-- 限时活动才显示时间 -->
           <div class="actPublishTime u-flex-a themeLightColorClass" v-if="forever == 0">{{ time }}</div>
@@ -127,6 +127,7 @@
 import ActRecords from "../../components/actRecords/actRecords";
 export default {
   name: "actDetail",
+  props:['isShowActDetail'],
   data() {
     return {
       isDialogShow: false,
@@ -168,6 +169,7 @@ export default {
       this.isDialogShow = false;
       this.$parent.activityId = -1;
       this.$parent.isDisabledScroll = false;
+      this.$emit('update:isShowActDetail',false)
       this.$refs.scroll.wrap.scrollTop = 0 //初始化滚动条位置
     },
     async getActDetail(id, appActDetailId) {
@@ -242,7 +244,7 @@ export default {
       }
     },
     toCustomerService() {
-      if (window.projectImgUrl === 'betc88') { // betcome直接跳客服窗口
+      if (['sovip','betc88'].includes(window.projectImgUrl)) { // betcome直接跳客服窗口
         const url = this.$common.getCustomerService();
         window.open(url, "_blank");
         return;
@@ -466,7 +468,7 @@ export default {
 // @import '../../assets/css/actDetail.css';
 .actDetail {
   position: relative;
-  z-index: 1234;
+  z-index: 2003;
 
   .alertHeader {
     padding: .5em;
@@ -569,7 +571,7 @@ export default {
       width: 100%;
       font-size: 0.18rem;
       font-weight: 700;
-      color: var(--themeLight);
+      color: var(--themeDark);
       position: relative;
 
       span {

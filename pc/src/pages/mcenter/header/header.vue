@@ -174,10 +174,11 @@ export default {
                 { name: this.$t('收款方式管理'), url: "/mcenter/bank" },
                 { name: this.$t('来往记录'), url: "/mcenter/correspondence" },
                 { name: this.$t('信息公告'), url: "/mcenter/news" },
+                { name: this.$t('自助优惠'), url: "/mcenter/discount" },
             ]
-            if (['amwnsr','betc88','bgga'].includes(window.projectImgUrl)) {
-                tabsArr.push({ name: this.$t('自助优惠'), url: "/mcenter/discount" })
-            }
+            // if (['amwnsr','betc88','bgga','kubet'].includes(window.projectImgUrl)) {
+            //     tabsArr.push({ name: this.$t('自助优惠'), url: "/mcenter/discount" })
+            // }
             console.log("tabsArr====",tabsArr)
             return tabsArr
         }
@@ -224,9 +225,9 @@ export default {
         this.getTime()
         let interest = localStorage.getItem("interest");
         if (interest == 5) {
-            this.$emit("trigger", "利息宝记录");
+            this.$emit("trigger",  this.$t('利息宝记录'));
         } else {
-            this.$emit("trigger", "投注记录");
+            this.$emit("trigger", this.$t('投注记录'));
         }
     },
     methods: {
@@ -463,7 +464,7 @@ export default {
                 this.$router.push(e);
             }
             this.$nextTick(() => {
-                this.$emit("trigger", "投注记录");
+                this.$emit("trigger", this.$t('投注记录'));
             });
             //新窗口跳转
             // const { href } = this.$router.resolve({
@@ -472,7 +473,7 @@ export default {
             // window.open(href, '_blank',"toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400");
         },
         openServiceUrl() {
-            if (window.projectImgUrl === 'betc88') { // betcome直接跳客服窗口
+            if (['sovip','betc88'].includes(window.projectImgUrl)) { // betcome直接跳客服窗口
                 const url = this.$common.getCustomerService();
                 window.open(url, "_blank");
                 return;
@@ -537,6 +538,12 @@ export default {
 .my-container {
     width: 1180px;
     margin: 0 auto;
+    .vipImg{
+        vertical-align: middle;
+        width: 55px;
+        height: 22px;
+        margin: auto 5px;
+    }
 }
 .full {
     color: #fff;
@@ -556,7 +563,7 @@ export default {
     cursor: pointer;
 }
 .oneBg {
-    background: #000 !important;
+    background: $headr-bgColor !important;
 }
 .activeName {
     background-color: #292829;
@@ -569,7 +576,8 @@ export default {
     padding-right: 25%;
 }
 .headerBg {
-    background: #1f1f1f;
+    color: $headr-Color;
+    background: $headr-bgColor1;
 }
 .headerBg .my-container {
     display: flex;
@@ -588,7 +596,7 @@ export default {
         align-items: center;
     }
     .title {
-        color: #fff;
+        color: $headr-Color;
         font-size: 14px;
     }
     .name {
@@ -608,7 +616,7 @@ export default {
         display: flex;
         align-items: center;
         .line {
-            color: #fff;
+            color: $headr-Color;
             padding-right: 10px;
             font-size: 18px;
         }
@@ -624,8 +632,8 @@ export default {
             line-height: 30px;
             text-align: center;
             margin-left: 20px;
-            background-color: #54b9ff;
-            color: #fff;
+            background-color: $theme-color;
+            color: $headr-Color;
             font-size: 14px;
         }
         .u-btn-undisabled {
@@ -678,7 +686,7 @@ export default {
 }
 
 .tabsBox {
-    background-color: #292829;
+    background-color: $nav-bgColor;
 }
 .tabsBox .my-container {
     display: flex;
@@ -688,10 +696,10 @@ export default {
     font-size: 20px;
     line-height: 44px;
     .item:hover {
-        color: #54b9ff;
+        color:  $theme-color;
     }
     .actitvy {
-        color: #54b9ff;
+        color:  $theme-color;
     }
 }
 </style>

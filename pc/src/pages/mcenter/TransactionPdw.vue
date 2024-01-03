@@ -4,11 +4,11 @@
         <!-- 初次设置 -->
         <div>
             <div class="perRow"  v-if="!withdrawPassWordState">
-              <div class="themeLight themeLight8">{{$t('新密码：')}}</div>
+              <div class="themeDark themeDark8">{{$t('新密码：')}}</div>
               <input type="password" class="input" v-model="tradePassword" :placeholder="$t('请输入交易密码')" />
             </div>
             <div class="perRow"  v-if="!withdrawPassWordState">
-              <div class="themeLight themeLight8">{{$t('再次输入：')}}</div>
+              <div class="themeDark themeDark8">{{$t('再次输入：')}}</div>
               <input type="password" class="input" v-model="confirmTradePwd" :placeholder="$t('请输入交易密码')" />
             </div>
             <!-- 提交 -->
@@ -21,15 +21,15 @@
         <!-- 修改交易密码 -->
         <div>
             <div class="perRow" v-if="withdrawPassWordState">
-              <div class="themeLight themeLight8">{{$t('原密码：')}}</div>
+              <div class="themeDark themeDark8">{{$t('原密码：')}}</div>
                 <input type="password" class="input" v-model="oldTradePassword" :placeholder="$t('请输入原交易密码')" />
             </div>
             <div class="perRow" v-if="withdrawPassWordState">
-                <div class="themeLight themeLight8">{{$t('新密码：')}}</div>
+                <div class="themeDark themeDark8">{{$t('新密码：')}}</div>
                 <input type="password" class="input" v-model="newTradePassword" :placeholder="$t('请输入新交易密码')" />
             </div>
             <div class="perRow" v-if="withdrawPassWordState">
-                <div class="themeLight themeLight8">{{$t('再次输入：')}}</div>
+                <div class="themeDark themeDark8">{{$t('再次输入：')}}</div>
                 <input type="password" class="input" v-model="confirmNewTradePwd" :placeholder="$t('请输入新交易密码')" />
             </div>
             <!-- 提交 -->

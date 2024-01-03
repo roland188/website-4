@@ -2,24 +2,24 @@
   <div class="tabs-content">
     <div class="table-head">
       <div class="title-th">{{ $t('等级') }}</div>
-      <div class="title-th">{{ $t('体育返水') }}</div>
-      <div class="title-th">{{ $t('电竞返水') }}</div>
-      <div class="title-th">{{ $t('篮球返水') }}</div>
-      <div class="title-th">{{ $t('真人返水') }}</div>
-      <div class="title-th">{{ $t('棋牌返水') }}</div>
-      <div class="title-th">{{ $t('电子返水') }}</div>
+      <div class="title-th">{{ projectImgUrl !=='betc88' ? $t('体育返水') : $t('电子')  }}</div>
+      <div class="title-th">{{ projectImgUrl !=='betc88' ? $t('电竞返水') : $t('捕鱼')  }}</div>
+      <div class="title-th">{{ projectImgUrl !=='betc88' ? $t('篮球返水') : $t('棋牌')  }}</div>
+      <div class="title-th">{{ projectImgUrl !=='betc88' ? $t('真人返水') : $t('真人')  }}</div>
+      <div class="title-th">{{ projectImgUrl !=='betc88' ? $t('棋牌返水') : $t('体育')  }}</div>
+      <div class="title-th">{{ projectImgUrl !=='betc88' ? $t('电子返水') : $t('彩票')  }}</div>
       <!-- <div class="title-th">{{$t('返水上限')}}</div> -->
     </div>
     <div class="tabs-main">
       <div class="tr-box" v-for="(item, index) in vipConfigList" :key="item.id"
         :class="[index % 2 == 0 ? 'ou-bg' : 'ji-bg']">
         <div class="name">{{ item.vipName }}</div>
-        <div class="inner-info">{{ item.rebate1 }}</div>
-        <div class="inner-info">{{ item.rebate2 }}</div>
-        <div class="inner-info">{{ item.rebate3 }}</div>
-        <div class="inner-info">{{ item.rebate4 }}</div>
-        <div class="inner-info">{{ item.rebate5 }}</div>
-        <div class="inner-info">{{ item.rebate6 }}</div>
+        <div class="inner-info">{{ projectImgUrl !=='betc88' ? item.rebate1 : item.rebate6 }}</div>
+        <div class="inner-info">{{ projectImgUrl !=='betc88' ? item.rebate2 : item.rebate3 }}</div>
+        <div class="inner-info">{{ projectImgUrl !=='betc88' ? item.rebate3 : item.rebate5 }}</div>
+        <div class="inner-info">{{ projectImgUrl !=='betc88' ? item.rebate4 : item.rebate4 }}</div>
+        <div class="inner-info">{{ projectImgUrl !=='betc88' ? item.rebate5 : item.rebate1 }}</div>
+        <div class="inner-info">{{ projectImgUrl !=='betc88' ? item.rebate6 : item.rebate2 }}</div>
         <!-- <div class="inner-info">{{ item.rebateMax }}</div> -->
       </div>
     </div>
@@ -32,6 +32,7 @@ export default {
   data() {
     return {
       vipConfigList: [],
+      projectImgUrl: window.projectImgUrl
     };
   },
   mounted() {

@@ -22,7 +22,7 @@
                 <img loading="lazy" style="width:100%;" v-else v-lazy="require('@/assets/image/gameImg/nInfoNoticeUnRead.png')" alt />
               </div>
               <div class="msgContainer">
-                <div class="msgTitle themeLight themeLight8">{{ item.subject }}</div>
+                <div class="msgTitle themeDark themeDark8">{{ item.subject }}</div>
                 <div class="msgContent themeLightColorClass">{{ item.content }}</div>
                 <div class="msgTime themeLightColorClass">{{ item.publishedAt | timeSwitch }}</div>
               </div>
@@ -54,7 +54,7 @@
     <!-- 详情页 -->
     <div v-show="!isShowList">
       <template v-if="JSON.stringify(noticeDetail) != '{}'">
-        <div class="msgDetailTitle themeLight themeLight8">{{ noticeDetail.subject }}</div>
+        <div class="msgDetailTitle themeDark themeDark8">{{ noticeDetail.subject }}</div>
         <div
           class="msgDetailTime themeLightColorClass noticeInfoBorderColor"
         >{{ noticeDetail.publishedAt | timeSwitchAll }}</div>

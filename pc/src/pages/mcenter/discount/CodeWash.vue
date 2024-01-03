@@ -190,7 +190,7 @@ export default {
         onBack() {
             // this.$router.go(-1);
             this.$router.push({
-                path: '/discount'
+                path: '/mcenter/discount'
             })
         },
         onSubmit() {

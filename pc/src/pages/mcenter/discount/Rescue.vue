@@ -224,7 +224,7 @@ export default {
         });
     },
     customerService() {
-      if (window.projectImgUrl === 'betc88') { // betcome直接跳客服窗口
+      if (['sovip','betc88'].includes(window.projectImgUrl)) { // betcome直接跳客服窗口
         const url = this.$common.getCustomerService();
         window.open(url, "_blank");
         return;

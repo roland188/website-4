@@ -3,9 +3,9 @@
     <div class="table-head">
       <div class="title-th">{{$t('等级')}}</div>
       <!-- <div class="title-th">累计存款</div> -->
-      <div class="title-th">{{$t('升级所需有效流水')}}</div>
+      <div class="title-th">{{ projectImgUrl !=='betc88' ?  $t('升级所需有效流水') : $t('累积存款')}}</div>
       <!-- <div class="title-th">保级有效流水</div> -->
-      <div class="title-th">{{$t('晋级礼金')}}</div>
+      <div class="title-th">{{ projectImgUrl !=='betc88' ? $t('晋级礼金') : $t('升级奖励')}}</div>
       <div class="title-th">{{$t('生日礼金')}}</div>
       <!-- <div class="title-th">VIP每月红包</div>
       <div class="title-th">豪礼赠送</div> -->
@@ -22,7 +22,7 @@
           <!-- <div class="inner-info">
             {{ tranNumber(level.upgradeRecharge, 2) }}
           </div> -->
-          <div class="inner-info">{{ tranNumber(level.upgradeBet, 2) }}</div>
+          <div class="inner-info">{{ projectImgUrl !=='betc88' ? tranNumber(level.upgradeBet, 2) : tranNumberComma(level.upgradeRecharge) }}</div>
           <!-- <div class="inner-info">{{ tranNumber(level.insuranceBet, 2) }}</div> -->
           <div class="inner-info">{{ level.levelGift }}</div>
           <div class="inner-info">{{ level.birthGift }}</div>
@@ -33,13 +33,14 @@
     </div>
   </div>
 </template>
-    
+
     <script>
 export default {
   components: {},
   data() {
     return {
       vipLevelList: [],
+      projectImgUrl: window.projectImgUrl
     };
   },
   mounted() {
@@ -69,6 +70,12 @@ export default {
         return parseFloat(parseInt(num / 100000000) + "." + decimal) + "亿";
       }
     },
+    tranNumberComma(num) {
+      let numStr = num + ''
+      return numStr.replace(/\d+/, function(n) {
+        return n.replace(/(\d)(?=(?:\d{3})+$)/g, '$1,')
+      })
+    },
     async getUserVIPlist() {
       let res = await this.$http.get(this.$api.getUserVIPlist);
       if (res.code == 0) {
@@ -78,10 +85,9 @@ export default {
   },
 };
 </script>
-    
+
     <style  lang="scss">
 .tabs-main {
   min-height: 800px;
 }
 </style>
-    

@@ -1256,7 +1256,7 @@ export default {
   width: calc(100% - 0.4rem);
   padding-right: 0.2rem;
   font-size: 0.12rem;
-  color: var(--themeLight);
+  color: var(--themeDark);
   height: 0.12rem;
   line-height: 0.13rem;
 }

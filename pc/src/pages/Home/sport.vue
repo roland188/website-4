@@ -288,7 +288,8 @@ export default {
     }
     .playList .bg {
         position: relative;
-        width: 1920px;
+        min-width: 1920px;
+        width: 100%;
         height: 260px;
         left: -360px;
         background-color: #fff;
@@ -297,6 +298,7 @@ export default {
     .playList .bg .img {
         position: absolute;
         width: 100%;
+        min-width: 1920px;
         left: 50%;
         top: 0;
         transform:translateX(-50%);

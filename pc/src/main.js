@@ -43,6 +43,7 @@ import store from './store/store';
 import utils from './utils/utils';
 import nkhttp from './utils/nkhttp';
 import './assets/iconfont/iconfont.css';
+import "./assets/skin/skin.scss";
 
 import { ApiIntegration, ImgStorage } from '@nypkg/interface'
 import { vueBaberrage } from 'vue-baberrage'
@@ -59,9 +60,11 @@ Vue.use(VueLazyload, {
     loading: require('./assets/image/loading.gif'),
     error: require('./assets/image/loading_error.svg'),
     attempt: 1
-})  
+})
+
 
 import 'animate.css';
+import { clear } from './utils/cache.js';
 SwiperClass.use([Pagination, Mousewheel, Autoplay, Navigation, EffectFade]);
 Vue.use(getAwesomeSwiper(SwiperClass));
 Vue.prototype.$axios = axios

@@ -3,12 +3,12 @@
     <div class="discount-title">{{ $t('自助优惠') }}</div>
     <div class="discount-content">
       <div class="item-list" :key="i" v-for="(item, i) in discountActivitiesList" @click="toPage(item)">
-        <div class="icon" :class="'icon' + i"></div>
+        <div class="icon" :class="'icon' + item.type"></div>
         <div class="name">{{ item.name }}</div>
       </div>
     </div>
     <div v-show="discountActivitiesList.length === 0">--{{ $t('暂无记录') }}--</div>
-    <component :is="disCom" :dd="currentData" :key="currentData.id" @detail="goActivity" />
+    <component class="wrap-component" :is="disCom" :dd="currentData" :key="currentData.id" @detail="goActivity" />
     <ActDetail ref="actDetail"></ActDetail>
   </div>
 </template>
@@ -16,7 +16,13 @@
 import Feedback from "./Feedback.vue";
 import Lucky from "./Lucky.vue";
 import Rescue from "./Rescue.vue";
+import CodeWash from "./CodeWash.vue";
+import Credentials from "./Credentials.vue";
+import Anniversary from "./Anniversary.vue";
+import Reward from "./Reward.vue";
+import ManyTimes from "./ManyTimes.vue";
 import ActDetail from "../../actDetail/actDetail";
+import week from "./Week"
 
 export default {
   components: {
@@ -35,6 +41,20 @@ export default {
           name: this.$t("亿元回馈"),
           id: "",
         },
+        {
+          type: 2,
+          path: "/discount/Week",
+          com: week,
+          name:this.$t("签到"),
+          id: "",
+        },
+        {
+          type: 5,
+          path: "/discount/Week",
+          com: week,
+          name:this.$t("签到"),
+          id: "",
+        },
         //电子幸运注单
         {
           type: 6,
@@ -43,35 +63,49 @@ export default {
           name:this.$t("电子幸运注单"),
           id: "",
         },
-        //电子扭转乾坤
+        // //棋牌救援
         {
           type: 9,
           path: "/discount/rescue",
           com: Rescue,
-          name: this.$t("电子扭转乾坤"),
+          name: this.$t("棋牌救援"),
           id: "",
         },
-        // //捕鱼投注达人
-        // {
-        //   type: 9,
-        //   path: '/discount/rescue',
-        //   name: this.$t('捕鱼投注达人'),
-        //   id: '',
-        // },
-        // //棋牌全民PK
-        // {
-        //   type: 9,
-        //   path: '/discount/rescue',
-        //   name: this.$t('棋牌全民PK'),
-        //   id: '',
-        // },
-        // //棋牌捕鱼紫气东来
-        // {
-        //   type: 9,
-        //   path: '/discount/rescue',
-        //   name: this.$t('棋牌捕鱼紫气东来'),
-        //   id: '',
-        // },
+        {
+          type: 99,
+          path: "/discount/CodeWash",
+          com: CodeWash,
+          name: this.$t("返水"),
+          id: "",
+        },
+        {
+          type: 4,
+          path: "/discount/Credentials",
+          com: Credentials,
+          name: this.$t("信息认证"),
+          id: "",
+        },
+        {
+          type: 7,
+          path: "/discount/Anniversary",
+          com: Anniversary,
+          name: this.$t("周年礼金"),
+          id: "",
+        },
+        {
+          type: 8,
+          path: "/discount/Reward",
+          com: Reward,
+          name: this.$t("棋牌奖励"),
+          id: "",
+        },
+        {
+          type: 10,
+          path: "/discount/ManyTimes",
+          com: ManyTimes,
+          name: this.$t("活动"),
+          id: "",
+        },
       ],
       discountActivitiesList: [],
     };
@@ -91,6 +125,7 @@ export default {
       // })
     },
     toPage(data) {
+       console.info(111111, data.type)
       document.body.scrollTop = document.documentElement.scrollTop = 0;
       let list = {};
       this.discountList.forEach((item) => {
@@ -98,6 +133,7 @@ export default {
           list = item;
         }
       });
+      console.log("this.discountList===",this.discountList)
       this.currentData = {
         id: data.id,
         name: data.name,
@@ -123,7 +159,8 @@ export default {
                 ? res.data.content
                 : this.discountActivitiesList
             ).filter((item) => {
-              return item.type == 11 || item.type == 6 || item.type == 9;
+              console.log(item.type * 1 !== 17)
+              return item.type * 1 !== 3 && item.type * 1 !== 17 && item.type * 1 !== 30 ;
             });
           }
         });
@@ -158,9 +195,9 @@ export default {
 <style lang="scss" scoped>
 .discount-layout {
   position: relative;
-  overflow: auto;
+  // overflow: auto;
   min-height: 500px;
-  max-height: 700px;
+  max-height: 800px;
   max-width: 1180px;
   margin: 10px auto;
 
@@ -198,7 +235,7 @@ export default {
         font-weight: 700;
       }
 
-      @for $i from 0 to 6 {
+      @for $i from 0 to 18 {
         .icon#{$i} {
           width: 0.34rem;
           height: 0.34rem;
@@ -207,6 +244,9 @@ export default {
         }
       }
     }
+  }
+  .wrap-component {
+    padding-bottom: 200px;
   }
 }
 </style>

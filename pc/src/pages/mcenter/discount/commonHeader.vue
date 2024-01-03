@@ -22,7 +22,7 @@ export default {
     methods: {
         onBack() {
             this.$router.push({
-                path: '/discount'
+                path: '/mcenter/discount'
             })
         },
     },

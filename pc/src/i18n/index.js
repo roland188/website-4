@@ -13,7 +13,7 @@ import zhLocale from 'element-ui/lib/locale/lang/zh-CN'
 import viLocale from 'element-ui/lib/locale/lang/vi'
 import ptLocale from 'element-ui/lib/locale/lang/pt'
 /*---------使用语言包-----------*/ 
-let locale = window.locale || 'en'
+let locale = window.locale || 'vi'
 console.log(locale,"locale")
 
 const i18n = new VueI18n({

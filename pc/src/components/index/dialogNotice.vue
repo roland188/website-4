@@ -19,7 +19,11 @@
                 <ul >
                     <li v-for="(item,index) in list" :key = "index" >
                         <div class="item">
-                            <div class="content1"><span style="color: #ff0000;">* </span>{{item.subject}}{{item.content}}</div>
+                            <div class="content1">
+                                <span style="color: #ff0000;">* </span>
+                                {{item.subject}}
+                                <span class="msgContent" v-html="item.content"></span>
+                            </div>
                         </div>
                     </li>
                 </ul>

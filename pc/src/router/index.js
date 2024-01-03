@@ -15,8 +15,8 @@ import playList from "../components/gamesData/playList";
 import McenterPage from '../pages/mcenter/mcenterPage.vue';
 import myAccount from '../pages/mcenter/myAccount.vue'; //个人资料
 import securityCenter from '../pages/mcenter/securityCenter.vue'; //安全中心
-// import recharge from '../pages/mcenter/recharge.vue'
-// import Drawing from '../pages/mcenter/drawing.vue'
+import recharge from '../pages/mcenter/recharge.vue'
+import Drawing from '../pages/mcenter/drawing.vue'
 import returnWater from '../pages/mcenter/returnWater.vue'
 import returnWaterDetail from '../pages/mcenter/returnWaterDetail.vue'
 import correspondence from '../pages/mcenter/correspondence.vue'
@@ -28,6 +28,16 @@ import AddWallet from '../pages/mcenter/addWallet.vue';
 import Discount from '../pages/mcenter/discount/index.vue';
 import vipLevel from "../pages/vipLevel/vipLevel.vue"; //vip
 Vue.use(Router);
+let projectImgUrl = ''
+if(window.projectImgUrl ){
+    if(['bgga','betc88','sovip'].includes(window.projectImgUrl)){
+        projectImgUrl = 'bggame'
+    }else{
+        projectImgUrl = window.projectImgUrl
+    }
+}
+
+let skinPage = 'skinPage/' + projectImgUrl
 /**
  * 重写路由的push方法
  */
@@ -47,7 +57,7 @@ const routers = [{
                     title: window.projectName,
                 },
                 component: () =>
-                    import ('@/pages/Home/homeIndex'),
+                    import (`@/${skinPage}/homeIndex`),
             },
             // 电子游艺
             {
@@ -59,17 +69,6 @@ const routers = [{
                 },
                 component: () =>
                     import ('@/pages/Home/slots'),
-            },
-            // 电子游艺
-            {
-                path: "/subgame/:pid?/:id?/:type?",
-                name: 'subgame',
-                meta: {
-                    requireAuth: true, // 添加该字段，表示进入这个路由是需要登录的  (登录拦截) putInGr
-                    title: window.projectName,
-                },
-                component: () =>
-                    import ('@/pages/Home/subgame'),
             },
             // 体育赛事
             {
@@ -218,12 +217,11 @@ const routers = [{
     {
         path: "/mcenter",
         component: McenterPage,
-        children: [
-            // {
-            //     path: '/',
-            //     name: "mcenter",
-            //     redirect: '/mcenter/recharge'
-            // },
+        children: [{
+                path: '/',
+                name: "mcenter",
+                redirect: '/mcenter/recharge'
+            },
             {
                 path: "/mcenter/returnWater", //返水记录
                 name: "returnWater",
@@ -239,16 +237,16 @@ const routers = [{
                 name: "correspondence",
                 component: correspondence
             },
-            // {
-            //     path: "/mcenter/recharge", //存款
-            //     name: "recharge",
-            //     component: recharge
-            // },
-            // {
-            //     path: "/mcenter/drawing", //取款
-            //     name: "drawing",
-            //     component: Drawing
-            // },
+            {
+                path: "/mcenter/recharge", //存款
+                name: "recharge",
+                component: recharge
+            },
+            {
+                path: "/mcenter/drawing", //取款
+                name: "drawing",
+                component: Drawing
+            },
             {
                 path: "/mcenter/myAccount", //我的账户(个人资料)
                 name: "myAccount",

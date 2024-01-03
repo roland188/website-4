@@ -114,7 +114,7 @@ export default {
     // border-top-left-radius: 0.1rem;
     // border-top-right-radius: 0.1rem;
     h1 {
-      color: var(--themeLight);
+      color: var(--themeDark);
       font-weight: normal;
       font-size: 0.24rem;
       margin-top: 0.16rem;

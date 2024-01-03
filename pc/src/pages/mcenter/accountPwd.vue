@@ -4,11 +4,11 @@
           <!-- 账号密码 -->
           <div class="perAccPwd">
           <div class="perRow">
-              <div class="themeLight themeLight8">{{$t('原密码：')}}</div>
+              <div class="themeDark themeDark8">{{$t('原密码：')}}</div>
               <input type="password" class="input" v-model="oldPassword" :placeholder="$t('请输入原密码')" />
           </div>
           <div class="perRow">
-              <div class="themeLight themeLight8">{{$t('新密码：')}}</div>
+              <div class="themeDark themeDark8">{{$t('新密码：')}}</div>
               <input
                type="password"
               class="input"
@@ -18,7 +18,7 @@
               />
           </div>
           <div class="perRow">
-              <div class="themeLight themeLight8">{{$t('再次输入：')}}</div>
+              <div class="themeDark themeDark8">{{$t('再次输入：')}}</div>
               <input
               type="password"
               class="input"

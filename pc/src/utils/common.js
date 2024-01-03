@@ -10,8 +10,6 @@ import cache from './cache.js';
 import Base64 from './base64.js';
 import config from './config'
 import store from '../store/store'
-import api from './api.js';
-import http from './http.js';
 const ACCESS_TOKEN = 'access_token';
 const REFRESH_TOKEN = 'refresh_token';
 const SET_USER = 'set_user';
@@ -135,15 +133,11 @@ export default {
     getWebView() {
         return cache.get(SET_WEBVIEW);
     },
-    getImgUrl(path, local = false) {
+    getImgUrl(path) {
         if (path !== '') {
-            if(!local) {
-                let imgUrl = process.env.NODE_ENV !== 'production' ? config.imgHost : window.location.origin + '/file'
-                return imgUrl + path;
-            } else {
-                return path;
-            }
-            
+            let imgUrl = process.env.NODE_ENV !== 'production' ? config.imgHost : window.location.origin + '/file'
+            return imgUrl + path;
+            // return 'https://tc20014.com/file' + path;
         }
     },
     setConfigUrl(res) {

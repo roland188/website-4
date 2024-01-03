@@ -35,7 +35,7 @@
           <div class="award-btn" @click="onReceive">
             {{ amount > 0 ? $t("收米") : $t("待会再来抢") }}
           </div>
-          <img class="close-flex" src="./image/advertise.png" @click="openLink" />
+          <img class="close-flex" :src="$config.getLocaleImg('advertise')" @click="openLink" />
         </div>
         <img class="close" src="./image/c-close.png" @click="onReceive" />
       </div>
@@ -67,9 +67,10 @@ export default {
       rawHtml: '',
       projectImgUrl: window.projectImgUrl,
       getHeadBgUrl: {
-        background: 'url(' + "'" + require('./image/'+window.projectImgUrl+'/c-bg-1.png') + "'" + ')' + ' no-repeat',
+        background: 'url(' + "'" + require('./image/c-bg-1.png') + "'" + ')' + ' no-repeat',
         backgroundSize: '100% 100%'
       }
+       // rawHtml: '<p style="font-size:14px;color: #a7a8a9;padding-bottom: 8px;">本轮抢红包已结束，下轮再接再励。</p><p style="font-size:14px;">&nbsp;&nbsp;&nbsp;<span style="color:#ff5c48;">!!限时疯狂优惠!!</span></p><p style="font-size:20px;padding-top: 8px;">&nbsp;&nbsp;虚拟钱包入款</p><p style="font-size:18px;">&nbsp;&nbsp;最高<span style="color:#42ff31;">5%</span>回馈</p><p style="font-size:14px;">&nbsp;&nbsp;&nbsp;<span style="color:#e3a16b;display: inline-block;padding: 8px;">!!限时疯狂优惠!!</span><image style="width: 100%;height: 62px;" src="https://m.appbet222.com/file/mujun/23af3650-52b3-4da8-b80f-41e600090a98.jpg"></image></p>'
     };
   },
 
@@ -152,8 +153,8 @@ export default {
   .award-coat {
     width: 146px;
     text-align: center;
-    position: absolute;
-    top: 25%;
+    position: fixed;
+    bottom: 5%;
     z-index: 999;
 
     .bg-img {

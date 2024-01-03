@@ -1,0 +1,92 @@
+// 全局样式 控制换肤、图片
+$locale: 'pt','vi','zh_CN','en';//语言
+
+$skinList: 'bgga','kubet','betcome','sovip';//皮肤
+// @import 'bgga';
+// @import 'kubet';
+
+// $user-theme: var(--user-theme);
+// @import 'bgga' if($use-theme);
+// @import 'kubet' if(not $use-theme);
+// $use-theme1: true;
+// @import 'bgga' if($use-theme1);
+
+// @import 'kubet';// 主题色'
+
+// @each $skin in $skinList {
+//     #app.skin-#{$skin}{
+//         @import url($skin);// 主题色'
+//     }
+// }
+
+@each $lang in $locale {
+    $imgUrl: '~@/assets/image/locale/#{$lang}';// 换肤图片路径
+    #app.lang-#{$lang}{
+        // 侧边栏悬浮窗
+        .fwDownload {
+            margin-bottom: 10px;
+            cursor: pointer;
+            .icon {
+                width: 70px;
+                height: 70px;
+                background-size: cover;
+            }
+            .serviceBg {
+                background: url('#{$imgUrl}/dze/7.png') no-repeat;
+            }
+            .serviceBg:hover {
+                background: url('#{$imgUrl}/dze/8.png') no-repeat;
+            }
+            .fb {
+                background: url('#{$imgUrl}/dze/fb.png') no-repeat;
+            }
+            .fb:hover {
+                background: url('#{$imgUrl}/dze/fb-a.png') no-repeat;
+            }
+            .tg {
+                background: url('#{$imgUrl}/dze/tg.png') no-repeat;
+            }
+            .tg:hover {
+                background: url('#{$imgUrl}/dze/tg-a.png') no-repeat;
+            }
+            .hotline{
+                background: url('#{$imgUrl}/dze/Hotline.png') no-repeat;
+            }
+            .hotline:hover{
+                background: url('#{$imgUrl}/dze/Hotline-a.png') no-repeat;
+            }
+            .zalo {
+                background: url('#{$imgUrl}/dze/zalo.png') no-repeat;
+            }
+            .zalo:hover {
+                background: url('#{$imgUrl}/dze/zalo-a.png') no-repeat;
+            }
+            .appDown {
+                background: url('#{$imgUrl}/dze/5.png') no-repeat;
+            }
+            .appDown:hover {
+                background: url('#{$imgUrl}/dze/6.png') no-repeat;
+            }
+
+            .appDown {
+                background: url('#{$imgUrl}/dze/5.png') no-repeat;
+            }
+            .appDown:hover {
+                background: url('#{$imgUrl}/dze/6.png') no-repeat;
+            }
+            .mosaicGold1{
+                background: url('#{$imgUrl}/dze/mosaicGold1.png') no-repeat;
+            }
+
+            .mosaicGold1:hover {
+                background: url('#{$imgUrl}/dze/mosaicGold1Hover.png') no-repeat;
+            }
+            .mosaicGold2{
+                background: url('#{$imgUrl}/dze/mosaicGold2.png') no-repeat;
+            }
+            .mosaicGold2:hover {
+                background: url('#{$imgUrl}/dze/mosaicGold2Hover.png') no-repeat;
+            }
+        }
+    }
+}

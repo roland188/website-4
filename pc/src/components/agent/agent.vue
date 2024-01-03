@@ -41,6 +41,30 @@ export default {
   },
   computed: {},
   mounted() {
+    // let plats = window.projectImgUrl;
+    // if(plats === 'amxpj') {
+    //   this.agentUrl = 'https://agent.tp9km5qt.vip'//新葡京国际
+    //   this.tabList.unshift({ name: "代理加盟", index: 0 });
+    // } else if (plats === 'qxyl') {
+    //   this.agentUrl = 'https://qxylagent.bets888803.com'; //千禧娱乐
+    //   this.tabList.unshift({ name: "代理加盟", index: 0 });
+    // }else if (plats === 'jryl'){
+    //   this.agentUrl = 'http://tycagent.bets8888.cc'//巨人娱乐
+    //   this.activeIndex = 2;
+    // }else if (plats === 'tyca'){
+    //   this.agentUrl = 'http://tycagent.bets8888.cc'//必赢太阳娱乐
+    //   this.activeIndex = 2;
+    // }else if (plats === 'amwnsr'){
+    //   this.agentUrl = 'https://agent.715639.com'// 澳门威尼斯人
+    //   this.activeIndex = 2;
+    // } else if(plats === 'funw'){
+    //    this.agentUrl = 'https://agent.6hqpxiwqfg.com'// funw 泛游
+    //    this.activeIndex = 2;
+    // }
+    // else if(plats === 'bqty'){
+    //    this.agentUrl = 'https://agent.6hqpxiwqfg.com'// bqty
+    //    this.activeIndex = 2;
+    // }
   },
   methods: {
     tabChange(index) {

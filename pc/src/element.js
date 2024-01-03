@@ -27,9 +27,6 @@ import {
     Option,
     Tabs,
     TabPane,
-    Dropdown,
-    DropdownItem,
-    DropdownMenu,
     Link,
   } from 'element-ui';
   
@@ -58,9 +55,6 @@ import {
   Vue.use(Scrollbar);
   Vue.use(Dialog);
   Vue.use(Checkbox);
-  Vue.use(Dropdown);
-  Vue.use(DropdownItem);
-  Vue.use(DropdownMenu);
   Vue.use(Loading);
 Vue.prototype.$message = Message;
 Vue.prototype.$loading = Loading.service;

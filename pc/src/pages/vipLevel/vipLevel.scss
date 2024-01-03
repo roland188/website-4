@@ -223,7 +223,8 @@ $color01: #666666;
 
       .tabs-body-layout {
         position: relative;
-        top:-120px;
+        //top:-120px;
+        margin-top: -120px;
         .tabs-head {
           height: 120px;
           // margin-top: 20px;
@@ -346,5 +347,8 @@ $color01: #666666;
         }
       }
     }
+  }
+  .viet-bg {
+    background-image: url("./image/VIP_bg_viet.jpg")!important;
   }
 }

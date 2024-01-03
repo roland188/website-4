@@ -3,7 +3,7 @@
         <!-- 个人资料 -->
         <div class="perInfo">
           <div class="perRow perInfoRow infoRealName">
-            <div class="themeLight themeLight8">{{$t('姓名')}}：</div>
+            <div class="themeDark themeDark8">{{$t('姓名')}}：</div>
             <input
               type="text"
               class="input"
@@ -13,7 +13,7 @@
             />
           </div>
           <div class="perRow perInfoRow infoNickName">
-            <div class="themeLight themeLight8">{{$t('昵称')}}：</div>
+            <div class="themeDark themeDark8">{{$t('昵称')}}：</div>
             <input
               type="text"
               class="input"
@@ -24,7 +24,7 @@
             />
           </div>
           <div class="perRow perInfoRow phoneNumer">
-            <div class="themeLight themeLight8">{{$t('手机号')}}：</div>
+            <div class="themeDark themeDark8">{{$t('手机号')}}：</div>
             <input
               type="text"
               class="input"
@@ -36,7 +36,7 @@
           </div>
 
           <div class="perRow perInfoRow infoBirthday">
-            <div class="themeLight themeLight8">{{$t('生日')}}：</div>
+            <div class="themeDark themeDark8">{{$t('生日')}}：</div>
             <div style="position:relative;flex:5;">
               <el-date-picker
                 class="myDatePicker"
@@ -49,7 +49,7 @@
             </div>
           </div>
           <!-- <div class="perRow perInfoRow infoQQ">
-            <div class="themeLight themeLight8">{{$t('QQ')}}：</div>
+            <div class="themeDark themeDark8">{{$t('QQ')}}：</div>
             <input
               type="text"
               class="input"
@@ -59,7 +59,7 @@
             />
           </div>
           <div class="perRow perInfoRow infoWechat">
-            <div class="themeLight themeLight8">{{$t('微信')}}：</div>
+            <div class="themeDark themeDark8">{{$t('微信')}}：</div>
             <input
               type="text"
               class="input"
@@ -69,7 +69,7 @@
             />
           </div> -->
           <div class="perRow perInfoRow infoEmail" style="margin-bottom:0.6rem;">
-            <div class="themeLight themeLight8">{{$t('邮箱')}}：</div>
+            <div class="themeDark themeDark8">{{$t('邮箱')}}：</div>
             <input
               type="text"
               class="input"

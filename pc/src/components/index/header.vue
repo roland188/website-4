@@ -1,51 +1,80 @@
 <template>
-    <div class="header_container">    
-        <a href="javascript:;" class="logo" 
-            @click="transgo">
-            <img :src="$config.pcLogo ? $config.imgHost + $config.pcLogo : $common.getTitleImgUrl('Logo')"/>
-        </a>           
-        <div class="headerWidth">    
-            <div class="headerMain">
-                <div class="headerLeft">
-                    <template v-if="!['xiaocao', 'gtgame'].includes(projectImgUrl)">
-                        <div class="date-time">
-                            <span class="header-time-text">{{date + ' ' + time}}</span>
-                            <span>(UTC+07:00)</span>                        
-                        </div>
-                        <el-dropdown class="language-select">
-                            <div class="el-language-dropdown">
-                                <img class="flag" :src="$config.getLocaleImg('flag','svg')" alt="">
-                                <span>{{ $t('简体中文') }}</span>
-                                <i class="el-icon-arrow-down el-icon--right"></i>
-                            </div>
-                            <el-dropdown-menu slot="dropdown">
-                                <el-dropdown-item>
-                                    <img class="flag" :src="$config.getLocaleImg('flag','svg','vi')" alt="">
-                                    Tiếng Việt
-                                </el-dropdown-item>
-                                <el-dropdown-item>
-                                    <img class="flag" :src="$config.getLocaleImg('flag','svg','en')" alt="">
-                                    English
-                                </el-dropdown-item>
-                                <el-dropdown-item >
-                                    <img class="flag" :src="$config.getLocaleImg('flag','svg','zh_CN')" alt="">
-                                    简体中文
-                                </el-dropdown-item>
-                            </el-dropdown-menu>
-                        </el-dropdown>
-                    </template>
+    <div class="header_container">
+        <div class="headerWidth">
+            <a href="javascript:;" class="logo" :style="'background-image:url(' +
+                ($config.pcLogo ? $config.imgHost + $config.pcLogo : $common.getTitleImgUrl('Logo')) +')'"
+                @click="transgo">
+            </a>
+            <div class="title-logo">{{$t('情感无限的地方')}}</div>
+            <div class="headerLeft" :class="projectImgUrl === 'betc88' ? 'betc88Style' : null">
+                <template v-if="!['xiaocao', 'gtgame'].includes(projectImgUrl)">
+                    <div>
+                        <span v-if="projectImgUrl !== 'betc88'">{{ $t('简体中文') }}</span>
+                        <span class="times">UTC+7：</span>
+                        <span class="header-time-text">{{date}}</span>
+                        <span>{{time}}</span>
+                        <img class="flag" :src="$config.getLocaleImg('flag','svg')" alt="">
+                    </div>
+                </template>
+                <ul>
+                    <li @click="toHome">{{ $t('网站首页') }}</li>
+                    <li class="liCenter" @click="toService">{{ $t('在线客服') }}</li>
+                    <li class="liCenter" @click="$router.push({ path: '/agent' })">{{ $t('代理加盟') }}</li>
+                    <li  class="liCenter" @click="toProxy">{{ $t('代理登陆') }}</li>
+                </ul>
+            </div>
+            <div class="headerRight" v-show="!isLogin">
+                <div
+                    v-show="!showPicture"
+                    style="width: 260px;display: flex;justify-content: center;align-items: center;"
+                >
                 </div>
-                
-                <div class="space">
-
+                <div class="leftButton">
+                    <div class="leftButtonOne" @click="loginAction">
+                        <span>{{ $t('登入') }}</span>
+                    </div>
                 </div>
-                <div class="headerRight">
-                    <span>Login</span>
-                    <span>|</span>
-                    <span>Register</span>
+                <!-- <div>点击登入表示同意<span>协议与规则</span></div> -->
+                <div class="rightButton">
+                    <div class="rightButtonOne" @click="loginAction('register')">
+                        <span>{{ $t('注册') }}</span>
+                    </div>
                 </div>
             </div>
+            <div class="loginSuccessfulRight" v-show="isLogin">
+                <div class="user">
+                    <span>{{ $t('账号') }}：</span>
+                    <span class="name">{{userName}}</span>
+                </div>
+                <img loading="lazy"
+                    class="vipImg"
+                    @click="openVip()"
+                    v-lazy="require('../../assets/image/xfImg/'+vipImg+'.png')"
+                    alt
+                />
+                <div class="balance">
+                    <span>{{ $t('余额') }}：</span>
+                    <span
+                        class="amount"
+                    >{{ $common.setNumFixed($store.state.userInfo.totalBalance,2) }}</span>
+                    <i
+                        :class="{ refreshAnimation: haveRefreshAnimation }"
+                        @click="getUserBalance('refresh')"
+                    ></i>
+                </div>
+                <ul class="other">
+                    <li @click="to('myAccount')">{{ $t('会员中心') }}</li>
+                    <li @click="to('recharge')">{{ $t('线上存款') }}</li>
+                    <li @click="to('drawing')">{{ $t('线上取款') }}</li>
+                    <li @click="onGetMoney">{{ $t('一键归户') }}</li>
+                    <li @click="to('news')">{{ $t('未读讯息') }}(<span style="color:red;">{{msgUnReadNum + noticeUnReadNum }}</span>)</li>
+                    <li class="logout" @click="logout()">{{ $t('登出') }}</li>
+                </ul>
+            </div>
         </div>
+        <!-- eslint-disable-next-line vue/custom-event-name-casing -->
+        <menu-list @setregister="$emit('openRegister')" @scrollToCode="$emit('scrollToCode')"></menu-list>
+        <verifyIdentidy ref="verifyIdentidy" @loginAction="loginAction" :account="account"></verifyIdentidy>
     </div>
 </template>
 <script>
@@ -72,8 +101,8 @@ export default {
             pwd: "",
             // time: "--年--日--月 --:--:--",
             zone: 'UTC+8',
-            date: utils._formatDate(this.getBjTime(), 'MM/dd'),
-            time: utils._formatDate(this.getBjTime(), 'HH:mm:ss'),
+            date: '',
+            time: '',
             interval: 0,
             captchaKey: "",
             setInt: null,
@@ -177,11 +206,11 @@ export default {
             if(res.code===0){
                 this.$cache.set('wnsrServerUrl',res.data.domain)
             }
-        },        
+        },
         getTime () {
             this.interval = setInterval(() => {
                 var bjTime = this.getBjTime();
-                this.date = utils._formatDate(bjTime, 'MM-dd')
+                this.date = utils._formatDate(bjTime, 'yyyy-MM-dd')
                 this.time = utils._formatDate(bjTime, 'HH:mm:ss')
             }, 500)
         },
@@ -256,6 +285,30 @@ export default {
         },
         toProxy() {
             const proxyUrl =  this.$common.getClientCodeRes()?.agentDomain;
+
+            // switch (window.projectImgUrl) {
+            //     case 'tyca':
+            //         this.proxyUrl = 'https://jragent.715536.com'
+            //     case 'jryl':
+            //         this.proxyUrl = 'https://jragent.715536.com'
+            //         break
+            //     case 'qxyl':
+            //         this.proxyUrl = 'https://qxylagent.bets888803.com'
+            //         break
+            //     case 'amxpj':
+            //         this.proxyUrl = 'https://agent.tp9km5qt.vip'
+            //         break
+            //     case 'amwnsr':
+            //         this.proxyUrl = 'https://agent.715639.com'
+            //         break
+            //     case 'funw':
+            //         this.proxyUrl = 'https://agent.6hqpxiwqfg.com'// funw 泛游
+            //         break
+            //     case 'bqty':
+            //         this.proxyUrl = 'https://agent.6hqpxiwqfg.com'// bqty
+            //         break
+
+            // }
             let win = window.open()
             setTimeout(()=>{
                  win.location.href = proxyUrl
@@ -265,7 +318,7 @@ export default {
         toService() {
             // this.$common.toService()
             // 越南台子统一用在线客服
-            if (window.projectImgUrl === 'betc88') { // betcome直接跳客服窗口
+            if (['sovip','betc88'].includes(window.projectImgUrl)) { // betcome直接跳客服窗口
                 const url = this.$common.getCustomerService();
                 window.open(url, "_blank");
                 return;
@@ -343,7 +396,7 @@ export default {
                         if(res.data.validateWay == "ip") {
                             // 验证真实姓名
                             this.$emit("showPopup", true);
-                        } 
+                        }
                         if(res.data.validateWay == "device") {
                             // 验证设备
                             this.$refs.verifyIdentidy.openDialog();
@@ -404,7 +457,7 @@ export default {
                         this.showPicture = false;
                         Object.assign(_this.smData,res.data)
                         _this.reset();
-                        
+
                     }
                     this.fingerprintState = res.data.fingerprintState
                     if(this.fingerprintState){
@@ -565,7 +618,7 @@ export default {
                 const msg = this.$message.error(this.$t("请输入账号"));
                    setTimeout(() => {
                         msg.close();
-                    }, 2000); 
+                    }, 2000);
                 return;
             }
             if (!this.pwd) {
@@ -573,7 +626,7 @@ export default {
                 const msg = this.$message.error(this.$t("请输入密码"));
                    setTimeout(() => {
                         msg.close();
-                    }, 2000); 
+                    }, 2000);
                 return;
             }
 
@@ -582,7 +635,7 @@ export default {
                 const msg = this.$message.error(this.$t("请输入验证码"));
                    setTimeout(() => {
                         msg.close();
-                    }, 2000); 
+                    }, 2000);
                     return;
             }
 
@@ -593,7 +646,7 @@ export default {
                    const msg = this.$message.error(this.$t("请先通过行为验证"));
                    setTimeout(() => {
                         msg.close();
-                    }, 2000); 
+                    }, 2000);
                     return;
                 }
             }
@@ -637,7 +690,7 @@ export default {
                 params.captchaCode = this.code;
             } else if (this.type === 3){
                 params.geeTestQueryVO = result
-            }   
+            }
 
             if(this.fingerprintState){
                 params.fingerprint =  this.$config.fingerprint;
@@ -983,73 +1036,42 @@ export default {
 };
 </script>
 
-<style lang='less'>
+<style lang='less' scoped>
 .vipImg {
     width: 55px;
     height: 22px;
     margin: auto 5px;
 }
+.header-time-text{
+    margin: 0 5px;
+}
 .header_container {
     width: 100%;
-    height: 64px;
+    height: 196px;
     position: fixed;
     left: 0;
     top: 0;
-    display: flex;
-    background-color: #FFF;
-    align-items: center;
+    background-color: #000;
     z-index: 999;
     text-align: center;
     line-height: 50px;
     color: #fff;
-    padding-left: 20px;
-    padding-right: 15px;
-    border-bottom: 3px solid rgb(227, 227, 227);
 }
 .headerWidth {
-    max-width: calc(50vw + 4.14rem);
-    height: 64px;
+    width: 1200px;
+    height: 120px;
+    margin: 0 auto;
     display: flex;
     position: relative;
     align-items: center;
-    flex: 1;
-    justify-content: space-between;
-    padding-left: 0.4rem;
 }
-
-.date-time{
-    display: flex;
-    flex-direction: column;
-    color: rgb(102, 102, 102);
-
-    span {
-        line-height: 1.5;
-        font-size: .15rem;
-        text-align: center;
-        color: rgb(102, 102, 102);
-    }
-}
-.header_container .headerMain {
+.header_container .headerLeft {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    .headerLeft {
-        display: flex;
-        flex-direction: row;
-        .language-select {
-            margin-left: 0.4rem;
-            font-size: .22rem;
-        }
-    }
-    .headerRight {
-        font-size: .22rem;
-        color: #866638;
-        span {
-            cursor: pointer;
-            margin-right: 0.1rem;
-        }
-    }
+    position: absolute;
+    right: 0;
+    top: 0;
 }
 .world-left,.world-right {
     width: 369px;
@@ -1063,41 +1085,24 @@ export default {
     right: 0;
     background: url("../../assets/image/qqImg/cupRight.png") no-repeat;
 }
-.headerMain span.times {
+.headerLeft span.times {
     color: rgba(239, 199, 122);
     margin-left: 10px;
 }
-.el-language-dropdown {
-    border: 1px solid #e3e3e3;
-    color: rgb(153, 153, 153);
-    border-radius: 30px;
-    min-width: 1.7rem;
-    height: 0.4rem;
-    display: flex;
-    align-items: center;
-    padding-left: 0.05rem;
-    padding-right: 0.1rem;
-    span {
-        text-align: left;
-        color: rgb(153, 153, 153);
-        flex: 1;
-    }
+.betc88Style span.times {
+  margin-left: -15px;
 }
-
-.flag {
+.headerLeft .flag {
     width: 26px;
     height: 26px;
     border-radius: 50%;
-    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .logo {
     width: 174px;
-    max-height: 45px;
+    height: 90px;
     float: left;
-    display: flex;
-    align-items: center;
-    margin-left: 10px;
     transform: scale(1.2);
     background-repeat: no-repeat;
     background-size: contain;
@@ -1114,20 +1119,20 @@ export default {
     text-align: center;
     color: #fead00;
   }
-.headerMain ul {
+.headerLeft ul {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
 }
-.headerMain ul li {
+.headerLeft ul li {
     margin: 0 10px;
     line-height: 30px;
 }
-.headerMain ul li:hover {
+.headerLeft ul li:hover {
     color: rgba(239, 199, 122);
 }
-.headerMain ul .liCenter {
+.headerLeft ul .liCenter {
     border-left: 1px solid #fff;
     height: 10px;
     line-height: 10px;
@@ -1254,8 +1259,16 @@ input::-webkit-input-placeholder {
     text-overflow: ellipsis;
     vertical-align: top;
 }
+.loginSuccessfulRight .user {
+    display: flex;
+    align-items: center;
+    span{
+        line-height: 1;
+    }
+}
 .loginSuccessfulRight .name {
     max-width: 100px;
+    min-width: 70px;
 }
 .loginSuccessfulRight .amount {
     max-width: 100px;

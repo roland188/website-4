@@ -1,18 +1,29 @@
 const CompressionPlugin = require("compression-webpack-plugin");
+const path = require('path');
 // const BundleAnalyzerPlugin = require("webpack-bundle-analyzer").BundleAnalyzerPlugin;
-
+const NYSEO = process.argv[3]
+let templateCss = `@import "~@/assets/skin/_bgga.scss";`
+if(NYSEO === '--template=kubet'){
+  templateCss = `@import "~@/assets/skin/_kubet.scss";`
+}
+// console.log(NYSEO,"NYSEO",process.argv)
 module.exports = {
     parallel: false,
     transpileDependencies:[],
-    devServer: {
-      host: '0.0.0.0',
+    css: {
+      extract: false,
+      sourceMap: true,
+      loaderOptions: {
+        scss: {
+          additionalData: templateCss
+        },
+      },
     },
     chainWebpack: (config) => {
       config.optimization.minimizer('terser').tap((args) => {
         args[0].terserOptions.compress.drop_console = true
         return args
       })
-
       if (process.env.NODE_ENV !== 'production') return
       // config
       // .plugin('webpack-bundle-analyzer')
@@ -118,5 +129,5 @@ module.exports = {
           ]
         }
       }
-    }
+    },
   }

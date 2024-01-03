@@ -73,12 +73,12 @@
             <div class="rechang"></div>
         </div> -->
         <!-- 彩金 -->
-        <div slot="reference"
-             v-if="['gtgame','betc88','bgga'].includes(getQxylSkin)"
+        <div slot="reference" 
              class="fwDownload"
              @click="mosaicGold">
-            <div class="mosaicGold1"
-                 :class="{mosaicGold2:mosaicGoldImg == 2}"></div>
+            <div class="icon mosaicGold1"
+                 :class="{mosaicGold2:mosaicGoldImg == 2}" ></div>
+                 <!-- :style="{'background': }" -->
         </div>
         <!-- <div slot="reference"
              class="fwDownload"
@@ -199,15 +199,15 @@ export default {
         jump(type) {
             if (type === 'app') return
             const obj = {
-                fb: 'https://www.facebook.com/',
-                tg: 'https://t.me/dbnysee',
+                fb: 'https://www.facebook.com/ge.tang.35',
+                tg: 'https://t.me/BETCOME8',
                 zalo: ''
             }
             window.open(obj[type])
         },
         //新客服
          toNewCustomerService() {
-            if (window.projectImgUrl === 'betc88') { // betcome直接跳客服窗口
+            if (['sovip','betc88'].includes(window.projectImgUrl)) { // betcome直接跳客服窗口
                 const url = this.$common.getCustomerService();
                 window.open(url, "_blank");
                 return;
@@ -444,7 +444,6 @@ export default {
         height: 70px;
         background-size: cover;
     }
-    
 }
 .rebateStyle {
     margin-bottom: 15px;
@@ -490,4 +489,6 @@ export default {
     border-radius: 50%;
     float: right;
 }
+
+
 </style>

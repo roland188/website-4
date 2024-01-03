@@ -1,6 +1,7 @@
 <template>
     <div class="search-header">
         <div class="search">
+            <input data-v-28f627b1="" id="search_btn" type="button" />
           <input
             autocomplete="off"
             data-v-28f627b1=""
@@ -11,7 +12,6 @@
             size="10"
             @blur="clearValue"
           />
-            <input data-v-28f627b1="" id="search_btn" type="button" />
           <!-- <input data-v-28f627b1="" id="search_btn" @click="clickToShow(searchValue)" type="button" /> -->
           
           <div class="searchBox" v-show="searchBoxSwitch && searchList.length" v-loading="searchLoading">

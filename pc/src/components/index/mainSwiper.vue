@@ -1,43 +1,24 @@
 <template>
-    <div class="main_swiper" >
-        <carousel-3d ref="mySwiper" 
-                :perspective="0" 
-                :width="650" 
-                :height="200" 
-                :autoplay="true"
-                :loop="true"
-                :inverseScaling="100"
-                :border="0"
-                :controlsVisible="true"
-                :autoplayTimeout="4000">
-            <carousel-slide class="item" style="cursor:pointer;" v-for="(item, index) in gameImgs" 
-                :key="index" 
-                :index="index">
-                <!-- <div style="overflow:hidden;" @click.stop="bannerTransgo(item)">
+    <div class="main_swiper" @mouseenter="enter" @mouseleave="leave">
+        <swiper class="container" :options="swiperOption" ref="mySwiper">
+            <swiper-slide class="item" style="cursor:pointer;" v-for="(item, index) in gameImgs" :key="index">
+                <div style="overflow:hidden;">
                     <div v-for="i in 10" :key="i * 100" class="img" :class="'img' + i"
-                        :style="'background:url(' + $common.getImgUrl(item.picture, item.isLocal) + ') no-repeat ' + ((1 - i) * 1.44) + 'rem 0;animation-delay:' + (-0.04 * (10 - i)) + 's;'">
+                        :style="'background:url(' + $common.getImgUrl(item.picture) + ') no-repeat ' + ((1 - i) * 192) + 'px 0;animation-delay:' + (-0.04 * (10 - i)) + 's;'">
                     </div>
-                </div> -->
-                <template slot-scope="{ index, isCurrent }">
-                    <img :data-index="index" :class="{ current: isCurrent, inactive: !isCurrent }" :src="$common.getImgUrl(item.picture, item.isLocal)">
-                </template>
-            </carousel-slide>
+                </div>
+            </swiper-slide>
             <div style="visibility:hidden;" class="swiper-button-next"></div>
             <div style="visibility:hidden;" class="swiper-button-prev"></div>
             <div class="swiper-pagination"></div>
-        </carousel-3d>
+        </swiper>
 
     </div>
 </template>
 <script>
-import { Carousel3d, Slide as carouselSlide } from 'vue-carousel-3d';
 
 export default {
     'name': 'mainswiper',
-    components: {
-        Carousel3d,
-        carouselSlide 
-    },
     data() {
         return {
             swiperOption: {//swiper3    
@@ -53,7 +34,12 @@ export default {
                     disableOnInteraction: false // 用户操作后继续自动轮播
                 },
                 paginationClickable: true, // 分页点击事件
-                autoplayDisableOnInteraction: false //用户操作后继续自动轮播
+                autoplayDisableOnInteraction: false, //用户操作后继续自动轮播
+                on: {
+                    tap: (res)=> {
+                       this.bannerTransgo(this.gameImgs[res.realIndex]);
+                    },
+                },
             },
             'list': [
                 {
@@ -96,14 +82,6 @@ export default {
 
             if (res.code == 0) {
                 _this.gameImgs = res.data;
-                if(res.data?.length == 0) {
-                    _this.list.forEach((item) => {
-                        _this.gameImgs.push({
-                            picture: item.img,
-                            isLocal: true,
-                        })
-                    })
-                }
                 //不足3个，补足3个
                 // if (this.gameImgs.length > 0 && this.gameImgs.length < 3) {
                 //     var arr = [];
@@ -128,9 +106,6 @@ export default {
         },
         // banner图跳转
         bannerTransgo(item) {
-            // 抽奖活动红包不跳转
-            if (item?.expand?.actFolder === 'worldcupRed') return
-
             // 澳门威尼斯人统计
             if (window.projectImgUrl == 'funw') {
                 let ids = item.ids || item.id
@@ -236,7 +211,7 @@ export default {
                 clientCode: window.clientCode,
                 clientItem: window.childCode,
                 username: this.$common.getUser().username,
-                language: "zh_CN",
+                language: this.$i18n.locale,
                 theme: window.theme,
                 host: this.$config.baseUrl,
             };
@@ -302,32 +277,46 @@ export default {
 </script>
 <style lang="less" scoped>
 .main_swiper {
-    width: 12rem;
-    height: 3rem;
-    .carousel-3d-slide {
-        background: transparent;
-        padding: 0px !important;
-        img {
-            border-radius: 20px;            
-        }
-        img.inactive {
-            filter: blur(0.08rem);
-        }
-    }    
-    
+    width: 100vw;
+    height: 520px;
+
     .container {
         position: relative;
 
-        
-    }
-}
+        .swiper-pagination {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
 
-.carousel-3d-container {
-  .carousel-3d-slide {
-    padding: 20px;
-    
-    .title { font-size: 22px; }
-  }
+            /deep/ .swiper-pagination-bullet {
+                width: 15px;
+                height: 15px;
+                border-radius: 10px;
+                background: #583503;
+                opacity: 1;
+                margin-right: 5px;
+            }
+
+            /deep/ .swiper-pagination-bullet-active {
+                width: 15px;
+                background: #ffff65;
+            }
+
+        }
+
+        /deep/ .swiper-slide .img {
+            width: 192px;
+            height: 520px;
+            float: left;
+            overflow: hidden;
+            // transform: translateY(100%);
+        }
+
+        /deep/ .swiper-slide-active .img {
+            animation: btmToTop 1.5s;
+        }
+    }
 }
 
 @keyframes btmToTop {

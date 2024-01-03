@@ -78,7 +78,7 @@ export default {
     position: relative;
   }
   .alertTitle {
-    color: var(--themeLight);
+    color: var(--themeDark);
     font-size: 24px;
     padding-top: 0 !important;
     text-align: center;

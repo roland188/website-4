@@ -939,6 +939,9 @@ export default {
                                 case 99:
                                     item.prop3 = this.$t('其他');
                                     break;
+                                case 101:
+                                    item.prop3 = this.$t('VIP晋级礼金');
+                                    break;
                                 }
                             });
                             this.tableData = res.data.content;

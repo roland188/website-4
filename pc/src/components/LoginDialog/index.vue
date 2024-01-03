@@ -2,10 +2,14 @@
   <el-dialog width="684px" :show-close="false" :visible="showLogin.show">
     <div class="login-box">
       <div class="left-img">
-        <img src="./img/left.png" alt="">
+        <img v-if="projectImgUrl == 'bgga' && tabName=='login'" src="./img/login-l.png" alt="">
+        <img v-else-if="projectImgUrl == 'bgga' && tabName=='register'" src="./img/reg-l.png" alt="">
+        <img v-else src="./img/left.png" alt="">
       </div>
       <div class="login-msg">
-        <img class="pointer login-close" src="./img/close.png" alt="" @click="() => setShowLogin({ show: false })">
+        <img class="pointer login-close" 
+        :src="require(projectImgUrl == 'kubet' ? './img/close1.png' : './img/close.png')"
+        alt="" @click="() => setShowLogin({ show: false })">
         <div class="login-logo">
           <img width="100%" :src="$config.pcLogo
             ? $config.imgHost + $config.pcLogo
@@ -150,7 +154,8 @@ export default {
       intervalID: '', //计时器
       type: 0,
       time: 60,
-      regFlag: {}
+      regFlag: {},
+      projectImgUrl: window.projectImgUrl
     }
   },
   computed: {
@@ -659,7 +664,7 @@ export default {
     },
     toService() {
       // this.$common.toService()
-      if (window.projectImgUrl === 'betc88') { // betcome直接跳客服窗口
+      if (['sovip','betc88'].includes(window.projectImgUrl)) { // betcome直接跳客服窗口
         const url = this.$common.getCustomerService();
         window.open(url, "_blank");
         return;
@@ -746,11 +751,11 @@ export default {
   }
 }
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .login-box {
   display: flex;
   min-height: 450px;
-  color: #fff;
+  color: $loginColor;
 
   .center {
     text-align: center;
@@ -758,6 +763,7 @@ export default {
 
   .fs10 {
     font-size: 10px;
+    color: $loginColor;
   }
 
   .pointer {
@@ -785,7 +791,7 @@ export default {
   .login-msg {
     position: relative;
     flex: 2;
-    background-color: #272727;
+    background-color: $login-bgColor;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     padding: 0 40px;
@@ -814,7 +820,7 @@ export default {
     }
 
     .form-i {
-      background-color: #fff;
+      background-color: $login-inputBgColor;
       height: 33px;
       line-height: 33px;
       border-radius: 6px;
@@ -830,10 +836,20 @@ export default {
       }
       .codePrefix{
         font-size: 14px;
-        color: #707070;
+        color: $login-inputColor;
         padding: 0 5px;
         margin-right: 5px;
         background-color:#dadada;
+      }
+      .form-input {
+        border: 0;
+        padding: 0;
+        flex: 2;
+        background-color: transparent;
+        &::placeholder {
+          padding: 0;
+          color: $login-inputColor; 
+        }
       }
 
       .form-input {
@@ -843,7 +859,7 @@ export default {
 
         &::placeholder {
           padding: 0;
-          color: #707070;
+          color: $login-inputColor;
         }
       }
 
@@ -855,9 +871,9 @@ export default {
     .form-btn {
       width: 100%;
       line-height: 33px;
-      background: linear-gradient(180deg, #E7B85B, #FCF6C6);
+      background: $login-linerColor;
       border-radius: 6px;
-      color: #333;
+      color: $login-textColor;
       font-weight: bold;
       margin-top: 36px;
       padding: 0;
@@ -866,81 +882,80 @@ export default {
 
     .forget-p {
       margin-top: 18px;
-      color: #E7B85B;
+      color: $theme-color;
     }
 
     .agree-b {
       padding-bottom: 18px;
     }
   }
+}
+::v-deep{
+  .el-dialog {
+    background-color: transparent;
+  }
+  .el-dialog__header {
+    padding: 0;
+  }
 
-  /deep/ .el-input__inner {
+  .el-input__inner {
     padding: 0;
     height: 32px;
     border: 0;
-
     &::placeholder {
-      color: #707070;
+      color: $login-inputColor;
     }
   }
-}
-
-/deep/ .el-dialog {
-  background-color: transparent;
-}
-
-/deep/ .el-dialog__header {
-  padding: 0;
-}
-
-/deep/ .el-dialog__body {
-  padding: 0;
-}
-
-/deep/ .el-tabs__item {
-  color: #fff;
-  font-size: 18px;
-  font-weight: 600;
-
-  &.is-active {
-    color: #F9F1BE;
+  .el-dialog__body {
+    padding: 0;
   }
 
-  &:hover {
-    color: #F9F1BE;
+  .el-tabs__item {
+    color: $loginColor;
+    font-size: 18px;
+    font-weight: 600;
+
+    &.is-active {
+      color: $login-tabColor;
+    }
+
+    &:hover {
+      color: $login-tabColor;
+    }
+  }
+
+  .el-tabs__item {
+    padding: 0 6px;
+    line-height: 50px;
+  }
+
+  .el-tabs__active-bar {
+    background-color: $login-tabColor;
+    ;
+  }
+
+  .el-tabs__nav-wrap::after {
+    background-color: transparent;
+  }
+
+  .el-checkbox__input.is-checked+.el-checkbox__label {
+    color: $loginColor;
+  }
+
+  .el-checkbox__label {
+    color: $loginColor;
+  }
+
+  .el-checkbox__input.is-checked .el-checkbox__inner {
+    background-color: $login-tabColor;
+    border-color: $login-tabColor;
+  }
+
+  .el-checkbox__input.is-checked .el-checkbox__inner::after {
+    border: 1px solid $login-textColor;
+    border-left: 0;
+    border-top: 0;
   }
 }
 
-/deep/ .el-tabs__item {
-  padding: 0 6px;
-  line-height: 50px;
-}
-
-/deep/ .el-tabs__active-bar {
-  background-color: #F9F1BE;
-  ;
-}
-
-/deep/ .el-tabs__nav-wrap::after {
-  background-color: transparent;
-}
-
-/deep/ .el-checkbox__input.is-checked+.el-checkbox__label {
-  color: #fff;
-}
-
-/deep/ .el-checkbox__label {
-  color: #fff;
-}
-
-/deep/ .el-checkbox__input.is-checked .el-checkbox__inner {
-  background-color: #F3DA96;
-  border-color: #F3DA96;
-}
-
-/deep/ .el-checkbox__input.is-checked .el-checkbox__inner::after {
-  border: 1px solid #000;
-  border-left: 0;
-  border-top: 0;
-}
 </style>

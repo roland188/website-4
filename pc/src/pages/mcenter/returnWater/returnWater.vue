@@ -14,12 +14,12 @@
         @click="closeDialog"
       />
 
-      <div class="reWaterTitle themeLight themeLight8">{{$t('返水领取')}}</div>
+      <div class="reWaterTitle themeDark themeDark8">{{$t('返水领取')}}</div>
       <template v-if="notGet">
-        <div class="reWaterMoney themeLight themeLight8">
-          {{ $common.setNumFixed(waterMoney, 2) }}{{$t('元')}}
+        <div class="reWaterMoney themeDark themeDark8">
+          {{ $common.setNumFixed(waterMoney, 2) }}
         </div>
-        <div class="reWaterDes themeLight themeLight8">
+        <div class="reWaterDes themeDark themeDark8">
           {{$t('流水要求')}}{{ verityCount | waterMoneyToFixed }}{{$t('倍')}}
         </div>
         <div class="bottomBtns">

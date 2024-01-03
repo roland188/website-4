@@ -8,7 +8,7 @@
  :style="{backgroundImage:`url(${require(''+a)})`}"
  -->
 <template>
-  <div id="app" :class="'lang-'+ locale">
+  <div id="app" :class="['lang-'+ locale,'skin-'+ projectImgUrl]">
     <div class="loadingBgc" v-show="splash">
       <transition name="slide-fade" mode="out-in">
         <Splash ref="splash"></Splash>
@@ -33,6 +33,7 @@ export default {
       splashId: "",
       isShow: false,
       locale: window.locale,
+      projectImgUrl: window.projectImgUrl,
     };
   },
   created() {
@@ -63,7 +64,6 @@ export default {
     } else {
       import("./assets/css/base.css");
     }
-
     //  间隔维护
     let interval = window.interval || 180000;
     setInterval(() => {
@@ -279,5 +279,4 @@ export default {
 @import "./assets/css/base.css";
 @import "./assets/css/main.css";
 @import "./assets/css/commonqq.css";
-@import "./assets/css/skin.scss";
 </style>

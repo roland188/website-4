@@ -121,7 +121,7 @@ export default {
     position: relative;
   }
   .alertTitle {
-    color: var(--themeLight);
+    color: var(--themeDark);
     font-size: 24px;
     padding-top: 0 !important;
   }
@@ -183,7 +183,7 @@ export default {
         font-size: 0.16rem;
         font-weight: bold;
         background: rgba(245, 245, 245, 1);
-        color: var(--themeLight);
+        color: var(--themeDark);
       }
     }
   }

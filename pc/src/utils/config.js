@@ -24,7 +24,6 @@ try {
 let customerServiceUrl = localStorage.getItem('customerServiceUrl') || "";
 const getCaptchaId = ()=>{
 	return {
-        'st01': 'b7f5fc9ea916acc391a2f8f8c1738d4a', // ff10
 		'ff10': 'b7f5fc9ea916acc391a2f8f8c1738d4a', // ff10
 		'tyjt': '1a48bfc3218e084cef101bf18263b29e', 
 		'grty': '1a48bfc3218e084cef101bf18263b29e',
@@ -39,10 +38,11 @@ const getCaptchaId = ()=>{
 // 区号、货币
 const getConfing = () => {
     return {
-        'st01': {code: '87',currency: '￥' }, // viet
         'ff10': {code: '86',currency: '￥' }, // ff10
-        'new8': {code: '84',currency: '￥' }, // betcom
+        'new8': {code: '84',currency: '' }, // betcom
         'bgga': {code: '55',currency: 'R$' }, // BG.GAME
+        'kbet': {code: '84',currency: '' }, // kubet
+        'svip': {code: '84',currency: '' }, // 
     }[window.childCode]
 }
 export default {
@@ -84,9 +84,6 @@ export default {
         return require('@/assets/image/locale/' + locale + '/' + skin +'/' + imgName + '.' + M);
     },
     getImgUrl(path) {
-        if(window.location.hostname.startsWith('localhost') || window.location.hostname.startsWith('127.0.0.1')) {
-            return this.imgHost + path;
-        }
         if (process.env.NODE_ENV === 'development' && path !== '') {
             return '/img' + path;
         }
@@ -95,8 +92,8 @@ export default {
             return imgUrl + path;
         }
     },
-    getLocaleImg(imgName,fileType,lo){
-        let locale = lo ?? window.locale
+    getLocaleImg(imgName,fileType){
+        let locale = window.locale
         let M = fileType ? fileType : 'png';
         return require('@/assets/image/locale/' + locale + '/' + imgName + '.' + M);
     },

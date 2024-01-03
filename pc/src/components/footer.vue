@@ -1,38 +1,64 @@
 <template>
   <div class="footer">
-    <div class="footer-container">
-      <div class="footer-items">        
-        <div class="footer-item" v-for="(item, idx) in footerList" :key="idx + 'footer'">
-          <div class="footer-item-title">
-            {{ item.title }}
+    <div class="bt_title">
+      <a href="https://www.gotechgroup.com/">
+        <div class="top-title">
+          <div>
+            <p>{{$t('官方合作伙伴')}}</p>
+            <p>{{$t('阿尔梅里亚大学和 GTG')}}</p>
           </div>
-          <ul>
-            <li v-for="(childItem, childIdx) in item.children" :key="childIdx + 'childFooter'">
-              <a :href="childItem.link">
-                {{ childItem.title }}
-              </a>
-            </li>
-          </ul>
+          <img loading="lazy"
+              v-lazy="require('../assets/image/qqImg/icon-title2.png')" />
+          <img loading="lazy" class="vip" v-if="projectImgUrl != 'bgga'"
+              v-lazy="require('../assets/image/qqImg/icon-title1.png')" />
         </div>
-        <div class="footer-item">
-          <div class="footer-item-title">
-            {{ $t('Other') }}
-          </div>
+      </a>
+    </div>
+    <div class="title_items">
+      <div class="title">{{$t('信息')}}</div>
+      <div class="list">
+        <div class="items"
+          v-for="(item,index) in list"
+          :key="index">
+          <p class="title">{{item.name}}</p>
         </div>
       </div>
-      <div class="bottom-icon1">
-        <img src="../assets/image/qqImg/bottom-icon2.png" alt="">
+    </div>
+    <div class="logo-bg">
+      <div class="logo-left">
+        <img :src="$config.pcLogo ? $config.imgHost + $config.pcLogo : $common.getTitleImgUrl('Logo')" >
+        <div>
+          <span v-show="isShow">{{ projectName }} {{$t('是线上最佳国际博彩平台，我们平台提供多服务；体育到各种小游戏，我们体育拥有最全面的赛事滚球盘服务... ')}} </span>
+          <span v-show="!isShow">{{ projectName }} {{$t('是线上最佳国际博彩平台，我们平台提供多服务；体育到各种小游戏，我们体育拥有最全面的赛事滚球盘服务。我们每日，每周和每月都享受有活动和赛事。玩家可通过电脑，平台和手机上在线观看个各种免费体验赛事直播。')}} </span>
+          <span class="btn" @click="isShow = !isShow">{{$t('更多')}}</span>
+        </div>
       </div>
-      <div class="bottom-description">
-        <span >{{$t('是线上最佳国际博彩平台，我们平台提供多服务；体育到各种小游戏，我们体育拥有最全面的赛事滚球盘服务... ')}} </span>
-        <span >{{$t('是线上最佳国际博彩平台，我们平台提供多服务；体育到各种小游戏，我们体育拥有最全面的赛事滚球盘服务。我们每日，每周和每月都享受有活动和赛事。玩家可通过电脑，平台和手机上在线观看个各种免费体验赛事直播。')}} </span>
+      <div class="content-right">
+        <!-- PHƯƠNG THỨC THANH TOÁN  -->
+        <div class="logo-titlt">{{$t('支付方式')}}</div>
+        <img src="../assets/image/qqImg/logo-right.png" alt="">
       </div>
-      <div class="bottom-icon1">
-        <img :src="$config.getLocaleImg('bottom-icon1')">
-      </div>
-      <div class="bottom-copyright">
-        {{ $t('@039 Bản quyền 2002-2023') }}
-      </div>
+    </div>
+    <div class="bottom-icon1">
+      <img :src="$config.getLocaleImg('bottom-icon1')">
+    </div>
+    <div class="bottom-icon2">
+      <p>{{$t('供应商')}}</p>
+      <img src="../assets/image/qqImg/bottom-icon2.png" alt="">
+    </div>
+    <!-- 展示列表 -->
+    <!-- <div class="article_list">
+      <span v-for="(item,index) in article" :key="index" @click="openPage(index)">{{item}}</span>
+    </div> -->
+    <!-- 防伪标志 -->
+    <div class="anit_mark">
+      <!-- Copyright © {{ new Date().getFullYear() }}  -->
+      {{ { 
+        amxpj: 'Grand Lisboa Casino', 
+        amwnsr: 'Macau Venetian', 
+        bgga: 'Copyright ©2023 BG.game', 
+        gtgame: 'GoTech' }[projectImgUrl] || 'Copyright ©bet come- BẢN NÂNG CẤP MỚI🔥TRANG WEB CHÍNH THỨC 🌐ĐẢM BẢO UY TÍN✔️ Reserved' }} 
+      <!-- Reserved @v{{numVer}} -->
     </div>
   </div>
 </template>
@@ -45,107 +71,30 @@ export default {
             numVer: window.numVer,
             isShowRegister: false,
             projectName: window.projectName,
-            footerList: [
+            list: [
                 {
-                    title: this.$t('Casino'),
-                    children: [
-                      {
-                        title: this.$t('Reward'),
-                        link: '/reward',
-                      },
-                      {
-                        title: this.$t('Rebate'),
-                        link: '/rebate',
-                      },
-                      {
-                        title: this.$t('VIP'),
-                        link: '/vip',
-                      },
-                      {
-                        title: this.$t('Agent'),
-                        link: '/agent',
-                      },
-                      {
-                        title: this.$t('Event'),
-                        link: '/event',
-                      },
-                      {
-                        title: this.$t('Mission'),
-                        link: '/mission',
-                      },
-                    ]
+                    name: this.$t('关于我们'),
                 },
                 {
-                    title: this.$t('Games'),
-                    children: [
-                      {
-                        title: this.$t('Cock Fighting'),
-                        link: '/cock_fighting',
-                      },
-                      {
-                        title: this.$t('Cards'),
-                        link: '/cards',
-                      },
-                      {
-                        title: this.$t('Fishing'),
-                        link: '/fishing',
-                      },
-                      {
-                        title: this.$t('Slot'),
-                        link: '/slot',
-                      },
-                      {
-                        title: this.$t('Live'),
-                        link: '/live',
-                      },
-                      {
-                        title: this.$t('Sports'),
-                        link: '/sports',
-                      },
-                      {
-                        title: this.$t('Lottery'),
-                        link: '/lottery',
-                      },
-                    ]
+                    name: this.$t('隐私政策'),
                 },
                 {
-                    title: this.$t('Support'),
-                    children: [
-                      {
-                        title: this.$t('Online Service'),
-                        link: '/online_service',
-                      },
-                      {
-                        title: this.$t('Feedback to get rewards'),
-                        link: '/feedback',
-                      },
-                      {
-                        title: this.$t('Help Center'),
-                        link: '/help_center',
-                      },
-                    ]
+                    name: this.$t('条件条款'),
                 },
                 {
-                    title: this.$t('Quick Login'),
-                    children: [
-                      {
-                        title: this.$t('Link Facebook'),
-                        link: '/link_facebook',
-                      },
-                      {
-                        title: this.$t('Link Google'),
-                        link: '/link_google',
-                      },
-                    ]
+                    name: this.$t('常见问题解答'),
                 },
                 {
-                    title: this.$t('Introduction'),
-                    children: [
-                      {
-                        title: this.$t('039'),
-                        link: '/039',
-                      },
-                    ]
+                    name: this.$t('免责声明'),
+                },
+                {
+                    name: this.$t('负责任地玩'),
+                },
+                {
+                    name: this.$t('愿景使命'),
+                },
+                {
+                    name: this.$t('促销条款'),
                 },
             ],
             'article': [
@@ -163,7 +112,7 @@ export default {
     'methods': {
     // 在线客服
         onlineTalk(){
-          if (window.projectImgUrl === 'betc88') { // betcome直接跳客服窗口
+          if (['sovip','betc88'].includes(window.projectImgUrl)) { // betcome直接跳客服窗口
             const url = this.$common.getCustomerService();
             window.open(url, "_blank");
             return;
@@ -204,56 +153,147 @@ export default {
   // width: 1200px;
   // height: 374px;
   overflow: hidden;
-  background: #FFF;
-  .footer-container {
-    width: 12rem;
-    margin: 0 auto;
-    .footer-items {
-      display: flex;
-      justify-content: space-between;
-      .footer-item {
-        .footer-item-title {
-          color: #333;
-          font-size: .2rem;
-          font-weight: 400;
-          line-height: .29rem;
-          margin-bottom: 0.12rem;
-        }
-        a {
-          color: #999;
-          cursor: pointer;
-          display: block;
-          font-size: .2rem;
-          line-height: .29rem;
-          margin-bottom: 0.1rem;
-          transition: color .5s ease-in-out;
-        }
-        a:hover {
-          color: #866638;
-        }
+  margin: 0 auto;
+  background: #1d1d1d;
+  .list {
+    overflow: hidden;
+    .items {
+      width: 240px;
+      float: left;
+      &:hover{
+      .title {
+        color: #fead00;
+      }
+
+      }
+      .title {
+        text-align: center;
+        color: #fff;
+        font-size: 20px;
       }
     }
-    .bottom-icon1 {
-      width: 100%;
-      margin-bottom: 0.5rem;
-      background: #222;
-      img {
-        width: 100%;
+  }
+  .cooperation {
+    width: 1200px;
+    margin-top: 20px;
+    padding-bottom: 27px;
+    border-bottom: 1px solid #1a1a1a;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    .item {
+      height: 31px;
+      overflow: hidden;
+      float: left;
+      margin-right: 10px;
+      cursor:pointer;
+      &:hover {
+        background-position: 50% 100%;
       }
     }
-    .bottom-description {
-      color: #999;
-      font-size: .16rem;
-      line-height: 1.66;
-      word-break: break-all;
+  }
+  .article_list {
+    width: 1200px;
+    margin-top: 20px;
+    text-align: center;
+    color: #b4b4b4;
+    span {
+      display: block;
+      cursor: pointer;
+      font: 14px/14px normal;
+      &:nth-child(n + 2) {
+        border-left: 1px solid #505050;
+      }
+      &:nth-child(2) {
+        animation: changecolor 1s infinite;
+      }
+      &:hover {
+        color: orange;
+      }
     }
-    .bottom-copyright {
-      border-top: 1px solid #CCC;
-      color: #999;
-      padding: 0.5rem 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+  }
+  .anit_mark {
+    width: 100%;
+    margin: 21px auto 0;
+    line-height: 60px;
+    color: #fff;
+    font-size: 16px;
+    background-color: #000;
+    text-align: center;
+  }
+}
+@keyframes changecolor {
+  0% {
+    color: white;
+  }
+  100% {
+    color: rgb(226, 194, 125);
+  }
+}
+.bt_title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
+  .top-title{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 120px;
+    color: #fff;
+    font-size: 24px;
+    .vip{
+      padding-left: 25px;
+      margin: 0;
+      border-left: 1px solid #8b8b8b
+    }
+    img{
+      margin: 0 20px;
+    }
+  }
+}
+.title_items{
+  width: 1200px;
+  color: #fff;
+  margin: 40px auto;
+  text-align: center;
+  .title{
+    font-size: 30px;
+    margin: 20px 0;
+    text-align: center;
+    cursor: pointer;
+  }
+  .list{
+    display: grid;
+    font-size: 20px;
+    grid-template-columns: repeat(4,1fr);
+  }
+}
+.logo-bg{
+  width: 1200px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin: 80px auto 0;
+  color: #fff;
+  .logo-left{
+    width: 50%;
+    font-size: 16px;
+    img{
+      max-width: 350px;
+      margin-bottom: 30px;
+    }
+    .btn{
+      color: #f97316;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  }
+  .content-right{
+    font-size: 24px;
+    img{
+      margin-top: 40px;
     }
   }
 }

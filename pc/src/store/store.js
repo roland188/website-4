@@ -63,8 +63,6 @@ export default new Vuex.Store({
         returnWaterMoney: '0.00',
         rebate: false,
         mosaicGoldShow: false,
-        curScrollFromMenuIdx: 0,
-        curMenuIdxFromScroll: 0,
         showLogin: { show: false, isLogin: true },
         qxylRightShow: cache.get('qxylRightShow') || 0,
     },
@@ -206,12 +204,6 @@ export default new Vuex.Store({
         },
         mosaicGoldShow(state, data) {
             state.mosaicGoldShow = data;
-        },
-        curMenuIdxFromScroll(state, data) {
-            state.curMenuIdxFromScroll = data;
-        },
-        curScrollFromMenuIdx(state, data) {
-            state.curScrollFromMenuIdx = data;
         },
         setQxylChat(state, data){
             state.qxylRightShow = data;

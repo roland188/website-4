@@ -42,7 +42,7 @@
           ></el-input>
         </el-form-item>
         <el-form-item :label="$t('手机号') + '：'" prop="phone">
-          <div class="code">{{ '+55' }}</div>
+          <div class="code">{{ $config.codePrefix }}</div>
           <el-input
             v-model="form.phone"
             :placeholder="$t('请输入手机号')"

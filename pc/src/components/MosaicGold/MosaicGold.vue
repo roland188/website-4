@@ -47,7 +47,7 @@
 			<h1>{{ $t('彩金领取') }}</h1>
 			<img loading="lazy" class="dialogClose-header-img cursorPoint" v-lazy="require('../../assets/image/xfImg/login-close.png')" @click="dialogClose" />
 		</div>
-        
+
         <!-- <img loading="lazy" class="dialogClose-header-img cursorPoint" src="../../assets/images/login-close2.png" @click="dialogClose" /> -->
         <div class="secondaryPopup">
             <p v-show="receiveText === $t('立即领取')">{{ $t('{x}元', { x: amount }) }}</p>
@@ -105,6 +105,7 @@ export default {
               return
             }
             this.$http.post(this.$api.exchangeRedeemCode, {redeemCode: value}).then(res => {
+              this.getListData(this.paging)
                if(res.code === 0){
                   this.$message({
                     type: 'success',
@@ -121,7 +122,7 @@ export default {
           // this.$message({
           //   type: 'info',
           //   message: '取消输入'
-          // });       
+          // });
         });
     },
     load() {
@@ -364,7 +365,7 @@ export default {
         position: absolute;
         right: 0.1rem;
         top: 0.2rem;
-        background-size: 100% 100% !important; 
+        background-size: 100% 100% !important;
         opacity: 0.7;
       }
       .left {
@@ -484,7 +485,7 @@ export default {
   padding: 0 35px;
 }
 .width-25{
-  width: 100px;
+  width: 150px;
   color: #3578c0;
   &:hover{
     color: #ffe371;

@@ -60,12 +60,12 @@ export default {
     align-items: center;
     justify-content: center;
     font-size: 0.28rem;
-    color: var(--themeLight);
+    color: var(--themeDark);
     padding-top: 0.32rem;
   }
   p {
     font-size: 0.35rem;
-    color: var(--themeLight);
+    color: var(--themeDark);
     margin-top: 0.45rem;
     text-align: center;
     padding: 0 0.6rem;
