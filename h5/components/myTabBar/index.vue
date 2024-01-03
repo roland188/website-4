@@ -90,6 +90,7 @@
             </view>
             <view class="tab-icon">
               <image
+				class="tab-img"
                 :src="current == index ? item.selectedIconPath : item.iconPath"
                 mode="widthFix"
               />
@@ -523,6 +524,9 @@ export default {
       padding: 12upx 0 0;
       width: 41upx;
     }
+	.tab-img{
+		width: 41upx;
+	}
     .title {
       margin-top: -5px;
     }
