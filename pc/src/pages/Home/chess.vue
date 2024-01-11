@@ -69,7 +69,8 @@
             @click="getToken(item1, 1)"
           >
             <div class="img-wrap" :class="{ 'img-wrap1': item1.status == 0 }">
-              <img loading="lazy" v-lazy="$config.imgHost + item1.pictureUrl" />
+              <img v-if="ind===0" :src="$config.imgHost + item1.pictureUrl" />
+              <img v-else loading="lazy" v-lazy="$config.imgHost + item1.pictureUrl" />
               <div class="mask">
                 <div class="mask-word">
                   {{ item1.status == 1 ? $t("进入游戏") : $t("维护中") }}

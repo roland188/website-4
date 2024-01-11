@@ -82,6 +82,10 @@ export default {
 
             if (res.code == 0) {
                 _this.gameImgs = res.data;
+                let luckyWheelSimple = res.data.find((item) => item?.expand?.actFolder === "vi-redPacketRain") || {};
+                if(Object.keys(luckyWheelSimple).length > 0){
+                    this.$emit('getluckyWheelSimple',luckyWheelSimple)
+                }
                 //不足3个，补足3个
                 // if (this.gameImgs.length > 0 && this.gameImgs.length < 3) {
                 //     var arr = [];
@@ -277,7 +281,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .main_swiper {
-    width: 100%;
+    width: 100vw;
     height: 520px;
 
     .container {

@@ -6,7 +6,7 @@
             <view class="box" v-for="(item,index) in virtualMallVOList" :key='index'>
                 <image class="img" :src="$config.getImgUrl(item.imgUrlApp)"></image>
                 <view class="title com">{{item.name}}</view>
-                <view class="price com">{{item.amount}}{{ currency }}</view>
+                <view class="price com">{{transform(item.amount)}}{{ currency }}</view>
                 <view class="btn" @click="changeProduce(item,index)">{{ $t('立即兑换') }}</view>
             </view>
         </view>
@@ -26,6 +26,10 @@ export default {
     mounted(){
     },
     methods:{
+        // 正则加逗号
+        transform(num) {
+            return num.toString().replace(/\B(?=(\d{3})+$)/g, ",")
+        },
         changeProduce(item,index){
 			// collection 1虚拟
           mailStore.commit("setChangeItem",item);

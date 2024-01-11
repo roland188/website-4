@@ -5,6 +5,8 @@ const NYSEO = process.argv[3]
 let templateCss = `@import "~@/assets/skin/_bgga.scss";`
 if(NYSEO === '--template=kubet'){
   templateCss = `@import "~@/assets/skin/_kubet.scss";`
+}if(NYSEO === '--template=bet88'){
+  templateCss = `@import "~@/assets/skin/_bgga.scss";`
 }
 // console.log(NYSEO,"NYSEO",process.argv)
 module.exports = {

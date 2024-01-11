@@ -1,3 +1,4 @@
+import i18n from '@/i18n/index.js';
 export const updateApp = {
 	data(){
 		return {
@@ -8,7 +9,7 @@ export const updateApp = {
 			latestVer: false
 		}
 	},
-	onLoad(){
+	created(){
 		// #ifdef APP-PLUS
 		this.Appupdate(true)
 		// #endif
@@ -38,7 +39,7 @@ export const updateApp = {
 			};
 			this.latestVer = true
 			that.$api.appVersion(data, (err, res) => {
-				if (res) {
+				if (res && Object.keys(res).length > 0) {
 					plus.runtime.getProperty(plus.runtime.appid, (wgtinfo) => {
 						const models = uni.getSystemInfoSync();
 						let code = Number(wgtinfo.version.replace(/\./g, ""));
@@ -46,25 +47,27 @@ export const updateApp = {
 						    if (item.versionCode > code) {
 						        if (item.versionType === 2) {
 									this.latestVer = false
-						            that._modelsUpModel(item, '前往更新', code)
+						            that._modelsUpModel(item, i18n.$t('前往更新'), code)
 						        } else if(this.latestVer) {
 									that._getVersion(item, code, models, flag)
 								}
 						    }
 						})
 					});
+				} else {
+					 this.getPopUpAdsSetting(); //获取弹出规则
 				}
 			});
 		},
 		// 比较版本号
 		_getVersion(item, code, models,promptShow) {
 			if (item.versionCode > code) {
-				this._modelsUpModel(item, '立即更新',code)
+				this._modelsUpModel(item, i18n.$t('立即更新'),code)
 			} else {
 				//调用时传过来的true,区分弹出最新版本还是弹出jp和广告
 				if (!promptShow) {
 				    uni.showToast({
-				        title: "当前已是最新版本！",
+				        title: i18n.$t("当前已是最新版本！"),
 				        icon: "none",
 				        duration: 2000,
 				    });
@@ -77,7 +80,7 @@ export const updateApp = {
 		},
 		_modelsUpModel(item, upText,code) {
 			this.$store.commit("update", upText);
-			this.modeldata.title = "发现新版本V" + item.newVersion;
+			this.modeldata.title = i18n.$t("发现新版本V") + item.newVersion;
 			this.modeldata.content = item.updateDescription;
 			this.forceUpdate = item.forceUpdate;
 			if (item.versionCode - code > 1) {

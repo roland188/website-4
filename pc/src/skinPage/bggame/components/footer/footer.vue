@@ -57,7 +57,7 @@
         amxpj: 'Grand Lisboa Casino', 
         amwnsr: 'Macau Venetian', 
         bgga: 'Copyright ©2023 BG.game', 
-        gtgame: 'GoTech' }[projectImgUrl] || 'Copyright ©bet come- BẢN NÂNG CẤP MỚI🔥TRANG WEB CHÍNH THỨC 🌐ĐẢM BẢO UY TÍN✔️ Reserved' }} 
+        gtgame: 'GoTech' }[projectImgUrl] || `Copyright © ${projectName}- BẢN NÂNG CẤP MỚI🔥TRANG WEB CHÍNH THỨC 🌐ĐẢM BẢO UY TÍN✔️ Reserved` }} 
       <!-- Reserved @v{{numVer}} -->
     </div>
   </div>

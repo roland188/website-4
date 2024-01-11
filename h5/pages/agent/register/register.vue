@@ -145,7 +145,7 @@ export default {
             },
             {
               validateFunction: function (rule, value, data, callback) {
-                let iphoneReg = /^1[0-9]{10}$/;
+                let iphoneReg = /^[0-9]{6}$/;
                 if (!iphoneReg.test(value)) {
                   callback(this.$t('手机号码格式不正确，请重新填写'));
                 }
@@ -161,6 +161,8 @@ export default {
   onReady() {
     // 需要在onReady中设置规则
     this.$refs.form.setRules(this.rules);
+  },
+  mounted(){
   },
   methods: {
     submitForm(form) {

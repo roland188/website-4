@@ -1,11 +1,16 @@
 <!-- 首页 -->
 <template>
-    <view class="content">
+    <view class="content" :class="{'theme-container': skinId === 'sovip'}">
 		 <betc88Index v-if="skinId === 'betc88'"/>
 		 <kubetIndex v-if="skinId === 'kubet'"/>
-     <sovip v-if="skinId === 'sovip'"></sovip>
+     <sovip v-if="skinId === 'sovip'" ref="pageIndex"></sovip>
 		 <bgga v-if="skinId === 'bgga'"/>
-         <myTabBar :current="0" ref="menuBar"/>
+		 <bet88 v-if="skinId === 'xiaocao'"/>
+      <myTabBar :current="0" ref="menuBar"/>
+      <!-- 红包和大转盘活动合并后的入口，需要时解开注释 -->
+      <!-- <mergeNewRed v-if="skinId === 'betc88'" /> -->
+      <!-- 水球入口 -->
+      <betSbw v-if="skinId === 'betc88'" />
     </view>
 </template>
 
@@ -16,6 +21,9 @@ import bgga from './bgga/index.vue'
 import sovip from "./sovip/index.vue"
 import myTabBar from '@/components/myTabBar/index.vue';
 import config from "@/utils/config"
+import betSbw from "./components/sbw/sbw.vue"
+import bet88 from "./bet88/index.vue"
+// import mergeNewRed from './components/newRed/index.vue';
 export default {
   data() {
     return {
@@ -23,12 +31,27 @@ export default {
     };
   },
   components:{
-	betc88Index,
-	kubetIndex,
-	bgga,
-  sovip,
-	myTabBar
+    betc88Index,
+    kubetIndex,
+    bgga,
+    sovip,
+    bet88,
+    myTabBar,
+    betSbw
   },
+  onReachBottom(){
+    this.$refs.pageIndex && this.$refs.pageIndex.getGameList()
+  },
+  methods:{
+
+  }
 };
 </script>
+
+<style>
+	.theme-container{
+		background: #0f0f0f;
+		height: 100%;
+	}
+</style>
 

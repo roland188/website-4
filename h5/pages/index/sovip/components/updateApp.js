@@ -53,6 +53,8 @@ export const updateApp = {
 						    }
 						})
 					});
+				} else {
+					 this.getPopUpAdsSetting(); //获取弹出规则
 				}
 			});
 		},

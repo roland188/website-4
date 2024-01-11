@@ -64,6 +64,13 @@
           >
             CSKH
           </view>
+          
+          <view
+            class="item"
+            @click="goAgentPath('/pages/index/index', true)"
+          >
+            Phiên bản PC
+          </view>
         </view>
       </view>
     </chunLei-modal>

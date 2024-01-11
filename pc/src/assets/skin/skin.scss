@@ -49,6 +49,12 @@ $skinList: 'bgga','kubet','betcome','sovip';//皮肤
             .tg:hover {
                 background: url('#{$imgUrl}/dze/tg-a.png') no-repeat;
             }
+            .yq {
+                background: url('#{$imgUrl}/dze/yq.png') no-repeat;
+            }
+            .yq:hover {
+                background: url('#{$imgUrl}/dze/yq-a.png') no-repeat;
+            }
             .hotline{
                 background: url('#{$imgUrl}/dze/Hotline.png') no-repeat;
             }
@@ -86,6 +92,13 @@ $skinList: 'bgga','kubet','betcome','sovip';//皮肤
             }
             .mosaicGold2:hover {
                 background: url('#{$imgUrl}/dze/mosaicGold2Hover.png') no-repeat;
+            }
+            
+            .email {
+                background: url('#{$imgUrl}/dze/email.png') no-repeat center/cover;
+            }
+            .email:hover {
+                background: url('#{$imgUrl}/dze/email-a.png') no-repeat center/cover;
             }
         }
     }

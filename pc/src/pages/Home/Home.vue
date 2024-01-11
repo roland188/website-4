@@ -2,17 +2,24 @@
     <div class="themeColor index">
         <BgGame v-if="['bgga','betc88','sovip'].includes(projectImgUrl)"></BgGame>
         <KuBet v-if="projectImgUrl == 'kubet'"></KuBet>
+        <Bet88 v-if="projectImgUrl == 'xiaocao'"></Bet88>
+        <!-- <mergeNewRed v-if="projectImgUrl === 'betc88'" /> -->
     </div>
 </template>
 
 <script>
 import BgGame from "../../skinPage/bggame/Home.vue";
 import KuBet from "../../skinPage/kubet/Home.vue";
+import Bet88 from "../../skinPage/bet88/Home.vue"
+// 红包活动+大转盘合并，需要时解开注释就好
+// import mergeNewRed from '@/components/newRed/index.vue';
 export default {
     name: "home",
     components: {
         BgGame,
         KuBet,
+        Bet88,
+        // mergeNewRed
     },
     data() {
         return {

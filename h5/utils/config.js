@@ -8,15 +8,32 @@ config.codeUrl = "";
 config.dowUrl = "https://appdownload.010533.com/";
 // 图片服务器
 // #ifdef APP-PLUS
-config.imgHost = "https://web.bets8888.life/file";
+config.imgHost = 'https://m.tc20014.com/file';
 // #endif
 // #ifdef H5
-config.imgHost = process.env.NODE_ENV === 'development' ? "https://web.bets8888.life/file" : window.location.origin + '/file'
+config.imgHost = process.env.NODE_ENV === 'development' ? 'https://m.tc20014.com/file' : window.location.origin + '/file'
 // #endif
 // 彩金地址
 config.jackpotUrl = "";
 // 客服中心地址
 config.customerServiceUrl = uni.getStorageSync("customerServiceUrl");
+// 客服选中
+const getServiceIndex = () => {
+	let imgName = ''
+	// #ifdef APP-PLUS
+	imgName = this.projectImgUrl;
+	// #endif
+	// #ifdef H5
+	imgName = window.projectImgUrl;
+	// #endif
+    return {
+        'ff10': 1, // ff10
+        'betc88': 1, // betcom
+        'bgga':1, // BG.GAME
+        'kbet': 1, // kubet
+        'svip': 3, // kubet
+    }[imgName]
+}
 
 config.loginVersion = "v1.0.0";
 config.reqId = 0;
@@ -28,14 +45,16 @@ config.themePath = ""; // 暂时无视
 config.maintianTime = ""; //维护时间
 config.skin = "amxpj";
 config.yiJiUrl = ''; // 易记域名
-config.myTabBar = { index: 1}; // 底部tabBar信息，用于客服页
+config.myTabBar = {
+	index: getServiceIndex()
+}; // 底部tabBar信息，用于客服页
 
 config.phoneModel = '' //手机型号
 config.fingerprint = '' //设备唯一标识
 
 config.getImgUrl = function (path) {
 	if (path !== "") {
-		return  'https://m.tc20014.com/file'  + path;
+		return  this.imgHost + path;
 	} else {
 		return;
 	}
@@ -58,6 +77,7 @@ const getConfing = () => {
         'betc88': {code: '84',currency: '' }, // betcom
         'bgga': {code: '55',currency: 'R$' }, // BG.GAME
         'kbet': {code: '84',currency: '' }, // kubet
+        'svip': {code: '84',currency: '' }, // kubet
     }[imgName]
 }
 
@@ -65,7 +85,7 @@ const getConfing = () => {
 // 测试打包配置开始
 config.appName = '金沙'; //项目名称
 config.clientCode = "viet";
-config.projectImgUrl = "betc88";
+config.projectImgUrl = "xiaocao";
 config.mainCustomer = 'http://bets8888.website/client/clientCode'; //获取维护客服
 config.domainName = "https://9001.cx";
 config.inviteCode = ''; //邀请码

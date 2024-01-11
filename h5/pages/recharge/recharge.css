@@ -107,9 +107,13 @@ padding: 10px 0px;
 .uni-input1 {
 	display: inline-block;
 	font-size: 36rpx;
-	width: 70%;
-	height: 40rpx;
+	flex: 1;
+	height: 70rpx;
 	vertical-align: top;
+	margin-left: 10rpx;
+	border-radius: 20rpx;
+	padding: 0 10rpx;
+	border: 2rpx solid #ebcc45;
 }
 
 .tips-text {
@@ -404,7 +408,7 @@ button::after {
 }
 .newFlexBox{
 	display: flex;
-	/* align-items: center; */
+	align-items: center;
 }
 .flex-item{
 	flex-grow: 0;

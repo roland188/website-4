@@ -31,48 +31,82 @@
 										swip.vipLevel == 0 ? $t('普通会员') : $t('VIP') + swip.vipLevel
 									}}
 								</view>
-								<view class="member-info" v-if="
-									[1, 2].includes(swip.status) &&
-									(swip.vipLevel == vipLevelData.maxVipLevel || vipLevelData.vipLevel == vipLevelData.maxVipLevel)
-									">
-									{{$t('您已达到最高等级')}}
-								</view>
-
-								<!-- 未解锁 -->
-								<view class="member-info"
-									v-if="[2,0].includes(swip.status) && swip.vipLevel != vipLevelData.maxVipLevel">
-									{{$t('您需要')}}
-									<text class="font700">{{ swip.upgradeRecharge }}</text>
-									<!-- 存款和 <text
-										class="font700">{{ swip.upgradeBet }}</text> -->
-									{{$t('流水升级至')}}
-									<text class="font700">VIP{{ swip.vipLevel + 1 }}</text>
-								</view>
-								<!-- 当前 -->
-								<view class="member-info"
-									v-if="[1].includes(swip.status) && swip.vipLevel != vipLevelData.maxVipLevel">
-									{{$t('您需要')}}
-									<!-- <text class="font700">{{
-									 vipLevelData.upgradeRecharge
-									}}</text>存款和 -->
-									<text class="font700">{{ vipLevelData.upgradeBet }}</text>
-									{{$t('流水升级至')}}
-									<text class="font700">VIP{{ vipLevelData.vipLevel + 1 }}</text>
-								</view>
-								<view class="deposit-bottom-wrap"
-									v-if="swip.status == 1 && vipLevelData.vipLevel != vipLevelData.maxVipLevel" style="margin-top: 40upx;">
-									<view class="deposit-bottom-title">
-										<text>{{$t('历史累计有效流水')}}</text>
-										<text style="color: #F7881B;">{{Math.floor(vipLevelData.bet)}}/<text style="color: #000;">{{vipLevelData.upgradeBet}}</text></text>
-
+								<template v-if="['sovip','betc88','kubet','xiaocao'].includes(skin)">
+									<view class="member-info" v-if="(vipLevelData.recharge - vipLevelData.upgradeRecharge  >= 0)">
+										{{$t('您已达到最高等级')}}
 									</view>
-									<view class="deposit-process-wrap">
-										<view class="step-num step-bg02" :style="{
-											width: getPercent(vipLevelData.bet, vipLevelData.upgradeBet) + '%',
-										}">
+									<!-- 未解锁 -->
+									<view class="member-info"
+										v-if="[2,0].includes(swip.status) && swip.vipLevel != vipLevelData.maxVipLevel">
+										{{$t('您需要')}}
+										<text class="font700">{{ swip.upgradeRecharge }}</text>
+										{{$t('流水升级至')}}
+										<text class="font700">VIP{{ swip.vipLevel + 1 }}</text>
+									</view>
+									<!-- 当前 -->
+									<view class="member-info"
+										v-if="[1].includes(swip.status) && swip.vipLevel != vipLevelData.maxVipLevel">
+										{{$t('您需要')}}
+										<text class="font700">{{ Math.abs(vipLevelData.recharge - vipLevelData.upgradeRecharge) }}</text>
+										{{$t('流水升级至')}}
+										<text class="font700">VIP{{ vipLevelData.vipLevel + 1 }}</text>
+									</view>
+
+									<view class="deposit-bottom-wrap"
+										v-if="swip.status == 1 && vipLevelData.vipLevel != vipLevelData.maxVipLevel" style="margin-top: 40upx;">
+										<view class="deposit-bottom-title">
+											<text>{{$t('存款积累历史')}}</text>
+												<text style="color: #F7881B;">
+													{{Math.floor(vipLevelData.recharge)}}/<text style="color: #000;">{{　vipLevelData.upgradeRecharge　}}
+												</text>
+											</text>
+										</view>
+										<view class="deposit-process-wrap">
+											<view class="step-num step-bg02" :style="{
+												width: getPercent(vipLevelData.recharge, vipLevelData.upgradeRecharge　) + '%',
+											}">
+											</view>
 										</view>
 									</view>
-								</view>
+								</template>
+
+								<template v-else>
+									<view class="member-info" v-if="
+										[1, 2].includes(swip.status) &&
+										(swip.vipLevel == vipLevelData.maxVipLevel || vipLevelData.vipLevel == vipLevelData.maxVipLevel)
+										">
+										{{$t('您已达到最高等级')}}
+									</view>
+									<!-- 未解锁 -->
+									<view class="member-info"
+										v-if="[2,0].includes(swip.status) && swip.vipLevel != vipLevelData.maxVipLevel">
+										{{$t('您需要')}}
+										<text class="font700">{{ swip.upgradeRecharge }}</text>
+										{{$t('流水升级至')}}
+										<text class="font700">VIP{{ swip.vipLevel + 1 }}</text>
+									</view>
+									<!-- 当前 -->
+									<view class="member-info"
+										v-if="[1].includes(swip.status) && swip.vipLevel != vipLevelData.maxVipLevel">
+										{{$t('您需要')}}
+										<text class="font700">{{ vipLevelData.upgradeBet }}</text>
+										{{$t('流水升级至')}}
+										<text class="font700">VIP{{ vipLevelData.vipLevel + 1 }}</text>
+									</view>
+									<view class="deposit-bottom-wrap"
+										v-if="swip.status == 1 && vipLevelData.vipLevel != vipLevelData.maxVipLevel" style="margin-top: 40upx;">
+										<view class="deposit-bottom-title">
+											<text>{{$t('历史累计有效流水')}}</text>
+											<text style="color: #F7881B;">{{Math.floor(vipLevelData.bet)}}/<text style="color: #000;">{{vipLevelData.upgradeBet}}</text></text>
+										</view>
+										<view class="deposit-process-wrap">
+											<view class="step-num step-bg02" :style="{
+												width: getPercent(vipLevelData.bet, vipLevelData.upgradeBet) + '%',
+											}">
+											</view>
+										</view>
+									</view>
+								</template>
 							</view>
 						</view>
 					</swiper-item>
@@ -94,48 +128,67 @@
 					</view>
 
 					<view class="my-privilege-title font700">{{$t('我享有的返水')}}</view>
-					<view class="my-backRecharge" :class="skin === 'betc88' ? 'betc88Style' : null">
-						<view class="icon-item-wrap">
-							<text v-if="skin !== 'betc88'" class="price-text">{{rebateData.rebate1 }}</text>
-							<text v-if="skin !== 'betc88'"  class="name font700">{{$t('体育返水')}}</text>
-              <text v-if="skin === 'betc88'"  class="name font700">{{$t('体育返水')}}:<text class="price-text-betc88">{{rebateData.rebate6 }}</text></text>
-							<text class="most-price" v-if="skin !== 'betc88'">{{ rebateData.rebateMax  || 0}}</text>
+					
+					<template v-if="['sovip','betc88','kubet','xiaocao'].includes(skin)">
+						<view class="my-backRecharge betc88Style">
+							<view class="icon-item-wrap">
+								<text class="name font700">{{$t('体育返水')}}:<text class="price-text-betc88">{{rebateData.rebate6 }}</text></text>
+							</view>
+							<view class="icon-item-wrap">
+								<text class="name font700">{{$t('电竞返水')}}:<text class="price-text-betc88">{{rebateData.rebate3 }}</text></text>
+							</view>
+							<view class="icon-item-wrap">
+								<text class="name font700">{{$t('篮球返水')}}:<text class="price-text-betc88">{{rebateData.rebate5 }}</text></text>
+							</view>
+							<view class="icon-item-wrap">
+								<text class="name font700">{{$t('真人返水')}}:<text class="price-text-betc88">{{rebateData.rebate4 }}</text></text>
+							</view>
+							<view class="icon-item-wrap">
+								<text class="name font700">{{$t('棋牌返水')}}:<text class="price-text-betc88">{{rebateData.rebate1 }}</text></text>
+							</view>
+							<view class="icon-item-wrap">
+								<text class="name font700">{{$t('电子返水')}}:<text class="price-text-betc88">{{rebateData.rebate2 }}</text></text>
+							</view>
 						</view>
-						<view class="icon-item-wrap">
-							<text v-if="skin !== 'betc88'"  class="price-text">{{rebateData.rebate2 }}</text>
-							<text v-if="skin !== 'betc88'"  class="name font700">{{$t('电竞返水')}}</text>
-              <text v-if="skin === 'betc88'"  class="name font700">{{$t('电竞返水')}}:<text class="price-text-betc88">{{rebateData.rebate3 }}</text></text>
-							<text class="most-price"  v-if="skin !== 'betc88'">{{ rebateData.rebateMax || 0 }}</text>
+					</template>
+					<template v-else>
+						<view class="my-backRecharge">
+							<view class="icon-item-wrap">
+								<text class="price-text">{{rebateData.rebate1 }}</text>
+								<text class="name font700">{{$t('体育返水')}}</text>
+								<text class="most-price">{{ rebateData.rebateMax  || 0}}</text>
+							</view>
+							<view class="icon-item-wrap">
+								<text class="price-text">{{rebateData.rebate2 }}</text>
+								<text class="name font700">{{$t('电竞返水')}}</text>
+								<text class="most-price">{{ rebateData.rebateMax || 0 }}</text>
+							</view>
+							<view class="icon-item-wrap">
+								<text class="price-text">{{ rebateData.rebate3 }}</text>
+								<text class="name font700">{{$t('篮球返水')}}</text>
+								<text class="most-price">{{ rebateData.rebateMax || 0 }}</text>
+							</view>
+							<view class="icon-item-wrap">
+								<text class="price-text">{{ rebateData.rebate4 }}</text>
+								<text class="name font700">{{$t('真人返水')}}</text>
+								<text class="most-price">{{ rebateData.rebateMax || 0 }}</text>
+							</view>
+							<view class="icon-item-wrap">
+								<text class="price-text">{{ rebateData.rebate5 }}</text>
+								<text class="name font700">{{$t('棋牌返水')}}</text>
+								<text class="most-price">{{ rebateData.rebateMax || 0 }}</text>
+							</view>
+							<view class="icon-item-wrap">
+								<text class="price-text">{{rebateData.rebate6}}</text>
+								<text class="name font700">{{$t('电子返水')}}</text>
+								<text class="most-price">{{ rebateData.rebateMax || 0}}</text>
+							</view>
 						</view>
-						<view class="icon-item-wrap">
-							<text  v-if="skin !== 'betc88'"  class="price-text">{{ rebateData.rebate3 }}</text>
-							<text   v-if="skin !== 'betc88'"  class="name font700">{{$t('篮球返水')}}</text>
-              <text v-if="skin === 'betc88'"  class="name font700">{{$t('篮球返水')}}:<text class="price-text-betc88">{{rebateData.rebate5 }}</text></text>
-							<text  class="most-price"  v-if="skin !== 'betc88'">{{ rebateData.rebateMax || 0 }}</text>
-						</view>
-						<view class="icon-item-wrap">
-							<text  v-if="skin !== 'betc88'" class="price-text">{{ rebateData.rebate4 }}</text>
-							<text  v-if="skin !== 'betc88'" class="name font700">{{$t('真人返水')}}</text>
-              <text v-if="skin === 'betc88'"  class="name font700">{{$t('真人返水')}}:<text class="price-text-betc88">{{rebateData.rebate4 }}</text></text>
-							<text class="most-price"  v-if="skin !== 'betc88'">{{ rebateData.rebateMax || 0 }}</text>
-						</view>
-						<view class="icon-item-wrap">
-							<text v-if="skin !== 'betc88'"  class="price-text">{{ rebateData.rebate5 }}</text>
-							<text v-if="skin !== 'betc88'"  class="name font700">{{$t('棋牌返水')}}</text>
-              <text v-if="skin === 'betc88'"  class="name font700">{{$t('棋牌返水')}}:<text class="price-text-betc88">{{rebateData.rebate1 }}</text></text>
-							<text class="most-price"  v-if="skin !== 'betc88'">{{ rebateData.rebateMax || 0 }}</text>
-						</view>
-						<view class="icon-item-wrap">
-							<text v-if="skin !== 'betc88'"   class="price-text">{{rebateData.rebate6}}</text>
-							<text v-if="skin !== 'betc88'"   class="name font700">{{$t('电子返水')}}</text>
-              <text v-if="skin === 'betc88'"  class="name font700">{{$t('电子返水')}}:<text class="price-text-betc88">{{rebateData.rebate2 }}</text></text>
-							<text class="most-price"  v-if="skin !== 'betc88'">{{ rebateData.rebateMax || 0}}</text>
-						</view>
-					</view>
+					</template>
 				</view>
 			</view>
 		</view>
-		<myTabBar v-if="projectImgUrl != 'kubet'" :current="3" ref="menuBar" />
+		<myTabBar :current="3" ref="menuBar" />
 	</view>
 </template>
 
@@ -153,7 +206,6 @@
 					nextMargin: 60, // 图片间距
 					height: 340,
 				},
-                projectImgUrl:this.$config.projectImgUrl,
 				rebateData: {
 					id: 0,
 					rebate1: 0,

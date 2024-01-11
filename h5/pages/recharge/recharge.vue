@@ -652,16 +652,16 @@ export default {
     onTabs(i) {
       this.modelIndex = i;
       if (i == 0) {
-        if (this.$config.projectImgUrl != 'betc88') {
-          this.paymentList = this.listPayWays.offline;
-        } else {
+        if (this.$config.projectImgUrl == 'betc88' || this.$config.projectImgUrl == 'sovip') {
           this.paymentList = this.listPayWays.online; //公司入款
+        } else {
+          this.paymentList = this.listPayWays.offline;
         }
       } else if (i == 1) {
-        if (this.$config.projectImgUrl != 'betc88') {
-        this.paymentList = this.listPayWays.online; //公司入款
-        } else {
+        if (this.$config.projectImgUrl == 'betc88' || this.$config.projectImgUrl == 'sovip') {
         this.paymentList = this.listPayWays.offline;
+        } else {
+        this.paymentList = this.listPayWays.online; //公司入款
       }
       } else if (i == 2) {
         this.paymentList = this.listPayWays.digit;
@@ -684,25 +684,25 @@ export default {
       this.$api.getPayment(data, (err, res) => {
         console.log("付款方式", err, res);
         if (res) {
-          if (this.$config.projectImgUrl != 'betc88') {
+          if (this.$config.projectImgUrl == 'betc88' || this.$config.projectImgUrl == 'sovip') {
             this.modelNames = [
               {
-                name: this.$t('公司入款'),
+                name: this.$t('线上入款'),
                 id: 0,
               },
               {
-                name: this.$t('线上入款'),
+                name: this.$t('公司入款'),
                 id: 1,
               },
             ];
           } else {
             this.modelNames = [
               {
-                name: this.$t('线上入款'),
+                name: this.$t('公司入款'),
                 id: 0,
               },
               {
-                name: this.$t('公司入款'),
+                name: this.$t('线上入款'),
                 id: 1,
               },
             ];

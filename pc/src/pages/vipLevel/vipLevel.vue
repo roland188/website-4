@@ -9,7 +9,7 @@
               <div class="name">{{ $common.getUser().username }}</div>
               <div class="member-level">{{ levelInfo.vipName }}</div>
               <div class="vip-notice">
-               {{ projectImgUrl !=='betc88' ? $t('每日北京时间凌晨6点30分 系统进行VIP等级结算') : $t('系统于越南时间每天凌晨5点30分进行VIP促销') }}
+               {{ ['sovip','betc88'].includes(projectImgUrl) ? $t('系统于越南时间每天凌晨5点30分进行VIP促销') : $t('每日北京时间凌晨6点30分 系统进行VIP等级结算') }}
               </div>
             </div>
             <!-- 存款进度条-->
@@ -51,55 +51,69 @@
               </div>
             </div> -->
 
+            <template v-if="['sovip','betc88','xiaocao','kubet'].includes(projectImgUrl)">
+              <!-- 有效流水-->
+              <div class="processWrap">
+                <div class="process-top">
+                  <span class="process-left">{{ $t('存钱升级')}}</span>
+                  <span class="uponline" v-if="levelInfo.recharge - levelInfo.upgradeRecharge  >= 0">
+                    {{$t('已满足升级条件')}}
+                  </span>
+                  <span class="uponline" v-else
+                    >{{$t('晋升下级还需')}}：{{ Math.abs(levelInfo.recharge - levelInfo.upgradeRecharge) }}</span
+                  >
+                </div>
+                <div class="deposit-process">
+                  <div
+                    class="step-inner step-bg-02"
+                    :style="{ width: getPercent(levelInfo.recharge, levelInfo.upgradeRecharge) +'%' , }"
+                  ></div>
+                  <span
+                    class="step-num"
+                    v-if="levelInfo.bet - levelInfo.upgradeBet >= 0"
+                    >{{ Math.floor(levelInfo.recharge) + "/" + levelInfo.upgradeRecharge}}</span
+                  >
+                  <span class="step-num" v-else>{{ Math.floor(levelInfo.recharge) + "/" + levelInfo.upgradeRecharge }}</span>
+                </div>
+              </div>
+              <div class="bottom-deposit-info">
+                <div class="deposit">
+                  {{ $t('存款积累历史') }}：<span>{{ levelInfo.allRecharge || 0 }}</span>
+                </div>
+              </div>
+            </template>
 
-            <!-- 有效流水-->
-            <div class="processWrap">
-              <div class="process-top">
-                <span class="process-left">{{ projectImgUrl !=='betc88' ? $t('有效流水') : $t('存钱升级')}}</span>
-                <span class="uponline" v-if="projectImgUrl !=='betc88' ? levelInfo.bet - levelInfo.upgradeBet >= 0 :
-                levelInfo.recharge - levelInfo.upgradeRecharge  >= 0 ">
-                   {{$t('已满足升级条件')}}
-                </span>
-                <span class="uponline" v-else
-                  >{{$t('晋升下级还需')}}：{{
-                    projectImgUrl !=='betc88' ?  Math.abs(levelInfo.bet - levelInfo.upgradeBet) :
-                        Math.abs(levelInfo.recharge - levelInfo.upgradeRecharge)
-                  }}</span
-                >
+            <template v-else>
+              <!-- 有效流水-->
+              <div class="processWrap">
+                <div class="process-top">
+                  <span class="process-left">{{ $t('有效流水')}}</span>
+                  <span class="uponline" v-if="levelInfo.bet - levelInfo.upgradeBet >= 0">
+                    {{$t('已满足升级条件')}}
+                  </span>
+                  <span class="uponline" v-else
+                    >{{$t('晋升下级还需')}}：{{ Math.abs(levelInfo.bet - levelInfo.upgradeBet) }}</span
+                  >
+                </div>
+                <div class="deposit-process">
+                  <div
+                    class="step-inner step-bg-02"
+                    :style="{ width:getPercent(levelInfo.bet, levelInfo.upgradeBet) +'%',}"
+                  ></div>
+                  <span
+                    class="step-num"
+                    v-if="levelInfo.bet - levelInfo.upgradeBet >= 0"
+                    >{{ Math.floor(levelInfo.bet) + "/" + levelInfo.upgradeBet }}</span
+                  >
+                  <span class="step-num" v-else>{{ Math.floor(levelInfo.bet) + "/" + levelInfo.upgradeBet }}</span>
+                </div>
               </div>
-              <div class="deposit-process">
-                <div
-                  class="step-inner step-bg-02"
-                  :style="{
-                      width:
-                         projectImgUrl !=='betc88' ? getPercent(levelInfo.bet, levelInfo.upgradeBet) +
-                        '%' :  getPercent(levelInfo.recharge, levelInfo.upgradeRecharge) +
-                        '%' ,
-                    }"
-                ></div>
-                <span
-                  class="step-num"
-                  v-if="levelInfo.bet - levelInfo.upgradeBet >= 0"
-                  >{{
-                    projectImgUrl !=='betc88' ? Math.floor(levelInfo.bet) + "/" + levelInfo.upgradeBet :
-                        Math.floor(levelInfo.recharge) + "/" + levelInfo.upgradeRecharge
-                  }}</span
-                >
-                <span class="step-num" v-else>{{
-                    projectImgUrl !=='betc88' ?
-                  Math.floor(levelInfo.bet) + "/" + levelInfo.upgradeBet :
-                    Math.floor(levelInfo.recharge) + "/" + levelInfo.upgradeRecharge
-                }}</span>
+              <div class="bottom-deposit-info">
+                <div class="deposit">
+                  {{$t('历史累计有效流水')}}：<span>{{ levelInfo.allBet || 0 }}</span>
+                </div>
               </div>
-            </div>
-            <div class="bottom-deposit-info">
-              <!-- <div class="deposit">
-                累计存款：<span>{{ levelInfo.allRecharge || 0 }}</span>
-              </div> -->
-              <div class="deposit">
-                {{projectImgUrl !=='betc88' ? $t('历史累计有效流水') : $t('存款积累历史')}}：<span>{{ (projectImgUrl !=='betc88' ? levelInfo.allBet : levelInfo.allRecharge) || 0 }}</span>
-              </div>
-            </div>
+            </template>
           </div>
           <div class="right-wrap">
             <div

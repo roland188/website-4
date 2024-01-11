@@ -1236,6 +1236,10 @@ api.deleteBankids = function(ids, callback = null, isLoading = false) {
 api.getOneMerge = function(data, callback = null, isLoading = false) {
 	server.post("/game/api/v1/game/oneKeyBalanceCollection", data, callback, isLoading);
 };
+
+// 获取语言配置列表
+api.getLangList = (callback) => server.get('/longm/api/v1/language/list', {}, callback, false)
+
 /**
  * 钱包提现
  * @param {number}  amount	提款金额
@@ -1909,4 +1913,20 @@ server.post("/member/api/v1/members/updateAddressStatus", data, callback, isLoad
 api.getVipfaq = function ( callback = null, isLoading = true) {
 	server.get("/member/api/v1/vipGuide/get",null,callback,isLoading);
 };
+api.getSpinBigWheel = function(data, callback = null, isLoading = false) {
+    server.post("/longm/api/v1/thematicActivities/spinBigWheel",data, callback, isLoading);
+};
+api.getWaterBallList = function (
+	clientItem,
+	callback = null,
+	isLoading = false
+  ) {
+	server.get(
+	  "/longm/api/v1/thematicActivities/getWaterBallList?clientItem=" +
+		clientItem,
+	  null,
+	  callback,
+	  isLoading
+	);
+  };
 module.exports = api;

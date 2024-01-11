@@ -59,11 +59,11 @@ export default {
       54: 'Tổng hoàn trả:',
       55: `${unit}`,
       56: 'Đủ',
-      57: 'đồng được nhận',
+      57: 'điểm được nhận',
       58: 'Tài khoản của tôi',
       59: 'Thông tin cơ bản',
       60: 'Trung tâm An ninh',
-      61: 'Quản lý ví tiền',
+      61: 'Tài khoản ngân hàng',
       62: 'Tự phục vụ',
       63: 'Hoa hồng của tôi',
       64: 'Giảm giá',
@@ -71,7 +71,7 @@ export default {
       66: 'Hồ sơ giao dịch',
       67: 'Kỷ lục trò chơi',
       68: 'Nhật ký hoạt động',
-      69: 'Bản ghi nạp tiền',
+      69: 'Lịch sử nạp tiền',
       70: 'Hồ sơ rút tiền',
       71: 'Khác',
       72: 'Thông báo thông tin',
@@ -183,7 +183,7 @@ export default {
       194: 'ỨNG DỤNG đang mở',
       195: 'Bước vào trò chơi...',
       196: 'Ví của bạn đã bị đóng băng và không thể mang số tiền vào! ',
-	    197: 'giảm giá tự động',
+	    197: 'Khuyến mãi tự nhận',
     },
     search: {
       1: 'Vui lòng nhập nội dung bạn muốn tìm kiếm',
@@ -251,10 +251,10 @@ export default {
       31: 'Lấy mã xác minh thành công'
     },
     register: {
-      1: 'Vui lòng nhập mã mời (tùy chọn)',
+      1: 'Vui lòng nhập mã giới thiệu ( ko bắt buộc )',
       2: 'Vui lòng nhập mã mời',
       3: 'độ dài từ 4 đến 13 chữ số',
-      4: 'độ dài từ 6 đến 15 chữ số',
+      4: 'Tên tài khoản 6-15 chữ và số, không dấu',
       5: 'Vui lòng nhập số điện thoại di động (tùy chọn)',
       6: 'Vui lòng nhập số điện thoại của bạn',
       7: 'Vui lòng nhập mã xác minh SMS',
@@ -494,7 +494,7 @@ export default {
       11: 'Đã hoàn thành dọn dẹp bộ nhớ cache',
     },
     gameRecord: {
-      title: 'Bản ghi trò chơi',
+      title: 'Lịch sử đặt cược',
       1: 'lọc',
       2: 'Tổng tiền cược',
       3: 'Tổng số tiền đặt cược hiệu quả',
@@ -670,7 +670,7 @@ export default {
       71: 'Thất bại',
     },
     active: {
-      title: 'Bản ghi hoạt động',
+      title: 'Lịch sử hoạt động',
       1: 'lọc',
       2: 'Bàn xoay lớn',
       3: 'chi tiết của sự kiện',
@@ -693,10 +693,10 @@ export default {
       20: 'mãi mãi',
     },
     recharge: {
-      title: 'Bản ghi nạp tiền',
+      title: 'Lịch sử nạp tiền',
       title1: 'Nạp tiền',
       1: 'lọc',
-      2: 'Bản ghi nạp tiền',
+      2: 'Lịch sử nạp tiền',
       3: 'Chuyển khoản qua thẻ ngân hàng',
       4: 'Tiền kỹ thuật số',
       5: 'quà tặng',
@@ -772,7 +772,7 @@ export default {
     },
     other: {
       title: 'khác',
-      title1: 'Kỷ lục cá cược',
+      title1: 'Lịch sử rút tiền',
       1: 'lọc',
     },
     message: {
@@ -1051,7 +1051,7 @@ export default {
       text1: 'đã xóa thành công',
   },
   bankList: {
-      title: 'Quản lý ví tiền',
+      title: 'Tài khoản ngân hàng',
       1: 'Thẻ ngân hàng / tiền tệ kỹ thuật số của tôi',
       noData: 'Cái này trống rỗng không có gì',
       2: 'Thêm phương thức thanh toán',
@@ -1138,7 +1138,7 @@ export default {
       11: 'Đã hoàn thành dọn dẹp bộ nhớ cache',
   },
   gameRecord: {
-      title: 'Bản ghi trò chơi',
+      title: 'Lịch sử đặt cược',
       1: 'lọc',
       2: 'Tổng tiền cược',
       3: 'Tổng số tiền đặt cược hiệu quả',
@@ -1314,7 +1314,7 @@ export default {
       71: 'Thất bại',
   },
   active: {
-      title: 'Bản ghi hoạt động',
+      title: 'Lịch sử hoạt động',
       1: 'lọc',
       2: 'Bàn xoay lớn',
       3: 'chi tiết của sự kiện',
@@ -1337,10 +1337,10 @@ export default {
       20: 'mãi mãi',
   },
   recharge: {
-      title: 'Bản ghi nạp tiền',
+      title: 'Lịch sử nạp tiền',
       title1: 'Nạp tiền',
       1: 'lọc',
-      2: 'Bản ghi nạp tiền',
+      2: 'Lịch sử nạp tiền',
       3: 'Chuyển khoản qua thẻ ngân hàng',
       4: 'Tiền kỹ thuật số',
       5: 'quà ',
@@ -1417,7 +1417,7 @@ export default {
   },
   other: {
       title: 'khác',
-      title1: 'Kỷ lục cá cược',
+      title1: 'Lịch sử rút tiền',
       1: 'lọc',
   },
   message: {
@@ -1677,7 +1677,7 @@ export default {
     21: 'đã mở khóa',
   },
   mallStore: {
-    title: 'Cửa hàng',
+    title: 'Mini Game',
     1: 'Đổi ngay',
     2: 'Thêm bất ngờ',
     3: 'Hãy theo dõi',

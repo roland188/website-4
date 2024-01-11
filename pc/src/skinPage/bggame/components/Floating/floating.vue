@@ -93,6 +93,12 @@
                  :class="{mosaicGold2:mosaicGoldImg == 2}" ></div>
                  <!-- :style="{'background': }" -->
         </div>
+        
+        <div class="fwDownload" 
+            v-if="['sovip','betc88'].includes(projectImgUrl)">
+            <div class="icon yq" @click="jump('yq')"></div>
+        </div>
+        
         <!-- <div slot="reference"
              class="fwDownload"
              @click="onLixi"
@@ -213,23 +219,26 @@ export default {
         jump(type) {
             if (type === 'app' || type == 'zalo') return
             let obj = {}
+            
+            if(type == 'yq') {
+                if (!this.$common.getUser()) {
+                    this.$common.openLogin()
+                    return
+                }
+                this.$store.commit('rebate',true)
+                return
+            }
             if(this.projectImgUrl == 'sovip'){
                 obj = {
-                    fb: 'https://www.facebook.com/profile.php?id=100093267475317',
+                    fb: 'https://www.facebook.com/profile.php?id=100091242655234',
                     tg: 'https://t.me/SOVIP_CSKH',
-                    zalo: '',
+                    zalo: 'https://zaloapp.com/qr/p/1kfhtzwc24rcg',
                     Hotline:'',
                 }
-            }if(this.projectImgUrl == 'betc88'){
+            }
+            if(this.projectImgUrl == 'betc88'){
                 obj = {
-                    fb: 'https://www.facebook.com/profile.php?id=61553287230399',
-                    tg: 'https://t.me/BETCOME8',
-                    zalo: '',
-                    Hotline:'',
-                }
-            }else{
-                obj = {
-                    fb: 'https://www.facebook.com/profile.php?id=61553287230399',
+                    fb: 'https://www.facebook.com/profile.php?id=100072168072046',
                     tg: 'https://t.me/BETCOME8',
                     zalo: '',
                     Hotline:'',

@@ -28,6 +28,17 @@
     </view>
       
     </scroll-view>
+    <!-- 搜索游戏 -->
+    <view class="searchTab" @click="toSearch">
+      <text class="searchIcon cuIcon-search"></text>
+      <input
+        class="uni-input-input searchInput"
+        confirm-type="search"
+        type="text"
+        placeholder-class="searchPlace"
+        :placeholder="$t('请输入你要搜索的内容')"
+      />
+    </view>
     <!-- GameList -->
     <view >
       <HotGameList :gameList="gameList" @difference="difference"  v-if="id == 0"/>
@@ -106,6 +117,15 @@ export default {
 			})
   },
   methods: {
+    toSearch(){
+      if (!this.$api.isLogin()) {
+        uni.navigateTo({
+          url: "/pages/Login/Login",
+        });
+        return;
+      }
+      uni.navigateTo({url:"/pages/search/search"})
+    },
     getGameList(){
       console.log(11111)
       if(this.id != 0 && this.type == 1){
@@ -531,4 +551,24 @@ export default {
   }
   
 }
+.searchTab{
+  margin: 10rpx;
+	padding: 20rpx 20rpx; 
+  margin-bottom: 16rpx;
+  background: #22211f;
+  border-radius: 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .searchIcon {
+    margin-right: 10rpx;
+    font-size: 36upx;
+    color: #767676;
+  }
+    .search{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
 </style>

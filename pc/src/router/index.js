@@ -32,6 +32,8 @@ let projectImgUrl = ''
 if(window.projectImgUrl ){
     if(['bgga','betc88','sovip'].includes(window.projectImgUrl)){
         projectImgUrl = 'bggame'
+    }else if(['xiaocao'].includes(window.projectImgUrl)){
+        projectImgUrl = 'bet88'
     }else{
         projectImgUrl = window.projectImgUrl
     }

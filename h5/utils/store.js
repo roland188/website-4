@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 Vue.use(Vuex)
 const store = new Vuex.Store({
     state: {
-        update: '立即更新',
+        update: '',
         advertisingShow: false,
         lang: 'vi'
     },

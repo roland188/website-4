@@ -34,7 +34,17 @@
             class="inner"
             @tap="difference(gamemenusparent, item, navIndex, index)"
           >
-            <image
+            <image v-if="navIndex === 0"
+              class="img" 
+              :src="
+              item.topUrl
+                  ? $config.getImgUrl(item.topUrl)
+                  : item.pictureUrl
+                  ? $config.getImgUrl(item.pictureUrl)
+                  : noDate
+              "
+              mode="aspectFit"></image>
+            <image v-else
               class="img" :src=" item.imgUrlApp
                   ? $config.getImgUrl(item.imgUrlApp)
                   : item.pictureUrl
@@ -43,7 +53,7 @@
               "
               mode="aspectFit"></image>
             <view class="title_content">
-              <view class="title">{{ item.name }}</view>
+              <view class="title" v-if="navIndex !== 0">{{ item.name }}</view>
               <image class="icon" :src="item.imgUrlAppOne? $config.getImgUrl(item.imgUrlAppOne) : ''" mode="aspectFit"></image>
             </view>
           </view>

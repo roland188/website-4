@@ -5,8 +5,10 @@
     "scripts": {
         "kubet": "vue-cli-service serve --template=kubet",
         "bgga": "vue-cli-service serve --template=bgga",
+        "bet88": "vue-cli-service serve --template=bet88",
         "build:kubet": "npm run scan && vue-cli-service build --template=kubet && node crc.js ",
         "build:bgga": "npm run scan && vue-cli-service build --template=bgga && node crc.js ",
+        "build:bet88": "npm run scan && vue-cli-service build --template=bet88 && node crc.js ",
         "scan": "i18next-scanner --config  i18next-scaner.config.js",
         "toExcel": "node src/i18n/toExcel.js",
         "toJson": "node src/i18n/toJson.js"

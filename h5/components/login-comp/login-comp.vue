@@ -595,14 +595,14 @@ export default {
           uni.showToast({
             icon: "none",
             title: this.$t('账号不能为空'),
-            duration: 2000,
+            duration: 3000,
           });
           return;
         } else if (!_this.password) {
           uni.showToast({
             icon: "none",
             title: _this.$t('密码不能为空'),
-            duration: 2000,
+            duration: 3000,
           });
           return;
         }
@@ -734,7 +734,7 @@ export default {
             uni.showToast({
               icon: "none",
               title: err.msg,
-              duration: 1500,
+              duration: 3000,
             });
             setTimeout(function () {
               // #ifdef H5
@@ -752,27 +752,29 @@ export default {
               _this.getDefaultStatus();
               // #endif
               _this.themePreBtnFlag = false;
-            }, 1500);
+            }, 3000);
           } else {
             // _this.getAutoJoinAct()
             // console.log(res, '登录成功');
             uni.showToast({
               icon: "none",
               title: _this.$t('登录成功'),
-              duration: 1500,
+              duration: 3000,
             });
-            // #ifdef  H5
-            // 新版
-            maskAppToNative("login");
-            //老版
-            maskAppOldToNative("login");
-            // #endif
-            // #ifdef  H5
-            sessionStorage.setItem("pullKingShow", false);
-            // #endif
-            // #ifdef APP-PLUS
-            _this.$store.commit("advertisingShow", false);
-            // #endif
+            setTimeout(()=>{
+              // #ifdef  H5
+              // 新版
+              maskAppToNative("login");
+              //老版
+              maskAppOldToNative("login");
+              // #endif
+              // #ifdef  H5
+              sessionStorage.setItem("pullKingShow", false);
+              // #endif
+              // #ifdef APP-PLUS
+              _this.$store.commit("advertisingShow", false);
+              // #endif
+            },3000)
 
             if (res.firstLogin) {
               _this.modalData.content = _this.$t('您的登录密码已确认，请及时修改密码，以防泄露！');

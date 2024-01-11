@@ -46,7 +46,12 @@
         <chunLei-modal v-model="modelvalue" :indexData="rules" ref="pullKing" @enterGame="enterGame" :mData="modeldata" :type="modeltype"
 		 :maskEnable="maskEnable" @onConfirm="onConfirm" @cancel="cancel" :tabbarHeight="tabbarHeight" @modelToast="modelToast"
 		 @routerLink="routerLink" @doShowRelief="doShowRelief" @goGameNew="goGameNew" navMask></chunLei-modal>
-
+      <!-- 红包雨 -->
+      <view class="popup_world"
+        v-if="isWorldPop" @click="onluckyWheelSimple">
+          <view class="popup_close" @click.stop="isWorldPop = false"></view>
+          <view class="popup_bg"></view>
+      </view>
         <!-- 春节福袋入口 -->
         <!-- <LuckyBag /> -->
 
@@ -67,7 +72,7 @@ import GameList from "./components/gameList.vue";
 import PrizePool from './components/PrizePool.vue'
 import OtherInfo from './components/otherInfo.vue'
 import TabBar from "@/components/myTabBar/index.vue"
-import { updateApp } from "./components/updateApp.js";
+import { updateApp } from "../components/updateApp.js";
 // import LuckyBag from './components/luckyBag.vue'
 import RightFloatingFrame from "@/components/rightFloatingFrame/rightFloatingFrame.vue";
 import LeftMenu from "@/components/leftMenu/leftMenu.vue";
@@ -105,6 +110,7 @@ export default {
   },
   data() {
     return {
+      isWorldPop: false,
       // #ifdef H5
       showDownload: true, // 是否展示顶部下载组件
       // #endif
@@ -161,6 +167,7 @@ export default {
       arr: [],
       langType: this.$store.state.lang,
       myTabIndex: 0,
+      worldCupData:{},
     };
   },
   onPullDownRefresh() {
@@ -169,7 +176,6 @@ export default {
     }, 3000);
   },
   onReachBottom() {
-      this.$refs.gameList && this.$refs.gameList.getGameList()
   },
   // 热更返回问题
   // onBackPress() {
@@ -245,10 +251,10 @@ export default {
     let self = this;
     self.hotGame(); //热门游戏
     self.recommendGame(); //推荐
+    self.getBanner()
     uni.$on("advertising", function (data) {
       self.getPopUpAdsSetting();
     });
-
     // #ifdef H5
     this.getPopUpAdsSetting();
     // #endif
@@ -269,6 +275,7 @@ export default {
       self.getGameMenu(); //获取菜单
       self.hotGame(); //热门游戏
       self.recommendGame(); //推荐
+      self.getBanner()
       if (self.login) {
         self.getPlayerRecentGame(); //常玩
       }
@@ -285,6 +292,47 @@ export default {
     uni.$off("update");
   },
   methods: {
+    // 获取轮播
+		getBanner() {
+			this.$api.banners((err, res) => {
+				if (err) return
+				else{
+					if (res?.length) {
+						 this.worldCupData =  res.find((item) => item?.expand?.actFolder === "vi-redPacketRain") || {}
+						if(Object.keys(this.worldCupData).length > 0){
+              this.isWorldPop = true
+							this.getThematicActivitiesByApp(this.worldCupData.urlId)
+            }
+					} else {
+					  this.isWorldPop = false;
+					}
+				}
+
+			}, false);
+		},
+    getThematicActivitiesByApp(urlId){
+			this.$api.getThematicActivitiesByApp(urlId,(err,res)=>{})
+		},
+    onluckyWheelSimple() {
+			if (!this.$api.isLogin()) {
+			  uni.showToast({
+				title: "请先登录",
+				icon: "none",
+			  });
+			} else {
+			  let data = this.worldCupData;
+			  if (data?.expand?.actType == 3) {
+          this.$cache.set("activityId", data.urlId);
+          this.$cache.set("activityItem", data);
+          uni.navigateTo({
+            url: "/pages/activity/activity",
+          });
+			  }
+			}
+    },
+    getGameList(){
+      this.$refs.gameList && this.$refs.gameList.getGameList()
+    },
     rechargeComplete() {
       console.log("rechargeComplete:");
       if (!this.$api.isLogin()) {
@@ -1685,5 +1733,29 @@ export default {
   .p-bottom-40 {
     padding-bottom: 30upx !important;
   }
+}
+
+.popup_world {
+	position: fixed;
+	bottom: 160rpx;
+	right: 16rpx;
+	z-index: 99;
+	width: 200rpx;
+	height: 200rpx;
+	z-index: 9;
+	background: url("~@/static/image/price-bg.gif") no-repeat center/contain;
+	.popup_close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 10;
+		width: 30rpx;
+		height: 30rpx;
+		background: url("~@/static/image/tNone.png") no-repeat center/contain;
+	}
+	.popup_bg {
+		width: 100%;
+		height: 100%;
+	}
 }
 </style>

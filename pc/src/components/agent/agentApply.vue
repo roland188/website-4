@@ -247,7 +247,8 @@ export default {
     };
   },
   computed: {},
-  mounted() {},
+  mounted() {
+  },
   methods: {
     //提交
     submitForm(formName) {

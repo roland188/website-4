@@ -12,7 +12,6 @@
       >
         <view
           class="icon"
-          :class="{ 'dw-icon': tabbar.id == 2 && projectImgUrl == 'kubet' }"
           v-if="current !== tabbar.id"
           :style="{
             background:
@@ -28,6 +27,7 @@
         <view class="yuan" v-if="current == tabbar.id">
           <view
             class="icon"
+            :class="current == tabbar.id && projectImgUrl == 'kubet' ? 'active' : ''"
             :style="{
               background:
                 'url(' +
@@ -120,7 +120,7 @@ export default {
       baseUrl: "/static/img/tabBar/",
       unreadFlagActive: 0,
       projectImgUrl: config.projectImgUrl,
-	  dispTransaction: false,
+	    dispTransaction: false,
       tabbarList: [
         {
           //首页
@@ -185,20 +185,20 @@ export default {
           path: "/pages/subCustomerService/subCustomerService",
         },
         {
-          //提现
+          //优惠
           id: 2,
-          name: this.$t("提现"), //'Khuyến Mãi',
-          icon: "dw.svg",
-          activeIcon: "dw.svg",
-          path: "/pages/account/account",
+          name: this.$t("优惠"), //'Khuyến Mãi',
+          icon: "preferential.png",
+          activeIcon: "preferential_active.png",
+          path: "/pages/preferential/preferential",
         },
         {
-          //优惠
+          //vip
           id: 3,
-          name: this.$t("优惠"), //'CAO CẤP',
-          icon: "record.svg",
-          activeIcon: "record.svg",
-          path: "/pages/firstRecord/firstRecord",
+          name: this.$t("VIP"), //'CAO CẤP',
+          icon: "vip.png",
+          activeIcon: "vip_active.png",
+          path: "/pages/vipLevel/vipLevel",
         },
         {
           //会员中心
@@ -206,11 +206,11 @@ export default {
           name: this.$t("会员中心"), //'Của tôi',
           icon: "menber.svg",
           activeIcon: "menber.svg",
-          selectIcon: "menber-active.png",
           path: "/pages/my/my",
         },
       ];
-    } else if (this.projectImgUrl === "sovip") {
+    }
+    if (this.projectImgUrl === "sovip") {
       this.tabbarList = [
         {
           pagePath: "/pages/index/index",
@@ -245,14 +245,17 @@ export default {
         },
       ];
     }
-
+    if(this.projectImgUrl === 'xiaocao'){
+      this.tabbarList.splice(3, 1);
+    }
     if (this.projectImgUrl === "bgga") {
       this.tabbarList.splice(1, 1);
     }
     console.log("this.projectImgUrl ====", this.tabbarList);
   },
   mounted() {
-    console.log("mounted ====");
+    
+    console.log("mounted ====",this.$config.myTabBar.index);
 	if(this.projectImgUrl !== 'sovip'){
 		setTimeout(() => {
 		this.checkUnread();
@@ -550,5 +553,8 @@ export default {
     background: #f0ad4e;
     box-sizing: border-box;
   }
+}
+.active{
+  background-position: 0 -27px !important;
 }
 </style>

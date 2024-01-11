@@ -51,7 +51,8 @@
           </view>
         </view>
         <!-- <text class="tip-text" v-if="bankcodeTip && bankCodeName !== '数字货币'">银行卡号必须大于12位小于19位</text> -->
-        <view class="uni-flex border-item">
+        <view class="uni-flex border-item" v-if="(bankCodeName == $t('数字货币') && ['sovip','betc88'].includes($config.projectImgUrl))
+          || !['sovip','betc88'].includes($config.projectImgUrl)">
           <view class="flex-item">
             <text class="name oneTitleColor8">{{bankCodeName === $t('数字货币') ? $t('链路') : $t('支行')}}</text>
           </view>
@@ -334,20 +335,22 @@ export default {
         this.showToast(this.$t('请输入账户姓名'));
         return;
       }
+      if(!['sovip','betc88'].includes(this.$config.projectImgUrl)){
+        if (!this.bankData.branch) {
+          this.showToast(this.$t('请输入支行名称'));
+          return;
+        }
+        if (this.bankData.branch.trim() == "") {
+          this.showToast(this.$t('请输入支行名称'));
+          return;
+        }
+      }
       if (!this.bankData.branch && this.bankCodeName === this.$t('数字货币')) {
         this.showToast(this.$t('请输入ERC20或TRC20'));
         return;
       }
       if (this.bankData.branch.trim() == "" && this.bankCodeName === this.$t('数字货币')) {
         this.showToast(this.$t('请输入ERC20或TRC20'));
-        return;
-      }
-      if (!this.bankData.branch) {
-        this.showToast(this.$t('请输入支行名称'));
-        return;
-      }
-      if (this.bankData.branch.trim() == "") {
-        this.showToast(this.$t('请输入支行名称'));
         return;
       }
       if (!this.bankData.number && this.bankCodeName === this.$t('数字货币')) {
@@ -364,7 +367,7 @@ export default {
       var banknum = this.bankData.number.replace(/\s*/g, ""); //去除空格
       var data = {
         account: this.bankData.account, //	银行卡账户名
-        branch: this.bankData.branch, //	支行
+        branch: ['sovip','betc88'].includes(this.$config.projectImgUrl) ? this.bankData.name : this.bankData.branch, //	支行
         memberId: this.memberId, //	会员id
         name: this.bankData.name, //	银行名称
         number: banknum, //卡号

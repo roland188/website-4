@@ -75,6 +75,7 @@
           <div class="form-i" v-if="regFlag.inviteCode">
             <img class="form-img" src="./img/invite.png" alt="">
             <input class="form-input" :placeholder="`${$t('请输入邀请码')}(${regFlag.inviteCode === 2 ? $t('必填') : $t('选填')})`" type="text"
+              :disabled="form.inviteCode ? true : false"
               v-model="form.inviteCode" />
           </div>
           <div class="form-i" v-if="regFlag.birthday">
@@ -172,6 +173,7 @@ export default {
   mounted() {
     this.getDefaultStatus()
     this.getRegisterSet()
+    this.form.inviteCode =  JSON.parse(sessionStorage.getItem("inviteCode")) || ""
     if (!this.$common.getUser()) {
       this.setShowLogin({ show: true })
     }

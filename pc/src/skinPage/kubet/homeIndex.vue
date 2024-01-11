@@ -101,7 +101,7 @@ import bestList from "../../components/index/best";
 //高额返利
 import JackPotNew from "../../components/jackPot/jackPotNew";
 // 抢红包活动
-import leftAward from "@/components/leftAward/index";
+// import leftAward from "@/components/leftAward/index";
 import doubleDenier from "@/components/doubleDenier/index";
 import ActDetail from "@/pages/actDetail/actDetail";
 // 水球打码活动
@@ -119,7 +119,7 @@ export default {
     Notice,
     ActDetail,
     JackPotNew,
-    leftAward,
+    // leftAward,
     HomeSbw,
     doubleDenier,
     UsdtFloating,

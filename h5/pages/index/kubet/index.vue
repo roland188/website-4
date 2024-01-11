@@ -53,7 +53,7 @@ import GameList from "./components/gameList.vue";
 import Header from "./components/header.vue"
 import PrizePool from './components/PrizePool.vue'
 import OtherInfo from './components/otherInfo.vue'
-import { updateApp } from "./components/updateApp.js";
+import { updateApp } from "../components/updateApp.js";
 // import LuckyBag from './components/luckyBag.vue'
 import RightFloatingFrame from "@/components/rightFloatingFrame/rightFloatingFrame.vue";
 import myTabBar from '@/components/myTabBar/index.vue';

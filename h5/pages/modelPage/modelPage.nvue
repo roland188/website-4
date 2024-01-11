@@ -35,7 +35,7 @@
 				content: '',
 				title: '',
 				forceUpdate: null,
-				updates: '立即更新',
+				updates: getApp().$t('立即更新'),
 				indexs: 0,
 				btnDom: '',
 				updateFD: false,
@@ -57,7 +57,7 @@
 			"$store.state.update"(val) {
 				let that = this;
 				//监听值是否变化，赋值
-				if (val === '下载安装包失败' || val === '网络请求失败' || val === '立即更新' || val === '前往更新') {
+				if (val === getApp().$t('下载安装包失败') || val === getApp().$t('网络请求失败') || val === getApp().$t('立即更新') || val === getApp().$t('前往更新')) {
 					that.updates = val
 				} else if (val >= 1) {
 					// if(val >= 2){
@@ -89,12 +89,12 @@
 			},
 			upOver(e) {
 				//更新第三步,点击下载按钮，值为立即更新或者前往更新做不同操作
-				if (this.updates === '立即更新') {
+				if (this.updates === getApp().$t('立即更新')) {
 					// 触发更新操作，modelUp在index中
 					uni.$emit('modelUp', {
 						content: '该更新了'
 					});
-				} else if (this.updates === '前往更新') { //2跳出去的
+				} else if (this.updates === getApp().$t('前往更新')) { //2跳出去的
 
 					plus.runtime.openURL(this.url)
 				}

@@ -1,14 +1,14 @@
 <template>
   <div class="award-page">
-    <div class="award-coat" v-show="isShow">
+    <!-- <div class="award-coat" v-show="isShow">
       <div v-if="['amwnsr','wbgj','amxpj','funw'].includes(projectImgUrl)">
         <img class="bg-img" :src="require('./image/'+projectImgUrl+'/i-bg.gif')" @click="goReceive" />
       </div>
       <div v-else>
         <img class="bg-img" src="./image/i-bg.gif" @click="goReceive" />
       </div>
-      <!-- <img class="close" src="./image/i-close.png" @click="closeCoat" /> -->
-    </div>
+      <img class="close" src="./image/i-close.png" @click="closeCoat" />
+    </div> -->
     <el-dialog
       class="award-inside"
       :visible.sync="adVisible"
@@ -57,6 +57,7 @@
 // import { showLogin } from "../../pages/login/login"; 
 //   import { mapActions } from "vuex";
 export default {
+  'name': 'leftAward',
   data() {
     return {
       adVisible: false,
@@ -73,11 +74,22 @@ export default {
        // rawHtml: '<p style="font-size:14px;color: #a7a8a9;padding-bottom: 8px;">本轮抢红包已结束，下轮再接再励。</p><p style="font-size:14px;">&nbsp;&nbsp;&nbsp;<span style="color:#ff5c48;">!!限时疯狂优惠!!</span></p><p style="font-size:20px;padding-top: 8px;">&nbsp;&nbsp;虚拟钱包入款</p><p style="font-size:18px;">&nbsp;&nbsp;最高<span style="color:#42ff31;">5%</span>回馈</p><p style="font-size:14px;">&nbsp;&nbsp;&nbsp;<span style="color:#e3a16b;display: inline-block;padding: 8px;">!!限时疯狂优惠!!</span><image style="width: 100%;height: 62px;" src="https://m.appbet222.com/file/mujun/23af3650-52b3-4da8-b80f-41e600090a98.jpg"></image></p>'
     };
   },
-
+  watch: {
+        "$store.state.token"(n) {
+            if (n) {
+                this.banner();
+            } else {
+                // this.isShow = false;
+            }
+        },
+    },
   mounted() {
     this.banner();
   },
   methods: {
+    getActivitiesData(urlId) {
+      this.$http.get(this.$api.getThematicActivitiesByApp + "/" + urlId).then((res) => { });
+    },
     // ...mapActions(["increment"]),
     banner: async function () {
       let _this = this;
@@ -87,6 +99,9 @@ export default {
         {};
       this.urlId = worldCupData.urlId;
       this.isShow = Object.keys(worldCupData).length > 0;
+      if(this.isShow){
+        this.getActivitiesData(worldCupData.urlId)
+      }
     },
     getSpinBigWheel() {
       const data = {
@@ -122,8 +137,7 @@ export default {
     },
     goReceive() {
       if (!this.$common.getUser()) {
-        // this.$message.warning(this.$t('请登录'))
-        this.$common.openLogin()
+        this.$message.warning(this.$t('请登录'))
         return;
       } else {
         this.getSpinBigWheel();
@@ -143,7 +157,7 @@ export default {
     openLink() {
         this.adVisible2 = false
         this.$router.push('/mcenter/recharge')    
-    }
+      }
   },
 };
 </script>
@@ -153,8 +167,8 @@ export default {
   .award-coat {
     width: 146px;
     text-align: center;
-    position: fixed;
-    bottom: 5%;
+    position: absolute;
+    top: 12%;
     z-index: 999;
 
     .bg-img {

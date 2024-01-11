@@ -74,7 +74,7 @@
                     </div>
                 </el-col>
             </el-row>
-            <el-row class="elrows" v-if="!isBankShow">
+            <el-row class="elrows" v-if="!isBankShow && !['sovip','betc88'].includes(projectImgUrl)">
                 <el-col :span="24">
                     <div class="col-title">
                         <span>{{$t('支行名称')}}：</span>
@@ -201,6 +201,7 @@ export default {
                 number: "",
                 phone: "",
             },
+            projectImgUrl: window.projectImgUrl,
             bankNameList:[],
             disabledName:false,//姓名是否可编辑
             bankNumberTipsText: this.$t('请认真校对银行卡号，卡号错误将导致资金无法到账'),
@@ -405,12 +406,15 @@ export default {
                     });
                     return;
                 }
-                if (!this.bankCardInfo.branch && !this.isBankShow) {
-                    this.$message({
-                        message: this.$t("请输入支行"),
-                        type: "warning"
-                    });
-                    return;
+                
+                if(!['sovip','betc88'].includes(this.projectImgUrl)){
+                    if (!this.bankCardInfo.branch && !this.isBankShow) {
+                        this.$message({
+                            message: this.$t("请输入支行"),
+                            type: "warning"
+                        });
+                        return;
+                    }
                 }
                 if (!this.successBnakNumber && !this.isBankShow) {
                     this.$message.error(this.$t("请输入正确的银行卡号"));
@@ -431,7 +435,7 @@ export default {
                 // let backCardFull = this.bankCardInfo.number.replace(/\s*/g, ""); //去除所有空格
                 option = {
                     account: this.bankCardInfo.account, //	银行卡账户名
-                    branch: this.bankCardInfo.branch, //	支行
+                    branch: ['sovip','betc88'].includes(projectImgUrl) ? this.bankCardInfo.name : this.bankCardInfo.branch, //	支行
                     memberId: this.userId, //	会员id
                     name: this.bankCardInfo.name, //	银行名称
                     number: this.bankCardInfo.number, //卡号

@@ -96,15 +96,30 @@
                 "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
                 "domains": [],
             },
+            
+            {
+                "code": "xcao",
+                "skin": "xiaocao",
+                "childCode": "xcao",
+                "locale": 'vi',
+                "name": "88bet",
+                "theme": "a032",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
+                "isMaskApp": 1,
+            },
         ];
         if (!l) {
             if (a.length > 2) a = a.slice(a.length - 2);
             u = a.join(".");
         }
-        // var o = c[2];// bggame
         var o = c[2];// bggame
-        var o = c[3];// kubet
+        var o = c[3];// betcome
         // var o = c[4];// sovip
+        // var o = c[5];// bet88
         console.log('-----', o)
         for (var x in c) {
             var i = c[x];
@@ -120,6 +135,7 @@
         // o.host = "https://tc20011.com/xxa"
         o.host = "https://lyjqv6pvv2.com/xxa";
         // o.host = "https://tc20009.com/xxa"
+        // o.host = "https://tc00011.com/xxa"
         localStorage.setItem("host", o.host);
         sessionStorage.setItem("theme", parseInt(o.theme.slice(1)));
         window.theme = o.theme;
