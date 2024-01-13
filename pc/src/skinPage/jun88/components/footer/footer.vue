@@ -40,7 +40,7 @@
       </div>
     </div>
     <div class="bottom-icon1">
-      <img :src="$config.getLocaleImg('bottom-icon1')">
+      <img :src="$config.getLocaleImg('bottom-icon2')">
     </div>
     <div class="bottom-icon2">
       <p>{{$t('供应商')}}</p>

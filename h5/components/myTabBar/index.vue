@@ -251,6 +251,51 @@ export default {
     if (this.projectImgUrl === "bgga") {
       this.tabbarList.splice(1, 1);
     }
+    
+    if (this.projectImgUrl === "jun88") {
+      this.tabbarList = [
+      {
+          //首页
+          id: 0,
+          name: this.$t("首页"), //'Trang chủ',
+          icon: "indexIcon.png",
+          activeIcon: "indexIcon.png",
+          path: "/pages/index/index",
+        },
+        {
+          //优惠
+          id: 2,
+          name: this.$t("优惠"), //'Khuyến Mãi',
+          icon: "preferential.png",
+          activeIcon: "preferential.png",
+          path: "/pages/preferential/preferential",
+        },
+        {
+          //客服
+          id: 1,
+          name: this.$t("客服"), //'CSKH',
+          icon: "customerService.png",
+          activeIcon: "customerService.png",
+          path: "/pages/subCustomerService/subCustomerService",
+        },
+        {
+          //vip
+          id: 3,
+          name: this.$t("VIP"), //'CAO CẤP',
+          icon: "vip.png",
+          activeIcon: "vip.png",
+          path: "/pages/vipLevel/vipLevel",
+        },
+        {
+          //会员中心
+          id: 4,
+          name: this.$t("会员中心"), //'Của tôi',
+          icon: "member.png",
+          activeIcon: "member.png",
+          path: "/pages/my/my",
+        },
+      ];
+    }
     console.log("this.projectImgUrl ====", this.tabbarList);
   },
   mounted() {
