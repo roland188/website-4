@@ -60,7 +60,7 @@ export default {
     if (this.$config.themeIndex) {
       let a = this.$config.themeIndex;
       if (a * 1 === 17) a = 16;
-      import("./assets/css/theme" + a + ".css");
+      // import("./assets/css/theme" + a + ".css");
     } else {
       import("./assets/css/base.css");
     }

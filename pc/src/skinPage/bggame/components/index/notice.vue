@@ -91,7 +91,7 @@ export default {
 .seamless-warp2 {
   overflow: hidden;
   height: 36px;
-  background: rgba(0, 0, 0, 0.6);
+   background: transparent;
   line-height: 36px;
   width: 1100px;
   color: #fead00;

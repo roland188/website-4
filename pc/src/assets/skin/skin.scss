@@ -20,7 +20,10 @@ $skinList: 'bgga','kubet','betcome','sovip';//皮肤
 // }
 
 @each $lang in $locale {
-    $imgUrl: '~@/assets/image/locale/#{$lang}';// 换肤图片路径
+    $imgUrl: '~@/assets/image/locale/#{$lang}/dze';// 换肤图片路径
+    // #app.lang-vi.skin-jun88{
+    //     $imgUrl: '~@/assets/image/locale/vi/dze/jun88';// jun88 换肤图片路径
+    // }
     #app.lang-#{$lang}{
         // 侧边栏悬浮窗
         .fwDownload {
@@ -32,73 +35,73 @@ $skinList: 'bgga','kubet','betcome','sovip';//皮肤
                 background-size: cover;
             }
             .serviceBg {
-                background: url('#{$imgUrl}/dze/7.png') no-repeat;
+                background: url('#{$imgUrl}/7.png') no-repeat;
             }
             .serviceBg:hover {
-                background: url('#{$imgUrl}/dze/8.png') no-repeat;
+                background: url('#{$imgUrl}/8.png') no-repeat;
             }
             .fb {
-                background: url('#{$imgUrl}/dze/fb.png') no-repeat;
+                background: url('#{$imgUrl}/fb.png') no-repeat;
             }
             .fb:hover {
-                background: url('#{$imgUrl}/dze/fb-a.png') no-repeat;
+                background: url('#{$imgUrl}/fb-a.png') no-repeat;
             }
             .tg {
-                background: url('#{$imgUrl}/dze/tg.png') no-repeat;
+                background: url('#{$imgUrl}/tg.png') no-repeat;
             }
             .tg:hover {
-                background: url('#{$imgUrl}/dze/tg-a.png') no-repeat;
+                background: url('#{$imgUrl}/tg-a.png') no-repeat;
             }
             .yq {
-                background: url('#{$imgUrl}/dze/yq.png') no-repeat;
+                background: url('#{$imgUrl}/yq.png') no-repeat;
             }
             .yq:hover {
-                background: url('#{$imgUrl}/dze/yq-a.png') no-repeat;
+                background: url('#{$imgUrl}/yq-a.png') no-repeat;
             }
             .hotline{
-                background: url('#{$imgUrl}/dze/Hotline.png') no-repeat;
+                background: url('#{$imgUrl}/Hotline.png') no-repeat;
             }
             .hotline:hover{
-                background: url('#{$imgUrl}/dze/Hotline-a.png') no-repeat;
+                background: url('#{$imgUrl}/Hotline-a.png') no-repeat;
             }
             .zalo {
-                background: url('#{$imgUrl}/dze/zalo.png') no-repeat;
+                background: url('#{$imgUrl}/zalo.png') no-repeat;
             }
             .zalo:hover {
-                background: url('#{$imgUrl}/dze/zalo-a.png') no-repeat;
+                background: url('#{$imgUrl}/zalo-a.png') no-repeat;
             }
             .appDown {
-                background: url('#{$imgUrl}/dze/5.png') no-repeat;
+                background: url('#{$imgUrl}/5.png') no-repeat;
             }
             .appDown:hover {
-                background: url('#{$imgUrl}/dze/6.png') no-repeat;
+                background: url('#{$imgUrl}/6.png') no-repeat;
             }
 
             .appDown {
-                background: url('#{$imgUrl}/dze/5.png') no-repeat;
+                background: url('#{$imgUrl}/5.png') no-repeat;
             }
             .appDown:hover {
-                background: url('#{$imgUrl}/dze/6.png') no-repeat;
+                background: url('#{$imgUrl}/6.png') no-repeat;
             }
             .mosaicGold1{
-                background: url('#{$imgUrl}/dze/mosaicGold1.png') no-repeat;
+                background: url('#{$imgUrl}/mosaicGold1.png') no-repeat;
             }
 
             .mosaicGold1:hover {
-                background: url('#{$imgUrl}/dze/mosaicGold1Hover.png') no-repeat;
+                background: url('#{$imgUrl}/mosaicGold1Hover.png') no-repeat;
             }
             .mosaicGold2{
-                background: url('#{$imgUrl}/dze/mosaicGold2.png') no-repeat;
+                background: url('#{$imgUrl}/mosaicGold2.png') no-repeat;
             }
             .mosaicGold2:hover {
-                background: url('#{$imgUrl}/dze/mosaicGold2Hover.png') no-repeat;
+                background: url('#{$imgUrl}/mosaicGold2Hover.png') no-repeat;
             }
             
             .email {
-                background: url('#{$imgUrl}/dze/email.png') no-repeat center/cover;
+                background: url('#{$imgUrl}/email.png') no-repeat center/cover;
             }
             .email:hover {
-                background: url('#{$imgUrl}/dze/email-a.png') no-repeat center/cover;
+                background: url('#{$imgUrl}/email-a.png') no-repeat center/cover;
             }
         }
     }

@@ -355,7 +355,7 @@ export default {
   color: #fff !important;
 }
 </style>
-<style scoped>
+<style scoped lang="scss">
 .fixed {
   position: fixed;
   left: 0;
@@ -366,7 +366,7 @@ export default {
   cursor: pointer;
 }
 .play {
-  background-color: #0a0a0a;
+  background-color: $activity-bg;
 }
 .playList {
   width: 1200px;
@@ -394,7 +394,7 @@ export default {
   background-color: white;
 }
 .card-vendor {
-  background: #2a2a2a;
+  background: $game-tabBg;
   overflow: hidden;
 }
 .card-vendor .vendor-item {
@@ -405,7 +405,7 @@ export default {
   line-height: 43px;
   padding: 0 10px;
   box-sizing: border-box;
-  color: #8c999c;
+  color: $game-textColor;
   font-size: 16px;
   text-align: center;
   text-overflow: ellipsis;
@@ -433,12 +433,12 @@ export default {
   background-color: #3d3d3d;
   border-bottom: 2px solid #202020;
 }
-.card-vendor .vendor-item:hover {
-  color: #fff;
-}
-.playList .card-vendor .setColor {
-  color: #fff;
-}
+.card-vendor .vendor-item:hover{
+        color: $game-tabColor;
+    }
+   .playList .card-vendor .setColor{
+        color: $game-tabColor;
+    }
 /*鼠标经过显示进入游戏动画CSS   开始*/
 .has-link {
   cursor: pointer;

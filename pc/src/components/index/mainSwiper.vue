@@ -277,7 +277,7 @@ export default {
 </script>
 <style lang="less" scoped>
 .main_swiper {
-    width: 100vw;
+    width: 1920px;
     height: 520px;
 
     .container {

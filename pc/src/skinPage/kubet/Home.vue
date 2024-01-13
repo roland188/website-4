@@ -190,7 +190,7 @@ export default {
     },
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .header_container {
     width: 100%;
     height: 105px;
@@ -235,7 +235,7 @@ export default {
     }
     .notice {
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
+        background-color: $notice-bg;
         z-index: 99;
         cursor: pointer;
     }
@@ -244,7 +244,6 @@ export default {
         left: 0;
         top: 105px;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.7);
         z-index: 99;
         cursor: pointer;
     }

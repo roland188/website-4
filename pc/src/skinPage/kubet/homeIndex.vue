@@ -646,7 +646,7 @@ export default {
 
   .notice {
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: $notice-bg;
     z-index: 90;
     cursor: pointer;
   }
@@ -656,7 +656,6 @@ export default {
     left: 0;
     top: 105px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
     z-index: 99;
     cursor: pointer;
   }

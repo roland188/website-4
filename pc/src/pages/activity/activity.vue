@@ -353,7 +353,7 @@ export default {
 
 .notice {
   width: 100%;
-  background-color: rgba(0, 0, 0, .85);
+  background-color: $notice-bg;
   z-index: 99;
   cursor: pointer;
 }

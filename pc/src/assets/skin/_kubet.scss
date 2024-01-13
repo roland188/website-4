@@ -24,4 +24,17 @@ $active-bgColor: #fff;
 $active-btnColor: #ddd;
 $active-color: #fff;
 $active-btncolor1: linear-gradient(225deg, #06396a 0%, #399fda 100%);
+$activity-bg: #0a0a0a;
+$game-tabBg: #2a2a2a;
+$game-tabColor: #fff;
+$game-textColor: #8c999c;
+$notice-bg: rgba(0, 0, 0, 0.7);
 
+body {
+    --themeColor: #111;
+    --themeAssistColor: #f9a425;
+}
+
+.themeColor {
+    background-color: var(--themeColor)
+}

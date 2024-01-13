@@ -366,7 +366,7 @@ export default {
   },
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .uniqueShuffling {
   display: flex;
   align-items: center;
@@ -449,7 +449,7 @@ export default {
     left: 0;
     top: 520px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: $notice-bg;
     z-index: 90;
     cursor: pointer;
   }
@@ -459,7 +459,6 @@ export default {
     left: 0;
     top: 130px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.85);
     z-index: 99;
     cursor: pointer;
   }

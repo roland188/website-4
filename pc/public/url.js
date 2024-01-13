@@ -111,13 +111,28 @@
                 "domains": [],
                 "isMaskApp": 1,
             },
+            {
+                
+                "code": "viet",
+                "skin": "jun88",
+                "childCode": "new8",
+                "locale": 'vi',
+				"name": "jun88",
+                "theme": "a053",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
+                "isMaskApp": 1,
+            },
         ];
         if (!l) {
             if (a.length > 2) a = a.slice(a.length - 2);
             u = a.join(".");
         }
         var o = c[2];// bggame
-        var o = c[3];// betcome
+        var o = c[6];// betcome
         // var o = c[4];// sovip
         // var o = c[5];// bet88
         console.log('-----', o)

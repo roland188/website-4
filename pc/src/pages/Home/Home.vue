@@ -3,6 +3,7 @@
         <BgGame v-if="['bgga','betc88','sovip'].includes(projectImgUrl)"></BgGame>
         <KuBet v-if="projectImgUrl == 'kubet'"></KuBet>
         <Bet88 v-if="projectImgUrl == 'xiaocao'"></Bet88>
+        <Jun88 v-if="projectImgUrl == 'jun88'"></Jun88>
         <!-- <mergeNewRed v-if="projectImgUrl === 'betc88'" /> -->
     </div>
 </template>
@@ -11,6 +12,7 @@
 import BgGame from "../../skinPage/bggame/Home.vue";
 import KuBet from "../../skinPage/kubet/Home.vue";
 import Bet88 from "../../skinPage/bet88/Home.vue"
+import Jun88 from "../../skinPage/jun88/Home.vue"
 // 红包活动+大转盘合并，需要时解开注释就好
 // import mergeNewRed from '@/components/newRed/index.vue';
 export default {
@@ -19,6 +21,7 @@ export default {
         BgGame,
         KuBet,
         Bet88,
+        Jun88,
         // mergeNewRed
     },
     data() {
@@ -41,7 +44,7 @@ export default {
     },
 };
 </script>
-<style lang="less" scoped>
+<style lang="scss" scoped>
 .header_container {
     width: 100%;
     height: 196px;
@@ -49,7 +52,7 @@ export default {
     left: 50%;
     transform: translateX(-50%);
     top: 0;
-    background-color: #0a0a0a;
+    background: $activity-bg;
     z-index: 998;
 }
 
@@ -85,7 +88,7 @@ export default {
     }
     .notice {
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.85);
+        background-color: $notice-bg;
         z-index: 99;
         cursor: pointer;
     }
@@ -94,7 +97,6 @@ export default {
         left: 0;
         top: 130px;
         width: 100%;
-        background-color: rgba(0, 0, 0, 0.85);
         z-index: 99;
         cursor: pointer;
     }
