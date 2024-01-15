@@ -182,9 +182,8 @@
 
     <view
       class="add-card-view"
-      v-if="
-        bankCardList.length < bankCountNumber ||
-        usdtList.length < usdtCountNumber
+      v-if="(bankCardList.length < bankCountNumber ||
+        usdtList.length < usdtCountNumber)  && !auditList.totalFail 
       "
     >
       <view class="add-card themeBtn gameListActive" @click="onAddCard">
