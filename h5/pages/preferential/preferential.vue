@@ -358,7 +358,6 @@ export default {
 <style lang="scss">
 page {
   height: 100%;
-  background: #000;
 }
 
 .perfer-wrap {
@@ -373,8 +372,7 @@ page {
     /* #ifdef H5 */
     top: 80rpx;
     /* #endif */
-
-    background: #0f0f0f;
+    background: var(--themeNavTabBg);
     z-index: 999;
 
     .tabBox {
@@ -391,11 +389,11 @@ page {
         display: inline-block;
         text-align: center;
         font-size: 24upx;
-        color: #fff;
+        color: var(--themeNavTabColor);
 
         .tab-choice {
-          color: #f9dc75;
-          border-bottom: 4rpx solid #f9dc75;
+          color: var(--themeNavTabAcColor);
+          border-bottom: 4rpx solid var(--themeNavTabAcColor);
         }
       }
     }
@@ -444,7 +442,7 @@ page {
           width: 100%;
           padding: 20upx 20upx 0;
           box-sizing: border-box;
-          background: #000;
+          background: var(--themeNavTabBg);
 
           .actInformLeft {
             flex: 1;
@@ -462,7 +460,7 @@ page {
                 text-overflow: ellipsis;
                 font-size: 36upx;
                 font-weight: 500;
-                color: #f2e7d1;
+                color: var(--themeNavTabAcColor);
                 line-height: 44upx;
               }
             }

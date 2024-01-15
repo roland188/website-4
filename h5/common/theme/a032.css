@@ -46,6 +46,7 @@ page {
 	--loginZhuColor: #750000;
 	/*-------- qiqi start----------- */
 	--themeActTopBg: #0f548b; /*优惠头部背景色*/
+	
 	--themeActTitleBg: #Ffffff; /*优惠标题背景色*/
 	--themeActDetBtnBg: linear-gradient(to bottom, #740201 1%, #410220 100%); /*优惠详情按钮背景色*/
 	--themeNavBg: #680000; /*页面*/
