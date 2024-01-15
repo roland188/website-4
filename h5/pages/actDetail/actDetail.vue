@@ -401,10 +401,10 @@ export default {
     display: flex;
     align-items: center;
     height: 72upx;
-    color: #fff;
+    color: var(--themeActTitleBg);
+    background-color: var(--themeActTopBg);
     padding: 0 30upx;
     box-sizing: border-box;
-    background: #22211f;
   }
 
   .perBody {

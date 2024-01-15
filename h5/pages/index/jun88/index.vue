@@ -1518,9 +1518,9 @@ export default {
 
   .container {
     position: relative;
-    padding: 7px 2% 0;
+    padding: 7px 0;
     /* #ifdef H5 */
-    padding-bottom: 120upx;
+    padding-bottom: 100upx;
     /* #endif */
     /* #ifdef APP-PLUS */
     padding-bottom: 100upx;

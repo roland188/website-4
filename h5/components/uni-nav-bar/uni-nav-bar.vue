@@ -189,7 +189,8 @@ $nav-height: 80rpx;
   height: $nav-height;
   line-height: $nav-height;
   font-size: 16px;
-  // background-color: #ffffff;
+  color: var(--themeActTitleBg) !important;
+  background-color: var(--themeActTopBg) !important;
 }
 
 .uni-navbar__header-btns {

@@ -100,7 +100,7 @@
     padding: 220upx 10upx 10upx;
     text-align: center;
     background: url(@/static/image/indexImg/promo_bg.png) no-repeat center 220upx,
-      linear-gradient(180deg,#2e2e2e 40.51%,#6b4900 100%) no-repeat center 220upx;
+      linear-gradient(180deg,#fff,#cff0fe 30%,#fff 70%) no-repeat center 220upx;
     background-size: contain;
     background-size: contain;
     object-fit: cover;

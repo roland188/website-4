@@ -3,7 +3,7 @@
     <view class="cu-custom" :style="[{ height: CustomBar + 'px' }]" style="background-color: #ffffff; z-index: 99; font-size: 18px">
       <view class="cu-bar fixed" :style="style" :class="[bgImage != '' ? 'none-bg text-white bg-img' : '', bgColor]">
         <view class="action" @tap="BackPage" v-if="isBack">
-          <image class="bankHeaderLeft" src="../../static/image/qqImg/back1.png" mode="widthFix"></image>
+          <uni-icons :color="''" :type="'back'" size="24" :style="{ fontWeight: 'bold' }" />
         </view>
         <view class="content" :style="[{ top: StatusBar + 'px' }]"><slot name="content"></slot></view>
         <view class="right" @tap="right" style="margin-right: 34rpx"><slot name="right"></slot></view>
@@ -117,12 +117,15 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 .cu-bar {
   border-bottom: 1px solid #f7f7f7;
-  background: #ffffff;
-  color: #000000;
+  background: var(--themeActTopBg);
+  color: var(--themeActTitleBg);
   height: 50px;
+  .action{
+    color: var(--themeActTitleBg);
+  }
 }
 .bankHeaderLeft {
   width: 44upx;

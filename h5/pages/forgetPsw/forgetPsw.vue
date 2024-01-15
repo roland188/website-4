@@ -1248,10 +1248,10 @@ export default {
     justify-content: center;
     align-items: center;
     height: 88upx;
-    color: #fff;
     padding: 0 30upx;
     box-sizing: border-box;
-    background-color: #22211f;
+    color: var(--themeActTitleBg);
+    background-color: var(--themeActTopBg);
     font-size: 32upx;
     position: relative;
 

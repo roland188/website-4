@@ -556,4 +556,8 @@ page {
 ::-webkit-scrollbar {
   display: none;
 }
+
+uni-page-head .uni-page-head{
+  background: var(--themeActTitleBg);
+}
 </style>

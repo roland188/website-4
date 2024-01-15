@@ -138,8 +138,8 @@ export default {
 .other-info {
     margin: 25px 0 0;
     padding-bottom: 20px;
-    color: #fff;
-    background: #27282a
+    color: #000;
+    background: linear-gradient(180deg,hsla(0,0%,100%,.92),#8bdbff);
 }
 
 .app {
@@ -163,7 +163,7 @@ export default {
     .title {
         margin-bottom: 10px;
         padding-top: 3px;
-        color: #fff;
+        color: #000;
         font-size: 16px;
         font-weight: 700;
         text-align: center;
@@ -185,7 +185,7 @@ export default {
                 width: 100%;
                 white-space: nowrap;
                 margin: 8upx 0 0;
-                color: #e1e1e1;
+                color: #000;
                 font-size: 24upx;
                 text-decoration-line: underline;
             }

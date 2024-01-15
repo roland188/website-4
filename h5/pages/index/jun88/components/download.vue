@@ -6,7 +6,7 @@
     style="
       width: 100%;
       height: 80upx;
-      background: #000;
+      background: #fff;
       position: fixed;
       left: 0;
       top: 0;
@@ -16,7 +16,7 @@
     <image
       class="close"
       @click="closeTop()"
-      src="@/static/image/mb/close-icon.png"
+      src="@/static/image/mb/close_jun88.png"
       mode="aspectFit"
     ></image>
     <view class="con">
@@ -27,7 +27,7 @@
     </view>
     <view class="btn" @click="dowApp()">
       <image
-        src="@/static/image/mb/bm_img_d1.png"
+        src="@/static/image/mb/btn_jun88.png"
         style="width: 68px; height: 22px"
         mode="aspectFit"
       ></image>
@@ -102,7 +102,7 @@ export default {
   .close {
     width: 50upx;
     height: 50upx;
-    margin-top: 10upx;
+    margin-top: 18upx;
   }
 
   .con {
@@ -115,7 +115,7 @@ export default {
 
     .title1 {
       font-size: 26upx;
-      color: #e4e4e4;
+      color: #000;
     }
   }
 

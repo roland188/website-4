@@ -261,7 +261,7 @@ export default {
           console.log(err, res);
           if (res) {
             this.minCount = res.minCount;
-            this.money = res.allowance + ".00"; //总奖励
+            this.money = res.allowance.toFixed(2); //总奖励
             this.minValidCount = res.minValidCount;
             this.maxReceive = res.maxReceive;
             this.auditFactor = res.auditFactor; //稽核倍数
@@ -732,22 +732,22 @@ export default {
     /* #ifdef H5 */
     height: 88upx;
     /* #endif */
-    color: #fff;
+    color: var(--themeActTitleBg);
     position: fixed;
     top: 0px;
     width: 100%;
     z-index: 99;
-    background-color: var(--headderBg);
+    background-color: var(--themeActTopBg);
 
     .perHeaderReal {
       width: 100%;
       display: flex;
       align-items: center;
       height: 88upx;
-      color: #fff;
       padding: 0 30upx;
       box-sizing: border-box;
-      background-color: ar(--headderBg);
+      color: var(--themeActTitleBg);
+      background-color: var(--themeActTopBg);
     }
   }
 

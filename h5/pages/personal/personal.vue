@@ -533,10 +533,10 @@ export default {
   display: flex;
   align-items: center;
   height: 88upx;
-  color: #fff;
   padding: 0 30upx;
   box-sizing: border-box;
-  background-color: #000;
+  color: var(--themeActTitleBg);
+  background-color: var(--themeActTopBg);
 }
 
 .perBody {

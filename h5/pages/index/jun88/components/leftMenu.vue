@@ -13,7 +13,7 @@
         <view class="titleBox">
           <image
             style="width: 260upx; height: 90upx; margin: 0 auto"
-            :src="$config.platformLogo('logo')"
+            :src="$config.platformLogo('logo1')"
             mode="aspectFit"
           ></image>
           <text class="close">×</text>
@@ -221,7 +221,7 @@ export default {
   width: 360upx;
 
   .titleBox {
-    background: #000;
+    background: #fff;
     padding-bottom: 30px 20upx 20px;
   }
 
@@ -233,17 +233,17 @@ export default {
 
   .listBox {
     height: 100%;
-    background: #000;
+    background: #fff;
   }
   .time_text{
-    background-color: #000;
-    color: #fff;
+    background-color: #fff;
+    color: #000;
     text-align: center;
     font-size: 28rpx;
   }
 
   .item {
-    color: #fff;
+    color: #000;
     font-size: 28rpx;
     line-height: 3;
     padding-left: 60rpx;

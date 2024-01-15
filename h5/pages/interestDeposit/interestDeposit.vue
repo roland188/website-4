@@ -234,8 +234,8 @@ export default {
       box-sizing: border-box;
       border-bottom: 2upx solid #f4f4f4;
       position: relative;
-      color: #fff;
-      background-color: #000;
+      color: var(--themeActTitleBg);
+      background-color: var(--themeActTopBg);
 
       view:nth-child(1) {
         position: absolute;

@@ -274,7 +274,7 @@ export default {
 
         .regBtn {
           margin-left: 20upx;
-          color: #fff;
+          color: #000;
           border: 2upx solid #fead00;
           background: transparent;
         }

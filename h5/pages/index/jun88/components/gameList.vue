@@ -158,6 +158,7 @@ export default {
 .gamelist {
   width: 100%;
   height: 100%;
+  padding-right: 2%;
   position: relative;
   display: flex;
   .nav {
@@ -168,11 +169,11 @@ export default {
     background-color: #fff;
     display: flex;
     flex-wrap: wrap;
-    padding-right: 2%;
-    padding-top: 6px;
-    flex: 18%;
+    padding: 6px 2% 0;
+    flex: 22%;
 
     .con {
+      margin: 10px 6rpx;
       width: 100%;
       position: relative;
       min-height: 96rpx;
@@ -182,9 +183,9 @@ export default {
       justify-content: center;
       text-align: center;
       font-size: 12px;
-      background-color: #e7f1fb;
-      color: #535867;
-      margin: 10px auto;
+      background-color: #fff;
+      color: #00abe5;
+      box-shadow: 0 1px 4px 0 rgba(65,70,92,.2);
       box-sizing: border-box;
       border-radius: 4px;
       overflow: hidden;
@@ -212,7 +213,8 @@ export default {
     }
 
     .con-active {
-      border: 1px solid #3281d0;
+      background-color: #00abe5;
+      color: #Fff;
       .bgicon{
         &::before{
         background: url('~@/static/image/indexImg/ic_GLshadow.png') no-repeat center;
