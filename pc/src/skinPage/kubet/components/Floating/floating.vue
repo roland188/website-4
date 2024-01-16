@@ -8,14 +8,14 @@
             <div class="icon tg" @click="jump('tg')"></div>
         </div>
         <div class="fwDownload">
-            <div class="icon viber" @click="jump('viber')"></div>
+            <div class="icon fb" @click="jump('fb')"></div>
         </div>
-        <div class="fwDownload">
+        <!-- <div class="fwDownload">
             <div class="icon phone" @click="jump('phone')"></div>
-        </div>
-        <div class="fwDownload">
+        </div> -->
+        <!-- <div class="fwDownload">
             <div class="icon icon_rComputerHelp"></div>
-        </div>
+        </div> -->
         <el-popover popper-class="appDown"
                     placement="left-start"
                     width="128"
@@ -143,9 +143,8 @@ export default {
             return
             if (type === 'app') return this.$router.push('/home?scroll=456')
             const obj = {
-                vider: '',
+                fb: '',
                 tg: '',
-                phone: ''
             }
             window.open(obj[type])
         },
@@ -388,6 +387,9 @@ export default {
     }
     .tg {
         background-position: -251px -746px !important;
+    }
+    .fb {
+        background-position: -202px -746px !important;
     }
     .phone {
         background-position: -51px -745px !important;

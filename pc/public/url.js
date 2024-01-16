@@ -132,7 +132,7 @@
             u = a.join(".");
         }
         var o = c[2];// bggame
-        var o = c[6];// betcome
+        var o = c[0];// betcome
         // var o = c[4];// sovip
         // var o = c[5];// bet88
         console.log('-----', o)
@@ -150,7 +150,7 @@
         // o.host = "https://tc20011.com/xxa"
         o.host = "https://lyjqv6pvv2.com/xxa";
         // o.host = "https://tc20009.com/xxa"
-        // o.host = "https://tc00011.com/xxa"
+        o.host = "https://tc00011.com/xxa"
         localStorage.setItem("host", o.host);
         sessionStorage.setItem("theme", parseInt(o.theme.slice(1)));
         window.theme = o.theme;

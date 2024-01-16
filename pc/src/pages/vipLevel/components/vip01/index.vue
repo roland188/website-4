@@ -22,7 +22,7 @@
           <!-- <div class="inner-info">
             {{ tranNumber(level.upgradeRecharge, 2) }}
           </div> -->
-          <div class="inner-info">{{ projectImgUrl !=='betc88' ? tranNumber(level.upgradeBet, 2) : tranNumberComma(level.upgradeRecharge) }}</div>
+          <div class="inner-info">{{ tranNumberComma(level.upgradeRecharge) }}</div>
           <!-- <div class="inner-info">{{ tranNumber(level.insuranceBet, 2) }}</div> -->
           <div class="inner-info">{{ level.levelGift }}</div>
           <div class="inner-info">{{ level.birthGift }}</div>
