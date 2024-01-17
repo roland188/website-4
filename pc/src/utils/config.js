@@ -45,7 +45,7 @@ const getConfing = () => {
         'svip': {code: '84',currency: '' }, // 
         'choi': {code: '84',currency: '' }, // 
         'phat': {code: '84',currency: '' }, // 
-        'g9bｔ': {code: '84',currency: '' }, // 
+        'g9bt': {code: '84',currency: '' }, // 
         'jun8': {code: '84',currency: '' }, // 
         'xcao': {code: '84',currency: '' }, //
     }[window.childCode]
