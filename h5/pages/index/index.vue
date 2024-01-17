@@ -2,10 +2,10 @@
 <template>
     <view class="content" :class="{'theme-container': skinId === 'sovip'}">
 		 <betc88Index v-if="skinId === 'betc88'"/>
-		 <kubetIndex v-if="skinId === 'kubet'"/>
+		 <kubetIndex v-if="['kubet','choibet','phattai68'].includes(skinId)"/>
      <sovip v-if="skinId === 'sovip'" ref="pageIndex"></sovip>
 		 <bgga v-if="skinId === 'bgga'"/>
-		 <bet88 v-if="skinId === 'xiaocao'"/>
+		 <bet88 v-if="['xiaocao','g9bet'].includes(skinId)"/>
 		 <jun88 v-if="skinId === 'jun88'"/>
       <myTabBar :current="0" ref="menuBar"/>
       <!-- 红包和大转盘活动合并后的入口，需要时解开注释 -->

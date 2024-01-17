@@ -39,7 +39,6 @@
                 "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
                 "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
                 "domains": [],
-                "isMaskApp": 1,
 			},
             {
                 "code": "bgga",
@@ -53,7 +52,6 @@
                 "sortArr": [5, 1, 7, 2, 3, 8, 4, 6,],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
                 "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
                 "domains": [],
-                "isMaskApp": 1,
             },
             {
                 "code": "ff10",
@@ -67,7 +65,6 @@
                 "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
                 "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
                 "domains": [],
-                "isMaskApp": 1,
             },
 			{
                 "code": "viet",
@@ -81,7 +78,6 @@
                 "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
                 "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
                 "domains": [],
-                "isMaskApp": 1,
 			},
             {
                 "code": "svip",
@@ -109,22 +105,58 @@
                 "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
                 "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
                 "domains": [],
-                "isMaskApp": 1,
             },
             {
-                
                 "code": "viet",
                 "skin": "jun88",
-                "childCode": "new8",
+                "childCode": "jun8",
                 "locale": 'vi',
 				"name": "jun88",
-                "theme": "a053",
+                "theme": "a060",
                 "winOpenTime": "6000",
                 "customerServiceStatus": 1,//0旧版本   1新版本
                 "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
                 "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
                 "domains": [],
-                "isMaskApp": 1,
+            },
+            {
+                "code": "viet",
+                "skin": "phattai68",
+                "childCode": "phat",
+                "locale": 'vi',
+				"name": "PHATTAI68",
+                "theme": "a057",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
+            },
+            {
+                "code": "viet",
+                "skin": "choibet",
+                "childCode": "choi",
+                "locale": 'vi',
+				"name": "CHOIBET",
+                "theme": "a058",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
+            },
+            {
+                "code": "viet",
+                "skin": "g9bet",
+                "childCode": "g9bt",
+                "locale": 'vi',
+				"name": "G9bet",
+                "theme": "a059",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
             },
         ];
         if (!l) {
@@ -132,7 +164,8 @@
             u = a.join(".");
         }
         var o = c[2];// bggame
-        var o = c[0];// betcome
+        // var o = c[0];// kubet
+        var o = c[3];// betcome
         // var o = c[4];// sovip
         // var o = c[5];// bet88
         console.log('-----', o)
@@ -150,7 +183,7 @@
         // o.host = "https://tc20011.com/xxa"
         o.host = "https://lyjqv6pvv2.com/xxa";
         // o.host = "https://tc20009.com/xxa"
-        o.host = "https://tc00011.com/xxa"
+        // o.host = "https://tc00011.com/xxa"
         localStorage.setItem("host", o.host);
         sessionStorage.setItem("theme", parseInt(o.theme.slice(1)));
         window.theme = o.theme;

@@ -176,9 +176,6 @@ export default {
                 { name: this.$t('信息公告'), url: "/mcenter/news" },
                 { name: this.$t('自助优惠'), url: "/mcenter/discount" },
             ]
-            // if (['amwnsr','betc88','bgga','kubet'].includes(window.projectImgUrl)) {
-            //     tabsArr.push({ name: this.$t('自助优惠'), url: "/mcenter/discount" })
-            // }
             console.log("tabsArr====",tabsArr)
             return tabsArr
         }

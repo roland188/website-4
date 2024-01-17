@@ -27,8 +27,9 @@
         <view class="yuan" v-if="current == tabbar.id">
           <view
             class="icon"
-            :class="current == tabbar.id && projectImgUrl == 'kubet' &&
-             tabbar.id != 2 && tabbar.id != 3 ? 'active' : ''"
+            :class="current == tabbar.id &&
+              ['kubet','choibet','phattai68'].includes(projectImgUrl) &&
+              tabbar.id != 2 && tabbar.id != 3 ? 'active' : ''"
             :style="{
               background:
                 'url(' +
@@ -167,7 +168,7 @@ export default {
     };
   },
   created() {
-    if (this.projectImgUrl === "kubet") {
+    if (['kubet','choibet','phattai68'].includes(this.projectImgUrl)) {
       this.tabbarList = [
         {
           //首页
@@ -246,7 +247,7 @@ export default {
         },
       ];
     }
-    if(this.projectImgUrl === 'xiaocao'){
+    if(['xiaocao','g9bet',].includes(this.projectImgUrl)){
       this.tabbarList.splice(3, 1);
     }
     if (this.projectImgUrl === "bgga") {
@@ -351,7 +352,7 @@ export default {
       console.log(curRoute);
       const index = item.id;
       if (
-        (index === 2 && this.projectImgUrl === "kubet" && !this.login) ||
+        (index === 2 && ['kubet','choibet','phattai68'].includes(this.projectImgUrl) && !this.login) ||
         (index === 3 && !this.login)
       ) {
         uni.navigateTo({

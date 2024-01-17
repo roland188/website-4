@@ -1,6 +1,6 @@
 <template>
   <view class="Login-layout">
-    <view class="close" @click="goBack()" v-if="projectImgUrl != 'kubet'"></view>
+    <view class="close" @click="goBack()" v-if="!['kubet','choibet','phattai68'].includes(projectImgUrl)"></view>
     <uni-nav-bar
       v-else
       :status-bar="true"
@@ -27,7 +27,7 @@
       </view>
     </view>
     <view class="container">
-      <image class="logo" v-if="projectImgUrl != 'kubet'"
+      <image class="logo" v-if="!['kubet','choibet','phattai68'].includes(projectImgUrl)"
         :src="$config.platformLogo('logo')" mode="widthFix"></image>
       <view class="nav-box">
         <view

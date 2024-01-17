@@ -30,7 +30,9 @@
 				</view>
 				<view class="more-header">{{$t('全部优惠')}}</view>
 				<view class="more-list-ul">
-					<view class="more-list-li" :style="{'width': ['betc88','kubet','bgga',''].includes($config.projectImgUrl) ? '48%' : '30%'}" v-for="(items,i) in tabList" :key="i"
+					<view class="more-list-li" 
+						:style="{'width': ['betc88','kubet','bgga','choibet','phattai68'].includes($config.projectImgUrl) ? '48%' : '30%'}" 
+						v-for="(items,i) in tabList" :key="i"
 						:class="{active: currentIndex === i}" @tap="handleTab({...items,index:i})">
 						{{items.title}}
 					</view>

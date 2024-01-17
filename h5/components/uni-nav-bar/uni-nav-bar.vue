@@ -111,7 +111,11 @@ export default {
     },
     backgroundColor: {
       type: String,
-      default: {'kubet': 'rgb(15, 84, 139)','betc88':"#0f0f0f"}[config.projectImgUrl],
+      default: {
+        'kubet': 'rgb(15, 84, 139)','betc88':"#0f0f0f",
+        'choibet': 'rgb(15, 84, 139)','betc88':"#0f0f0f",
+        'phattai68': 'rgb(15, 84, 139)','betc88':"#0f0f0f",
+      }[config.projectImgUrl],
     },
     statusBar: {
       type: [Boolean, String],

@@ -30,8 +30,12 @@ const getServiceIndex = () => {
         'ff10': 1, // ff10
         'betc88': 1, // betcom
         'bgga':1, // BG.GAME
-        'kbet': 1, // kubet
-        'svip': 3, // kubet
+        'kbet': 1, 
+        'g9bet': 1,
+        'xiaocao': 1,
+        'choibet': 1,
+        'phattai68': 1,
+        'svip': 3,
     }[imgName]
 }
 
@@ -76,8 +80,12 @@ const getConfing = () => {
         'ff10': {code: '86',currency: '￥' }, // ff10
         'betc88': {code: '84',currency: '' }, // betcom
         'bgga': {code: '55',currency: 'R$' }, // BG.GAME
-        'kbet': {code: '84',currency: '' }, // kubet
-        'svip': {code: '84',currency: '' }, // kubet
+        'kbet': {code: '84',currency: '' },
+        'jun88': {code: '84',currency: '' },
+        'g9bet': {code: '84',currency: '' },
+        'svip': {code: '84',currency: '' },
+        'choibet': {code: '84',currency: '' },
+        'phattai68': {code: '84',currency: '' },
     }[imgName]
 }
 

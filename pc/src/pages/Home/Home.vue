@@ -1,8 +1,8 @@
 <template>
     <div class="themeColor index">
-        <BgGame v-if="['bgga','betc88','sovip'].includes(projectImgUrl)"></BgGame>
-        <KuBet v-if="projectImgUrl == 'kubet'"></KuBet>
-        <Bet88 v-if="projectImgUrl == 'xiaocao'"></Bet88>
+        <BgGame v-if="['bgga','betc88','sovip',].includes(projectImgUrl)"></BgGame>
+        <KuBet v-if="['kubet','choibet','phattai68'].includes(projectImgUrl)"></KuBet>
+        <Bet88 v-if="['xiaocao','g9bet'].includes(projectImgUrl)"></Bet88>
         <Jun88 v-if="projectImgUrl == 'jun88'"></Jun88>
         <!-- <mergeNewRed v-if="projectImgUrl === 'betc88'" /> -->
     </div>

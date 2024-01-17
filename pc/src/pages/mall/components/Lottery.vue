@@ -135,7 +135,7 @@
                 <Back class="tips" :img="require('../../../assets/shop/tips.png')" noStyle>
                     {{ $t("花费") }}
                     <b style="color:#F9E324;">{{ clientMalls.singleAmount }}</b>
-                    {{ clientMalls.currency }}{{ $t("抽奖一次") }}
+                    {{ clientMalls.currency }}
                 </Back>
             </div>
             <div class="tip-text">

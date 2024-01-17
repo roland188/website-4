@@ -31,7 +31,7 @@
 										swip.vipLevel == 0 ? $t('普通会员') : $t('VIP') + swip.vipLevel
 									}}
 								</view>
-								<template v-if="['sovip','betc88','kubet','xiaocao'].includes(skin)">
+								<template v-if="['vi'].includes(locale)">
 									<view class="member-info" v-if="(vipLevelData.recharge - vipLevelData.upgradeRecharge  >= 0)">
 										{{$t('您已达到最高等级')}}
 									</view>
@@ -129,7 +129,7 @@
 
 					<view class="my-privilege-title font700">{{$t('我享有的返水')}}</view>
 					
-					<template v-if="['sovip','betc88','kubet','xiaocao'].includes(skin)">
+					<template v-if="['vi'].includes(locale)">
 						<view class="my-backRecharge betc88Style">
 							<view class="icon-item-wrap">
 								<text class="name font700">{{$t('体育返水')}}:<text class="price-text-betc88">{{rebateData.rebate6 }}</text></text>
@@ -241,7 +241,7 @@
 						price: "0.00",
 					},
 				],
-				skin: this.$config.projectImgUrl
+				locale: this.$config.locale
 			};
 		},
 		onShow() {

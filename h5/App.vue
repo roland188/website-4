@@ -178,9 +178,6 @@ export default {
       this.$config.clientCode = window.clientCode;
       this.$config.childCode = window.childCode;
       this.$config.projectImgUrl = window.projectImgUrl
-	  if(this.$config.projectImgUrl ==='kubet' ){
-			// uni.hideTabBar(); // 隐藏tabbar
-	  }
       this.$config.customerServiceStatus =  window.customerServiceStatus
       const theme = window.theme;
       if (theme) {

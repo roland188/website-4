@@ -30,7 +30,14 @@
     </div>
     <!-- 防伪标志 -->
     <div class="anit_mark" v-if=" projectImgUrl === 'funw'">Copyright © 2023 Fun Win Group. All Rights Reserved.</div>
-    <div class="anit_mark" v-else>Copyright © {{ new Date().getFullYear() }} {{ { amxpj: 'Grand Lisboa Casino', amwnsr: 'Macau Venetian', gtgame: 'GoTech Group' }[projectImgUrl] || '88bet' }} Reserved @v{{numVer}}</div>
+    <div class="anit_mark" v-else>Copyright © 
+      {{ new Date().getFullYear() }} 
+      {{ 
+      { 
+        amxpj: 'Grand Lisboa Casino',
+        amwnsr: 'Macau Venetian',
+        gtgame: 'GoTech Group' }[projectImgUrl] || '88bet' }} 
+      Reserved @v{{numVer}}</div>
   </div>
 </template>
 <script>
