@@ -106,3 +106,19 @@ $skinList: 'bgga','kubet','betcome','sovip';//皮肤
         }
     }
 }
+#app.skin-kubet{
+    .jkContent {
+        background: url('../../assets/image/pubilc/kubet_bg.png') !important;
+        .jkTabs {
+          width: 338px;
+          overflow: auto;
+          li {
+            background: url('../../assets/image/pubilc/kubet_tab.png') no-repeat !important;
+
+            &.active {
+              background: url('../../assets/image/pubilc/kubet_tab_active.png') no-repeat !important;
+            }
+          }
+        }
+      }
+}

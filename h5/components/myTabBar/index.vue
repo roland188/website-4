@@ -27,7 +27,8 @@
         <view class="yuan" v-if="current == tabbar.id">
           <view
             class="icon"
-            :class="current == tabbar.id && projectImgUrl == 'kubet' ? 'active' : ''"
+            :class="current == tabbar.id && projectImgUrl == 'kubet' &&
+             tabbar.id != 2 && tabbar.id != 3 ? 'active' : ''"
             :style="{
               background:
                 'url(' +

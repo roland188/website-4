@@ -231,7 +231,7 @@ export default {
         }
     },
     methods: {
-         getTime () {
+        getTime () {
             this.interval = setInterval(() => {
                 var bjTime = this.getBjTime();
                 this.date = utils._formatDate(bjTime, 'yyyy-MM-dd')
@@ -245,10 +245,10 @@ export default {
             var time_zone = -d.getTimezoneOffset() / 60;
             //少于0的是西区 西区应该用时区绝对值加京八区 重新设置时间（西区时间比东区时间早 所以加时区间隔）
             if (time_zone < 0) {
-                time_zone = Math.abs(time_zone) + 8; currentDate.setHours(tmpHours + time_zone);
+                time_zone = Math.abs(time_zone) + 7; currentDate.setHours(tmpHours + time_zone);
             } else {
                 //大于0的是东区  东区时间直接跟京八区相减
-                time_zone -= 8; currentDate.setHours(tmpHours - time_zone);
+                time_zone -= 7; currentDate.setHours(tmpHours - time_zone);
             }
             return currentDate;
         },
