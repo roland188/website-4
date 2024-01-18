@@ -145,7 +145,7 @@ export default {
             },
             {
               validateFunction: function (rule, value, data, callback) {
-                let iphoneReg = /^[0-9]{6}$/;
+                let iphoneReg = /^[0-9]*$/;
                 if (!iphoneReg.test(value)) {
                   callback(this.$t('手机号码格式不正确，请重新填写'));
                 }

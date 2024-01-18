@@ -410,61 +410,52 @@ export default {
     this.getVipLevel();
     this.getData();
   },
+  mounted() {
+	  // #ifdef H5
+      this.setInviteCode()
+    // #endif
+  },
   methods: {
-    dowApp() {
-      let u = navigator.userAgent;
-      let inviteCode = JSON.parse(sessionStorage.getItem("inviteCode"));
-      if (window.projectImgUrl == "wbgj") {
-        let isIOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
-        if (isIOS) {
-          uni.navigateTo({
-            url: "../download/download",
-          });
-          return;
-        }
-        let url = window.location.origin + "/downloadUrl?";
-        url += "code=" + window.childCode;
-        // if(this.$config.iosDownloadUrl) {
-        // 	url += '&ios=' + encodeURIComponent(this.$config.iosDownloadUrl)
-        // }
-        if (this.$config.androidDownloadUrl) {
-          url +=
-            "&android=" + encodeURIComponent(this.$config.androidDownloadUrl);
-        }
-        if (inviteCode) {
-          url += "&agentCode=" + inviteCode;
-        }
-        window.location.href = url;
-      } else {
-        if (inviteCode && inviteCode != "null") {
-          this.getInviteCode(inviteCode);
-          inviteCode =
-            String.fromCharCode(8203) + inviteCode + String.fromCharCode(8203);
-          this.$copyText(inviteCode);
-        }
-
-        if (
-          (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) &&
-          this.$config.androidDownloadUrl
-        ) {
-          window.location.href = this.$config.androidDownloadUrl;
-        }
-        // if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) && this.$config.iosDownloadUrl) {
-        //   window.location.href = this.$config.iosDownloadUrl
-        // }
-        if (!!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)) {
-          if (window.projectImgUrl == "ybyl") {
-            uni.navigateTo({
-              url: "/pages/download/download",
-            });
-          } else {
-            window.location.href = this.$config.iosDownloadUrl;
-          }
-        }
-        // if(this.$config.pcDownloadUrl) {
-        // 	url += '&pc=' + encodeURIComponent(this.$config.pcDownloadUrl)
-        // }
+    // 下载APP
+    setInviteCode() {
+      let inviteCode = "";
+      inviteCode = uni.getStorageSync("inviteCode")
+      // #ifdef H5
+      inviteCode = JSON.parse(sessionStorage.getItem("inviteCode"));
+      // #endif
+      if (inviteCode && inviteCode !='null' ) {
+          this.getInviteCode(inviteCode)
+          inviteCode  = String.fromCharCode(8203) + inviteCode + String.fromCharCode(8203)
+          this.$copyText(inviteCode)
       }
+    },
+    // 请求绑定邀请码
+    async getInviteCode(code){
+        let params = {
+            agentCode: code,
+        }
+        console.log(code,'code')
+        await this.$api.bindAgentCode(params,(err,res) => {
+            if(err){
+                console.log(err.msg)
+            }
+        })
+    },
+    dowApp() {
+        let u = navigator.userAgent;
+        // #ifdef H5
+        if(localStorage.getItem('fbPixelId') && window.fbq){
+            fbq('trackCustom', 'h5-downApp')
+        }
+        // #endif
+        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+            //安卓手机
+            if (this.$config.androidDownloadUrl) window.location.href = this.$config.androidDownloadUrl;
+        }
+        if (u.indexOf('iPhone') > -1) {
+            //苹果手机
+            if (this.$config.iosDownloadUrl) window.location.href = this.$config.iosDownloadUrl;
+        }
     },
     goBack() {
       uni.navigateBacks(-1);

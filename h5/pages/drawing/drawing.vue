@@ -336,6 +336,11 @@ export default {
       };
       this.$api.setBankDrawing(data, (err, res) => {
         if (res) {
+          // #ifdef H5
+          if(localStorage.getItem('fbPixelId') && window.fbq){
+            fbq('trackCustom', 'h5-withdrawal',{  value: this.getMoney, currency: 'CNY'})
+          }
+          // #endif
           uni.showModal({
             title: self.$t('提示'),
             content: self.$t('申请成功，请等待平台审核'),

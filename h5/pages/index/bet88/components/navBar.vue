@@ -17,7 +17,7 @@
         :src="$config.platformLogo('logo')"
         mode="aspectFit"
       ></image>
-      <view slot="right" class="languageImg_box" @tap="handleLangTap">
+      <view slot="right" v-if="langList.lenght > 0" class="languageImg_box" @tap="handleLangTap">
         <image
           class="languageImg"
           src="@/static/image/lang/lang.png"
@@ -25,7 +25,7 @@
         <text>{{ langShortLabel }}</text>
       </view>
     </uni-nav-bar>
-    <uni-popup ref="popup_lang" type="bottom" style="z-index: 9999;">
+    <!-- <uni-popup ref="popup_lang" type="bottom" style="z-index: 9999;">
 			<view class="popup_lang_b">
         <view class="title_lang">
           <text>Choose a language</text>
@@ -39,7 +39,7 @@
           </view>
         </view>
 			</view>
-		</uni-popup>
+		</uni-popup> -->
   </view>
 </template>
 

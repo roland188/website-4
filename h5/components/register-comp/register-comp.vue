@@ -1072,11 +1072,14 @@ export default {
             // maskAppToNative("register");
             //老版
             // maskAppOldToNative("register");
-			if (window.isMaskApp && window.ANDROID_JS_BRIDGE) {
-				 window.ANDROID_JS_BRIDGE.register_success(); // adjust埋
-				 window.ANDROID_JS_BRIDGE.CompleteRegistration(); // 脸书埋
-			     window.ANDROID_JS_BRIDGE.completeRegistration()  // 快手埋
-			}
+            if (window.isMaskApp && window.ANDROID_JS_BRIDGE) {
+              window.ANDROID_JS_BRIDGE.register_success(); // adjust埋
+              window.ANDROID_JS_BRIDGE.CompleteRegistration(); // 脸书埋
+                window.ANDROID_JS_BRIDGE.completeRegistration()  // 快手埋
+            }
+            if(localStorage.getItem('fbPixelId') && window.fbq){
+              fbq('trackCustom', 'h5-register',{registerName: res.username})
+            }
             // #endif
             // sessionStorage.removeItem('inviteCode');
             uni.navigateTo({

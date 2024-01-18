@@ -769,6 +769,9 @@ export default {
               maskAppOldToNative("login");
               // #endif
               // #ifdef  H5
+              if(localStorage.getItem('fbPixelId') && window.fbq){
+                fbq('trackCustom', 'h5-login',{username:res.username})
+              }
               sessionStorage.setItem("pullKingShow", false);
               // #endif
               // #ifdef APP-PLUS

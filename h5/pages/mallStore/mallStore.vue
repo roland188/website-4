@@ -51,8 +51,7 @@
                 </view>
 
                 <view class="cost">
-                  {{ $t('花费') }}
-                    <text>{{singleAmount}}</text>{{currency}} {{ $t('抽奖一次') }}
+                  {{ $t('花费') }}<text>{{singleAmount}}</text>{{currency}}
                 </view>
                 <view class="extracting">
                     <text class="button" @click="LuckyDraw()"></text>

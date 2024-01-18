@@ -1,7 +1,7 @@
 <template>
  <div class="vipLayout-body">
     <div class="vip-banner-wrap"></div>
-    <div class="vip-level-main" :class="{'viet-bg': ['betc88','sovip'].includes(projectImgUrl)}">
+    <div class="vip-level-main" :class="{'viet-bg': ['vi'].includes(locale)}">
       <div class="center-body">
         <div class="user-info-card">
           <div class="left-wrap">
@@ -9,7 +9,7 @@
               <div class="name">{{ $common.getUser().username }}</div>
               <div class="member-level">{{ levelInfo.vipName }}</div>
               <div class="vip-notice">
-               {{ ['sovip','betc88'].includes(projectImgUrl) ? $t('系统于越南时间每天凌晨5点30分进行VIP促销') : $t('每日北京时间凌晨6点30分 系统进行VIP等级结算') }}
+               {{ ['vi'].includes(locale) ? $t('系统于越南时间每天凌晨5点30分进行VIP促销') : $t('每日北京时间凌晨6点30分 系统进行VIP等级结算') }}
               </div>
             </div>
             <!-- 存款进度条-->
@@ -50,8 +50,7 @@
                 }}</span>
               </div>
             </div> -->
-
-            <template v-if="['sovip','betc88','xiaocao','kubet'].includes(projectImgUrl)">
+            <template v-if="['vi'].includes(locale)">
               <!-- 有效流水-->
               <div class="processWrap">
                 <div class="process-top">
@@ -216,7 +215,8 @@
     }),
     tempName:'VipTemp01',
     descriptionList: {}, // 活动说明
-    projectImgUrl: window.projectImgUrl
+    projectImgUrl: window.projectImgUrl,
+    locale: window.locale,
     };
   },
   created() {

@@ -89,7 +89,6 @@ data() {
     isIos: false, // 是否是ios系统
 
     modeldata: {}, // 弹窗数据
-
     /* 用户信息 */
     uid: "",
     tenetid: "",
@@ -583,11 +582,11 @@ methods: {
     if (lastArr.children.length <= 1) {
       this.smallShow = true;
     }
-  arrLeft = arrLeft.sort((a,b)=>{
-    return a.sort - b.sort
-  })
+    arrLeft = arrLeft.sort((a,b)=>{
+      return a.sort - b.sort
+    })
     this.leftArray = arrLeft;
-  this.$refs.gameList.changeRightData(this.leftArray);
+    this.$refs.gameList.changeRightData(this.leftArray);
       // setTimeout(() => {
       //   this.leftArray = sortMap;
       //   this.$refs.gameList.changeRightData(this.leftArray);

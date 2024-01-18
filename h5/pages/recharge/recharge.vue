@@ -990,13 +990,16 @@ export default {
               },
             });
           } else {
-			// #ifdef H5
-			if (window.isMaskApp && window.ANDROID_JS_BRIDGE) {
-				 window.ANDROID_JS_BRIDGE.recharge_success(); // adjust埋
-				 window.ANDROID_JS_BRIDGE.Purchase(); // 脸书埋
-			     window.ANDROID_JS_BRIDGE.purchase()  // 快手埋
-			}
-			// #endif  
+          // #ifdef H5
+          if (window.isMaskApp && window.ANDROID_JS_BRIDGE) {
+            window.ANDROID_JS_BRIDGE.recharge_success(); // adjust埋
+            window.ANDROID_JS_BRIDGE.Purchase(); // 脸书埋
+            window.ANDROID_JS_BRIDGE.purchase()  // 快手埋
+          }
+          if(localStorage.getItem('fbPixelId') && window.fbq){
+            fbq('trackCustom', 'h5-recharge',{  value: this.money, currency: 'CNY'})
+          }
+          // #endif  
             console.log("0----充值返回", res.url);
             const query = res.url.split("?")[1];
             uni.navigateTo({

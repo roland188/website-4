@@ -66,6 +66,7 @@ export default {
     }
 	  // #ifdef H5
 		this.showTop = window.isMaskApp ? false : true
+    this.setInviteCode()
 	 // #endif
   },
   methods: {
@@ -74,13 +75,43 @@ export default {
       this.$emit("closeDownload");
     },
     // 下载APP
+    setInviteCode() {
+        let inviteCode = "";
+        inviteCode = JSON.parse(sessionStorage.getItem("inviteCode"));
+        if (inviteCode && inviteCode !='null' ) {
+            this.getInviteCode(inviteCode)
+            inviteCode  = String.fromCharCode(8203) + inviteCode + String.fromCharCode(8203)
+            this.$copyText(inviteCode)
+        }
+    },
+    // 请求绑定邀请码
+    async getInviteCode(code){
+        let params = {
+            agentCode: code,
+        }
+        console.log(code,'code')
+        await this.$api.bindAgentCode(params,(err,res) => {
+            if(err){
+                console.log(err.msg)
+            }
+        })
+    },
     dowApp() {
-      if (this.isAndroid) {
-        window.location.href = this.$config.androidDownloadUrl
-      }
-      if (this.isIos) {
-        window.location.href = this.$config.iosDownloadUrl
-      }
+        let u = navigator.userAgent;
+        // #ifdef H5
+        if(localStorage.getItem('fbPixelId') && window.fbq){
+            fbq('trackCustom', 'h5-downApp')
+        }
+        // #endif
+        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+            //安卓手机
+            if (this.$config.androidDownloadUrl) window.location.href = this.$config.androidDownloadUrl;
+        }
+        if (u.indexOf('iPhone') > -1) {
+            //苹果手机
+            if (this.$config.iosDownloadUrl) window.location.href = this.$config.iosDownloadUrl;
+
+        }
     },
   },
 };

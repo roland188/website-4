@@ -142,6 +142,11 @@ export default {
       // #endif
       if (e === 200) {
         this.$api.logout((err, res) => {
+          // #ifdef H5
+            if(localStorage.getItem('fbPixelId') && window.fbq){
+            fbq('trackCustom', 'h5-logout')
+          }
+          // #endif
           this.$server.clearToken();
           uni.navigateTo({
             url: "../Login/Login",

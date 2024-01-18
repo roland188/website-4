@@ -16,7 +16,7 @@
       </view>
       <view class="title1" v-else>{{ $t("千款游戏 随时随地 想玩就玩") }} </view>
     </view>
-    <view class="btn" @click="downloadApp()">
+    <view class="btn" @click="dowApp()">
       <!-- <image
         src="@/static/image/mb/bm_img_d1.png"
         style="width: 68px; height: 22px"
@@ -59,6 +59,7 @@ export default {
     }
 	  // #ifdef H5
 		// this.showTop = window.isMaskApp ? false : true
+    this.setInviteCode()
 	 // #endif
   },
   methods: {
@@ -67,39 +68,46 @@ export default {
       this.$emit("closeDownload");
     },
     // 下载APP
-    dowApp() {
-      // let url = location.origin + '/downloadUrl?',
-      // iosUrl = this.$server.getIosDownloadUrl(),
-      // androidUrl = this.$server.getAndroidDownloadUrl();
-      // url += 'code=' + window.childCode;
-      // if (iosUrl) {
-      //     url += '&ios=' + encodeURIComponent(iosUrl)
-      // }
-      // if (androidUrl) {
-      //     url += '&android=' + encodeURIComponent(androidUrl)
-      // }
-      // window.location.href = url;
-      if (this.isAndroid) {
-        window.location.href = this.$config.androidDownloadUrl
-      }
-      if (this.isIos) {
-        window.location.href = this.$config.iosDownloadUrl
+    setInviteCode() {
+      let inviteCode = "";
+      inviteCode = uni.getStorageSync("inviteCode")
+      // #ifdef H5
+      inviteCode = JSON.parse(sessionStorage.getItem("inviteCode"));
+      // #endif
+      if (inviteCode && inviteCode !='null' ) {
+          this.getInviteCode(inviteCode)
+          inviteCode  = String.fromCharCode(8203) + inviteCode + String.fromCharCode(8203)
+          this.$copyText(inviteCode)
       }
     },
-    downloadApp() {
-      if (this.isAndroid) {
-        if(this.$config.androidDownloadUrl)
-          window.location.href = this.$config.androidDownloadUrl;
-        else if(this.$server.getAndroidDownloadUrl())
-          window.location.href = this.$server.getAndroidDownloadUrl();
-      }
-      if (this.isIos) {
-        if(this.$config.iosDownloadUrl)
-          window.location.href = this.$config.iosDownloadUrl;
-        else if(this.$server.getIosDownloadUrl())
-          window.location.href = this.$server.getIosDownloadUrl();
-      }
-    }
+    // 请求绑定邀请码
+    async getInviteCode(code){
+        let params = {
+            agentCode: code,
+        }
+        console.log(code,'code')
+        await this.$api.bindAgentCode(params,(err,res) => {
+            if(err){
+                console.log(err.msg)
+            }
+        })
+    },
+    dowApp() {
+        let u = navigator.userAgent;
+        // #ifdef H5
+        if(localStorage.getItem('fbPixelId') && window.fbq){
+            fbq('trackCustom', 'h5-downApp')
+        }
+        // #endif
+        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+            //安卓手机
+            if (this.$config.androidDownloadUrl) window.location.href = this.$config.androidDownloadUrl;
+        }
+        if (u.indexOf('iPhone') > -1) {
+            //苹果手机
+            if (this.$config.iosDownloadUrl) window.location.href = this.$config.iosDownloadUrl;
+        }
+    },
   },
 };
 </script>

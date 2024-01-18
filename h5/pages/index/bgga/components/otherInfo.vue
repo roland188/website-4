@@ -98,7 +98,9 @@ export default {
         };
     },
     created() {
+        // #ifdef H5
         this.setInviteCode()
+	    // #endif
     },
     methods: {
         setInviteCode() {
@@ -127,6 +129,11 @@ export default {
         },
         dowApp() {
             let u = navigator.userAgent;
+            // #ifdef H5
+            if(localStorage.getItem('fbPixelId') && window.fbq){
+                fbq('trackCustom', 'h5-downApp')
+            }
+            // #endif
             if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
                 //安卓手机
                 if (this.$config.androidDownloadUrl) window.location.href = this.$config.androidDownloadUrl;

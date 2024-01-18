@@ -349,10 +349,26 @@ api.getTokenUrl = function(
 		memberId,
 		terminalType,
 	};
-	server.post("/game/api/v1/game/getToken", data, callback, isLoading);
+	server.post("/game/api/v1/game/getToken", data, 
+	function(err, res) {
+		if (err) {
+			callback && callback(err);
+		} else {
+			// #ifdef H5
+			if(window.projectImgUrl == 'betc88') {
+				if(localStorage.getItem('fbPixelId') && window.fbq){
+					fbq('trackCustom', 'h5-enterGame')
+				}
+			}
+			// #endif
+			callback && callback(null, res);
+
+		}
+	}, isLoading);
 };
 api.bannerType = function(id,callback = null, isLoading = false) {
 	server.get("/longm/api/v1/banners/app/list/" + id, null, callback, isLoading);
+	
 };
 /**
  * 获取游戏连接

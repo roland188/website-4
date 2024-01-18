@@ -82,6 +82,7 @@ export default {
   mounted() {
 	// #ifdef H5
 	  	this.isMaskApp = window.isMaskApp ? false : true
+      this.setInviteCode()
 	// #endif
     // #ifdef APP-PLUS
     plus.runtime.getProperty(plus.runtime.appid, (wgtinfo) => {
@@ -90,27 +91,45 @@ export default {
     // #endif
   },
   methods: {
+    setInviteCode() {
+      let inviteCode = "";
+			inviteCode = uni.getStorageSync("inviteCode")
+			// #ifdef H5
+        inviteCode = JSON.parse(sessionStorage.getItem("inviteCode"));
+			// #endif
+        if (inviteCode && inviteCode !='null' ) {
+            this.getInviteCode(inviteCode)
+            inviteCode  = String.fromCharCode(8203) + inviteCode + String.fromCharCode(8203)
+            this.$copyText(inviteCode)
+        }
+    },
+    // 请求绑定邀请码
+    async getInviteCode(code){
+        let params = {
+            agentCode: code,
+        }
+        console.log(code,'code')
+        await this.$api.bindAgentCode(params,(err,res) => {
+            if(err){
+                console.log(err.msg)
+            }
+        })
+    },
     dowApp() {
-      // let self = this;
-      // let getClientCode = self.$config.clientCode;
-      // let theme = self.$config.theme;
-      // let sessInviteCode = JSON.parse(sessionStorage.getItem("inviteCode"));
-      // let code = sessInviteCode ? "/" + sessInviteCode : "";
-      // let appDowDataUrl = self.$config.dowUrl + getClientCode + theme + code;
-      // window.location.href = appDowDataUrl;
-      let u = navigator.userAgent;
-      if (
-        (u.indexOf("Android") > -1 || u.indexOf("Linux") > -1) &&
-        this.$config.androidDownloadUrl
-      ) {
-        window.location.href = this.$config.androidDownloadUrl;
-      }
-      if (
-        !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) &&
-        this.$config.iosDownloadUrl
-      ) {
-        window.location.href = this.$config.iosDownloadUrl;
-      }
+        let u = navigator.userAgent;
+        // #ifdef H5
+        if(localStorage.getItem('fbPixelId') && window.fbq){
+            fbq('trackCustom', 'h5-downApp')
+        }
+        // #endif
+        if (u.indexOf('Android') > -1 || u.indexOf('Linux') > -1) {
+            //安卓手机
+            if (this.$config.androidDownloadUrl) window.location.href = this.$config.androidDownloadUrl;
+        }
+        if (u.indexOf('iPhone') > -1) {
+            //苹果手机
+            if (this.$config.iosDownloadUrl) window.location.href = this.$config.iosDownloadUrl;
+        }
     },
     update() {
       // #ifdef APP-PLUS
