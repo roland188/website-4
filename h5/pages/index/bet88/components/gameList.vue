@@ -27,7 +27,7 @@
         <!-- :class="[1,2,4,6].includes(id) ? 'game1' : ''"  -->
         <view
           class="game"
-		      :class="'game1'" 
+          :class="$config.projectImgUrl == 'g9be' ? 'game1' : ''"
           v-if="item.name !== $t('捕鱼达人')"
         >
           <view

@@ -277,6 +277,41 @@
 				}
 			}			
 		</script>
+		<script type="text/javascript">
+			
+			if(window.projectImgUrl != 'betc88') return
+
+			let fbPixelId = getParameterByName('fbPixelId') || localStorage.getItem('fbPixelId')
+			if(fbPixelId){
+				localStorage.setItem('fbPixelId',fbPixelId)
+			}
+			if (fbPixelId) {
+				!function(f,b,e,v,n,t,s)
+				{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+				n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+				if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+				n.queue=[];t=b.createElement(e);t.async=!0;
+				t.src=v;s=b.getElementsByTagName(e)[0];
+				s.parentNode.insertBefore(t,s)}(window, document,'script',
+				'https://connect.facebook.net/en_US/fbevents.js');
+				fbq('init', fbPixelId);
+				fbq('track', 'PageView');
+			}
+			// 获取地址栏中的参数
+			function getParameterByName(name, url) {
+				if (!url) url = window.location.href;
+				name = name.replace(/[\[\]]/g, "\\$&");
+				var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+					results = regex.exec(url);
+				if (!results) return null;
+				if (!results[2]) return '';
+				return decodeURIComponent(results[2].replace(/\+/g, " "));
+			}
+			// 在需要的地方使用该变量
+			if (fbPixelId) {
+				document.write('<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=' + fbPixelId + '&ev=PageView&noscript=1"/></noscript>');
+			}
+		</script>
 		<!-- End of Statcounter Code -->
         </head>
         <body>
