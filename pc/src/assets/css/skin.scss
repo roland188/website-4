@@ -1,0 +1,50 @@
+// 全局样式 控制换肤、图片
+$locale: 'pt','vi','zh_CN','en';//语言
+@each $lang in $locale {
+    // @import url('./#{$lang}.scss');
+    // 换肤
+    $imgUrl: '~@/assets/image/locale/#{$lang}';
+    #app.lang-#{$lang}{
+        // 侧边栏悬浮窗
+        .fwDownload {
+            margin-bottom: 15px;
+            cursor: pointer;
+            .icon {
+                width: 70px;
+                height: 70px;
+                background-size: cover;
+            }
+            .serviceBg {
+                background: url('#{$imgUrl}/dze/7.png') no-repeat;
+            }
+            .serviceBg:hover {
+                background: url('#{$imgUrl}/dze/8.png') no-repeat;
+            }
+            .fb {
+                background: url('#{$imgUrl}/dze/fb.png') no-repeat;
+            }
+            .fb:hover {
+                background: url('#{$imgUrl}/dze/fb-a.png') no-repeat;
+            }
+            .tg {
+                background: url('#{$imgUrl}/dze/tg.png') no-repeat;
+            }
+            .tg:hover {
+                background: url('#{$imgUrl}/dze/tg-a.png') no-repeat;
+            }
+            .zalo {
+                background: url('#{$imgUrl}/dze/zalo.png') no-repeat;
+            }
+            .zalo:hover {
+                background: url('#{$imgUrl}/dze/zalo-a.png') no-repeat;
+            }
+            .appDown {
+                background: url('#{$imgUrl}/dze/5.png') no-repeat;
+            }
+            .appDown:hover {
+                background: url('#{$imgUrl}/dze/6.png') no-repeat;
+            }
+        }
+    }
+
+}
