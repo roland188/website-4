@@ -10,7 +10,7 @@
                     <span class="header-time-text">{{date}}</span>
                     <span>{{time}}</span>
                 </template> -->
-                <el-select v-model="selLang" :placeholder="$t('请选择')" size="small" class="lang-s" popper-class="lang-p" @change="handleSelectLang">
+                <!-- <el-select v-model="selLang" :placeholder="$t('请选择')" size="small" class="lang-s" popper-class="lang-p" @change="handleSelectLang">
                     <template slot="prefix">
                         <img loading="lazy" v-lazy="require('../../../../assets/image/lang/lang.png')" width="20px" alt />
                     </template>
@@ -23,7 +23,7 @@
                         <span style="display: inline-block; width: 90px;">{{ item.languageName }}</span>
                         <span>{{ item.languageAbbr }}</span>
                     </el-option>
-                </el-select>
+                </el-select> -->
                 <ul>
                     <li @click="toHome">{{ $t('网站首页') }}</li>
                     <li class="liCenter" @click="toService">{{ $t('在线客服') }}</li>
@@ -1282,7 +1282,6 @@ input::-webkit-input-placeholder {
 .leftButton,
 .rightButton {
     overflow: hidden;
-    width: 60px;
     height: 34px;
     margin-right: 10px;
 }
@@ -1290,14 +1289,13 @@ input::-webkit-input-placeholder {
 .rightButtonOne {
     display: flex;
     flex-direction: column;
-    width: 60px;
     transition: transform 0.5s ease;
 }
 .leftButtonOne span,
 .rightButtonOne span {
-    width: 60px;
     height: 34px;
     color: #000;
+    padding: 0 5px;
     background: linear-gradient(225deg, #9b7c4c 0%, #ffe7c1 100%);
     line-height: 34px;
     border-radius: 5px;

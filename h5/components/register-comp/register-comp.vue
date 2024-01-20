@@ -1264,13 +1264,6 @@ export default {
   }
 
   .realName {
-    .themeTextTwo {
-      padding: 0 50upx;
-    }
-
-    ::v-deep .uni-input-input {
-      margin: 0 40upx;
-    }
   }
 
   .regRow .regRowName {

@@ -8,7 +8,7 @@
       </div>
       <div class="login-msg">
         <img class="pointer login-close" 
-        :src="require(['kubet','choibet','phattai68'].includes(projectImgUrl) ? './img/close1.png' : './img/close.png')"
+        :src="require(['kubet','choibet','phattai68','jun88'].includes(projectImgUrl) ? './img/close1.png' : './img/close.png')"
         alt="" @click="() => setShowLogin({ show: false })">
         <div class="login-logo">
           <img width="100%" :src="$config.pcLogo

@@ -256,7 +256,7 @@ export default {
       3: 'độ dài từ 4 đến 13 chữ số',
       4: 'Tên tài khoản 6-15 chữ và số, không dấu',
       5: 'Vui lòng nhập số điện thoại di động (tùy chọn)',
-      6: 'Vui lòng nhập số điện thoại của bạn',
+      6: 'Không nhập số 0 ở đầu',
       7: 'Vui lòng nhập mã xác minh SMS',
       8: 'Vui lòng nhập họ và tên (tùy chọn)',
       9: 'Vui lòng nhập họ và tên',
