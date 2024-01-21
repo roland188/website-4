@@ -2,7 +2,7 @@
     <div class="header_container">
         <div class="headerWidth">
             <a href="javascript:;" class="logo" :style="'background-image:url(' +
-                ($config.pcLogo ? $config.imgHost + $config.pcLogo : $common.getTitleImgUrl('Logo')) +')'"
+                ($config.pcLogo ? $config.imgHost + $config.pcLogo : $common.getTitleImgUrl('Logo-1')) +')'"
                 @click="transgo">
             </a>
             <div class="title-logo">{{$t('情感无限的地方')}}</div>
