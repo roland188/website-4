@@ -61,7 +61,6 @@ server.request = function (url, data = null, callback = null, isLoading = true, 
         },
         success: (res) => {
             let self = this;
-            // console.log(res, "=====res=====")
             if (res.statusCode == 200) {
                 if (res.data) {
                     if (res.data.code == 0) {
