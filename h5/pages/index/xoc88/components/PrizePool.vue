@@ -2,8 +2,8 @@
 <template>
     <view class="PrizePool-view">
         <view class="promo-image">
-          <image class="img" src="../../../static/image/indexImg/promo_img_1.png"  mode="heightFix"></image>
-          <image class="img_gif" src="../../../static/image/indexImg/promo_img_2.gif"  mode="heightFix"></image>
+          <image class="img" src="@/static/image/indexImg/promo_img_1.png"  mode="heightFix"></image>
+          <image class="img_gif" src="@/static/image/indexImg/promo_img_2.gif"  mode="heightFix"></image>
         </view>
         <view class="jackpot-title">hũ lớn sắp nổ</view>
         <view class="jackpot">
@@ -12,14 +12,14 @@
           </view>
         </view>
         <view class="btn-sanhu">
-          <image class="img" src="../../../static/image/indexImg/btn-sanhu.png"  mode="heightFix"></image>
+          <image class="img" src="@/static/image/indexImg/btn-sanhu.png"  mode="heightFix"></image>
           <text>săn hũ ngay</text>
         </view>
         <view class="games">
           <view class="games-items" v-for="(item,i) in list" :key="i">
             <view class="title">NỔ HŨ</view>
             <view class="content">
-              <image class="img1" :src="require('../../../static/image/indexImg/game-bg' + (i+1) + '.png')"  mode="widthFix"></image>
+              <image class="img1" :src="require('@/static/image/indexImg/game-bg' + (i+1) + '.png')"  mode="widthFix"></image>
               <image class="img2" :src="item.iconUrl"  mode="widthFix"></image>
             </view>
             <view class="blance">
@@ -39,17 +39,17 @@
           {
             showNumber:'',
             numner: 888893838,
-            iconUrl: require('../../../static/image/indexImg/pg_w.png'),
+            iconUrl: require('@/static/image/indexImg/pg_w.png'),
           },
           {
             numner: 888743832,
             showNumber:'',
-            iconUrl: require('../../../static/image/indexImg/jili.png'),
+            iconUrl: require('@/static/image/indexImg/jili.png'),
           },
           {
             numner: 888522395,
             showNumber:'',
-            iconUrl: require('../../../static/image/indexImg/jili.png'),
+            iconUrl: require('@/static/image/indexImg/jili.png'),
           },
         ],
         timer0: null,
@@ -98,7 +98,7 @@
     margin-top: 40upx;
     padding: 220upx 10upx 10upx;
     text-align: center;
-    background: url(../../../static/image/indexImg/promo_bg.png) no-repeat center 220upx,
+    background: url(@/static/image/indexImg/promo_bg.png) no-repeat center 220upx,
       linear-gradient(180deg,#2e2e2e 40.51%,#6b4900 100%) no-repeat center 220upx;
     background-size: contain;
     object-fit: cover;
@@ -191,7 +191,7 @@
     justify-content: space-around;
     .games-items{
       padding-top: 40upx;
-      background: url(../../../static/image/indexImg/game-icon.png) no-repeat center/cover;
+      background: url(@/static/image/indexImg/game-icon.png) no-repeat center/cover;
       position: relative;
       border-radius: 24upx;
       .title{
@@ -228,7 +228,7 @@
         text-transform: uppercase;
         line-height: 12px;
         padding-right: 30upx;
-        background: url(../../../static/image/indexImg/icon_coin.png) no-repeat right/24upx #414141;
+        background: url(@/static/image/indexImg/icon_coin.png) no-repeat right/24upx #414141;
         border-bottom-left-radius: 24upx;
         border-bottom-right-radius: 24upx;
         .num{

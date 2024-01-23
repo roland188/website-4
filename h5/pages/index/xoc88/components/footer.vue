@@ -21,14 +21,14 @@
         </view>
       </view>
       <view class="bottom-icon1">
-        <img src="../../../static/image/qqImg/bottom-icon2.png" alt="">
+        <img src="@/static/image/qqImg/bottom-icon2.png" alt="">
       </view>
       <view class="bottom-description">
         <span >{{$t('是线上最佳国际博彩平台，我们平台提供多服务；体育到各种小游戏，我们体育拥有最全面的赛事滚球盘服务... ')}} </span>
         <span >{{$t('是线上最佳国际博彩平台，我们平台提供多服务；体育到各种小游戏，我们体育拥有最全面的赛事滚球盘服务。我们每日，每周和每月都享受有活动和赛事。玩家可通过电脑，平台和手机上在线观看个各种免费体验赛事直播。')}} </span>
       </view>
       <view class="bottom-icon1">
-        <img src="../../../static/image/qqImg/bottom-icon1.png" alt="">
+        <img src="@/static/image/qqImg/bottom-icon1.png" alt="">
       </view>
       <view class="bottom-copyright">
         {{ $t('@039 Bản quyền 2002-2023') }}

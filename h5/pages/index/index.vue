@@ -7,6 +7,7 @@
 		 <bgga v-if="skinId === 'bgga'"/>
 		 <bet88 v-if="['xiaocao','g9bet'].includes(skinId)"/>
 		 <jun88 v-if="skinId === 'jun88'"/>
+		 <xoc88 v-if="skinId === 'xoc88'"/>
       <myTabBar :current="0" ref="menuBar"/>
       <!-- 红包和大转盘活动合并后的入口，需要时解开注释 -->
       <!-- <mergeNewRed v-if="skinId === 'betc88'" /> -->
@@ -25,6 +26,7 @@ import myTabBar from '@/components/myTabBar/index.vue';
 import config from "@/utils/config"
 import betSbw from "./components/sbw/sbw.vue"
 import bet88 from "./bet88/index.vue"
+import xoc88 from "./xoc88/index.vue"
 // import mergeNewRed from './components/newRed/index.vue';
 export default {
   data() {
@@ -39,6 +41,7 @@ export default {
     sovip,
     jun88,
     bet88,
+	xoc88,
     myTabBar,
     betSbw
   },

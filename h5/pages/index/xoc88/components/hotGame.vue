@@ -3,25 +3,25 @@
     <view class="game-hot" v-if="hotGameList.length>0">
       <view class="item-region"  v-for="(item,index) in hotGameList" :key="index"  @click="onClick(item)">
         <view class="game-item">
-          <img :class="{'item-favorite': true, 'active': item.isFavorite}" :src="require('../../../static/image/qqImg/' + (item.isFavorite ? 'btn_sc_on_2' : 'btn_sc_off_2') + '.png')"/>
+          <img :class="{'item-favorite': true, 'active': item.isFavorite}" :src="require('@/static/image/qqImg/' + (item.isFavorite ? 'btn_sc_on_2' : 'btn_sc_off_2') + '.png')"/>
           <img loading="lazy" class="img" :src="item.pictureUrl?($config.imgHost+item.pictureUrl) : item.imgUrl?($config.imgHost+item.imgUrl):''" :onError="noData">
         </view>
         <view class="title">{{item.name}}</view>
       </view>      
     </view>
     <view class="no-game" v-if="hotGameList.length == 0">
-      <img :src="require('../../../static/image/qqImg/img_none_sj.png')"/>
+      <img :src="require('@/static/image/qqImg/img_none_sj.png')"/>
       <view class="no-game-text">{{ $t('无记录') }}</view>
     </view>
   </view>
 </template>
 <script>
-import api from '../../../utils/api'; //接口名字
+import api from '@/utils/api'; //接口名字
 export default {
     props:['hotGameList','index'],
     data() {
         return {
-            noData: 'this.src="' + require("../../../static/image/indexImg/searchlost.png") + '"',
+            noData: 'this.src="' + require("@/static/image/indexImg/searchlost.png") + '"',
         }
     },
     methods: {

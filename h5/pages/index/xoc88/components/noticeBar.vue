@@ -21,7 +21,7 @@
 export default {
   data() {
     return {
-      speed: 100,
+      speed: 30,
       textWen: this.$t("热门推荐 捕鱼达人 电子游艺 体育赛事 棋牌游戏 彩票游戏 视讯直播 电竞赛事"), // 公告数据
     };
   },
@@ -99,7 +99,7 @@ export default {
     top: 2px;
     display: inline-block;
     vertical-align: middle;
-    mask-image: url('../../../static/image/indexImg/notice-icon.png');
+    mask-image: url('@/static/image/indexImg/notice-icon.png');
     mask-size: contain;
     -webkit-mask-position: center;
     mask-position: center;
@@ -110,7 +110,7 @@ export default {
   .mailbox {
     width: 40upx;
     height: 40upx;
-    background-image: url('../../../static/image/indexImg/mailbox.png');
+    background-image: url('@/static/image/indexImg/mailbox.png');
     background-size: contain;
     -webkit-background-position: center;
     background-position: center;

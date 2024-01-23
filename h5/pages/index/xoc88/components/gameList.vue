@@ -18,11 +18,11 @@
         @mouseenter="navMouseHover(index)"
         @mouseleave="navMouseLeave()"
       >
-        <img class="background" :src="navIndex == index ? '../../../static/image/indexImg/btn_zc2_1.png' : '../../../static/image/indexImg/btn_zc2_2.png'"/>
+        <img class="background" :src="navIndex == index ? '@/static/image/indexImg/btn_zc2_1.png' : '@/static/image/indexImg/btn_zc2_2.png'"/>
         <view class="bgicon">
           <img
             class="img"
-            :src="(navIndex == index || hoverIndex == index) ? ('../../../static/image/indexImg/menuicon-' + item.id + '-active.png') : ('../../../static/image/indexImg/menuicon-' + item.id + '.png')"
+            :src="(navIndex == index || hoverIndex == index) ? ('@/static/image/indexImg/menuicon-' + item.id + '-active.png') : ('@/static/image/indexImg/menuicon-' + item.id + '.png')"
             alt=""
           />
         </view>
@@ -65,7 +65,7 @@
                   <view class="title-content">
                     <img
                       class="img"
-                      :src="'../../../static/image/indexImg/menuicon-' + item.id + '-active.png'"            
+                      :src="'@/static/image/indexImg/menuicon-' + item.id + '-active.png'"            
                       alt=""
                     />
                     <span class="game-label">{{ item.name }}</span>   
@@ -100,10 +100,10 @@
 </template>
 
 <script>
-import HotGameList from '../../gameList/hotGameList.vue';
-import LiveGameList from '../../gameList/liveGameList.vue';
-import SportGameList from '../../gameList/sportGameList.vue';
-import MultiGameList from '../../gameList/multiGameList.vue';
+import HotGameList from '@/pages/gameList/hotGameList.vue';
+import LiveGameList from '@/pages/gameList/liveGameList.vue';
+import SportGameList from '@/pages/gameList/sportGameList.vue';
+import MultiGameList from '@/pages/gameList/multiGameList.vue';
 import hotGame from './hotGame.vue';
 export default {
   components: {
@@ -604,7 +604,7 @@ export default {
                 justify-content: center;
                 align-items: center;
                 .more-icon {
-                  background: url('../../../static/image/indexImg/double-arrow-down.svg') no-repeat;
+                  background: url('@/static/image/indexImg/double-arrow-down.svg') no-repeat;
                   width: 24upx;
                   height: 24upx;
                   margin-left: 10upx;

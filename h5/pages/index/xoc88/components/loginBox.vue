@@ -20,7 +20,7 @@
         <view class="rightLi" @tap="routerLink(1)">
           <view class="liIconBox">
             <image
-              src="../../../static/image/indexImg/service-customer.png"
+              src="@/static/image/indexImg/service-customer.png"
               mode="heightFix"
               class="liIcon iconOne"
             ></image>
@@ -32,7 +32,7 @@
         <view class="rightLi" @tap="routerLink(3)">
           <view class="liIconBox">
             <image
-              src="../../../static/image/indexImg/service-mobile.png"
+              src="@/static/image/indexImg/service-mobile.png"
               mode="heightFix"
               class="liIcon iconOne"
             ></image>
@@ -45,7 +45,7 @@
           <view class="liIconBox">
             <view class="red-img" v-if="caiFlag"></view>
             <image
-              src="../../../static/image/indexImg/service-agent.png"
+              src="@/static/image/indexImg/service-agent.png"
               mode="heightFix"
               class="liIcon iconOne"
             ></image>
@@ -57,7 +57,7 @@
         <view class="rightLi" @tap="routerLink(7)">
           <view class="liIconBox">
             <image
-              src="../../../static/image/indexImg/service-more.png"
+              src="@/static/image/indexImg/service-more.png"
               mode="heightFix"
               class="liIcon iconOne"
             ></image>

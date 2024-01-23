@@ -63,11 +63,11 @@ import HomeTabs from "@/components/home-tabs.vue";
 import GameList from "./components/gameList.vue";
 import PrizePool from './components/PrizePool.vue'
 import OtherInfo from './components/otherInfo.vue'
-import TabBar from "../../components/myTabBar/index.vue"
-import { updateApp } from "./components/updateApp.js";
+// import TabBar from "../../components/myTabBar/index.vue"
+import { updateApp } from "../components/updateApp.js";
 // import LuckyBag from './components/luckyBag.vue'
-import RightFloatingFrame from "../../components/rightFloatingFrame/rightFloatingFrame.vue";
-import LeftMenu from "../../components/leftMenu/leftMenu.vue";
+import RightFloatingFrame from "@/components/rightFloatingFrame/rightFloatingFrame.vue";
+import LeftMenu from "@/components/leftMenu/leftMenu.vue";
 export default {
   mixins: [updateApp],
   components: {
@@ -82,7 +82,7 @@ export default {
     OtherInfo,
     PrizePool,
     Footer,
-    TabBar,
+    // TabBar,
     // LuckyBag
     RightFloatingFrame,
   },
@@ -178,7 +178,7 @@ export default {
   //     }
   //     // #endif
   // },
-  onShow() {
+  mounted() {
   // #ifdef H5
 	this.showDownload = window.isMaskApp ? false : true
   // #endif
@@ -210,7 +210,7 @@ export default {
     // #endif
     this.myTabIndex = 0;
   },
-  onLoad() {
+  created() {
     // #ifdef APP-PLUS
     // this.Appupdate(true);
     const res = uni.getSystemInfoSync();
@@ -652,8 +652,8 @@ export default {
       let hotList = {
         name: this.$t('热门'),
         id: 0,
-        menuIconActiveApp: require("../../static/image/indexImg/menu-icon0-active.svg"),
-        menuIconApp: require("../../static/image/indexImg/menu-icon0.svg"),
+        menuIconActiveApp: require("@/static/image/indexImg/menu-icon0-active.svg"),
+        menuIconApp: require("@/static/image/indexImg/menu-icon0.svg"),
         children: this.hotList
       }
       arrLeft.unshift(hotList)

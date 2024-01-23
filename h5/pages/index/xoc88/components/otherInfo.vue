@@ -6,17 +6,17 @@
                 <view class="title">tải ứng dụng</view>
                 <view class="app_items">
                     <view class="android" @click="dowApp">
-                        <image mode="heightFix"  src="../../../static/image/indexImg/app_android.png"></image>
+                        <image mode="heightFix"  src="@/static/image/indexImg/app_android.png"></image>
                         <text>Hướng dẫn</text>
                     </view>
                     <view class="ios" @click="dowApp">
-                        <image mode="heightFix" src="../../../static/image/indexImg/app_ios.png"></image>
+                        <image mode="heightFix" src="@/static/image/indexImg/app_ios.png"></image>
                         <text>Hướng dẫn</text>
                     </view>
                 </view>
             </view>
             <view class="bg-wrapper">
-                <image class="img" mode="heightFix" src="../../../static/image/indexImg/app_img.png"></image>
+                <image class="img" mode="heightFix" src="@/static/image/indexImg/app_img.png"></image>
             </view>
         </view>
          <view class="partner-okvip">
@@ -25,22 +25,22 @@
                 <view class="sub-title">UD Almería & GTG</view>
             </view>
             <view class="partner_right">
-                <image class="img1" mode="widthFix" src="../../../static/image/indexImg/CVF.png"></image>
+                <image class="img1" mode="widthFix" src="@/static/image/indexImg/CVF.png"></image>
                 <view class="line"></view>
-                <image class="img2" mode="widthFix" src="../../../static/image/indexImg/logoOKvip.png"></image>
+                <image class="img2" mode="widthFix" src="@/static/image/indexImg/logoOKvip.png"></image>
             </view>
         </view>
         <view class="payment">
             <view>Phương Thức Thanh Toán</view>
             <view class="payment-list">
-                <image mode="widthFix" src="../../../static/image/indexImg/icon-payment-1.png"></image>
-                <image mode="widthFix" src="../../../static/image/indexImg/icon-payment-2.png"></image>
-                <image mode="widthFix" src="../../../static/image/indexImg/icon-payment-3.png"></image>
-                <image mode="widthFix" src="../../../static/image/indexImg/icon-payment-4.png"></image>
-                <image mode="widthFix" src="../../../static/image/indexImg/icon-payment-5.png"></image>
-                <image mode="widthFix" src="../../../static/image/indexImg/icon-payment-6.png"></image>
-                <image mode="widthFix" src="../../../static/image/indexImg/icon-payment-7.png"></image>
-                <image mode="widthFix" src="../../../static/image/indexImg/icon-payment-8.png"></image>
+                <image mode="widthFix" src="@/static/image/indexImg/icon-payment-1.png"></image>
+                <image mode="widthFix" src="@/static/image/indexImg/icon-payment-2.png"></image>
+                <image mode="widthFix" src="@/static/image/indexImg/icon-payment-3.png"></image>
+                <image mode="widthFix" src="@/static/image/indexImg/icon-payment-4.png"></image>
+                <image mode="widthFix" src="@/static/image/indexImg/icon-payment-5.png"></image>
+                <image mode="widthFix" src="@/static/image/indexImg/icon-payment-6.png"></image>
+                <image mode="widthFix" src="@/static/image/indexImg/icon-payment-7.png"></image>
+                <image mode="widthFix" src="@/static/image/indexImg/icon-payment-8.png"></image>
             </view>
         </view>
         <view class="info">
@@ -48,35 +48,35 @@
                 <view class="license">
                     <view class="title">Giấy Phép</view>
                     <view class="left">
-                        <image class="img"  mode="heightFix" src="../../../static/image/indexImg/giayphep1.png"></image>
-                        <image class="img"  mode="heightFix" src="../../../static/image/indexImg/giayphep2.png"></image>
-                        <image class="img"  mode="heightFix" src="../../../static/image/indexImg/giayphep3.png"></image>
+                        <image class="img"  mode="heightFix" src="@/static/image/indexImg/giayphep1.png"></image>
+                        <image class="img"  mode="heightFix" src="@/static/image/indexImg/giayphep2.png"></image>
+                        <image class="img"  mode="heightFix" src="@/static/image/indexImg/giayphep3.png"></image>
                     </view>
                     <view class="right">
-                        <image class="img"  mode="heightFix" src="../../../static/image/indexImg/giayphep4.png"></image>
-                        <image class="img"  mode="heightFix" src="../../../static/image/indexImg/giayphep5.png"></image>
+                        <image class="img"  mode="heightFix" src="@/static/image/indexImg/giayphep4.png"></image>
+                        <image class="img"  mode="heightFix" src="@/static/image/indexImg/giayphep5.png"></image>
                     </view>
                 </view>
                 <view class="security">
                     <view class="title">Bảo Vệ</view>
-                    <image class="img" mode="heightFix" src="../../../static/image/indexImg/security-1.png"></image>
-                    <image class="img" mode="heightFix" src="../../../static/image/indexImg/security-2.png"></image>
+                    <image class="img" mode="heightFix" src="@/static/image/indexImg/security-1.png"></image>
+                    <image class="img" mode="heightFix" src="@/static/image/indexImg/security-2.png"></image>
                 </view>
                 <view class="follow">
                     <view class="title">Theo Dõi Chúng Tôi</view>
                     <view class="flex">
-                        <image class="img" mode="heightFix" src="../../../static/image/indexImg/follow1.png"></image>
-                        <image class="img" mode="heightFix" src="../../../static/image/indexImg/follow2.png"></image>
-                        <image class="img" mode="heightFix" src="../../../static/image/indexImg/follow3.png"></image>
+                        <image class="img" mode="heightFix" src="@/static/image/indexImg/follow1.png"></image>
+                        <image class="img" mode="heightFix" src="@/static/image/indexImg/follow2.png"></image>
+                        <image class="img" mode="heightFix" src="@/static/image/indexImg/follow3.png"></image>
                           
                     </view>
                 </view>
                 <view class="slogan">
                     <view class="title">Chơi Có Trách Nhiệm</view>
                     <view class="flex">
-                        <image class="img" mode="heightFix" src="../../../static/image/indexImg/slogan1.png"></image>
-                        <image class="img" mode="heightFix" src="../../../static/image/indexImg/slogan2.png"></image>
-                        <image class="img" mode="heightFix" src="../../../static/image/indexImg/slogan3.png"></image>
+                        <image class="img" mode="heightFix" src="@/static/image/indexImg/slogan1.png"></image>
+                        <image class="img" mode="heightFix" src="@/static/image/indexImg/slogan2.png"></image>
+                        <image class="img" mode="heightFix" src="@/static/image/indexImg/slogan3.png"></image>
                     </view>
                 </view>
             </view>
