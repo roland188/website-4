@@ -27,6 +27,19 @@
 
     function t() {
         var c = [
+            {
+                "code": "ff10",
+                "skin": "xoc88",
+                "childCode": "ff10",
+                "locale": 'vi',
+                "name": "betcome",
+                "theme": "a053",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
+            },
 			{
                 "code": "viet",
                 "skin": "kubet",
@@ -171,6 +184,7 @@
         // var o = c[4];// sovip
         var o = c[5];// bet88
         var o = c[6];// jun88
+        var o = c[0]
         console.log('-----', o)
         for (var x in c) {
             var i = c[x];
@@ -185,7 +199,7 @@
         // o.host = "https://tc00013.com/xxa/"// ku bet
         // o.host = "https://tc20011.com/xxa"
         o.host = "https://715732.com/xxa";
-        // o.host = "https://tc20009.com/xxa"
+        o.host = "https://tc20009.com/xxa"
         // o.host = "https://tc00011.com/xxa"
 		// gr86czdgdk.com  phattai68 内部域名
 		// ofampihfkc.com  choibet 内部域名
