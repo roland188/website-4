@@ -292,7 +292,7 @@ export default {
     onluckyWheelSimple() {
 			if (!this.$api.isLogin()) {
 			  uni.showToast({
-				title: "请先登录",
+        title: this.$t('请先登录'),
 				icon: "none",
 			  });
 			} else {
