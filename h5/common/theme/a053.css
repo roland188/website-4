@@ -27,7 +27,7 @@ page {
 	--loginContent: '';
 	--loginBtn: linear-gradient(90deg, #deb549, #fdea61);
 
-	--verActive: #ff0; /*选中
+	--verActive: #ebcc45; /*选中
 	--headerG: #270000; /*公告背景色*/
 	--headerGtexe: #fff; /*公告文字背景*/
 	--gTextColor: #F6F108; /*公告标题*/
@@ -47,7 +47,8 @@ page {
 	/*-------- qiqi start----------- */
 	--themeActTopBg: #000000; /*优惠头部背景色*/
 	
-	--themeActTitleBg: #740201; /*优惠标题背景色*/
+	--themeActTopBg: #000000; /*优惠头部背景色*/
+	--themeActTitleBg: #Ffffff; /*优惠标题背景色*/
 	--themeNavTabBg: #0f0f0f;/*优惠标题切换背景*/
 	--themeNavTabColor: #fff;/*优惠标题切换背景*/
 	--themeNavTabAcColor: #d9bb9b;/*优惠标题切换选中背景*/

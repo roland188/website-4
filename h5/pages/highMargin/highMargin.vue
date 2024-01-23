@@ -43,7 +43,7 @@
         <view
           class="receive-but codeBtn u-flex-all"
           @click="onReceive"
-          :class="isGet ? '' : 'disabledBtn'"
+          :class="!isGet ? 'disabledBtn' : ''"
         >
           {{ $t('领取') }}
         </view>
@@ -199,7 +199,7 @@ export default {
       explains: "",
       inviteMemberNum: 0,
       minValidCount: "", //最小有效会员人数
-      validMember: "", //有效会员人数
+      validMember: 0, //有效会员人数
       maxReceive: "", //领取上限
       isGet: false, //是否可以领取
     };
@@ -265,13 +265,13 @@ export default {
             this.minValidCount = res.minValidCount;
             this.maxReceive = res.maxReceive;
             this.auditFactor = res.auditFactor; //稽核倍数
-            this.btnDis = res.allowance < res.minCount ? true : false;
+            this.btnDis = res.allowance > res.minCount ? true : false;
 
             //满足 1.最低领取金额  2.最低有效会员人数 3.领取上限
             if (
               this.validMember >= this.minValidCount &&
               this.money <= this.maxReceive &&
-              !this.btnDis
+              this.btnDis
             ) {
               this.isGet = true;
             }
@@ -429,7 +429,7 @@ export default {
       this.$api.validMemberCount(function (err, res) {
         if (err) {
         } else {
-          _this.validMember = res.validMemberCount;
+          _this.validMember = Number(res.validMemberCount);
 
           _this.getMoneyF();
         }
