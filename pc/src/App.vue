@@ -8,7 +8,7 @@
  :style="{backgroundImage:`url(${require(''+a)})`}"
  -->
 <template>
-  <div id="app" :class="['lang-'+ locale,'skin-'+ projectImgUrl]">
+  <div id="app" :class="['lang-' + locale, 'skin-' + projectImgUrl]">
     <div class="loadingBgc" v-show="splash">
       <transition name="slide-fade" mode="out-in">
         <Splash ref="splash"></Splash>
@@ -23,7 +23,7 @@
 <script>
 import axios from "axios";
 import Splash from "./components/splash/splash";
-import { _getDeviceInfo }  from './utils/finger.js';
+import { _getDeviceInfo } from "./utils/finger.js";
 export default {
   name: "App",
   components: { Splash },
@@ -52,7 +52,10 @@ export default {
     let host = this.$common.getHost();
     let imgUrl = this.$common.getImgUrlImg();
     if (imgUrl) {
-      imgUrl = process.env.NODE_ENV !== 'production' ? imgUrl : window.location.origin + '/file'
+      imgUrl =
+        process.env.NODE_ENV !== "production"
+          ? imgUrl
+          : window.location.origin + "/file";
       this.$config.imgHost = imgUrl;
     }
     this.forDataJson(host);
@@ -72,15 +75,15 @@ export default {
   },
   mounted() {
     this.loading();
-    _getDeviceInfo().then( res => {
-        this.$config.phoneModel = res.browserType
-        this.$ImgStorage.setVersion(this.$config)
-    })
-    this.getLogin()
+    _getDeviceInfo().then((res) => {
+      this.$config.phoneModel = res.browserType;
+      this.$ImgStorage.setVersion(this.$config);
+    });
+    this.getLogin();
   },
   beforeCreate() {},
   methods: {
-     getLogin() {
+    getLogin() {
       let href = window.location.href;
       // 判断如果带有token，并且没有空的情况下
       if (href.includes("access_token=")) {
@@ -90,8 +93,8 @@ export default {
           this.$common.setUser(res);
           //登录成功提示
           this.$message({
-              message: this.$t('恭喜您，登录成功'),
-              type: "success",
+            message: this.$t("恭喜您，登录成功"),
+            type: "success",
           });
         }
       }
@@ -118,7 +121,7 @@ export default {
         if (i > step * timer) {
           clearInterval(Interval);
           // 提示用户超时
-          this.$message.error(this.$t('网络超时，请稍后刷新页面重试'))
+          this.$message.error(this.$t("网络超时，请稍后刷新页面重试"));
         }
       }, 1000);
       function chek() {
@@ -145,7 +148,7 @@ export default {
       let theme = 1;
       let lang = "zh_EN";
       // let mainUrl = window.maintainUrl;
-      let mainUrl = '/clientMaintain/getClientMaintain';
+      let mainUrl = "/clientMaintain/getClientMaintain";
       that.$http.mainPost(mainUrl, false).then((res) => {
         if (res.code == 0) {
           if (res.data.status === 1) {
@@ -180,7 +183,7 @@ export default {
           .then(function (res) {
             self.isShow = true;
             if (res.status == 200) {
-              if (res.data.code == 0) {   
+              if (res.data.code == 0) {
                 self.$config.baseUrl = host;
                 self.$common.setConfigHost(host);
                 let dataUrl = res.data.data;
@@ -192,7 +195,10 @@ export default {
                     self.$config.codeUrl = item.domain;
                   } else if (item.type == 2) {
                     //图片
-                    let imgHost = process.env.NODE_ENV !== 'production' ? item.domain : window.location.origin + '/file'
+                    let imgHost =
+                      process.env.NODE_ENV !== "production"
+                        ? item.domain
+                        : window.location.origin + "/file";
                     self.$config.imgHost = imgHost;
                     self.$common.setImgUrlImg(item.domain);
                   } else if (item.type == 3) {
@@ -208,23 +214,23 @@ export default {
                     self.$config.customerServiceUrl = item.domain;
                     self.$common.setCustomerServiceUrl(item.domain);
                   } else if (item.type == 6) {
-                      //ios下载地址
-                      self.$config.iosDownloadUrl = item.domain;
+                    //ios下载地址
+                    self.$config.iosDownloadUrl = item.domain;
                   } else if (item.type == 7) {
-                      //android下载地址
-                      self.$config.androidDownloadUrl = item.domain;
+                    //android下载地址
+                    self.$config.androidDownloadUrl = item.domain;
                   } else if (item.type == 8) {
-                      //pc下载地址
-                      self.$config.pcDownloadUrl = item.domain;
+                    //pc下载地址
+                    self.$config.pcDownloadUrl = item.domain;
                   } else if (item.type == 9) {
-                      //pc主站域名
-                      self.$config.pcMainUrl = item.domain;
-                  }else if (item.type == 10) {
-                      // pc 易记域名
-                      self.$config.pcDomainImgUrl =  item.domain;
+                    //pc主站域名
+                    self.$config.pcMainUrl = item.domain;
+                  } else if (item.type == 10) {
+                    // pc 易记域名
+                    self.$config.pcDomainImgUrl = item.domain;
                   } else if (item.type == 13) {
-                      // pc端logo
-                      self.$config.pcLogo = item.domain;
+                    // pc端logo
+                    self.$config.pcLogo = item.domain;
                   }
                 });
                 sessionStorage.setItem("restraint", false);
@@ -232,21 +238,23 @@ export default {
               } else if (res.data.code == 110009) {
                 sessionStorage.setItem("restraint", true);
                 this.$router.replace({
-                  path: '/iplimit',
-                    query:{
-                        ip: response.data.msg,
-                        customer: response.data.data.customer
-                    }
-                })
+                  path: "/iplimit",
+                  query: {
+                    ip: response.data.msg,
+                    customer: response.data.data.customer,
+                  },
+                });
               } else {
                 self.$message.error(res.data.msg);
               }
             } else if (res.status == 500 || res.status == 503) {
-              self.$message.error(self.$t('服务器维护中,请稍后再试'));
+              self.$message.error(self.$t("服务器维护中,请稍后再试"));
             } else if (res.status == 401) {
               let isToken = self.$common.getToken();
               if (isToken) {
-                self.$message.error(self.$t('您的登录账户已经过期，请您重新登录'));
+                self.$message.error(
+                  self.$t("您的登录账户已经过期，请您重新登录")
+                );
               }
               self.$common.clearToken();
             } else {

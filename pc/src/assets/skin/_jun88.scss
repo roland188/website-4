@@ -5,7 +5,6 @@ $theme-activeColor: #fff;
 $bg-Color: #0a0a0a;
 $bgActive-Color: #1d1d1d;
 
-
 // 登录、注册
 $login-bgColor: #fff;
 $loginColor: #000;
@@ -20,20 +19,20 @@ $nav-bgColor: #2199ca;
 $headr-bgColor1: #25aae1;
 $headr-Color: #fff;
 // 优惠
-$active-bgColor: linear-gradient(180deg,#fff,#cff0fe 30%,#fff 70%);
+$active-bgColor: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%);
 $active-btnColor: #0080af;
 $active-color: #0080af;
 $active-btncolor1: #fff;
-$activity-bg: linear-gradient(180deg,#fff,#cff0fe 30%,#fff 70%);
+$activity-bg: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%);
 $game-tabBg: #2199ca;
-$game-tabColor:#efc77a;
+$game-tabColor: #efc77a;
 $game-textColor: #fff;
 $notice-bg: #fff;
-;body {
-    --themeColor: linear-gradient(180deg,#fff,#cff0fe 30%,#fff 70%);
-    --themeAssistColor: #f9a425;
+body {
+  --themeColor: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%);
+  --themeAssistColor: #f9a425;
 }
 
 .themeColor {
-    background-color: var(--themeColor)
+  background-color: var(--themeColor);
 }

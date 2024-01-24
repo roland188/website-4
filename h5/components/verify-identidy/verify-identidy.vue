@@ -23,11 +23,11 @@
           src="/static/image/verify/sigh@2x.png"
           mode=""
         ></image>
-        <view class="content-text1">{{ $t('安全验证') }}</view>
-        <view class="content-text2">{{ $t('您正在一台新设备登录，为了您的账号安全，请进行安全验证。') }}</view>
-        <view class="verify-btn" @tap="showStep = 2">{{
-          $t('开始验证')
+        <view class="content-text1">{{ $t("安全验证") }}</view>
+        <view class="content-text2">{{
+          $t("您正在一台新设备登录，为了您的账号安全，请进行安全验证。")
         }}</view>
+        <view class="verify-btn" @tap="showStep = 2">{{ $t("开始验证") }}</view>
       </view>
       <view class="verify-phone" v-if="showStep === 2">
         <view v-if="!showSuccessModel">
@@ -52,10 +52,10 @@
               @blur="verifyCodeBlurFn"
             />
             <view class="smsCode" @tap="getPhoneCode">{{
-              count == 0 ? $t('获取验证码') : count + "S"
+              count == 0 ? $t("获取验证码") : count + "S"
             }}</view>
           </view>
-          <view class="verify-btn" @tap="verify">{{ $t('确定') }}</view>
+          <view class="verify-btn" @tap="verify">{{ $t("确定") }}</view>
         </view>
         <view v-else>
           <image
@@ -63,7 +63,7 @@
             src="/static/image/verify/success2@2x.png"
             mode=""
           ></image>
-          <view class="success-text">{{ $t('校验成功') }}</view>
+          <view class="success-text">{{ $t("校验成功") }}</view>
         </view>
       </view>
     </view>
@@ -99,25 +99,25 @@ export default {
       this.smsCode = "";
     },
     verify() {
-      const self = this
+      const self = this;
       if (!this.phone) {
         uni.showToast({
           icon: "none",
-          title: self.$t('请输入手机号码'),
+          title: self.$t("请输入手机号码"),
         });
         return;
       }
       if (this.phone && !/^1[3456789]\d{9}$/.test(this.phone)) {
         uni.showToast({
           icon: "none",
-          title: self.$t('手机格式不正确'),
+          title: self.$t("手机格式不正确"),
         });
         return;
       }
       if (!this.smsCode) {
         uni.showToast({
           icon: "none",
-          title: self.$t('短信验证码不能为空！'),
+          title: self.$t("短信验证码不能为空！"),
         });
         return;
       }
@@ -148,18 +148,18 @@ export default {
       );
     },
     getPhoneCode() {
-      const self = this
+      const self = this;
       if (!this.phone) {
         uni.showToast({
           icon: "none",
-          title: self.$t('请输入手机号码'),
+          title: self.$t("请输入手机号码"),
         });
         return;
       }
       if (this.phone && !/^1[3456789]\d{9}$/.test(this.phone)) {
         uni.showToast({
           icon: "none",
-          title: self.$t('手机格式不正确'),
+          title: self.$t("手机格式不正确"),
         });
         return;
       }
@@ -193,7 +193,7 @@ export default {
               this.count = 0;
             } else {
               uni.showToast({
-                title: self.$t('获取验证码成功'),
+                title: self.$t("获取验证码成功"),
                 icon: "none",
               });
             }

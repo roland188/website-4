@@ -31,10 +31,10 @@ $game-textColor: #8c999c;
 $notice-bg: rgba(0, 0, 0, 0.7);
 
 body {
-    --themeColor: #111;
-    --themeAssistColor: #f9a425;
+  --themeColor: #111;
+  --themeAssistColor: #f9a425;
 }
 
 .themeColor {
-    background-color: var(--themeColor)
+  background-color: var(--themeColor);
 }
