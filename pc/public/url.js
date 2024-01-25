@@ -180,11 +180,11 @@
         }
         var o = c[2];// bggame
         // var o = c[0];// kubet
-        var o = c[3];// betcome
         var o = c[5];// bet88
         var o = c[6];// jun88
         var o = c[0]
         var o = c[4];// betcome
+        var o = c[10];
         console.log('-----', o)
         for (var x in c) {
             var i = c[x];

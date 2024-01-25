@@ -1293,6 +1293,7 @@ input::-webkit-input-placeholder {
 }
 .leftButtonOne span,
 .rightButtonOne span {
+    width: 85px;
     height: 34px;
     color: #000;
     padding: 0 5px;
