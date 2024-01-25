@@ -181,10 +181,10 @@
         var o = c[2];// bggame
         // var o = c[0];// kubet
         var o = c[3];// betcome
-        // var o = c[4];// sovip
         var o = c[5];// bet88
         var o = c[6];// jun88
         var o = c[0]
+        var o = c[4];// betcome
         console.log('-----', o)
         for (var x in c) {
             var i = c[x];
@@ -198,8 +198,8 @@
         // o.host = "https://tc20014.com/xxa"// bet come
         // o.host = "https://tc00013.com/xxa/"// ku bet
         // o.host = "https://tc20011.com/xxa"
-        o.host = "https://715732.com/xxa";
-        o.host = "https://tc20009.com/xxa"
+        // o.host = "https://715732.com/xxa";
+        // o.host = "https://tc20009.com/xxa"
         // o.host = "https://tc00011.com/xxa"
 		// gr86czdgdk.com  phattai68 内部域名
 		// ofampihfkc.com  choibet 内部域名

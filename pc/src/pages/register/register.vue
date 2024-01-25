@@ -119,7 +119,7 @@
               v-model="inviteCode"
               @focus="inviteCodeFocus"
               @blur="inviteCodeBlur"
-              :disabled="inviteCode ? true : false"
+              :disabled="sessData ? true : false"
             />
             <input
               v-else
