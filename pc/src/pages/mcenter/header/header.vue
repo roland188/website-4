@@ -556,7 +556,7 @@ export default {
     margin-right: 70px;
 }
 .service {
-    color: #54b9ff;
+    color: $headr-Color;
     cursor: pointer;
 }
 .oneBg {
@@ -629,7 +629,7 @@ export default {
             line-height: 30px;
             text-align: center;
             margin-left: 20px;
-            background-color: $theme-color;
+            background-color: $header-btnColor;
             color: $headr-Color;
             font-size: 14px;
         }

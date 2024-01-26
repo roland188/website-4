@@ -1146,7 +1146,7 @@ export default {
     margin: auto 5px;
 }
 .menulist {
-    width: 1200px;
+    width: 1300px;
     height: 76px;
     margin: 0 auto;
     margin-top: 7px;

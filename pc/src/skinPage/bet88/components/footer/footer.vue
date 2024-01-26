@@ -48,7 +48,7 @@ export default {
             list: [
                 {
                     img: this.$common.getTitleImgUrl('Logo'),
-                    name_ch: this.$t('小赌怡情 一生必赢'),
+                    name_ch: window.projectName + ' ' + this.$t('小赌怡情 一生必赢'),
                     name_en: 'MUST WIN INTERNATIONAL'
                 },
                 {
@@ -93,7 +93,7 @@ export default {
                 obj.clientCode = window.clientCode;
                 obj.clientItem = window.childCode;
                 obj.username = this.$common.getUser() && this.$common.getUser().username;
-                obj.language = 'zh_CN';
+                obj.language = window.locale;
                 obj.theme = window.theme;
                 obj.projectImgUrl = window.projectImgUrl;
                 obj.orgin = window.location.origin + "/activity";

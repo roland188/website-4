@@ -645,7 +645,7 @@ export default {
   }
 
   .list {
-    width: 1100px;
+    width: 1200px;
     margin-left: 40px;
     float: left;
     z-index: 100;

@@ -277,7 +277,6 @@ export default {
 .main_swiper {
     width: 1920px;
     height: 520px;
-
     .container {
         position: relative;
 

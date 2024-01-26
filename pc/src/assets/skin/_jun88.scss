@@ -16,8 +16,8 @@ $login-linerColor: linear-gradient(180deg, #32abff, #32abff);
 // 用户中心
 $headr-bgColor: #2199ca;
 $nav-bgColor: #2199ca;
-$headr-bgColor1: #25aae1;
-$headr-Color: #fff;
+$headr-bgColor1: #fff;
+$headr-Color: #000;
 // 优惠
 $active-bgColor: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%);
 $active-btnColor: #0080af;
@@ -28,8 +28,10 @@ $game-tabBg: #2199ca;
 $game-tabColor: #efc77a;
 $game-textColor: #fff;
 $notice-bg: #fff;
+$header-mycolor: #fff;
+$header-btnColor: #0080af;
 body {
-  --themeColor: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%);
+  --themeColor: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%) !important;
   --themeAssistColor: #f9a425;
 }
 

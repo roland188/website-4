@@ -176,7 +176,7 @@ export default {
             // obj.clientCode = window.clientCode;
             // obj.clientItem = window.childCode;
             // obj.username = this.$common.getUser() && this.$common.getUser().username;
-            // obj.language = 'zh_CN';
+            // obj.language = window.locale;
             // obj.theme = window.theme;
             // obj.projectImgUrl = window.projectImgUrl;
             // obj.orgin = window.location.origin + "/activity";
