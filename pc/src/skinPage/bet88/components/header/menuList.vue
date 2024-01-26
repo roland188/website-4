@@ -326,6 +326,10 @@ export default {
           // this.$message.error(this.$t("请登录"));
           this.$common.openLogin()
         }
+      }else if (item.id == 12) {
+        this.$router.push({
+          path: "/mall",
+        });
       } else if (item.id == 9) {
         this.$router.push({
           path: "/home",
@@ -534,6 +538,7 @@ export default {
         menueList = menuArr
       }
 
+
       // if(window.projectImgUrl==='bqty'){
       //   menueList.sort((a, b) => {
       //     if (a.id === 2) {
@@ -545,6 +550,7 @@ export default {
       //   });
       // }
       this.menue = [...menueList, ...this.list].filter(o => o.name)
+      this.menue.push({ name: this.$t("积分商城"), id: 12 });
       localStorage.setItem(
         "ALLMENUE_EXCEPT_FISH",
         JSON.stringify(this.menue)
@@ -612,11 +618,11 @@ export default {
 <style lang="less" scoped>
 .menuList {
   position: relative;
-  width: 1300px;
+  width: max-content !important;
   height: 76px;
   z-index: 999;
   display: flex;
-  justify-content: space-around;
+  justify-content: center;
 
   .logo {
     width: 160px;
@@ -645,10 +651,12 @@ export default {
   }
 
   .list {
-    width: 1200px;
+    // width: 1350px;
     margin-left: 40px;
-    float: left;
     z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     li {
       position: relative;
