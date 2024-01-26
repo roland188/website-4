@@ -11,13 +11,13 @@
         <div class="fwDownload">
             <div class="icon tg" @click="jump('tg')"></div>
         </div>
-        <div class="fwDownload">
+        <!-- <div class="fwDownload">
             <div class="icon zalo" @click="jump('zalo')"></div>
-        </div>
+        </div> -->
         <div class="fwDownload">
             <div class="icon appDown" @click="jump('app')"></div>
         </div>
-        <div class="fwDownload">
+        <!-- <div class="fwDownload">
             <el-popover
                 placement="left"
                 trigger="click">
@@ -33,8 +33,7 @@
                 </div>
                 <div slot="reference" class="icon email"></div>
             </el-popover>
-        </div>
-        
+        </div> -->
         <!-- 彩金 -->
         <div slot="reference"
              v-if="['gtgame'].includes(getQxylSkin)"
@@ -65,6 +64,7 @@ export default {
             window:window,
             rebateShow:false, // 是否展示全民返利
             rebateRemind:false, // 全民返利小红点
+            projectImgUrl: window.projectImgUrl,
         }
     },
     created() {
@@ -148,10 +148,14 @@ export default {
         },
         jump(type) {
             if (type === 'app') return this.$router.push('/home?scroll=456')
-            const obj = {
-                fb: 'https://www.facebook.com/88betsport/',
-                tg: 'https://t.me/bet8868',
-                zalo: 'https://zalo.me/0918237421'
+            let obj = {}
+            if(this.projectImgUrl == 'g9bet'){
+                obj = {
+                    fb: 'https://facebook.com/congdongg9bet/',
+                    tg: 'https://t.me/g9bettintuc',
+                    zalo: '',
+                    Hotline:'',
+                }
             }
             window.open(obj[type])
         },
