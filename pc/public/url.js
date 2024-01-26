@@ -200,7 +200,7 @@
         // o.host = "https://tc20011.com/xxa"
         // o.host = "https://715732.com/xxa";
         // o.host = "https://tc20009.com/xxa"
-        // o.host = "https://tc00011.com/xxa"
+        o.host = "https://tc20015.com/xxa"
 		// gr86czdgdk.com  phattai68 内部域名
 		// ofampihfkc.com  choibet 内部域名
 		// tc20015.com  g9bet 内部域名
