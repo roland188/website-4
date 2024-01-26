@@ -146,7 +146,7 @@
 		<view v-show="type === 0" class="codeContainer">
 			<view class='logRow logverifyCode' style="margin: 0;">
 				<view class='required'> ★ </view>
-				<input type="text" style="color:#fff" :placeholder="$t('请输入图形验证码')" placeholder-class="themeTextTwo" placeholder-style="font-size:30upx;"
+				<input type="text" :placeholder="$t('请输入图形验证码')" placeholder-class="themeTextTwo" placeholder-style="font-size:30upx;"
 				 v-model='verifyCode' @blur="commonblurFn($event,'verifyCode')" @confirm='Register' />
 			</view>
 			<view class='verifyCode' :style="'background-image:url('+verifyCodeImg+')'" @tap='regainVerifyCode'>
@@ -1470,7 +1470,6 @@ export default {
 
   .logverifyCode input {
     box-sizing: border-box;
-    color: #fff;
   }
 
   .codeContainer .verifyCode {
