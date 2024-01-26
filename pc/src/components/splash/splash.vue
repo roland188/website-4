@@ -2,7 +2,7 @@
   <div class="splashBox flex align-items_center justify-content_center" :class="{'noamxpj': projectImgUrl !=='amxpj','amxpj': projectImgUrl ==='amxpj'}">
     <div class="splashContent">
       <div class="splashImgBox">
-        <img loading=”lazy” class="splashImg" :src="$common.getTitleImgUrl('Logo')" alt />
+        <img loading=”lazy” class="splashImg" :src="$common.getTitleImgUrl(projectImgUrl == 'g9bet' ?  'Logo-1' : 'Logo')" alt />
       </div>
       <p class="TextColor">LOADING...</p>
       <div class="splashLoad">
@@ -55,6 +55,7 @@ export default {
   top: 0px;
   background-size: cover;
   z-index: 999999;
+  background-color: #fff;
 }
 .noamxpj{
    background: url('../../assets/image/bg.png') no-repeat;

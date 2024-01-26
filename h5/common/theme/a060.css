@@ -23,7 +23,7 @@ page {
 	--loginPd: 52upx 0 62upx;
 	--loginInput: #fff;/*登录输入框*/
 	--loginInputBoder: 2rpx solid #444;
-	--loginInputColor: #fff;
+	--loginInputColor: #000;
 	--loginContent: none;
 	--loginBtn: #00abe5;
 

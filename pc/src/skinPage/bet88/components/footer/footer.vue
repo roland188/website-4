@@ -32,11 +32,7 @@
     <div class="anit_mark" v-if=" projectImgUrl === 'funw'">Copyright © 2023 Fun Win Group. All Rights Reserved.</div>
     <div class="anit_mark" v-else>Copyright © 
       {{ new Date().getFullYear() }} 
-      {{ 
-      { 
-        amxpj: 'Grand Lisboa Casino',
-        amwnsr: 'Macau Venetian',
-        gtgame: 'GoTech Group' }[projectImgUrl] || '88bet' }} 
+      {{ projectName }} 
       Reserved @v{{numVer}}</div>
   </div>
 </template>
@@ -46,33 +42,34 @@ export default {
     data() {
         return {
             projectImgUrl: window.projectImgUrl,
+            projectName: window.projectName,
             'numVer': window.numVer,
             'isShowRegister': false,
-            'list': [
+            list: [
                 {
-                    'img': this.$common.getTitleImgUrl('Logo'),
-                    'name_ch': this.$t('小赌怡情 一生必赢'),
-                    'name_en': 'MUST WIN INTERNATIONAL'
+                    img: this.$common.getTitleImgUrl('Logo'),
+                    name_ch: this.$t('小赌怡情 一生必赢'),
+                    name_en: 'MUST WIN INTERNATIONAL'
                 },
                 {
-                    'img': require('@/assets/image/gameImg/index/footer_img03.png'),
-                    'name_ch': this.$t('歐洲王國政府授權'),
-                    'name_en': 'GRAND LISBOAAUTHORIZATION'
+                    img: require('@/assets/image/gameImg/index/footer_img03.png'),
+                    name_ch: this.$t('歐洲王國政府授權'),
+                    name_en: 'GRAND LISBOAAUTHORIZATION'
                 },
                 {
-                    'img': require('@/assets/image/gameImg/index/footer_img04.png'),
-                    'name_ch': this.$t('英国曼岛政府授权'),
-                    'name_en': 'ISLE OF MAN AUTHORIZATICN'
+                    img: require('@/assets/image/gameImg/index/footer_img04.png'),
+                    name_ch: this.$t('英国曼岛政府授权'),
+                    name_en: 'ISLE OF MAN AUTHORIZATICN'
                 },
                 {
-                    'img': require('@/assets/image/gameImg/index/footer_img05.png'),
-                    'name_ch': this.$t('澳门特别行政区政府授权'),
-                    'name_en': 'MACAU AUTHORIZATION'
+                    img: require('@/assets/image/gameImg/index/footer_img05.png'),
+                    name_ch: this.$t('澳门特别行政区政府授权'),
+                    name_en: 'MACAU AUTHORIZATION'
                 },
                 {
-                    'img': require('@/assets/image/gameImg/index/footer_img06.png'),
-                    'name_ch': this.$t('亚洲菲律宾共和国政府授权'),
-                    'name_en': 'FCLRC AUTHORIZATION'
+                    img: require('@/assets/image/gameImg/index/footer_img06.png'),
+                    name_ch: this.$t('亚洲菲律宾共和国政府授权'),
+                    name_en: 'FCLRC AUTHORIZATION'
                 }
             ],
             'article': [
