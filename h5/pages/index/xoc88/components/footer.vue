@@ -40,7 +40,7 @@
 export default {
     data() {
         return {
-            projectImgUrl: window.projectImgUrl,
+            projectImgUrl: this.$config.projectImgUrl,
             numVer: window.numVer,
             isShowRegister: false,
             projectName: window.projectName,
@@ -162,7 +162,7 @@ export default {
     methods: {
     // 在线客服
         onlineTalk(){
-          if (window.projectImgUrl === 'betc88') { // betcome直接跳客服窗口
+          if (this.projectImgUrl === 'betc88') { // betcome直接跳客服窗口
             const url = this.$common.getCustomerService();
             window.open(url, "_blank");
             return;
