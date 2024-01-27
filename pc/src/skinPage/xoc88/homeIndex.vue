@@ -41,7 +41,7 @@
                 ref="animationContent"
                 v-for="(item, index) in announcement.content"
                 :key="index"
-                @click="openNoticeInfo(2, item)"
+                @click="openNotice"
                 >{{ item.content }}</span
               >
             </div>

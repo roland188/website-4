@@ -30,7 +30,7 @@
                 ref="animationContent"
                 v-for="(item, index) in announcement.content"
                 :key="index"
-                @click="openNoticeInfo(2, item)"
+                @click="openNotice"
                 >{{ item.content }}</span
               >
             </div>
@@ -96,6 +96,8 @@ let vm = null
 import mainSwiper from "../../components/index/mainSwiper";
 // 公告
 import Notice from "./components/index/notice";
+// 公告弹窗
+import dialogNotice from '@/components/index/dialogNotice'
 // 全网最佳  电子  棋牌  捕鱼  游戏平台
 import bestList from "../../components/index/best";
 //高额返利
@@ -117,6 +119,7 @@ export default {
     mainSwiper,
     bestList,
     Notice,
+    dialogNotice,
     ActDetail,
     JackPotNew,
     // leftAward,

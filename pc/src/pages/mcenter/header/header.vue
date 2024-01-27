@@ -161,6 +161,7 @@ export default {
             date: '',
             time: '',
             interval: 0,
+            refreshBalanceFlag: true, //不可重复刷新余额
         };
     },
     computed: {
@@ -287,22 +288,41 @@ export default {
                 username: this.$common.getUser().username,
             };
             this.Balancebtn = true;
-            var res = await _this.$http.post(_this.$api.getuserMoney, data);
-            if (res.code == 0) {
-                this.Balancebtn = false;
-                //结束刷新动画
-                this.userMoney =
-                    typeof res.data.totalBalance != "undefined"
-                        ? res.data.totalBalance
-                        : "--/--";
-                //余额存本地
-                this.$common.setUserBalance(res.data);
-            } else {
-                this.Balancebtn = false;
-                //连续刷新不能报错
-                if (res.code != 10041) {
-                    this.$message.error(res.msg);
+            
+            //手动刷新余额
+            if (this.refreshBalanceFlag) {
+                var res = await _this.$http.post(_this.$api.getuserMoney, data);
+                if (res.code == 0) {
+                    this.refreshBalanceFlag = false;
+                    setTimeout(()=>{
+                        this.Balancebtn = false;
+                    },1000)
+                    //结束刷新动画
+                    this.userMoney =
+                        typeof res.data.totalBalance != "undefined"
+                            ? res.data.totalBalance
+                            : "--/--";
+                    //余额存本地
+                    this.$common.setUserBalance(res.data);
+                    //提示用户,余额请求成功
+                    this.$message.success(this.$t("刷新余额成功"));
+                } else {
+                    setTimeout(()=>{
+                        this.Balancebtn = false;
+                    },1000)
+                    //连续刷新不能报错
+                    if (res.code != 10041) {
+                        this.$message.error(res.msg);
+                    }
                 }
+                setTimeout(() => {
+                    //10s后，才可以再次刷新
+                    this.refreshBalanceFlag = true;
+                }, 10000);
+            } else {
+                //不可重复请求
+                this.refreshBalanceFlag = false;
+                this.$http.showMesasge(this.$t("点击间隔10s，请勿重复操作!"));
             }
         },
         returnWaterGet() {
@@ -354,18 +374,21 @@ export default {
                             this.disabledGetReturnWater = true;
                         }
                         //提示用户
-                        this.haveRefreshReturnAnimation = false;
                         this.$message.success(this.$t('返水刷新成功')+"！");
                     } else {
                         //无返回值res.data = null
                         this.disabledGetReturnWater = true;
-                        //提示用户
-                        this.haveRefreshReturnAnimation = false;
                         this.$message.success(this.$t('返水刷新成功')+"！");
                     }
+                    setTimeout(()=>{
+                        //提示用户
+                        this.haveRefreshReturnAnimation = false;
+                    },1000)
                 } else {
                     //请求接口失败
-                    this.haveRefreshReturnAnimation = false;
+                    setTimeout(()=>{
+                        this.haveRefreshReturnAnimation = false;
+                    },1000)
                     this.$message.error(res.msg);
                 }
             } else {
@@ -639,46 +662,7 @@ export default {
         .u-btn-disabled {
             opacity: 0.5;
         }
-
-        .refresReturnAnimation {
-            animation: refresh 0.5s infinite linear;
-            -moz-animation: refresh 0.5s infinite linear;
-            -webkit-animation: refresh 0.5s infinite linear;
-            -o-animation: refreshing 0.5s infinite linear;
-        }
-        @keyframes refresh {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        @-moz-keyframes refresh {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @-webkit-keyframes refresh {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-        @-o-keyframes refresh {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
+        
     }
 }
 
@@ -697,6 +681,46 @@ export default {
     }
     .actitvy {
         color:  $theme-color;
+    }
+}
+
+.refresReturnAnimation {
+    animation: refresh 0.5s infinite linear;
+    -moz-animation: refresh 0.5s infinite linear;
+    -webkit-animation: refresh 0.5s infinite linear;
+    -o-animation: refreshing 0.5s infinite linear;
+}
+@keyframes refresh {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@-moz-keyframes refresh {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes refresh {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+@-o-keyframes refresh {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
     }
 }
 </style>

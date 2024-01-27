@@ -223,6 +223,10 @@ export default {
                     color: #333;
                     font-size: 0.14rem;
                     margin-top: 0.11rem;
+                    width: 100%;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
                 }
                 .bank-font {
                     margin: 0.12rem 0;

@@ -329,7 +329,8 @@ export default {
                 afterTotalBet: 0, // 有效投注额
                 amountAudit: 0, // 需稽核金额
                 totalFail: 0, // 稽核失败数量
-            }
+            },
+            refreshImgStart:false,
         };
     },
     created() {
@@ -528,6 +529,8 @@ export default {
                         this.auditList.amountAudit = (res.data.dataList.reduce((amountAudit, item) => amountAudit + item.amountAudit || 0, 0)).toFixed(2);
                     }
                     this.auditList.totalFail = res.data.depositAudit.failed + res.data.discountAudit.failed; // 稽核失败总数
+                }else{
+                    this.refreshImgStart = false;
                 }
             });
         },

@@ -77,6 +77,7 @@
                       style="margin-top: 20px"
                       height="500"
                       :key="random"
+                      :cell-style="cellStyle"
                       v-if="!interestShow">
                 <el-table-column prop="prop1"
                                  :label="$t(tabLabel.label1)"
@@ -192,10 +193,30 @@
                  :class="{ right: tabName !== $t('投注记录') }">
                 <div class="combined"
                      v-show="tabName === $t('投注记录')">
-                    <span>{{$t('总投注')}}: {{ gameSummary.totalBet }}</span>
-                    <span>{{$t('总有效投注')}}: {{ gameSummary.effective }}</span>
-                    <span>{{$t('总派彩')}}: {{ gameSummary.distributed }}</span>
-                    <span>{{$t('总盈亏金额')}}: {{ gameSummary.profit }}</span>
+                     <span>
+                        {{$t('总投注')}}: 
+                        <span :style="{'color': gameSummary.totalBet > 0 ? 'red' : 'green'}">
+                            {{ gameSummary.totalBet }}
+                        </span>
+                     </span>
+                     <span>
+                        {{$t('总有效投注')}}: 
+                        <span :style="{'color': gameSummary.effective > 0 ? 'red' : 'green'}">
+                            {{ gameSummary.effective }}
+                        </span>
+                     </span>
+                     <span>
+                        {{$t('总派彩')}}: 
+                        <span :style="{'color': gameSummary.distributed > 0 ? 'red' : 'green'}">
+                            {{ gameSummary.distributed }}
+                        </span>
+                     </span>
+                     <span>
+                        {{$t('总盈亏金额')}}: 
+                        <span :style="{'color': gameSummary.profit > 0 ? 'red' : 'green'}">
+                            {{ gameSummary.profit }}
+                        </span>
+                     </span>
                 </div>
                 <el-pagination layout="prev,pager,next"
                                :total="total"
@@ -308,6 +329,18 @@ export default {
         this.getGameListData();
     },
     'methods': {
+        cellStyle({row,column,rowIndex,columnIndex}){
+            let color = '#000'
+            // console.log(row,column,rowIndex,columnIndex)
+            if(columnIndex == 7){
+                if(row.prop8 > 0){
+                    color = 'red'
+                }else{
+                    color = 'green'
+                }
+            }
+            return "color:"+ color
+        },
         format(time, format) {
             var t = new Date(time);
             var tf = function (i) {

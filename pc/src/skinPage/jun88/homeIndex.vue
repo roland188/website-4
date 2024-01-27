@@ -31,7 +31,7 @@
                 ref="animationContent"
                 v-for="(item, index) in announcement.content"
                 :key="index"
-                @click="openNoticeInfo(2, item)"
+                @click="openNotice"
                 >{{ item.content }}</span
               >
             </div>
@@ -159,7 +159,7 @@ import mainSwiper from "./components/index/mainSwiper";
 // 公告
 import Notice from "./components/index/notice";
 // 公告弹窗
-import dialogNotice from "../../components/index/dialogNotice";
+import dialogNotice from "@/components/index/dialogNotice";
 // 更多 视讯  体育  电竞  彩票   应有尽有
 import moreList from "../../components/index/more";
 // 全网最佳  电子  棋牌  捕鱼  游戏平台

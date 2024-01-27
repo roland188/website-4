@@ -20,7 +20,7 @@
               <img loading="lazy" class="img" :src="item.menuIconActivePc?($config.imgHost+item.menuIconActivePc) : item.imgUrl?($config.imgHost+item.menuIconActiveApp):''">
               <span>{{ item.name }}</span>
             </div>
-            <div class="gameli" v-for="(li,i) in item.children" :key="i" @click="jump(li)">
+            <div class="gameli" v-if="i <= 10" v-for="(li,i) in item.children" :key="i" @click="jump(li)">
               <span>{{ li.nameEn }}</span>
             </div>
           </div>
@@ -337,7 +337,8 @@ export default {
   text-align: center;
   overflow: hidden;
   .guildM{
-    width: 1000px;
+    max-width: 1200px;
+    min-width: 1000px;
     display: flex;
     justify-content: space-between;
     margin: 0 auto;

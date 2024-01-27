@@ -652,13 +652,13 @@ export default {
     onTabs(i) {
       this.modelIndex = i;
       if (i == 0) {
-        if (this.$config.projectImgUrl == 'betc88' || this.$config.projectImgUrl == 'sovip') {
+        if (this.$config.locale == 'vi') {
           this.paymentList = this.listPayWays.online; //公司入款
         } else {
           this.paymentList = this.listPayWays.offline;
         }
       } else if (i == 1) {
-        if (this.$config.projectImgUrl == 'betc88' || this.$config.projectImgUrl == 'sovip') {
+          if (this.$config.locale == 'vi') {
         this.paymentList = this.listPayWays.offline;
         } else {
         this.paymentList = this.listPayWays.online; //公司入款
@@ -684,7 +684,7 @@ export default {
       this.$api.getPayment(data, (err, res) => {
         console.log("付款方式", err, res);
         if (res) {
-          if (this.$config.projectImgUrl == 'betc88' || this.$config.projectImgUrl == 'sovip') {
+          if (this.$config.locale == 'vi') {
             this.modelNames = [
               {
                 name: this.$t('线上入款'),

@@ -808,6 +808,8 @@ export default {
                         _this.refreshBalanceFlag = true;
                     }, 10000);
                 } else {
+                    
+                    _this.refreshBalanceFlag = false;
                     //不可重复请求
                     this.$http.showMesasge(this.$t("点击间隔10s，请勿重复操作!"));
                 }
