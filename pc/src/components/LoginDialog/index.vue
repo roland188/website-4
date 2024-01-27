@@ -45,7 +45,8 @@
             <img class="form-img" src="./img/invite.png" alt="">
             <div class="codePrefix" v-if="form.codePrefix">+{{ form.codePrefix }}</div>
             <input class="form-input" :placeholder="`${$t('请输入手机号')}(${regFlag.phone === 2 ? $t('必填') : $t('选填')})`" type="text"
-              v-model="form.phone" />
+              v-model="form.phone"
+              onkeypress="return (/[\d]/.test(String.fromCharCode(event.keyCode)))"/>
           </div>
           <div class="form-i" v-if="regFlag.phone == 2 && regFlag.smsCode == 1">
             <img class="form-img" src="./img/invite.png" alt="">
