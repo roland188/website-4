@@ -339,6 +339,26 @@ export default {
                     color = 'green'
                 }
             }
+            if(columnIndex == 4 && this.tabName != this.$t('利息宝记录')){
+                switch (row.status) {
+                    case 0:
+                        color = '#f90'  //待支付
+                        break;
+                    case 1:
+                        color = '#2d8cf0'  //支付中
+                        break;
+                    case 2:
+                        color = '#19be66'  //支付成功
+                        break;
+                    case 3:
+                        color = '#ed4014'  //支付失败
+                         break;
+                    case 4:
+                        color = '#9299a3'  //已关闭
+                        break;
+                }
+                
+            }
             return "color:"+ color
         },
         format(time, format) {
@@ -407,10 +427,13 @@ export default {
         },
         //游戏记录
         query(currentPage = 1, name) {
+            console.log(currentPage,name)
             this.onChangeTime({ 'id': this.timeIndex });
             this.random = name;
             this.currentPage = 1;
             let form = JSON.parse(JSON.stringify(this.form));
+            this.currentPage = currentPage;
+            form.pageNum = this.currentPage;
             form.startTimeBet ?
                 form.startTimeBet = this.format(
                     form.startTimeBet,
@@ -443,8 +466,6 @@ export default {
                     'label7': this.$t('派彩金额'),
                     'label8': this.$t('盈亏金额')
                 };
-                this.currentPage = currentPage;
-                form.pageNum = this.currentPage;
                 form.vendorCodeList = [];
                 this.gameCode ?
                     form.vendorCodeList.push(this.gameCode) :
@@ -525,8 +546,6 @@ export default {
                     'label4': this.$t('金额'),
                     'label5': this.$t('状态')
                 };
-                this.currentPage = currentPage;
-                form.pageNum = this.currentPage;
                 data = {
                     'createdAtBegin': form.startTimeBet || '',
                     'createdAtEnd': form.endTimeBet || '',
@@ -791,7 +810,7 @@ export default {
                     'label5': this.$t('状态')
                 };
                 data = {
-                    'currentPage': form.pageNum,
+                    'currentPage': this.currentPage, //当前页码
                     'pageSize': 10,
                     'createdAtStart': form.startTimeBet || '',
                     'createdAtEnd': form.endTimeBet || ''
@@ -963,6 +982,9 @@ export default {
                                 case 70:
                                     item.prop3 = this.$t('大转盘');
                                     break;
+                                case 71:
+                                    item.prop3 = this.$t('积分兑换虚拟商品');
+                                    break;
                                 case 72:
                                     item.prop3 = this.$t('积分商城抽奖');
                                     break;
@@ -974,6 +996,9 @@ export default {
                                     break;
                                 case 101:
                                     item.prop3 = this.$t('VIP晋级礼金');
+                                    break;
+                                case 103:
+                                    item.prop3 = this.$t('VIP每周红包');
                                     break;
                                 }
                             });

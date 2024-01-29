@@ -181,8 +181,8 @@ export default {
     font-weight:normal;
     .search {
         position: absolute;
-        width: 140px;
-        right: 0;
+        width: 180px;
+        right: -10px;
         top: 5px;
         margin-left: 20px;
         background: #fff;
@@ -231,6 +231,7 @@ export default {
             height: 200px;
             background-color: #fff;
             border-radius:8px;
+            overflow-x: hidden;
             overflow-y: auto;
             border:1px solid #ccc;
             z-index: 999;
@@ -243,9 +244,10 @@ export default {
                 padding: 0 10px;
                 cursor:pointer;
                 font-size: 12px;
-                cursor: pointer;
-                overflow: hidden;
                 display: flex;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
                 align-items: center;
                 justify-content:space-between;
                 border-bottom: 1px dashed #ccc;

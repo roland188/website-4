@@ -214,9 +214,10 @@ export default {
                 }
             }
             .tableRight{
-                width: 118px;
+                width: max-content;
                 height: 36px;
                 margin-right:16px;
+                padding: 0 0.3rem;
                 background: #F5F5F5;
                 border: 1px solid #E6E6E6;
                 border-radius: 2px;

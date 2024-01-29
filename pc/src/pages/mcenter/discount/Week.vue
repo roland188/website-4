@@ -212,7 +212,7 @@
                             class="per-day-item"
                         >
                             <div class="per-date">{{item.summaryDate.slice(-2)}}
-                                <span class="per-current" v-if="item.today">今</span>
+                                <span class="per-current" v-if="item.today">{{$t('今')}}</span>
                             </div>
                             <div class="money" :class="item.status ? 'mAct' : '' ">{{item.betAmountValid ? item.betAmountValid.toFixed(2) : '0.00'}}</div>
                         </div>
@@ -312,7 +312,7 @@
                             <div v-for="(item2,index) in items.signRecordList" class="per-day-item" :key="index"
                                 :class="isDisabled == i ? 'dateDrey' : '' ">
                                 <div class="per-date">{{item2.summaryDate.slice(-2)}}
-                                    <span class="per-current" v-if="item2.today">今</span>
+                                    <span class="per-current" v-if="item2.today">{{$t('今')}}</span>
                                 </div>
                                 <div class="money" :class="item2.status ? 'mAct' : '' ">
                                     {{item2.betAmountValid ? item2.betAmountValid.toFixed(2) : '0.00'}}
