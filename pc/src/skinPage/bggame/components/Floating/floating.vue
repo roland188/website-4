@@ -231,7 +231,7 @@ export default {
             if(this.projectImgUrl == 'sovip'){
                 obj = {
                     fb: 'https://www.facebook.com/profile.php?id=100091242655234',
-                    tg: 'https://t.me/SOVIP_CSKH',
+                    tg: 'https://t.me/SOVIP66_CSKH',
                     zalo: 'https://zaloapp.com/qr/p/1kfhtzwc24rcg',
                     Hotline:'',
                 }
