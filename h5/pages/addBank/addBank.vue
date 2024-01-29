@@ -526,7 +526,10 @@ export default {
 
   .view-list {
     text-align: left;
-    line-height: 3.5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30upx 0;
   }
 
   .radio-item-img {

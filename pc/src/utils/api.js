@@ -174,6 +174,7 @@ const api = {
   deleteAddress: "/mall/api/v1/shoppingExchangeAddress", //删除用户地址
   waterRecordList: "/mall/api/v1/memberPoint/pageMemberPointChange", //获取会员积分账变流水
   associate: "/mall/api/v1/shoppingMall/updateLotteryGoodsAddress", //关联会员抽奖实物的物流信息,用在抽奖实物'
+  getLangList: '/longm/api/v1/language/list', //获取语言
 
   // ------------qq
   ...dzr,

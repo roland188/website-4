@@ -93,8 +93,7 @@
                  :class="{mosaicGold2:mosaicGoldImg == 2}" ></div>
                  <!-- :style="{'background': }" -->
         </div>
-        
-        <div class="fwDownload" 
+        <div class="fwDownload"
             v-if="['sovip','betc88'].includes(projectImgUrl)">
             <div class="icon yq" @click="jump('yq')"></div>
         </div>

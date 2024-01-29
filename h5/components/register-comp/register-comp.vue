@@ -1027,7 +1027,7 @@ export default {
           rid: result.rid,
         };
       }	else if(this.type === 3){
-		data.geeTestQueryVO = result
+		  data.geeTestQueryVO = result
 	  }
 
       this.$api.register(

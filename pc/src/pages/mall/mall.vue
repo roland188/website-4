@@ -17,13 +17,6 @@ export default {
             this.$config.username = userInfo.username || ""
             this.$config.token = userInfo && userInfo.token_type + " " + userInfo.access_token
         }
-        this.$config.clientCode = window.clientCode
-        this.$config.clientItem = window.childCode
-        this.$config.language = this.$config.language
-        this.$config.theme = window.theme
-        this.$config.baseURL = this.$common.getHost()
-        this.$config.projectName = window.projectImgUrl
-        this.$i18n.locale = this.$config.language || "pt"
         // this.pageList();
     },
     methods: {

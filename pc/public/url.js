@@ -171,7 +171,7 @@
         var o = c[6];// jun88
         var o = c[0]
         // var o = c[4];// betcome
-        // var o = c[10];
+        var o = c[9];
         console.log('-----', o)
         for (var x in c) {
             var i = c[x];
@@ -181,13 +181,13 @@
             }
         }
         //o.host = location.protocol + "//" + u + "/xxa";
-        o.host ="https://lyjqv6pvv2.com/xxa"
+        // o.host ="https://lyjqv6pvv2.com/xxa"
         // o.host = "https://tc20014.com/xxa"// bet come
-        o.host = "https://tc00013.com/xxa/"// ku bet
+        // o.host = "https://tc00013.com/xxa/"// ku bet
         // o.host = "https://tc20011.com/xxa"
         // o.host = "https://715732.com/xxa";
         // o.host = "https://tc20009.com/xxa"
-        // o.host = "https://tc20015.com/xxa"
+        o.host = "https://tc20015.com/xxa"
 		// gr86czdgdk.com  phattai68 内部域名
 		// ofampihfkc.com  choibet 内部域名
 		// tc20015.com  g9bet 内部域名

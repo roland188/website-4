@@ -76,7 +76,7 @@
 				});
 			},
 			BackPage() {
-				uni.navigateBacks({})
+        		uni.navigateBacks();
 			}
 		}
 	}

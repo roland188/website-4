@@ -471,9 +471,7 @@ export default {
       });
     },
     goBack() {
-      uni.navigateBacks({
-        delta: 2,
-      });
+        uni.navigateBacks();
     },
     userInfoSave() {
       console.log(11111111);

@@ -400,7 +400,7 @@ page {
   }
 
   .activity-layout {
-    height: 100%;
+    height: calc(100vh - 80upx - 100upx);
     /* #ifdef APP-PLUS */
     padding: 80upx 26upx 30upx;
     /* #endif */

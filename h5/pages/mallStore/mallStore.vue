@@ -298,7 +298,7 @@ export default {
 			if(!this.isLogin){
 				uni.showToast({
 					title: this.$t('请先登录!'),
-					image: require('@/static/image/pointsMall/tanhao.png')
+					// image: require('@/static/image/pointsMall/tanhao.png')
 				})
 				return false
 			}

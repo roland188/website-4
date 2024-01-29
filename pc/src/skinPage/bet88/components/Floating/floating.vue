@@ -42,14 +42,21 @@
             <div class="mosaicGold1"
                  :class="{mosaicGold2:mosaicGoldImg == 2}"></div>
         </div>
+        
+        <div class="fwDownload">
+            <div class="icon yq" @click="jump('yq')"></div>
+        </div>
+        <interestTreasure ref="refDiag"></interestTreasure>
     </div>
 </template>
 
 <script>
 import QRCode from '@keeex/qrcodejs-kx'
+import InterestTreasure from '@/components/InterestTreasure/InterestTreasure'
 import { mapState } from 'vuex'
 export default {
     components: {
+        InterestTreasure
     },
     data() {
         return {
@@ -149,6 +156,14 @@ export default {
         jump(type) {
             if (type === 'app') return this.$router.push('/home?scroll=456')
             let obj = {}
+            if(type == 'yq') {
+                if (!this.$common.getUser()) {
+                    this.$common.openLogin()
+                    return
+                }
+                this.$store.commit('rebate',true)
+                return
+            }
             if(this.projectImgUrl == 'g9bet'){
                 obj = {
                     fb: 'https://facebook.com/congdongg9bet/',

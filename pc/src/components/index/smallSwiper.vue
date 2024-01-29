@@ -8,7 +8,6 @@
                         <img loading="lazy" class="img" @click="jump(item)" :src="item.pictureUrl?($config.imgHost+item.pictureUrl) : item.imgUrl?($config.imgHost+item.imgUrl):''" :onError="noData">
                         <p class="title" @click="jump(item)">{{item.name}}</p>
                     </swiper-slide>
-               
                 </swiper>
                 <!--以下看需要添加-->
                 <div v-if="info.index == 0" class="swiper-button-prev"></div>
@@ -237,6 +236,9 @@ export default {
                         color:white;
                         text-align:center;
                         font:14px/26px normal;
+                        overflow: hidden;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
                     }
                 }
                 .swiper-button-next, .swiper-button-prev {
