@@ -63,7 +63,7 @@
                 </div>
             </div>
             <div class="flexbox space-between">
-                <p>
+                <p style="width: 80%;">
                     <span class="tipColor">{{ $t("提示：") }}</span>
                     <span class="textcolor">
                         {{ $t("用户需完成上述所有认证并审核通过后，才能够领取此红利") }}
@@ -373,7 +373,7 @@ export default {
             }
             .btnclear {
                 font-size: 12px;
-                width: 120px;
+                width: auto;
                 border: none;
                 border: 1px solid #e6e6e6;
                 background: #f5f5f5;

@@ -36,16 +36,15 @@
         </div> -->
         <!-- 彩金 -->
         <div slot="reference"
-             v-if="['gtgame'].includes(getQxylSkin)"
              class="fwDownload"
              @click="mosaicGold">
-            <div class="mosaicGold1"
+            <div class="mosaicGold1 icon"
                  :class="{mosaicGold2:mosaicGoldImg == 2}"></div>
         </div>
         
-        <div class="fwDownload">
+        <!-- <div class="fwDownload">
             <div class="icon yq" @click="jump('yq')"></div>
-        </div>
+        </div> -->
         <interestTreasure ref="refDiag"></interestTreasure>
     </div>
 </template>

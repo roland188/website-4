@@ -56,8 +56,8 @@ export default {
 
             .close {
                 position: absolute;
-                top: 40px;
-                left: 40px;
+                top: 12px;
+                left: 12px;
                 font-size: 16px;
                 cursor: pointer;
             }
