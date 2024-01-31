@@ -21,6 +21,7 @@
       </view>
       <image
         @click="toPage('../Message/Message')"
+        :class="unreadCount > 0 ? 'unActive' : ''"
         src="@/static/image/indexImg/btn_inforMail.svg"></image>
     </view>
     <uni-popup ref="moneyPopup" type="top" class="moneyPopup">
@@ -57,6 +58,7 @@ export default {
       islogin: "",
       userMoney: '0.00',
       gameList: [],
+      unreadCount: 0,
       isMoney: true, //false可以点击归集    true不可以点击归集
     };
   },
@@ -64,6 +66,7 @@ export default {
     this.islogin = this.$api.isLogin()
     if (this.islogin && this.$cache.get("set_user")) {
       this.username = this.$cache.get("set_user").username;
+      this.getMessages()
       if (this.$server.getUserBalance()) {
         let res = this.$server.getUserBalance();
         this.userMoney = this.$common.setNumFixed(res.totalBalance, 2);
@@ -146,6 +149,13 @@ export default {
           });
         }
       });
+    },
+    // 获取站内信列表
+    getMessages () {
+      this.$api.message(1, 100, 0, (err, res) => {
+        if (err) return
+        this.unreadCount = res.unreadCount
+      },false)
     },
     //游戏厂商余额
     getMoneyGame(type) {
@@ -262,6 +272,20 @@ export default {
       margin-left: 10rpx;
       width: 40rpx;
       height: 40rpx;
+    }
+    .unActive{
+      position: relative;
+      &::after{
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 6rpx;
+        width: 12rpx;
+        height: 12rpx;
+        display: block;
+        border-radius: 10rpx;
+        background-color: #ff0000;
+      }
     }
   }
 }

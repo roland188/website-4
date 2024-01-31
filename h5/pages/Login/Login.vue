@@ -9,7 +9,13 @@
       @clickLeft="goBack"
       background-color="#0f548b"
       color="#fff"
-    ></uni-nav-bar>
+    >
+    <image
+        style="width: 220upx; height: 60upx; margin: 0 auto"
+        :src="$config.platformLogo('logo')"
+        mode="widthFix"
+      ></image>
+    </uni-nav-bar>
     <view class="languageImg_box">
       <view class="languageList" v-show="isShowLanguage">
         <view

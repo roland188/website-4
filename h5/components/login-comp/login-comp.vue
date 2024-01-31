@@ -4,9 +4,13 @@
       <view class="logRow logAccountNumber">
         <view class="iconcontainer">
           <view
+            v-if="['kubet','choibet','phattai68'].includes(projectImgUrl)"
             class="icon"
-            style="backgroundImage: url('../../static/image/qqImg/loginicon11.png');"
+            style="width: 32rpx;height: 32rpx;backgroundImage: url('../../static/image/qqImg/loginicon1.png');"
           ></view>
+          <view v-else
+            class="icon"
+            style="width: 32rpx;height: 32rpx;backgroundImage: url('../../static/image/qqImg/loginicon11.png');"></view>
         </view>
         <input
           class="accountNumInput"
@@ -23,6 +27,16 @@
         <view class="iconcontainer">
           <view
             class="icon"
+            v-if="['kubet','choibet','phattai68'].includes(projectImgUrl)"
+            style="
+              width: 32rpx;
+              height: 32rpx;
+              backgroundImage: url('../../static/image/qqImg/loginicon2.png');
+            "
+          ></view>
+          <view
+            class="icon"
+            v-else
             style="
               width: 32rpx;
               height: 32rpx;
@@ -176,13 +190,16 @@
 
     <view class="bottom-box">
       <view class="left" @click="goBack">
-        <image src="../../static/image/qqImg/wandering.png" mode=""></image>
+        <image 
+            v-if="['kubet','choibet','phattai68'].includes(projectImgUrl)"
+             src="../../static/image/qqImg/wandering1.png" mode=""></image>
+        <image v-else src="../../static/image/qqImg/wandering.png" mode=""></image>
         <text>{{ $t('随便逛逛') }}</text>
       </view>
-      <view class="right">
+      <!-- <view class="right">
         <image src="../../static/image/qqImg/computer.png" mode=""></image>
         <text>{{ $t('去电脑版') }}</text>
-      </view>
+      </view> -->
     </view>
 
     <view v-if="validateStatus === 0" class="validateBox">
@@ -249,6 +266,7 @@ export default {
       defaultType: true,
       errors: {},
       verifyCodeImg: "",
+      projectImgUrl: this.$config.projectImgUrl,
       // 一开始禁用，只有都有内容时，解除禁用
       disabled: true,
       isClickLogin: true, //只有第一次登录生效，除非登录失败

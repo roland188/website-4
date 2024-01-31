@@ -109,19 +109,19 @@
 						if (compensationVO.validType === 2) {
 							this.daoTime.istart = false
 							this.tagContent.titleLeft = compensationVO.validTimeStartApp ? moment(new Date(
-								compensationVO.validTimeStartApp)).before(1).format('MM月DD日') : moment(
-							new Date()).before(1).format('MM月DD日')
+								compensationVO.validTimeStartApp)).before(1).format('MM-DD') : moment(
+							new Date()).before(1).format('MM-DD')
 							this.timeText = moment(new Date(compensationVO.validTimeStartApp)).format(
-									'YYYY年MM月DD日 hh:mm:ss') + '-' + moment(new Date(compensationVO.validTimeStopApp))
+									'YYYY-MM-DD hh:mm:ss') + '-' + moment(new Date(compensationVO.validTimeStopApp))
 								.format('hh:mm:ss')
 						} else if (compensationVO.validType === 1) {
 							// let timeText = moment(new Date(compensationVO.validTimeStopApp)).format('hh时mm分ss秒')
 							let titleLeft = moment(new Date(compensationVO.validTimeStopApp)).before(1).format(
 								'MM-DD')
-
 							this.getCounDownTime(compensationVO.validTimeStopApp)
 							this.timeText = ''
 							this.tagContent.titleLeft = titleLeft;
+							console.log(titleLeft,'titleLeft')
 						} else {
 							this.daoTime.istart = false
 							this.timeText = this.timeText

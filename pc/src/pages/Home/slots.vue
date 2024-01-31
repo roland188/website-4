@@ -39,7 +39,8 @@
                         <div  class="ele-card-bottom">{{item1.name}}</div>
                     </li>
                 </ul>
-                <div style="display:flex;width:1200px;height:400px;color:white;justify-content:center;align-items:center;letter-spacing:2px;font:18px/36px normal;" v-show="dataInfo.total == 0">
+                <div style="display:flex;width:1200px;height:400px;color:white;justify-content:center;align-items:center;letter-spacing:2px;font:18px/36px normal;" 
+                    v-if="dataInfo.total == 0">
                    {{$t('暂无数据')}}
                 </div>
             <!--鼠标经过显示进入游戏动画HTML   结束-->

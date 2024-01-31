@@ -187,9 +187,9 @@ export default {
       self.getPlayerRecentGame(); //常玩
       //获取用户信息
       self.getUserdata();
-      setTimeout(() => {
-        self.$refs.loginBox.currMember();
-      }, 500);
+      // setTimeout(() => {
+        // self.$refs.loginBox.currMember();
+      // }, 500);
     }
     // #ifdef APP-PLUS
     this.langType = uni.getStorageSync("lang") || this.$config.locale || "vi";

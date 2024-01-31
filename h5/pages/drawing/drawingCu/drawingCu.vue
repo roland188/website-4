@@ -52,7 +52,10 @@
       </view>
       <view class="title">
         {{$t('实际到账金额')}}
-        <image src="../../../static/image/r2.png" class="refresh-img" mode="" @click="getCost(true)"></image>
+        <image :src="['kubet','choibet','phattai68'].includes(projectImgUrl) ? 
+                require('@/static/image/refresh1.png') :
+                require('@/static/image/r2.png')"
+                class="refresh-img" mode="" @click="getCost(true)"></image>
       </view>
       <view class=""> {{ ActualMoney.toFixed(2) }}
         {{ $config.currency }} ≈ {{ accMul(ActualMoney, zhuanSellrate) }}USDT </view>
@@ -111,8 +114,10 @@ export default {
       zhuanSellrate: 0,
       balance: "",
       disabledbut: true,
+      refreshimg:false,
       bankType: 0, //收款方式type
       title: this.$t('数字货币钱包'),
+      projectImgUrl: this.$config.projectImgUrl,
     };
   },
   onLoad(option) {
@@ -219,8 +224,10 @@ export default {
       let option = {
         memberId: this.$cache.get("set_user").user_id,
       };
+      this.refreshimg = true
       this.$api.getCost(option, (err, res) => {
         if (res) {
+          this.refreshimg = false
           this.handlingfee = res.handlingfee; //手续费
           this.administrativeCosts = res.administrativeCosts; //行政费用,
           this.discountDeduction = res.discountDeduction; //优惠扣除
@@ -238,6 +245,8 @@ export default {
               icon: "none",
             });
           }
+        }else{
+          this.refreshimg = false
         }
       });
     },
@@ -485,5 +494,23 @@ export default {
 }
 .disabledbtn {
   opacity: 0.6;
+}
+.refresh-img-animation {
+  animation: mymove 1.5s infinite;
+}
+@keyframes mymove {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  // 25%{-webkit-transform:rotate(90deg);}
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  // 75%{-webkit-transform:rotate(270deg);}
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 </style>

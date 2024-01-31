@@ -2,7 +2,7 @@
 	<view class="home-wrap" :class="{ 'old-service': $config.customerServiceStatus !== 1 }">
 		<header-service :isHideBack="$config.isShowCustomerServiceBack ? false : true"
 			v-show="!['Dispensing', 'Savemoney'].includes(currPage)" :title="getShowTitle()" @jump="jump" />
-		<view v-if="$config.customerServiceStatus === 1">
+		<view v-if="$config.customerServiceStatus === 1" style="width: 100%;">
 			<view class="home-up" v-if="showList">
 				<view class="home-title">
 					<view class="left-icon"> </view>

@@ -91,7 +91,7 @@
             letter-spacing: 2px;
             font: 18px/36px normal;
           "
-          v-show="dataInfo.total == 0"
+          v-if="dataInfo.total == 0"
         >
           {{$t('暂无数据')}}
         </div>

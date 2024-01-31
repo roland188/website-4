@@ -2,7 +2,7 @@
 	<view class="tag-title">
 		<view class="tag-title-left">
 			<text v-if="type" class="themeDisableColor">{{$t('日期')}}：</text>{{tagContent.titleLeft}}
-			<view class="tag-title-bottom" v-if="tagContent.titleBottomText">{{tagContent.titleBottomText}}元</view>
+			<view class="tag-title-bottom" v-if="tagContent.titleBottomText">{{tagContent.titleBottomText}}{{ $t('元') }}</view>
 		</view>
 		<view class="tag-title-img" @tap="handleShow">
 			<image v-if="tagContent.isShowImg" class="img" src="../image/right.png" mode="widthFix"></image>

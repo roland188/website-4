@@ -90,14 +90,12 @@
         </view> -->
 		<!-- 首次登录弹窗提示 -->
         <view class="prompt prompts" v-show="promptShow && type === '0'">
-            <!-- <img src="../../static/images/xf/gou.png" alt=""> -->
             <text>{{prompt.remark}}</text>
         </view>
 
-        <view class="prompt" v-show="lackBi" style="padding:30px 0;width: 116px;height: 54px;">
-<!--            <view style="font-size:36px;color:#ffffff;">!</view>-->
-          <img class="mark"  style="width: 16px;height: 16px;" src="../../static/image/pointsMall/mark.png" alt="">
-          <text style="margin-left: 20px;margin-top:5px;font-weight: 500;font-size:12px;color:#ffffff">{{currency}} {{$t('余额不足')}}</text>
+        <view class="prompt" v-show="lackBi">
+          <img class="mark" src="../../static/image/pointsMall/mark.png" alt="">
+          <text class="textTips">{{currency}} {{$t('余额不足')}}</text>
         </view>
     </view>
 </template>
@@ -1367,7 +1365,7 @@ export default {
     }
 
     .prompt{
-        width: 120px;
+        width: auto;
         position: absolute;
         left:50%;
         top:50%;
@@ -1376,23 +1374,20 @@ export default {
         border-radius: 10px;
         z-index: 3;
         display:flex;
-        flex-direction: column;
         align-items: center;
-        justify-content: center;
-        padding:10px 0;
+        padding:20rpx 30rpx;
         box-sizing: border-box;
         img{
-          position: absolute;
-          left: 20px;
+            width: 36rpx;
+            margin-right: 20rpx;
         }
-        p{
+
+        .textTips{
             font-size:14px;
             color:#ffffff;
             text-align: center;
-            padding:10px 15px;
             box-sizing:border-box;
             margin:0;
-            line-height: 1.5;
         }
     }
     .prompts{

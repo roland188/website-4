@@ -54,7 +54,12 @@
               <text class="ActualMoney moneyShi themeColor accoutMoney">{{ ActualMoney.toFixed(2) }}</text>
             </view>
             <view class="bankShiLiRight" @click="onRefresh()">
-              <image :src="$config.themeImgUrl('r2')" class="refresh-img" mode="widthFix"></image>
+              
+              <image :src="['kubet','choibet','phattai68'].includes(projectImgUrl) ? 
+                      require('@/static/image/refresh1.png') :
+                      require('@/static/image/r2.png')" 
+                    :class="{ 'refresh-img-animation': refreshimg }"
+                    class="refresh-img" mode="widthFix"></image>
               <view class="newShua themeTextOne drawingText"> {{$t('刷新')}} </view>
             </view>
           </view>
@@ -143,7 +148,9 @@ export default {
       passWordBtShow: true,
       withdrawFixed:null,
       withdrawType:0,
-      checkMoneyIndex:null
+      checkMoneyIndex:null,
+      refreshimg:false,
+      projectImgUrl: this.$config.projectImgUrl,
     };
   },
   onLoad(option) {
@@ -191,6 +198,7 @@ export default {
       let option = {
         memberId: cache.get("set_user").user_id,
       };
+      this.refreshimg = true
       this.$api.getCost(option, (err, res) => {
         if (res) {
           this.withdrawFixed = res.withdrawFixed ?  res.withdrawFixed.split(',') : res.withdrawFixed; // 取款整额数组
@@ -202,12 +210,15 @@ export default {
           this.discountDeduction = res.discountDeduction; //优惠扣除
           this.singleMax = res.singleMax; //单次最大
           this.singleMin = res.singleMin;
+          this.refreshimg = false
           if (start) {
             this.ActualMoney = this.getMoney - this.handlingfee - this.administrativeCosts - this.discountDeduction;
             if (this.ActualMoney < 0) {
               this.ActualMoney = 0;
             }
           }
+        }else{
+          this.refreshimg = false
         }
       });
     },
@@ -570,5 +581,24 @@ $text-color: #484440;
   border-radius: 16upx;
   margin-top: 20upx;
   padding: 24upx 16upx;
+}
+
+.refresh-img-animation {
+  animation: mymove 1.5s infinite;
+}
+@keyframes mymove {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  // 25%{-webkit-transform:rotate(90deg);}
+  50% {
+    -webkit-transform: rotate(180deg);
+  }
+
+  // 75%{-webkit-transform:rotate(270deg);}
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 </style>

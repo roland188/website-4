@@ -3,7 +3,7 @@
     <header-service :isHideBack="false"  v-show="!['Dispensing','Savemoney'].includes(currPage)"  :title="getShowTitle()"
                     @jump="jump" />
     <!--    新客服开始-->
-    <view class="home-wrap" v-if="$config.customerServiceStatus === 1">
+    <view class="home-wrap" v-if="$config.customerServiceStatus === 1" style="width: 100%;">
       <view class="line" style="width: 120%;opacity: .7;"></view>
       <view class="home-up" v-if="showList">
         <view class="home-title">

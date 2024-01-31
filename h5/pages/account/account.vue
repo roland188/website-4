@@ -26,7 +26,9 @@
                   }}&nbsp;</text
                 >
                 <image
-                  src="../../static/image/r2.png"
+                  :src="['kubet','choibet','phattai68'].includes(projectImgUrl) ? 
+                      require('../../static/image/refresh1.png') :
+                      require('../../static/image/r2.png')"
                   class="refresh-img"
                   :class="{ 'refresh-img-animation': refreshimg }"
                   @click="getMoneyGame(1)"
@@ -102,7 +104,7 @@
       </view>
       
 			<!-- 稽核未完成 -->
-			<view v-if="auditList.totalFail" class="audit-box">
+			<view v-if="!auditList.totalFail" class="audit-box">
 				<text> 
           {{ $t('亲，您只要完成') + $config.currency + (auditList.amountAudit-auditList.afterTotalBet) + $t('有效投注额，') }} 
           <br/>
@@ -335,6 +337,7 @@ export default {
       bankCardList: [], // 已绑定的银行卡
       usdtList: [], // 已绑定的数字货币
       phoneDisab: false,
+      projectImgUrl: this.$config.projectImgUrl,
       // 稽核参数
       auditList: {
         afterTotalBet: 0, // 有效投注额

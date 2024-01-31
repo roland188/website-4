@@ -20,7 +20,11 @@
           <uni-easyinput type="text" v-model="formData.name2" :placeholder="$t('请输入姓名')" />
         </uni-forms-item>
         <uni-forms-item :label="$t('生日') + ':'" name="birthday2">
-          <uni-easyinput type="text" v-model="formData.birthday2" @tap="toggleTab" :placeholder="$t('账号')" />
+          <!-- <uni-easyinput type="text" v-model="formData.birthday2" @tap="toggleTab" :placeholder="$t('请输入生日')" /> -->
+          <input type="text" @tap="toggleTab" v-model='formData.birthday2' 
+            :placeholder="$t('请输入生日')" 
+            placeholder-class="themeTextTwo"
+            maxlength="20" class="birthday" />
         </uni-forms-item>
 
         <!-- <uni-forms-item label="QQ:" name="qq2">
@@ -239,6 +243,23 @@ export default {
     .uni-forms-item__label{
       width: 160rpx !important;
     }
+  }
+  .birthday{
+    width: 100%;
+    min-height: 72rpx;
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    font-size: 26rpx;
+    border-radius: 4px;
+    border: 1px solid #DCDFE6;
+    background-color: #fff;
+    padding-left: 20rpx;
+  }
+  .themeTextTwo{
+    color: #999;
+    font-size: 22rpx;
+    font-weight: 200;
   }
 }
 .content-wrap {
