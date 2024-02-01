@@ -55,7 +55,7 @@
             </view>
             <view class="bankShiLiRight" @click="onRefresh()">
               
-              <image :src="['kubet','choibet','phattai68'].includes(projectImgUrl) ? 
+              <image :src="['kubet','choibet','phattai68','jun88'].includes(projectImgUrl) ? 
                       require('@/static/image/refresh1.png') :
                       require('@/static/image/r2.png')" 
                     :class="{ 'refresh-img-animation': refreshimg }"

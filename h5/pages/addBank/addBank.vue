@@ -12,14 +12,15 @@
           <view class="flex-item">
             <text class="name oneTitleColor8">{{ $t('账户姓名') }}</text>
           </view>
-          <view class="flex-item-right">
-            <input
+          <view class="flex-item-right" style="font-weight: 700;">
+            {{ bankData.account }}
+            <!-- <input
               class="inputColor themeTextOne oneTitleColor8"
               :placeholder="$t('请输入账户姓名')"
               placeholder-class="placeholder-class"
               :disabled="disabledName"
               v-model="bankData.account"
-            />
+            /> -->
           </view>
         </view>
         <view class="uni-flex border-item">

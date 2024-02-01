@@ -292,11 +292,9 @@ export default {
             //手动刷新余额
             if (this.refreshBalanceFlag) {
                 var res = await _this.$http.post(_this.$api.getuserMoney, data);
+                this.Balancebtn = false;
                 if (res.code == 0) {
                     this.refreshBalanceFlag = false;
-                    setTimeout(()=>{
-                        this.Balancebtn = false;
-                    },1000)
                     //结束刷新动画
                     this.userMoney =
                         typeof res.data.totalBalance != "undefined"
@@ -307,9 +305,6 @@ export default {
                     //提示用户,余额请求成功
                     this.$message.success(this.$t("刷新余额成功"));
                 } else {
-                    setTimeout(()=>{
-                        this.Balancebtn = false;
-                    },1000)
                     //连续刷新不能报错
                     if (res.code != 10041) {
                         this.$message.error(res.msg);
@@ -322,6 +317,7 @@ export default {
             } else {
                 //不可重复请求
                 this.refreshBalanceFlag = false;
+                this.Balancebtn = false;
                 this.$http.showMesasge(this.$t("点击间隔10s，请勿重复操作!"));
             }
         },
@@ -337,18 +333,18 @@ export default {
         async getReturnWater(type) {
             //返水接口
             var _this = this;
+            //手动刷新
+            this.haveRefreshReturnAnimation = true;
             if (type == "refresh") {
-                //手动刷新
-                this.haveRefreshReturnAnimation = true;
                 var data = "?memberId=" + this.userId;
                 var res = await this.$http.get(
                     _this.$api.getReturnWaterMoney,
                     data,
                     true
                 );
+                this.haveRefreshReturnAnimation = false;
                 if (res.code == 0) {
                     //返水金额
-
                     if (res.data) {
                         //有返回值
                         if (res.data.rebateAmount * 1 > 0) {
@@ -380,28 +376,18 @@ export default {
                         this.disabledGetReturnWater = true;
                         this.$message.success(this.$t('返水刷新成功')+"！");
                     }
-                    setTimeout(()=>{
-                        //提示用户
-                        this.haveRefreshReturnAnimation = false;
-                    },1000)
                 } else {
-                    //请求接口失败
-                    setTimeout(()=>{
-                        this.haveRefreshReturnAnimation = false;
-                    },1000)
                     this.$message.error(res.msg);
                 }
             } else {
-                //页面刷新
-                this.haveRefreshReturnAnimation = true;
                 var data = "?memberId=" + this.userId;
                 var res = await this.$http.get(
                     _this.$api.getReturnWaterMoney,
                     data
                 );
+                //页面刷新
+                this.haveRefreshReturnAnimation = false;
                 if (res.code == 0) {
-                    //返水金额
-
                     if (res.data) {
                         //有返回值
                         if (res.data.rebateAmount * 1 > 0) {
@@ -430,14 +416,10 @@ export default {
                     } else {
                         //无返回值res.data = null
                         this.disabledGetReturnWater = true;
-                        //提示用户
-                        this.haveRefreshReturnAnimation = false;
-                        // this.$message.success('返水刷新成功！')
                     }
                     //提示用户
                 } else {
                     this.disabledGetReturnWater = true;
-                    this.haveRefreshReturnAnimation = false;
                     this.$message.error(res.msg);
                 }
             }

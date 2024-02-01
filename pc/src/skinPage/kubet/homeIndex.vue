@@ -7,7 +7,7 @@
       </div>
     </div>
     <!-- 公告 -->
-    <div :class="noticeClass" @click="openNotice">
+    <div class="notice" @click="openNotice">
       <!-- <Notice></Notice> -->
       <div class="runMsg">
         <div
@@ -261,7 +261,7 @@ export default {
     noticeClass: function () {
       return {
         notice: !this.noticeSwitch,
-        fixed: this.noticeSwitch,
+        // fixed: this.noticeSwitch,
       };
     },
   },
@@ -850,7 +850,7 @@ export default {
                 line-height: 1.2em;
                 letter-spacing: -0.8px;
                 word-spacing: -0.5px;
-                width: 100%;
+                width: 90%;
                 animation: LG_text02 1s ease 0.7s forwards;
                 position: absolute;
                 display: block;
@@ -960,7 +960,7 @@ export default {
               font-weight: bold;
               animation: outtake_text 0.5s ease 0.8s forwards;
               position: absolute;
-              left: 95px;
+              left: 80px;
               bottom: 18px;
               display: block;
               z-index: 2;

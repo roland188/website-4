@@ -26,7 +26,7 @@
                   }}&nbsp;</text
                 >
                 <image
-                  :src="['kubet','choibet','phattai68'].includes(projectImgUrl) ? 
+                  :src="['kubet','choibet','phattai68','jun88'].includes(projectImgUrl) ? 
                       require('../../static/image/refresh1.png') :
                       require('../../static/image/r2.png')"
                   class="refresh-img"
@@ -104,7 +104,7 @@
       </view>
       
 			<!-- 稽核未完成 -->
-			<view v-if="!auditList.totalFail" class="audit-box">
+			<view v-if="auditList.totalFail" class="audit-box">
 				<text> 
           {{ $t('亲，您只要完成') + $config.currency + (auditList.amountAudit-auditList.afterTotalBet) + $t('有效投注额，') }} 
           <br/>

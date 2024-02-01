@@ -33,7 +33,7 @@
       </view>
     </view>
     <view class="container">
-      <image class="logo" v-if="!['kubet','choibet','phattai68'].includes(projectImgUrl)"
+      <image class="logo" v-if="!['kubet','choibet','phattai68','jun88'].includes(projectImgUrl)"
         :src="$config.platformLogo('logo')" mode="widthFix"></image>
       <view class="nav-box">
         <view

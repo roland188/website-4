@@ -15,9 +15,6 @@
                         <div slot="error" class="image-slot"></div>
                     </el-image>
                 </div>
-                <p class="remove-but" @click="removeBack(item)">
-                    <i class="el-icon-delete"></i>
-                </p>
                 <div class="card-bank-text">
                     <p v-if="item.type === 0" class="bank-name">
                         {{ item.name }}
@@ -31,6 +28,9 @@
                     <p class="bank-font" v-if="(item.type === 0)">{{ item.number | banknumber}}</p>
                     <p class="bank-font" v-else>{{ item.number | usdtNumber}}</p>
                 </div>
+                <p class="remove-but" @click="removeBack(item)">
+                    <i class="el-icon-delete"></i>
+                </p>
             </li>
         </ul>
 
@@ -191,18 +191,23 @@ export default {
         justify-content: flex-start;
         flex-wrap: wrap;
         margin-top: 0.05rem;
+        display: flex;
+        gap: 0.3rem;
+        justify-content: space-between;
+        align-items: center;
         .ui-li-item {
             border: 1px solid rgba(204, 214, 228, 1);
             border-radius: 5px;
-            width: calc(50% - 0.2rem);
+            flex: 1;
+            max-width: 46%;
             text-align: left;
-            margin-bottom: 0.16rem;
-            margin-right: 0.3rem;
+            padding: 0 0.1rem;
             height: 0.7rem;
+            display: flex;
             .card-bank-img {
-                display: inline-block;
+                display: flex;
+                align-items: center;
                 vertical-align: top;
-                margin: 0.1rem 0 0 0.1rem;
                 .card-bank-img-icon {
                     width: 0.3rem;
                     height: 0.3rem;
@@ -219,6 +224,10 @@ export default {
             .card-bank-text {
                 display: inline-block;
                 margin-left: 10px;
+                flex: 1;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
                 .bank-name {
                     color: #333;
                     font-size: 0.14rem;

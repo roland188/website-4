@@ -52,7 +52,7 @@
       </view>
       <view class="title">
         {{$t('实际到账金额')}}
-        <image :src="['kubet','choibet','phattai68'].includes(projectImgUrl) ? 
+        <image :src="['kubet','choibet','phattai68','jun88'].includes(projectImgUrl) ? 
                 require('@/static/image/refresh1.png') :
                 require('@/static/image/r2.png')"
                 class="refresh-img" mode="" @click="getCost(true)"></image>

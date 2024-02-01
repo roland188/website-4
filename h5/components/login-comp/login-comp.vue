@@ -4,7 +4,7 @@
       <view class="logRow logAccountNumber">
         <view class="iconcontainer">
           <view
-            v-if="['kubet','choibet','phattai68'].includes(projectImgUrl)"
+            v-if="['kubet','choibet','phattai68','jun88'].includes(projectImgUrl)"
             class="icon"
             style="width: 32rpx;height: 32rpx;backgroundImage: url('../../static/image/qqImg/loginicon1.png');"
           ></view>
@@ -27,7 +27,7 @@
         <view class="iconcontainer">
           <view
             class="icon"
-            v-if="['kubet','choibet','phattai68'].includes(projectImgUrl)"
+            v-if="['kubet','choibet','phattai68','jun88'].includes(projectImgUrl)"
             style="
               width: 32rpx;
               height: 32rpx;
@@ -191,7 +191,7 @@
     <view class="bottom-box">
       <view class="left" @click="goBack">
         <image 
-            v-if="['kubet','choibet','phattai68'].includes(projectImgUrl)"
+            v-if="['kubet','choibet','phattai68','jun88'].includes(projectImgUrl)"
              src="../../static/image/qqImg/wandering1.png" mode=""></image>
         <image v-else src="../../static/image/qqImg/wandering.png" mode=""></image>
         <text>{{ $t('随便逛逛') }}</text>

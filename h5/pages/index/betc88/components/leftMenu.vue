@@ -18,7 +18,7 @@
           ></image>
           <text class="close">×</text>
         </view>
-        <view class="time_text">{{ dataTime }}</view>
+        <view class="time_text">{{ date }} {{ time }}</view>
         <view class="listBox">
           <view
             class="item"
@@ -90,7 +90,8 @@ export default {
       isShow: false,
       version: "",
       isMaskApp: true,
-      dataTime: '',
+      date: '',
+      time: '',
       timeInerval: null,
     };
   },
@@ -104,34 +105,33 @@ export default {
       this.version = wgtinfo.version;
     });
     // #endif
-    this.timeInerval = setInterval(()=>{
-      this.dataTime = this.timeSwitch(new Date())
-    },100)
+    this.getTime()
   },
   destroy(){
     this.timeInerval = null
     clearInterval(this.timeInerval);
   },
   methods: {
-    timeSwitch(val) {
-      if (val) {
-        var date = new Date(val); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
-        var Y = date.getFullYear() + ".";
-        var M =
-          (date.getMonth() + 1 < 10
-            ? "0" + (date.getMonth() + 1)
-            : date.getMonth() + 1) + ".";
-        var D = date.getDate() < 10 ? "0" + date.getDate() : date.getDate();
-        var h, mm, ss;
-        h = date.getHours();
-        mm = date.getMinutes();
-        ss = date.getSeconds();
-        h = h < 10 ? "0" + h : h;
-        mm = mm < 10 ? "0" + mm : mm;
-        ss = ss < 10 ? "0" + ss : ss;
-        var time = Y + M + D + " " + h + ":" + mm + ":" + ss;
-        return time;
+    getTime () {
+      this.interval = setInterval(() => {
+          var bjTime = this.getBjTime();
+          this.date = this.$common._formatDate(bjTime, 'yyyy-MM-dd')
+          this.time = this.$common._formatDate(bjTime, 'HH:mm:ss')
+      }, 500)
+    },
+    getBjTime() {
+      //获得当前运行环境时间
+      var d = new Date(), currentDate = new Date(), tmpHours = currentDate.getHours();
+      //算得时区
+      var time_zone = -d.getTimezoneOffset() / 60;
+      //少于0的是西区 西区应该用时区绝对值加京八区 重新设置时间（西区时间比东区时间早 所以加时区间隔）
+      if (time_zone < 0) {
+      time_zone = Math.abs(time_zone) + 7; currentDate.setHours(tmpHours + time_zone);
+      } else {
+      //大于0的是东区  东区时间直接跟京八区相减
+      time_zone -= 7; currentDate.setHours(tmpHours - time_zone);
       }
+      return currentDate;
     },
     // 下载APP
     setInviteCode() {
