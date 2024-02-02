@@ -47,7 +47,7 @@
 
 .flexLayout {
 	height: 96rpx;
-	line-height: 96rpx;
+	/* line-height: 96rpx; */
 	display: flex;
 	padding: 0 30rpx;
 	justify-content: space-between;
@@ -85,6 +85,9 @@
 .flexLayout text {
 	font-size: 28rpx;
 	color: #EAD4AB;
+	align-items: center;
+    justify-content: flex-end;
+    text-align: right;
 }
 
 .flexLayout .leftText {

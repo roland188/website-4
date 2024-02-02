@@ -1,6 +1,6 @@
 import config from './config'
 import i18n from './i18n'
-
+import serverImport from '../../../utils/server';
 let server
 try {
     server = require('../../../utils/server')
@@ -9,10 +9,13 @@ try {
 
 const _request = (url, data = {}, method = 'POST', responseType = 'text') => {
     return new Promise(resolve => {
+        if (config.projectImgUrl === '6t') {
+            server = serverImport;
+        } 
         if (server) {
             const m = method.toLowerCase()
             const reqMethod = server[m]
-            const isAllowAes = ['ffbc', 'aygj']
+            const isAllowAes = ['ffbc', 'aygj','6t','tbh']
             if (reqMethod && isAllowAes.includes(config.projectImgUrl)) {
                 reqMethod.bind(server)(url, data ? data.param : data, (err, res) => {
                     resolve(err || { code: 0, data: res })
