@@ -1074,6 +1074,7 @@ export default {
       height: 88rpx;
       background-size: 100% 100%;
       border-radius: 10rpx;
+      color: var(--loginTab);
     }
 
     .phoneVerifyCode {
