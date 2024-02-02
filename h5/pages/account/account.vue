@@ -105,7 +105,7 @@
       
 			<!-- 稽核未完成 -->
 			<view v-if="auditList.totalFail" class="audit-box">
-				<text> 
+				<text>
           {{ $t('亲，您只要完成') + $config.currency + (auditList.amountAudit-auditList.afterTotalBet) + $t('有效投注额，') }} 
           <br/>
           {{ $t('就可以提现了～')}}
