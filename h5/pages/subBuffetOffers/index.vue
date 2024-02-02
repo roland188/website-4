@@ -47,7 +47,11 @@
 		},
 		onShow() {
 			// #ifdef H5
-			require("./css/theme/" + this.$config.theme + ".css");
+			let theme = this.$config.theme
+			if(this.$config.locale == 'vi'){
+				theme = 'a098'
+			}
+			require("./css/theme/" + theme + ".css");
 			// #endif
 			// if(this.$cache.get('activeUnreadList')){
 			// 	this.activeUnreadList  = this.$cache.get('activeUnreadList')
