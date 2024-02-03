@@ -401,18 +401,18 @@ page {
 
   .activity-layout {
     height: calc(100vh - 80upx - 100upx);
-    /* #ifdef APP-PLUS */
-    padding: 80upx 26upx 30upx;
-    /* #endif */
-    /* #ifdef H5 */
-    padding: 80upx 26upx 70upx;
-    /* #endif */
     box-sizing: border-box;
     background: var(--theme);
-
     .content-wrap {
       flex: 1;
       overflow: auto;
+      /* #ifdef APP-PLUS */
+      padding: 80upx 26upx 30upx;
+      /* #endif */
+      /* #ifdef H5 */
+      padding: 80upx 26upx 70upx;
+      /* #endif */
+      background: var(--theme);
       padding-bottom: 50rpx;
 
       .img-wrap {

@@ -29,10 +29,9 @@
         <div class="fwDownload">
             <div class="icon serviceBg" @click="toNewCustomerService"></div>
         </div>
-        <!-- 越南站隐藏这两个 -->
-        <div class="fwDownload">
+        <!-- <div class="fwDownload">
             <div class="icon fb" @click="jump('fb')"></div>
-        </div>
+        </div> -->
         <div class="fwDownload">
             <div class="icon tg" @click="jump('tg')"></div>
         </div>
@@ -228,18 +227,10 @@ export default {
                 this.$store.commit('rebate',true)
                 return
             }
-            if(this.projectImgUrl == 'sovip'){
+            if(this.projectImgUrl == 'jun88'){
                 obj = {
-                    fb: 'https://www.facebook.com/profile.php?id=100091242655234',
-                    tg: 'https://t.me/SOVIP_CSKH',
-                    zalo: 'https://zaloapp.com/qr/p/1kfhtzwc24rcg',
-                    Hotline:'',
-                }
-            }
-            if(this.projectImgUrl == 'betc88'){
-                obj = {
-                    fb: 'https://www.facebook.com/profile.php?id=100072168072046',
-                    tg: 'https://t.me/BETCOME8',
+                    fb: '',
+                    tg: 'https://t.me/Tdvn3979',
                     zalo: '',
                     Hotline:'',
                 }

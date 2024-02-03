@@ -1145,7 +1145,7 @@ export default {
 
     .itemtext {
       text-align: center;
-      color: #d7c39d;
+      color: var(--mythemeColor);
       font-size: 26rpx;
     }
 

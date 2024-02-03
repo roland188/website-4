@@ -415,7 +415,7 @@ export default {
         channel: '',
       },
       fingerprintState:false,
-      accountLength:15,//默认账号限制
+      accountLength:10,//默认账号限制
       accountTips:'',
     };
   },
@@ -424,16 +424,8 @@ export default {
   },
   mounted() {
     // this.getDefaultStatus();
-    if(window.mergeAccount){
-      this.accountLength = 13
-      this.accountTips = this.$t("请输入{x}位数字与字母组合", { x: '4~13' })
-    }else if(window.projectImgUrl == 'amwnsr'){
-      this.accountLength = 11
-      this.accountTips = this.$t("请输入{x}位数字与字母组合", { x: '4~11' })
-    }else{
-      this.accountLength = 15
-      this.accountTips = this.$t("请输入{x}位数字与字母组合", { x: '4~15' })
-    }
+    this.accountLength = 10
+    this.accountTips = this.$t("请输入{x}位数字与字母组合", { x: '4~10' })
   },
   methods: {
 //获取验证码
@@ -737,7 +729,7 @@ export default {
     },
     accountIsValid() {
       //账号校验
-      return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{4,15}$/.test(
+      return /^(?![0-9]+$)(?![a-zA-Z]+$)[0-9A-Za-z]{4,10}$/.test(
         this.accountNumber
       );
     },
@@ -902,7 +894,7 @@ export default {
       //正则校验
       if (!_this.accountIsValid()) {
         this.errors = {};
-        this.$http.showMesasge(this.$t('账号必须为4-15位数字与字母组合'));
+        this.$http.showMesasge(this.$t('账号必须为4-10位数字与字母组合'));
         return;
       } else if (!_this.passwordIsValid()) {
         this.errors = {};

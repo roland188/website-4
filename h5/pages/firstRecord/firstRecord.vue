@@ -125,7 +125,6 @@ page {
 	height: 100%;
 	background-color: #ffffff;
 	box-sizing: border-box;
-	border-top: 2rpx solid #f0f0f0;
 }
 .page {
 	display: flex;

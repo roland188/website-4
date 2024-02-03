@@ -396,7 +396,7 @@ export default {
           text-align: center;
           font-size: 28upx;
           margin-top: 4px;
-          color: #e6d7b4;
+          color: #000;
           white-space: nowrap;
         }
       }

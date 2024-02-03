@@ -70,7 +70,6 @@ page {
 	background-color: #ffffff;
 	box-sizing: border-box;
 	overflow: hidden;
-	border-top: 2rpx solid #f0f0f0;
 }
 .screening{
 	display: none;

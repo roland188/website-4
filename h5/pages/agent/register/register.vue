@@ -21,10 +21,7 @@
         </uni-forms-item>
         <uni-forms-item :label="$t('生日') + ':'" name="birthday2">
           <!-- <uni-easyinput type="text" v-model="formData.birthday2" @tap="toggleTab" :placeholder="$t('请输入生日')" /> -->
-          <input type="text" @tap="toggleTab" v-model='formData.birthday2' 
-            :placeholder="$t('请输入生日')" 
-            placeholder-class="themeTextTwo"
-            maxlength="20" class="birthday" />
+          <view type="text" disabled @tap="toggleTab" class="birthday" :class="{themeTextTwo : !formData.birthday2}">{{ formData.birthday2 ? formData.birthday2  : $t('请输入生日')}}</view>
         </uni-forms-item>
 
         <!-- <uni-forms-item label="QQ:" name="qq2">
