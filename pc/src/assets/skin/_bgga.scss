@@ -19,17 +19,28 @@ $nav-bgColor: #292829;
 $headr-bgColor1: #1f1f1f;
 $headr-Color: #fff;
 // 优惠
-$active-bgColor: #111;
-$active-btnColor: #000;
-$active-color: #000;
-$active-btncolor1: linear-gradient(225deg, #9b7c4c, #ffe7c1);
-$activity-bg: #0a0a0a;
-$game-tabBg: #2a2a2a;
-$game-tabColor: #fff;
-$game-textColor: #8c999c;
+$active-bgColor: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%);
+$active-btnColor: #0080af;
+$active-color: #0080af;
+$active-btncolor1: #fff;
+$activity-bg: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%);
+$game-tabBg: #2199ca;
+$game-tabColor: #efc77a;
+$game-textColor: #fff;
 $notice-bg: rgba(0, 0, 0, 0.85);
 $header-mycolor: #54b9ff;
 $header-btnColor: #fead00;
+
+// $active-bgColor: #fff;
+// $active-btnColor: #0080af;
+// $active-color: #000;
+// $active-btncolor1: linear-gradient(225deg, #9b7c4c, #ffe7c1);
+// $activity-bg: #0a0a0a;
+// $game-tabBg: #2a2a2a;
+// $game-tabColor: #fff;
+// $game-textColor: #8c999c;
+// $header-mycolor: #54b9ff;
+// $header-btnColor: #fead00;
 body {
   --themeColor: #111;
   --themeAssistColor: #f9a425;

@@ -28,85 +28,79 @@
     function t() {
         var c = [
 			{
-                "code": "viet",
-                "skin": "kubet",
-                "childCode": "kbet",
-                "locale": 'vi',
-                "name": "ku bet",
-                "theme": "a054",
-                "winOpenTime": "6000",
-                "customerServiceStatus": 1,//0旧版本   1新版本
-                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
-                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
-                "domains": [],
+				"code": "svip",
+				"skin": "sovip",
+				"childCode": "svip",
+				"locale": 'vi',
+				"name": "sovip - best bet coming｜Thương hiệu Casino chuyên nghiệp số 1 Việt Nam｜chuyên trang tổng hợp cá độ bóng đá, xổ số lô đề, casino trực tuyến, game bài, bắn cá giải trí",
+				"theme": "a053",
+				"winOpenTime": "6000",
+				"customerServiceStatus": 1,//0旧版本   1新版本
+				"sortArr": [5, 1, 7, 2, 3, 8, 4, 6,],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+				"maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+				"domains": [],
 			},
-            {
-                "code": "bgga",
-                "skin": "bgga",
-                "childCode": "bgga",
-                "locale": 'pt',
-                "name": "BG.GAME",
-                "theme": "a055",
-                "winOpenTime": "6000",
-                "customerServiceStatus": 1,//0旧版本   1新版本
-                "sortArr": [5, 1, 7, 2, 3, 8, 4, 6,],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
-                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
-                "domains": [],
-            },
-            {
-                "code": "ff10",
-                "skin": "betc88",
-                "childCode": "ff10",
-                "locale": 'vi',
-                "name": "bet come",
-                "theme": "a053",
-                "winOpenTime": "6000",
-                "customerServiceStatus": 1,//0旧版本   1新版本
-                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
-                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
-                "domains": [],
-            },
 			{
-                "code": "viet",
-                "skin": "betc88",
-                "childCode": "new8",
-                "locale": 'vi',
-				"name": "betcom",
-                "theme": "a053",
-                "winOpenTime": "6000",
-                "customerServiceStatus": 1,//0旧版本   1新版本
-                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
-                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
-                "domains": [],
+				"code": "bgga",
+				"skin": "bgga",
+				"childCode": "bgga",
+				"locale": 'pt',
+				"name": "BG.GAME",
+				"theme": "a055",
+				"winOpenTime": "6000",
+				"customerServiceStatus": 0,//0旧版本   1新版本
+				"sortArr": [5, 1, 7, 2, 3, 8, 4, 6,],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+				"maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+				"domains": [],
 			},
-            {
-                "code": "svip",
-                "skin": "sovip",
-                "childCode": "svip",
-                "locale": 'vi',
-                "name": "sovip - best bet coming｜Thương hiệu Casino chuyên nghiệp số 1 Việt Nam｜chuyên trang tổng hợp cá độ bóng đá, xổ số lô đề, casino trực tuyến, game bài, bắn cá giải trí",
-                "theme": "a053",
-                "winOpenTime": "6000",
-                "customerServiceStatus": 1,//0旧版本   1新版本
-                "sortArr": [5, 1, 7, 2, 3, 8, 4, 6,],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
-                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
-                "domains": [],
-            },
-            
-            {
-                "code": "viet",
-                "skin": "xiaocao",
-                "childCode": "kbet",
-                // "code": "xcao",
-                // "childCode": "xcao",
+			{
+				"code": "viet",
+				"skin": "kubet",
+				"childCode": "kbet",
+				"locale": 'vi',
+				"name": "ku bet",
+				"theme": "a054",
+				"winOpenTime": "6000",
+				"customerServiceStatus": 1,//0旧版本   1新版本
+				"sortArr": [5, 1, 7, 2, 3, 8, 4, 6,],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+				"domainName": "306167.com",
+				"statistics": "",
+				"maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+				"domains": [],
+			},
+			{
+				"code": "viet",
+				"skin": "betc88",
+				"childCode": "new8",
+				"mergeAccount": "",
+				"locale": 'vi',
+				"name": "bet come",
+				"theme": "a053",
+				"invite": "",
+				"winOpenTime": "6000",
+				"customerServiceStatus": 1, //0旧版本   1新版本
+				"sortArr": [5, 1, 3, 4, 2, 6], //1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+				"domainName": "306167.com",
+				"statistics": "",
+				"maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+				"domains": ["306167.com"]
+			},
+			{
+				"code": "viet",
+				"skin": "xiaocao",
+				"childCode": "new8",
+				"mergeAccount": "",
                 "locale": 'vi',
                 "name": "88bet",
-                "theme": "a032",
-                "winOpenTime": "6000",
-                "customerServiceStatus": 1,//0旧版本   1新版本
-                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
-                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
-                "domains": [],
+				"theme": "a053",
+				"invite": "",
+				"winOpenTime": "6000",
+				"customerServiceStatus": 1, //0旧版本   1新版本
+				"sortArr": [5, 1, 3, 4, 2, 6], //1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+				"domainName": "306167.com",
+				"statistics": "",
+				"maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+				"domains": ["306167.com"]
             },
             {
                 "code": "viet",
@@ -152,7 +146,7 @@
                 "skin": "g9bet",
                 "childCode": "g9bt",
                 "locale": 'vi',
-				"name": "g9bet",
+				"name": "G9bet",
                 "theme": "a059",
                 "winOpenTime": "6000",
                 "customerServiceStatus": 1,//0旧版本   1新版本
@@ -160,36 +154,32 @@
                 "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
                 "domains": [],
             },
-        ];
-        if (!l) {
-            if (a.length > 2) a = a.slice(a.length - 2);
-            u = a.join(".");
-        }
-        var o = c[2];// bggame
-        var o = c[5];// bet88
-        var o = c[3];// betcome
-        var o = c[0]
-        var o = c[6];// jun88
-        console.log('-----', o)
-        for (var x in c) {
-            var i = c[x];
-            if (i.domains.indexOf(u) > -1) {
-                o = i;
-                break;
-            }
-        }
-        //o.host = location.protocol + "//" + u + "/xxa";
-        o.host ="https://lyjqv6pvv2.com/xxa"
-        // o.host = "https://tc20014.com/xxa"// bet come
-        o.host = "https://tc00013.com/xxa/"// ku bet
-        // o.host = "https://tc20011.com/xxa"
-        // o.host = "https://715732.com/xxa";
-        // o.host = "https://tc20009.com/xxa"
-        o.host = "https://tc20015.com/xxa"
-		// gr86czdgdk.com  phattai68 内部域名
-		// ofampihfkc.com  choibet 内部域名
-		// tc20015.com  g9bet 内部域名
-		// 715732.com  jun88 内部域名
+		];
+		if (!l) {
+			if (a.length > 2) a = a.slice(a.length - 2);
+			u = a.join(".");
+		}
+		var codeList = [//0 sovip、1 bggame、2 kubet、3 betcome 、4 88bet、5 jun88、6  phattai68、7 choibet、8 g9bet
+			{ data: c[0],host: 'https://m.sovip66.com/xxa'},
+			{ data: c[1],host: 'https://m.tc20014.com/xxa'},
+			{ data: c[2],host: 'https://m.tc00013.com/xxa'},
+			{ data: c[3],host: 'https://m.betcome1.com/xxa'},
+			{ data: c[4],host: 'https://m.tc00011.com/xxa'},
+			{ data: c[5],host: 'https://m.715732.com/xxa'},
+			{ data: c[6],host: 'https://m.gr86czdgdk.com/xxa'},
+			{ data: c[7],host: 'https://m.ofampihfkc.com/xxa'},
+			{ data: c[8],host: 'https://m.tc20015.com/xxa'},
+		]
+		var codeData = codeList[2]
+		var o = codeData.data//sovip
+		for (var x in c) {
+			var i = c[x];
+			if (i.domains.indexOf(u) > -1) {
+				o = i;
+				break;
+			}
+		}
+		o.host = codeData.host
         localStorage.setItem("host", o.host);
         sessionStorage.setItem("theme", parseInt(o.theme.slice(1)));
         window.theme = o.theme;

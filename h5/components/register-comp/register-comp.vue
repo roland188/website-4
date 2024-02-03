@@ -15,15 +15,15 @@
 		<view class='regRow accountNumber flex'>
 			<view class='required'> ★ </view>
 			<!-- #ifdef APP-PLUS -->
-			<input type="text" v-if="$config.mergeAccount" :placeholder="$t('请输入账号（长度4到13位）')" maxlength="13" placeholder-class="themeTextTwo"
+			<input type="text" v-if="$config.mergeAccount" :placeholder="$t('请输入账号（长度4到10位）')" maxlength="10" placeholder-class="themeTextTwo"
 			 v-model='accountNumber' @focus='accountFocus' @blur='accountNumberBlurFn' @confirm='Register' />
-			<input type="text" v-else :placeholder="$t('请输入账号（长度6到15位）')" maxlength="15" placeholder-class="themeTextTwo" v-model='accountNumber'
+			<input type="text" v-else :placeholder="$t('请输入账号（长度4到10位）')" maxlength="10" placeholder-class="themeTextTwo" v-model='accountNumber'
 			 @focus='accountFocus' @blur='accountNumberBlurFn' @confirm='Register' />
 			<!-- #endif -->
 			<!-- #ifdef H5 -->
-			<input type="text" v-if="window.mergeAccount" :placeholder="$t('请输入账号（长度4到13位）')" maxlength="13" placeholder-class="themeTextTwo"
+			<input type="text" v-if="window.mergeAccount" :placeholder="$t('请输入账号（长度4到10位）')" maxlength="10" placeholder-class="themeTextTwo"
 			 v-model='accountNumber' @focus='accountFocus' @blur='accountNumberBlurFn' @confirm='Register' />
-			<input type="text" v-else :placeholder="$t('请输入账号（长度6到15位）')" maxlength="15" placeholder-class="themeTextTwo" v-model='accountNumber'
+			<input type="text" v-else :placeholder="$t('请输入账号（长度4到10位）')" maxlength="10" placeholder-class="themeTextTwo" v-model='accountNumber'
 			 @focus='accountFocus' @blur='accountNumberBlurFn' @confirm='Register' />
 			<!-- #endif -->
 
