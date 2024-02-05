@@ -3,7 +3,7 @@
     <!-- 顶部轮播 -->
     <div style="height: 520px; overflow: hidden">
       <div ref="notice" class="main_swiper">
-        <main-swiper></main-swiper>
+        <main-swiper @getluckyWheelSimple="getluckyWheelSimple"></main-swiper>
       </div>
     </div>
     <!-- 公告 -->
@@ -86,6 +86,11 @@
     <!-- <leftAward /> -->
     <!-- 电子闯关 -->
     <doubleDenier />
+    <!-- 大转盘 -->
+    <div class="prize-btn" v-if="showPrize">
+      <div class="close-btn" @click="showPrize = false"></div>
+      <div class="cur-btn" @click="toWorldCupSports(luckyWheelSimple)"></div>
+    </div>
   </div>
 </template>
 
@@ -254,6 +259,8 @@ export default {
       },
       newsList:[],
       dataList:[],
+      showPrize:false,
+      luckyWheelSimple:{},
     };
   },
 
@@ -355,6 +362,30 @@ export default {
     });
   },
   methods: {
+    getluckyWheelSimple(data){
+      this.showPrize = true
+      this.luckyWheelSimple = data
+    },
+    // 转盘活动
+    toWorldCupSports(item) {
+        if (!this.$common.getUser()) {
+            this.$message.warning(this.$t('请先登录'));
+            return;
+        }
+        const obj = {
+          activityId: item.urlId,
+          token: this.$common.getToken(),
+          clientCode: window.clientCode,
+          clientItem: window.childCode,
+          username: this.$common.getUser().username,
+          language: this.$i18n.locale,
+          theme: window.theme,
+          host: this.$config.baseUrl,
+        };
+        const str = window.btoa(JSON.stringify(obj));
+        const url = window.location.origin + '/func/' + item.expand.actFolder + "/pc/index.html?s=" + str;
+        window.open(url);
+    },
     // 公告信息
     getGuideAd() {
       let self = this;
@@ -1250,6 +1281,36 @@ export default {
         transform-origin: 0% 100%;
         opacity: 1;
     }
+}
+
+.prize-btn{
+  position:fixed;
+  width:194px;
+  height:200px;
+  right:20px;
+  bottom:20px;
+  background:url('~@/assets/image/price-bg.gif') no-repeat center/contain;
+  z-index:1000;
+
+}
+.close-btn{
+  position: absolute;
+    width: 23px;
+    height: 34px;
+    left: 0;
+    top: -20px;
+    cursor: pointer;
+    z-index: 900;
+    background: url('~@/assets/image/close.png') no-repeat center center;
+    background-size: contain;
+    
+}
+.cur-btn{
+  position:absolute;
+  width:270px;
+  height:200px;
+  cursor:pointer;
+  bottom:0;
 }
 
 </style>

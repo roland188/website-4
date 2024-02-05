@@ -170,8 +170,8 @@
 			{ data: c[7],host: 'https://m.ofampihfkc.com/xxa'},
 			{ data: c[8],host: 'https://m.tc20015.com/xxa'},
 		]
-		var codeData = codeList[2]
-		var o = codeData.data//sovip
+		var codeData = codeList[8]
+		var o = codeData.data
 		for (var x in c) {
 			var i = c[x];
 			if (i.domains.indexOf(u) > -1) {

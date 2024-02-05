@@ -6,7 +6,6 @@
         <text>{{ $t("奖励") }}</text>
       </view>
     </view> -->
-    <!-- :rightText="$t('兑换码')" -->
     <uni-nav-bar
       :title="$t('奖励')"
 	    leftIcon="back"
@@ -14,6 +13,7 @@
       :fixed="true"
       color="#fff"
       :shadow="false"
+      :rightText="$t('兑换码')"
       :showRightBtn="true"
       @clickRight="handleClickRight"
       @clickLeft="BackPage"
