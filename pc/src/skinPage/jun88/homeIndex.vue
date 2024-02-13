@@ -137,7 +137,7 @@
      <!-- usdt浮窗 -->
     <UsdtFloating  v-show="$route.path == '/home'"/>
     <!-- 大转盘 -->
-    <div class="prize-btn" v-if="showPrize && ['sovip','betc88'].includes(projectImgUrl)">
+    <div class="prize-btn" v-if="showPrize && ['vi'].includes(window.locale)">
       <div class="close-btn" @click="showPrize = false"></div>
       <div class="cur-btn" @click="toWorldCupSports(luckyWheelSimple)"></div>
     </div>

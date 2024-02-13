@@ -33,6 +33,12 @@
       <!-- <LuckyBag /> -->
       <!-- 右侧浮窗 -->
       <RightFloatingFrame :login="login" @goPlayGame="goPlayGame" />
+      <!-- 红包雨 -->
+      <view class="popup_world"
+        v-if="isWorldPop" @click="onluckyWheelSimple">
+          <view class="popup_close" @click.stop="isWorldPop = false"></view>
+          <view class="popup_bg"></view>
+      </view>
   </view>
 </template>
 
@@ -77,6 +83,7 @@ watch: {
 },
 data() {
   return {
+    isWorldPop: false,
     // #ifdef H5
     showDownload: true, // 是否展示顶部下载组件
     // #endif
@@ -131,6 +138,7 @@ data() {
     // 图片规则
     arr: [],
     langType: this.$store.state.lang,
+    worldCupData:{},
   };
 },
 onPullDownRefresh() {
@@ -182,6 +190,7 @@ mounted() {
   let self = this;
   self.hotGame(); //热门游戏
   self.recommendGame(); //推荐
+  self.getBanner()
   uni.$on("advertising", function (data) {
     self.getPopUpAdsSetting();
   });
@@ -201,6 +210,7 @@ mounted() {
     self.getGameMenu(); //获取菜单
     self.hotGame(); //热门游戏
     self.recommendGame(); //推荐
+    self.getBanner()
     if (self.login) {
       self.getPlayerRecentGame(); //常玩
     }
@@ -217,6 +227,45 @@ onUnload() {
   uni.$off("update");
 },
 methods: {
+  // 获取轮播
+  getBanner() {
+    this.$api.banners((err, res) => {
+      if (err) return
+      else{
+        if (res?.length) {
+            this.worldCupData =  res.find((item) => item?.expand?.actFolder === "vi-redPacketRain") || {}
+          if(Object.keys(this.worldCupData).length > 0){
+            this.isWorldPop = true
+            this.getThematicActivitiesByApp(this.worldCupData.urlId)
+          }
+        } else {
+          this.isWorldPop = false;
+        }
+      }
+
+    }, false);
+  },
+  
+  getThematicActivitiesByApp(urlId){
+    this.$api.getThematicActivitiesByApp(urlId,(err,res)=>{})
+  },
+  onluckyWheelSimple() {
+    if (!this.login) {
+      uni.showToast({
+        title: this.$t('请先登录'),
+        icon: "none",
+      });
+    } else {
+      let data = this.worldCupData;
+      if (data?.expand?.actType == 3) {
+        this.$cache.set("activityId", data.urlId);
+        this.$cache.set("activityItem", data);
+        uni.navigateTo({
+          url: "/pages/activity/activity",
+        });
+      }
+    }
+  },
   rechargeComplete() {
     console.log("rechargeComplete:");
     if (!this.$api.isLogin()) {
@@ -1427,5 +1476,29 @@ background-color: #0f0f0f;
 .p-bottom-40 {
   padding-bottom: 30upx !important;
 }
+}
+
+.popup_world {
+	position: fixed;
+	bottom: 160rpx;
+	right: 16rpx;
+	z-index: 99;
+	width: 200rpx;
+	height: 200rpx;
+	z-index: 9;
+	background: url("~@/static/image/price-bg.gif") no-repeat center/contain;
+	.popup_close {
+		position: absolute;
+		right: 0;
+		top: 0;
+		z-index: 10;
+		width: 30rpx;
+		height: 30rpx;
+		background: url("~@/static/image/tNone.png") no-repeat center/contain;
+	}
+	.popup_bg {
+		width: 100%;
+		height: 100%;
+	}
 }
 </style>

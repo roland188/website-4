@@ -399,10 +399,10 @@ export default {
           text-overflow:ellipsis; 
           white-space:nowrap;
           cursor:pointer;
-          color: $theme-color;
-          &:hover{
           color: $active-color;
-          background: $active-btncolor1;
+          &:hover{
+            color: $active-color;
+            background: $active-btncolor1;
           }
       }
       .nav_active{

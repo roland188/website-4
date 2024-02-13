@@ -14,9 +14,27 @@
         <!-- <div class="fwDownload">
             <div class="icon zalo" @click="jump('zalo')"></div>
         </div> -->
-        <div class="fwDownload">
+        <!-- <div class="fwDownload">
             <div class="icon appDown" @click="jump('app')"></div>
-        </div>
+        </div> -->
+        <el-popover popper-class="appDown"
+                    placement="left-start"
+                    width="128"
+                    trigger="hover">
+            <div class="qrCode">
+                <div class="qr iosQrCode">
+                    <div id="qrcode3"
+                         ref="qrcode3"
+                         style="display: inline-flex;"></div>
+                    <div class="qrText">{{$t('APP下载')}}</div>
+                </div>
+            </div>
+
+            <div slot="reference"
+                 class="fwDownload" >
+                <div class="icon appDown"></div>
+            </div>
+        </el-popover>
         <!-- <div class="fwDownload">
             <el-popover
                 placement="left"

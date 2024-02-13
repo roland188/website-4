@@ -89,8 +89,15 @@ export default {
           name: this.$t("优惠活动"),
           id: 10,
         },
+        {
+          name: this.$t('VIP'),
+          id: 13,
+          path: "/vipLevel",
+        },
       ], // 默认列表
-      menue: [], //整合列表
+      menue: [
+        
+      ], //整合列表
       gameList: [],
       isShowRegister: false,
       childList: [], //子列表
@@ -330,7 +337,12 @@ export default {
         this.$router.push({
           path: "/mall",
         });
-      } else if (item.id == 9) {
+      }else if (item.id == 13) {
+        if (!this.$common.getUser()) return this.$common.openLogin()
+        this.$router.push({
+          path: "/vipLevel",
+        });
+      }else if (item.id == 9) {
         this.$router.push({
           path: "/home",
           query: {

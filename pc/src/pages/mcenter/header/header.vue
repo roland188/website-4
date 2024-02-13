@@ -475,7 +475,7 @@ export default {
             // window.open(href, '_blank',"toolbar=yes, location=yes, directories=no, status=no, menubar=yes, scrollbars=yes, resizable=no, copyhistory=yes, width=400, height=400");
         },
         openServiceUrl() {
-            if (['sovip','betc88'].includes(window.projectImgUrl)) { // betcome直接跳客服窗口
+            if (['vi'].includes(window.locale)) { // betcome直接跳客服窗口
                 const url = this.$common.getCustomerService();
                 window.open(url, "_blank");
                 return;
@@ -659,10 +659,10 @@ export default {
     font-size: 20px;
     line-height: 44px;
     .item:hover {
-        color:  $theme-color;
+        color:  $header-activeColor;
     }
     .actitvy {
-        color:  $theme-color;
+        color:  $header-activeColor;
     }
 }
 

@@ -231,7 +231,7 @@
               <p class="tips-text themeAssistColorClass" style="display: flex;flex-direction: column;">
                 <span>{{ $t('单笔最低入款金额{x}，最高入款金额{y}', { x: `${$utils._toThousands(minMoney)}`, y: `${$utils._toThousands(maxMoney)}` }) }}</span>
                 <span style="margin: 10px 0">{{ $t('1点={x}', { x: `${$utils._toThousands(1000)}` }) }}{{ $t('CNY') }}</span>
-                <span v-if="['betc88','sovip'].includes(window.projectImgUrl)">
+                <span v-if="['vi'].includes(window.locale)">
                   = {{ $utils._toThousands(money*1000) }} {{ $t('CNY') }}，
                   {{ $t('手续费：') }}0 = {{ serviceFeeRate > 0 ? serviceFeeRate*100 + '%' : 0}} {{ $t('CNY') }}，
                   {{ $t('实际到账：') }}{{ money }} = {{ $utils._toThousands(money*1000) }} {{ $t('CNY') }}

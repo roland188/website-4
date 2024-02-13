@@ -74,7 +74,7 @@
                     </div>
                 </el-col>
             </el-row>
-            <el-row class="elrows" v-if="!isBankShow && !['sovip','betc88'].includes(projectImgUrl)">
+            <el-row class="elrows" v-if="!isBankShow && !['vi'].includes(locale)">
                 <el-col :span="24">
                     <div class="col-title">
                         <span>{{$t('支行名称')}}：</span>
@@ -214,6 +214,7 @@ export default {
             isBankShow:false,
             bind_usdt_sms:0,
             bind_sms:0,
+            locale: window.locale
         };
     },
     watch:{
@@ -407,7 +408,7 @@ export default {
                     return;
                 }
                 
-                if(!['sovip','betc88'].includes(this.projectImgUrl)){
+                if(!['vi'].includes(locale)){
                     if (!this.bankCardInfo.branch && !this.isBankShow) {
                         this.$message({
                             message: this.$t("请输入支行"),
@@ -435,7 +436,7 @@ export default {
                 // let backCardFull = this.bankCardInfo.number.replace(/\s*/g, ""); //去除所有空格
                 option = {
                     account: this.bankCardInfo.account, //	银行卡账户名
-                    branch: ['sovip','betc88'].includes(projectImgUrl) ? this.bankCardInfo.name : this.bankCardInfo.branch, //	支行
+                    branch: ['vi'].includes(locale) ? this.bankCardInfo.name : this.bankCardInfo.branch, //	支行
                     memberId: this.userId, //	会员id
                     name: this.bankCardInfo.name, //	银行名称
                     number: this.bankCardInfo.number, //卡号

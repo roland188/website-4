@@ -299,8 +299,8 @@ export default {
         width: 2px;
         height: 100%;
         content: "";
-        background-color: #202020;
-        border-left: 1px solid #3d3d3d;
+        background-color: $game-Bg;
+        border-left: 1px solid $game-Rborder;
     }
     .card-vendor .vendor-item::after{
         position: absolute;
@@ -309,8 +309,8 @@ export default {
         width: 100%;
         height: 1px;
         content: "";
-        background-color: #3d3d3d;
-        border-bottom: 2px solid #202020;
+        background-color: $game-Rborder;
+        border-bottom: 2px solid $game-Bg;
     }
     .card-vendor .vendor-item:hover{
         color: $game-tabColor;

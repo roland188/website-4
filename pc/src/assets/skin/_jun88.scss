@@ -1,5 +1,5 @@
 // 默认主题色
-$theme-color: #fff;
+$theme-color: #2199ca;
 $theme-activeColor: #fff;
 // 默认底色
 $bg-Color: #0a0a0a;
@@ -18,6 +18,7 @@ $headr-bgColor: #2199ca;
 $nav-bgColor: #2199ca;
 $headr-bgColor1: #fff;
 $headr-Color: #000;
+$header-activeColor:#0061a0;
 // 优惠
 $active-bgColor: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%);
 $active-btnColor: #0080af;
@@ -30,6 +31,9 @@ $game-textColor: #fff;
 $notice-bg: #fff;
 $header-mycolor: #fff;
 $header-btnColor: #0080af;
+$game-Bg: #33a6cf;
+$game-Rborder: #0080af;
+
 body {
   --themeColor: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%) !important;
   --themeAssistColor: #f9a425;

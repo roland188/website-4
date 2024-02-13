@@ -18,19 +18,23 @@ $headr-bgColor: #0c5d91;
 $nav-bgColor: #0c5d91;
 $headr-bgColor1: #fff;
 $headr-Color: #000;
+$header-activeColor:#5aaaf3;
 
 // 优惠
 $active-bgColor: #fff;
-$active-btnColor: #ddd;
+$active-btnColor: #33a6cf;
 $active-color: #fff;
+$active-btncolor1: #fff;
 $active-btncolor1: linear-gradient(225deg, #06396a 0%, #399fda 100%);
-$activity-bg: #0a0a0a;
-$game-tabBg: #2a2a2a;
-$game-tabColor: #fff;
-$game-textColor: #8c999c;
+$activity-bg: linear-gradient(180deg, #fff, #cff0fe 30%, #fff 70%);
+$game-tabBg: #2199ca;
+$game-tabColor: #efc77a;
+$game-textColor: #fff;
+$notice-bg: #fff;
 $header-mycolor: #fff;
-$notice-bg: rgba(0, 0, 0, 0.7);
-$header-btnColor: #5aaaf3;
+$header-btnColor: #0080af;
+$game-Bg: #33a6cf;
+$game-Rborder: #0080af;
 
 body {
   --themeColor: #fff;

@@ -3,9 +3,9 @@
     <div class="table-head">
       <div class="title-th">{{$t('等级')}}</div>
       <!-- <div class="title-th">累计存款</div> -->
-      <div class="title-th">{{ projectImgUrl !=='betc88' ?  $t('升级所需有效流水') : $t('累积存款')}}</div>
+      <div class="title-th">{{ !['vi'].includes(locale) ?  $t('升级所需有效流水') : $t('累积存款')}}</div>
       <!-- <div class="title-th">保级有效流水</div> -->
-      <div class="title-th">{{ projectImgUrl !=='betc88' ? $t('晋级礼金') : $t('升级奖励')}}</div>
+      <div class="title-th">{{ !['vi'].includes(locale) ? $t('晋级礼金') : $t('升级奖励')}}</div>
       <div class="title-th">{{$t('生日礼金')}}</div>
       <!-- <div class="title-th">VIP每月红包</div>
       <div class="title-th">豪礼赠送</div> -->
@@ -40,7 +40,8 @@ export default {
   data() {
     return {
       vipLevelList: [],
-      projectImgUrl: window.projectImgUrl
+      projectImgUrl: window.projectImgUrl,
+      locale: window.locale,
     };
   },
   mounted() {

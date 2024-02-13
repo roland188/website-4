@@ -324,8 +324,8 @@ export default {
     width: 100%;
     height: 1px;
     content: "";
-    background-color: #3d3d3d;
-    border-bottom: 2px solid #202020;
+    background-color: $game-Rborder;
+    border-bottom: 2px solid $game-Bg;
 }
 
 .card-vendor .vendor-item:hover{
