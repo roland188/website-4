@@ -6,9 +6,15 @@
 					<text class="recordTextOne">{{ headerTitle }}</text>
 				</view>
 				<view class="Time picker GameTime">
-					<input type="text" v-model="parameters.dateStart" :placeholder="$t('开始时间')" placeholder-class="phlocation" @tap="toggleTab()" />
+					<view @tap="toggleTab" class="phlocation1" :class="{phlocation : !parameters.dateStart}">
+						{{ parameters.dateStart ? parameters.dateStart  : $t('开始时间')}}
+					</view>
+					<!-- <input type="text" v-model="parameters.dateStart" :placeholder="$t('开始时间')" placeholder-class="phlocation" @tap="toggleTab()" /> -->
 					<text class="recordTextOne">{{$t('至')}}</text>
-					<input type="text" v-model="parameters.dateEnd" :placeholder="$t('截止时间')" placeholder-class="phlocation" @tap="toggleTabs()" />
+					<view @tap="toggleTabs" class="phlocation1" :class="{phlocation : !parameters.dateEnd}">
+						{{ parameters.dateEnd ? parameters.dateEnd  : $t('截止时间')}}
+					</view>
+					<!-- <input type="text" v-model="parameters.dateEnd" :placeholder="$t('截止时间')" placeholder-class="phlocation" @tap="toggleTabs()" /> -->
 				</view>
 			</view>
 

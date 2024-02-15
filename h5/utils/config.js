@@ -91,7 +91,7 @@ const getConfing = () => {
 
 
 // 测试打包配置开始
-config.appName = '金沙'; //项目名称
+config.appName = 'sovip'; //项目名称
 config.clientCode = "viet";
 config.projectImgUrl = "xiaocao";
 config.mainCustomer = 'http://bets8888.website/client/clientCode'; //获取维护客服

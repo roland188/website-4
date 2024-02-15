@@ -234,7 +234,12 @@ export default {
 .flex-box {
   position: absolute;
   left: 0;
+  /* #ifdef H5 */
   top: 0;
+  /* #endif */
+  /* #ifdef APP-PLUS */
+  top: var(--status-bar-height);
+  /* #endif */
   height: 100%;
   bottom: 0;
   background: #fff;

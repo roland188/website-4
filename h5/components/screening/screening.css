@@ -42,10 +42,12 @@
 }
 
 .Time {
+	gap: 40rpx;
 	margin-top: 29rpx;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
+	align-items: center;
 	justify-content: space-between;
 	width: 100%;
 }
@@ -59,7 +61,6 @@
 }
 
 .Time .text_zhi {
-	width: 100upx;
 	height: 80rpx;
 	line-height: 80rpx;
 	font-size: 28rpx;
@@ -108,6 +109,7 @@
 	flex-direction: row;
 	flex-wrap: nowrap;
 	width: 264rpx;
+	flex: 1;
 	height: 80rpx;
 	border: 0;
 	border: 2rpx solid #e1e1e1;
@@ -130,11 +132,14 @@
 	font-size: 14px;
 }
 
-.Time input {
+.Time input, .phlocation1 {
+	flex: 1;
 	height: 80rpx;
     font-size: 14px;
     border-radius: 10rpx;
-	padding-right: 10upx;
+	padding:0 10upx;
+	text-align: center;
+	border-color: #e1e1e1 !important;
 }
 
 
