@@ -29,22 +29,22 @@
           </view>
           <view
             class="item"
-            @click="toPreferen('../preferential/preferential')"
+            @click="toPreferen('/pages/preferential/preferential')"
           >
             Khuyến mãi
           </view>
           <view
             class="item"
             @click="
-              openUrl('../../pages/returnWaterRecords/returnWaterRecords?id=5')
+              openUrl('/pages/returnWaterRecords/returnWaterRecords?id=5')
             "
           >
             Hoa hồng của tôi
           </view>
-          <view class="item" @click="openUrl('../../pages/recharge/recharge')">
+          <view class="item" @click="openUrl('/pages/recharge/recharge')">
             Nạp tiền nhanh
           </view>
-          <view class="item" @click="openUrl('../../pages/account/account')">
+          <view class="item" @click="openUrl('/pages/account/account')">
             Rút tiền trực tuyến
           </view>
           <view class="item" @click="goAgentPath('/pages/agent/agent')">

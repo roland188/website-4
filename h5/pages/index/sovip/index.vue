@@ -711,7 +711,7 @@ export default {
       }
       arrLeft.unshift(hotList)
       this.leftArray = arrLeft; 
-      console.log(arrLeft,'arrleft')
+      // console.log(arrLeft,'arrleft')
       this.$refs.gameList.changeRightData(this.leftArray);
         // setTimeout(() => {
         //   this.leftArray = sortMap;

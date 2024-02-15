@@ -5,15 +5,15 @@
       title=""
       :status-bar="true"
       :fixed="true"
-      :leftIcon="isLogin ? 'bars' : ''"
       background-color="#0f0f0f"
-      color="#e3e3e3"      
+      color="#e3e3e3"
       :shadow="false"
-      @clickLeft="onLeft" 
+      left-icon="bars"
+      @clickLeft="onLeft"
       :class="showTop ? 'fixedShow' : 'fixedHide'"
     >
       <image
-        style="height: 68upx; margin: 0 auto"
+        style="width: 260upx; height: 90upx; margin: 0 auto"
         :src="$config.platformLogo('logo')"
         mode="aspectFit"
       ></image>
@@ -24,7 +24,7 @@
           @tap="localeChange"
           :src="$config.localImgUrl(lang)"
         ></image> -->
-        <image class="languageImg" @tap="toPage('../Message/Message')" :src="'../../static/image/indexImg/msg-icon.svg'" mode="aspectFit"></image>
+        <image class="languageImg" @tap="toPage('/pages/subCustomerService/subCustomerService')" :src="'../../static/image/indexImg/msg-icon.svg'" mode="aspectFit"></image>
       </view>
     </uni-nav-bar>
     <view
@@ -55,7 +55,6 @@ export default {
       type: String,
       default: "vi",
     },
-    isLogin: false,
   },
   data() {
     return {
@@ -100,7 +99,6 @@ export default {
       this.isShowLanguage = !this.isShowLanguage;
     },
     onLeft() {
-      console.log('AAAA');
       this.$emit("onLeft");
     },
   },
