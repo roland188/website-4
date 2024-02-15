@@ -217,7 +217,7 @@ export default {
                 clientCode: window.clientCode,
                 clientItem: window.childCode,
                 username: this.$common.getUser().username,
-                language: "zh_CN",
+                language: this.$i18n.locale,
                 theme: window.theme,
                 host: this.$config.baseUrl,
             };
