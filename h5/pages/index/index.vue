@@ -39,6 +39,7 @@ export default {
   components: {
     betc88Index,
     kubetIndex,
+    wynnIndex,
     bgga,
     sovip,
     jun88,

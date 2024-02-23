@@ -1,0 +1,148 @@
+page {
+	--theme: #000; /* 背景色 */
+	--mytheme: #000; /* 我的页面背景色 */
+	--hometheme: #0f0f0f;/*首页背景*/
+	--mythemeCard: #282828; /*我的页面选中颜色*/
+	--mythemeBtnColor: #282828; /*我的页面btn颜色*/
+	--mythemeColor: #d7c39d; /*我的页面文字颜色*/
+	--tbbarColor: #d9bb9b;/*tabbar文字*/
+	--myCardmagin: 20rpx 32rpx;/*我的页面边距*/
+	--myloginbtn: linear-gradient(90deg, #deb549, #fdea61);/*用户登录按钮*/
+	--myregisterbtn: #fff;/*用户注册按钮*/
+	--myresisterColor:#ebcc45;
+	--myresisterborder: 2rpx solid #ebcc45;
+	--tbbarBorderColor: rgba(11, 11, 11, 0.33);/*tabbar上边框*/
+	--vipLevelColor: linear-gradient(180deg,#ebcc45,#bb9040);/*vip等级*/
+	--vipLevelBtnColor: #ebcc45;/*vip等级 按钮*/
+	--myuserBgColor: linear-gradient(#000,#22211f);/*我的用户*/
+	--mymargin: 50upx;
+	--loginBg: url("@/static/image/qqImg/loginbgc.png") no-repeat #333 top center/contain;/*登录背景*/
+	--loginTab: #fff;/*tab*/
+	--loginFromBg: #22211f;
+	--loginborderBg: linear-gradient(to top, #dcce6a, #c69131);
+	--loginPd: 52upx 36upx 62upx;
+	--loginInput: #000;/*登录输入框*/
+	--loginInputBoder: 2rpx solid #444;
+	--loginInputColor: #fff;
+	--loginContent: '';
+	--loginBtn: linear-gradient(90deg, #deb549, #fdea61);
+
+	--verActive: #ebcc45; /*选中
+	--headerG: #270000; /*公告背景色*/
+	--headerGtexe: #fff; /*公告文字背景*/
+	--gTextColor: #F6F108; /*公告标题*/
+	--verLeftConList: #2C405A; /*菜单背景色*/
+	--homeLinear: linear-gradient(to bottom, #740201 1%, #410220 100%);
+	--headerBox: linear-gradient(to bottom, #740201 1%, #410220 100%); /*头部背景色*/
+	--statusBg: #740201;
+	--headerTabBox: #680000; /*二级菜单依据北京市 */
+	--headerTabAct: #fff; /*二级菜单依据北京市 选中*/
+	--condition: linear-gradient(to bottom, #a12727 0, #680000 100%); /*二级搜索背景色*/
+	--leftData: #740201; /*二级菜单左侧背景色*/
+	--leftAct: red; /*二级菜单左侧选中*/
+	--loginNewBtn: linear-gradient(to bottom, #c91111 1%, #980a0b 100%); /*登录按钮*/
+	--loginNewBtnColor: #fff;
+	--loginZhu: linear-gradient(to bottom, #feecbe 1%, #ffd272 100%); /*注册按钮*/
+	--loginZhuColor: #750000;
+	/*-------- qiqi start----------- */
+	--themeActTopBg: #000000; /*优惠头部背景色*/
+	
+	--themeActTopBg: #000000; /*优惠头部背景色*/
+	--themeActTitleBg: #Ffffff; /*优惠标题背景色*/
+	--themeNavTabBg: #0f0f0f;/*优惠标题切换背景*/
+	--themeNavTabColor: #fff;/*优惠标题切换背景*/
+	--themeNavTabAcColor: #d9bb9b;/*优惠标题切换选中背景*/
+	--themeActDetBtnBg: linear-gradient(to bottom, #740201 1%, #410220 100%); /*优惠详情按钮背景色*/
+	--themeNavBg: #680000; /*页面*/
+	--themeBtnBg:#000;
+	/*-------- qiqi end----------- */
+
+
+	/* 小夫开始 */
+	/* 公共颜色 */
+	--popupHeaderColor: #df0000;
+	/* 弹出框头部背景色 */
+	--popupHeaderFontColor: #ffffff;
+	/* 弹出框头部字体颜色 */
+	--popupBgColor: #8c0000;
+	/* 弹出框内容背景色 */
+	--selectedFontColor: #df0000;
+	/* 弹出框字体选中颜色 */
+	--defaultFontColor: #000000;
+	/* 弹出框字体默认颜色 */
+
+	/* 账户交易记录 */
+	--contentBgColor: #ffffff;
+	/* 交易记录内容框背景色 */
+	--borderColor: #cccccc;
+	/* 时间及选项边框色 */
+
+	/* 投注记录 */
+	--titleColor: #000000;
+	/* 选项标题字体颜色 */
+	--placeholderColor: #808080;
+	/* 选择框内提示颜色 */
+
+	--gamePlatformBgColor: #ffffff;
+	/* 游戏平台默认背景色 */
+	--gamePlatformSelectedColor: linear-gradient(to bottom, #740201 1%, #410220 100%);
+	/* 游戏平台选中背景色 */
+	--gamePlatformFontColor: #000000; /* 游戏平台默认字体颜色 */
+	--gamePlatformSelectedFontColor: #ff0; /* 游戏平台选中字体颜色 */
+
+	--searchBgColor: #df0000;
+	/* 搜索按钮背景色 */
+	--searchFontColor: #ffffff;
+	/* 搜索按钮字体色 */
+
+	--bettingLeftFontColor: #000000;
+	/* 总投注左边颜色 */
+	--bettingRightFontColor: #000000;
+	/* 总投注右边颜色 */
+
+	/* 时时返水 */
+	--receiveTextColor: #ffffff;
+	/* 会员中心领取文本颜色 */
+	--pagingFontColor: #Ffffff;
+	/* 分页默认字体色 */
+
+	--returnName: #ffffff;
+	/* 返水名称字体色 */
+	--returnTime: #ffffff;
+	/* 返水时间字体色 */
+	--returnAmount: #ffffff;
+	/* 返水金额字体色 */
+    
+
+	/* 小夫结束 */
+	--leftAct: red;  /*二级菜单左侧选中 */
+	--loginNewBtn: linear-gradient(to bottom, #c91111 1%, #980a0b 100%);  /*登录按钮*/
+	--loginNewBtnColor: #fff;
+	--loginZhu: linear-gradient(to bottom, #feecbe 1%, #ffd272 100%);  /*注册按钮*/
+	--loginZhuColor: #750000;
+
+
+	--recharge: #fff;  /*存款选项文字*/
+	--btnPay: #df0000;  /*立即支付*/
+	--tips: #A94442;  /*提款提示文字*/
+	--textRecharge: #000;  /*财务中心文字*/
+	--btnDis: #EEC8C8;  /*反水禁用*/
+	--textFS: #000;  /*反水文字*/
+	--money: #ff0;  /*金额*/
+	--addBank: #333;  /*添加银行卡文字*/
+	--tabsA: #8c0000;  /*选项卡*/
+	--btnOne: #8c0000;  /*一键归集*/
+	--tabarText: rgb(227, 227, 227);  /*tabbar text*/
+	--tabarActiveText: rgb(217, 187, 155);  /*tabbar 激活文本*/
+	--headderBg: #000; /* 头部背景色 */
+	
+}
+.themeActTopBg {
+	background-color: #430101;
+	background-color: var(--themeActTopBg);
+}
+
+.themeNavActive {
+	color: var(--verActive);
+	border-bottom: 1px solid var(--verActive);
+}

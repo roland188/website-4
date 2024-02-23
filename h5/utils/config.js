@@ -86,6 +86,7 @@ const getConfing = () => {
         'svip': {code: '84',currency: '' },
         'choibet': {code: '84',currency: '' },
         'phattai68': {code: '84',currency: '' },
+        'wynn': {code: '84',currency: '' }, //
     }[imgName]
 }
 

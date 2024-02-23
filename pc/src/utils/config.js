@@ -48,6 +48,7 @@ const getConfing = () => {
         'g9bt': {code: '84',currency: '' }, // 
         'jun8': {code: '84',currency: '' }, // 
         'xcao': {code: '84',currency: '' }, //
+        'wynn': {code: '84',currency: '' }, //
     }[window.childCode]
 }
 export default {
