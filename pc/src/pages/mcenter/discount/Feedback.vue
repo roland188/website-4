@@ -177,7 +177,7 @@ export default {
       // })
     },
     customerService() {
-      if (window.projectImgUrl === 'betc88') { // betcome直接跳客服窗口
+      if (['betc88,wynn'].includes(window.projectImgUrl)) {  // betcome直接跳客服窗口
         const url = this.$common.getCustomerService();
         window.open(url, "_blank");
         return;

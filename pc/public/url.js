@@ -154,12 +154,25 @@
                 "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
                 "domains": [],
             },
+            {
+                "code": "viet",
+                "skin": "wynn",
+                "childCode": "wynn",
+                "locale": 'vi',
+				"name": "wynn",
+                "theme": "a062",
+                "winOpenTime": "6000",
+                "customerServiceStatus": 1,//0旧版本   1新版本
+                "sortArr": [1, 2, 3, 4, 5, 6, 7],//1电子游艺 2体育赛事 3棋牌游戏 4彩票游戏 5视讯直播 6电竞赛事 7捕鱼机
+                "maintainUrl": "https://www.ffyl0202.com/clientMaintain/getClientMaintain",
+                "domains": [],
+            },
 		];
 		if (!l) {
 			if (a.length > 2) a = a.slice(a.length - 2);
 			u = a.join(".");
 		}
-		var codeList = [//0 sovip、1 bggame、2 kubet、3 betcome 、4 88bet、5 jun88、6  phattai68、7 choibet、8 g9bet
+		var codeList = [//0 sovip、1 bggame、2 kubet、3 betcome 、4 88bet、5 jun88、6  phattai68、7 choibet、8 g9bet 、9 wynn
 			{ data: c[0],host: 'https://m.sovip66.com/xxa'},
 			{ data: c[1],host: 'https://m.tc20014.com/xxa'},
 			{ data: c[2],host: 'https://m.tc00013.com/xxa'},
@@ -169,6 +182,7 @@
 			{ data: c[6],host: 'https://m.gr86czdgdk.com/xxa'},
 			{ data: c[7],host: 'https://m.ofampihfkc.com/xxa'},
 			{ data: c[8],host: 'https://m.tc20015.com/xxa'},
+			{ data: c[9],host: 'https://m.tc20015.com/xxa'},
 		]
 		var codeData = codeList[6]
 		var o = codeData.data

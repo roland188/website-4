@@ -2,6 +2,7 @@
 <template>
   <view class="content" :class="{ 'theme-container': skinId === 'sovip' }">
     <betc88Index v-if="skinId === 'betc88'" />
+    <wynnIndex v-if="skinId === 'wynn'" />
     <kubetIndex v-if="['kubet', 'choibet', 'phattai68'].includes(skinId)" />
     <sovip v-if="skinId === 'sovip'" ref="pageIndex"></sovip>
     <bgga v-if="skinId === 'bgga'" />
@@ -18,6 +19,7 @@
 
 <script>
 import betc88Index from "./betc88/index.vue";
+import wynnIndex from "./wynn/index.vue";
 import kubetIndex from "./kubet/index.vue";
 import bgga from "./bgga/index.vue";
 import sovip from "./sovip/index.vue";

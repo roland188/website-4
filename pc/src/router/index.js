@@ -30,7 +30,7 @@ import vipLevel from "../pages/vipLevel/vipLevel.vue"; //vip
 Vue.use(Router);
 let projectImgUrl = "";
 if (window.projectImgUrl) {
-  if (["bgga", "betc88", "sovip"].includes(window.projectImgUrl)) {
+  if (["bgga", "betc88", "sovip","wynn"].includes(window.projectImgUrl)) {
     projectImgUrl = "bggame";
   } else if (["xiaocao", "g9bet"].includes(window.projectImgUrl)) {
     projectImgUrl = "bet88";

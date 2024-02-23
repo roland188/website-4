@@ -6,10 +6,9 @@
                 @click="transgo">
             </a>
             <div class="title-logo">{{$t('情感无限的地方')}}</div>
-            <div class="headerLeft" :class="projectImgUrl === 'betc88' ? 'betc88Style' : null">
+            <div class="headerLeft" :class="['betc88,wynn'].includes(projectImgUrl) ? 'betc88Style' : null">
                 <template v-if="!['xiaocao', 'gtgame'].includes(projectImgUrl)">
                     <div>
-                        <!-- <span v-if="projectImgUrl !== 'betc88'">{{ $t('简体中文') }}</span> -->
                         <span class="times">Tiếng Việt UTC/GMT +7 </span>
                         <span class="header-time-text">{{date}}</span>
                         <span>{{time}}</span>
