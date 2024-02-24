@@ -315,7 +315,7 @@ export default {
           if (types == 1) {
             //登录密码
             if (!this.passwordIsValid()) {
-              this.errtext = this.$t('原密码必须为6-15位,字母数字符号至少两种组合');
+              this.errtext = this.$t('原密码必须为4-10位,字母数字符号至少两种组合');
               return;
             }
           } else if (types == 2) {
@@ -351,7 +351,7 @@ export default {
             //登录
 
             if (!this.newPasswordIsValid()) {
-              this.errtext = this.$t('新密码必须为6-15位,字母数字符号至少两种组合');
+              this.errtext = this.$t('新密码必须为4-10位,字母数字符号至少两种组合');
               return;
             }
 
@@ -365,7 +365,7 @@ export default {
               }
 
               // if (!this.newPasswordIsValid()) {
-              // 	this.errtext = '新密码必须为6-15位字母或数字！'
+              // 	this.errtext = '新密码必须为4-10位字母或数字！'
               // 	return
               // }
               this.upBankPwd();

@@ -21,7 +21,8 @@
         </el-tabs>
         <div class="form-i">
           <img class="form-img" src="./img/user.png" alt="">
-          <input class="form-input" :placeholder="$t('请输入账号')" type="text" v-model="form.username" />
+          <input v-if="tabName != 'register'" class="form-input" :placeholder="$t('请输入账号')" type="text" v-model="form.username" />
+          <input v-else class="form-input" :placeholder="$t('请输入账号（长度4到10位）')" type="text" v-model="form.username" :maxlength="10" />
         </div>
         <div class="form-i">
           <img class="form-img" src="./img/pass.png" alt="">

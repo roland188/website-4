@@ -769,7 +769,7 @@ export default {
           if (!_this.passwordIsValid()) {
             uni.showToast({
               icon: "none",
-              title: _this.$t('新密码必须为6-15位,字母数字符号至少两种组合'),
+              title: _this.$t('新密码必须为4-10位,字母数字符号至少两种组合'),
               duration: 2000,
             });
             return;

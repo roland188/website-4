@@ -898,7 +898,7 @@ export default {
       } else if (!_this.passwordIsValid()) {
         uni.showToast({
           icon: "none",
-          title: _this.$t('密码6-15位,字母数字符号至少两种组合'),
+          title: _this.$t('密码4-10位,字母数字符号至少两种组合'),
           duration: 2000,
         });
         return;
