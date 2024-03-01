@@ -3,6 +3,7 @@
   <view class="content" :class="{ 'theme-container': skinId === 'sovip' }">
     <betc88Index v-if="skinId === 'betc88'" />
     <wynnIndex v-if="skinId === 'wynn'" />
+    <dola789 v-if="skinId === 'dola789'" />
     <kubetIndex v-if="['kubet', 'choibet', 'phattai68'].includes(skinId)" />
     <sovip v-if="skinId === 'sovip'" ref="pageIndex"></sovip>
     <bgga v-if="skinId === 'bgga'" />
@@ -19,6 +20,7 @@
 
 <script>
 import betc88Index from "./betc88/index.vue";
+import dola789 from "./dola789/index.vue";
 import wynnIndex from "./wynn/index.vue";
 import kubetIndex from "./kubet/index.vue";
 import bgga from "./bgga/index.vue";
@@ -47,6 +49,7 @@ export default {
     xoc88,
     myTabBar,
     betSbw,
+    dola789
   },
   onReachBottom() {
     this.$refs.pageIndex && this.$refs.pageIndex.getGameList();

@@ -52,8 +52,8 @@
           </view>
         </view>
         <!-- <text class="tip-text" v-if="bankcodeTip && bankCodeName !== '数字货币'">银行卡号必须大于12位小于19位</text> -->
-        <view class="uni-flex border-item" v-if="(bankCodeName == $t('数字货币') && ['sovip','betc88','wynn'].includes($config.projectImgUrl))
-          || !['sovip','betc88','wynn'].includes($config.projectImgUrl)">
+        <view class="uni-flex border-item" v-if="(bankCodeName == $t('数字货币') && ['vi'].includes(this.$config.locale))
+          || !['vi'].includes(this.$config.locale)">
           <view class="flex-item">
             <text class="name oneTitleColor8">{{bankCodeName === $t('数字货币') ? $t('链路') : $t('支行')}}</text>
           </view>
@@ -336,7 +336,7 @@ export default {
         this.showToast(this.$t('请输入账户姓名'));
         return;
       }
-      if(!['sovip','betc88','wynn'].includes(this.$config.projectImgUrl)){
+      if(!['vi'].includes(this.$config.locale)){
         if (!this.bankData.branch) {
           this.showToast(this.$t('请输入支行名称'));
           return;

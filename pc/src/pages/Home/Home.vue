@@ -1,6 +1,6 @@
 <template>
     <div class="themeColor index">
-        <BgGame v-if="['bgga','betc88','wynn','sovip',].includes(projectImgUrl)"></BgGame>
+        <BgGame v-if="['bgga','betc88','wynn','sovip','dola789'].includes(projectImgUrl)"></BgGame>
         <KuBet v-if="['kubet','choibet','phattai68'].includes(projectImgUrl)"></KuBet>
         <Bet88 v-if="['xiaocao','g9bet'].includes(projectImgUrl)"></Bet88>
         <Jun88 v-if="projectImgUrl == 'jun88'"></Jun88>

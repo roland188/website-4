@@ -6,7 +6,7 @@
                 @click="transgo">
             </a>
             <div class="title-logo">{{$t('情感无限的地方')}}</div>
-            <div class="headerLeft" :class="['betc88,wynn'].includes(projectImgUrl) ? 'betc88Style' : null">
+            <div class="headerLeft" :class="['betc88,wynn','dola789'].includes(projectImgUrl) ? 'betc88Style' : null">
                 <template v-if="!['xiaocao', 'gtgame'].includes(projectImgUrl)">
                     <div>
                         <span class="times">Tiếng Việt UTC/GMT +7 </span>

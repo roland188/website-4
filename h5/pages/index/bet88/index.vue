@@ -148,9 +148,15 @@ onPullDownRefresh() {
 },
 onReachBottom() {},
 created() {
-// #ifdef H5
-this.showDownload = window.isMaskApp ? false : true
-// #endif
+  // #ifdef H5
+  this.showDownload = window.isMaskApp ? false : true
+  let skin = window.projectImgUrl;
+  if(skin === 'g9bet') {
+    uni.setNavigationBarTitle({
+      title: 'G9bet Nhà cái nổ hũ bắn cá chuyên nghiệp - uy tín - hàng đầu Việt Nam',
+    });
+  }
+  // #endif
   // 获取登录状态
   let self = this;
   self.login = self.$api.isLogin();

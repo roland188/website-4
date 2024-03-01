@@ -94,7 +94,7 @@
                  <!-- :style="{'background': }" -->
         </div>
         <div class="fwDownload"
-            v-if="['sovip','betc88','wynn'].includes(projectImgUrl)">
+            v-if="['sovip','betc88','wynn','dola789'].includes(projectImgUrl)">
             <div class="icon yq" @click="jump('yq')"></div>
         </div>
         
@@ -245,8 +245,16 @@ export default {
             }
             if(this.projectImgUrl == 'wynn'){
                 obj = {
-                    fb: 'https://www.facebook.com/profile.php?id=100072168072046',
-                    tg: 'https://t.me/BETCOME8',
+                    fb: '',
+                    tg: '',
+                    zalo: '',
+                    Hotline:'',
+                }
+            }
+            if(this.projectImgUrl == 'dola789'){
+                obj = {
+                    fb: '',
+                    tg: '',
                     zalo: '',
                     Hotline:'',
                 }

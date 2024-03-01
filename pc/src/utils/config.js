@@ -49,6 +49,7 @@ const getConfing = () => {
         'jun8': {code: '84',currency: '' }, // 
         'xcao': {code: '84',currency: '' }, //
         'wynn': {code: '84',currency: '' }, //
+        'dola': {code: '84',currency: '' }
     }[window.childCode]
 }
 export default {
