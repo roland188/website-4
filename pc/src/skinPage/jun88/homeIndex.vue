@@ -706,7 +706,7 @@ export default {
     },
     //点击进入游戏
     async getToken() {
-        let realIndex = this.$refs.mySwiper.$swiper.realIndex
+        let realIndex = this.$refs.mySwiper.$swiper.clickedIndex
         let req = this.sportList[realIndex]
         let self = this;
         if (!self.$common.getUser()) {

@@ -136,6 +136,7 @@ export default {
             return v.id == this.$route.query.pid;
         })
         this.curMenuList = this.curMenu[0].children;
+        console.log(this.curMenuList,'curMenuList')
         // this.getGameList()
     },
     computed:{
@@ -226,17 +227,19 @@ export default {
             }
             self.$common.setGameRequestData(datas)
             
+            console.log(req,'req')
             const res = await self.$http.post(api.getToken, datas, true)
             if (res.code == 0) {
                 self.gameUrl = res.data;
                 if (req.openMode === 1) {
-                // if(issafariBrowser) {
-                    //  self.winOpen.location.href = self.gameUrl;
-                // }else{
+                    // if(issafariBrowser) {
+                        //  self.winOpen.location.href = self.gameUrl;
+                    // }else{
+                    if(req.name == 'CMD') return window.location.href = self.gameUrl
                     window.open(self.gameUrl)
                 // }
-                
                 }else{
+                    if(req.name == 'CMD') return window.location.href = self.gameUrl
                     window.open(self.gameUrl)
                 }
 

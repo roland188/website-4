@@ -329,6 +329,22 @@ export default {
     },
     handleTabClick() {
       this.setShowLogin({ isLogin: this.tabName === 'login' })
+      this.form = {
+        username: '',
+        pwd: '',
+        pwd2: '',
+        phone: '',
+        smsCode: '',
+        qq: '',
+        email: '',
+        realName: '',
+        address: '',
+        birthday: '',
+        wechat: '',
+        inviteCode: '',
+        verify: '',
+        codePrefix: this.$config.codePrefix
+      }
     },
     async handleRegister() {
       let captcha2 = document.querySelector("#captcha2")

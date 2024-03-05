@@ -706,8 +706,9 @@ export default {
     },
     //点击进入游戏
     async getToken() {
-        let realIndex = this.$refs.mySwiper.$swiper.realIndex
+        let realIndex = this.$refs.mySwiper.$swiper.clickedIndex
         let req = this.sportList[realIndex]
+        console.log(this.sportList,req,'req')
         let self = this;
         if (!self.$common.getUser()) {
             // self.showLogin = true;
@@ -730,6 +731,7 @@ export default {
 
         const res = await self.$http.post(api.getToken, datas, true);
         if (res.code == 0) {
+            if(req.name == 'CMD') return window.location.href = res.data
             window.open(res.data);
         } else {
             if (req.openMode === 1) {

@@ -10,13 +10,13 @@
 			<view class="yu-datetime-view">
 				<picker-view v-if="isAll" :indicator-style="itemHeight" :value="values" @change="bindChange" style="height:647rpx;width: 100%;">
 					<picker-view-column class="timeleft">
-						<view class="yu-datetime-item" v-for="(item,index) in dateObj.years" :key="index">{{ item + $t('年')}}</view>
+						<view class="yu-datetime-item" v-for="(item,index) in dateObj.years" :key="index">{{item}}</view>
 					</picker-view-column>
 					<picker-view-column>
-						<view class="yu-datetime-item" v-for="(item,index) in dateObj.months" :key="index">{{item + $t('月')}}</view>
+						<view class="yu-datetime-item" v-for="(item,index) in dateObj.months" :key="index">{{item}}</view>
 					</picker-view-column>
 					<picker-view-column class="timeRight">
-						<view class="yu-datetime-item" v-for="(item,index) in dateObj.days" :key="index">{{item + $t('日')}}</view>
+						<view class="yu-datetime-item" v-for="(item,index) in dateObj.days" :key="index">{{item}}</view>
 					</picker-view-column>
 				</picker-view>
 			</view>

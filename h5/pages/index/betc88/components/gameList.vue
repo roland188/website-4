@@ -51,7 +51,7 @@
       />
     </view>
     <!-- 右侧列表 -->
-    <scroll-view class="secondList" :scroll-top="navTop" scroll-y="true">
+    <scroll-view class="secondList" :scroll-top="navTop" scroll-y="false">
       <block v-for="(item, index) in gameList" :key="index">
         <!-- :class="[1,2,4,6].includes(id) ? 'game1' : ''"  -->
         <view
@@ -279,8 +279,8 @@ export default {
   .secondList {
     position: relative;
     // padding-left: 25%;
-    max-height: 784upx;
-    overflow-y: auto;
+    // max-height: 784upx;
+    height: auto;
     .game {
       flex: 1;
       // height: 226upx;

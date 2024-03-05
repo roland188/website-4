@@ -233,8 +233,9 @@
                 <span style="margin: 10px 0">{{ $t('1点={x}', { x: `${$utils._toThousands(1000)}` }) }}{{ $t('CNY') }}</span>
                 <span v-if="['vi'].includes(window.locale)">
                   = {{ $utils._toThousands(money*1000) }} {{ $t('CNY') }}，
-                  {{ $t('手续费：') }}0 = {{ serviceFeeRate > 0 ? serviceFeeRate*100 + '%' : 0}} {{ $t('CNY') }}，
-                  {{ $t('实际到账：') }}{{ money }} = {{ $utils._toThousands(money*1000) }} {{ $t('CNY') }}
+                  {{ $t('手续费：') }} {{ serviceFeeRate.toFixed(2) + '%'}} = {{ $utils._toThousands((serviceFeeRate/100 * money*1000)) }} {{ $t('CNY') }}，
+                  {{ $t('实际到账：') }}{{ money }} = 
+                  {{ $utils._toThousands(money*1000 - (serviceFeeRate/100 * money*1000)) }} {{ $t('CNY') }}
                 </span>
                 <span v-if="projectImgUrl==='wbgj' && activeName == 0" @click="handleGoServer" style="font-size: 13px">{{ $t('有问题，请点击联系客服') }}</span>
               </p>
@@ -865,7 +866,7 @@ export default {
       this.currencyCode = item.code;
       this.selectMoneyMode = index;
       this.paymentWay = item.channels;
-      this.serviceFeeRate = item.serviceFeeRate
+      this.serviceFeeRate = item.serviceFeeRate*1
       this.passindex = 0;
       this.MoneyIndex = 0;
       this.money = "";

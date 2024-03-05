@@ -46,7 +46,7 @@
             scroll-with-animation
             :throttle="false"
             :scroll-left="0"
-            :scroll-x="false"
+            :scroll-y="false"
             class="game-scroll"
           >
             <view class="game-li1" :class="{'game-li2' : paysList.length > 5}">

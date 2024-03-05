@@ -603,12 +603,10 @@ export default {
       if (res.code == 0) {
         self.gameUrl = res.data;
         if (req.openMode === 1) {
-          // if(issafariBrowser) {
-          //  self.winOpen.location.href = self.gameUrl;
-          // }else{
+          if(req.name == 'CMD') return window.location.href = self.gameUrl
           window.open(self.gameUrl);
-          // }
         } else {
+          if(req.name == 'CMD') return window.location.href = self.gameUrl
           window.open(self.gameUrl);
         }
       } else {
