@@ -245,8 +245,8 @@ export default {
             }
             if(this.projectImgUrl == 'wynn'){
                 obj = {
-                    fb: '',
-                    tg: '',
+                    fb: 'https://web.facebook.com/nkaujsua.ho.9',
+                    tg: 'https://t.me/hanhxinh_09',
                     zalo: '',
                     Hotline:'',
                 }

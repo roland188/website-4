@@ -212,11 +212,11 @@
               <view>= {{ $common.setNumVnd(money, 1000) }} VND</view>
               <view>
                 <view>{{ $t('手续费') }}：0</view>
-                <view>= {{ serviceFeeRate > 0 ? serviceFeeRate*100 + '%' : 0}}  VND</view>
+                <view>{{ serviceFeeRate.toFixed(2) + '%'}} = {{ $common.setNumVnd((serviceFeeRate/100 * money), 1000) }} VND</view>
               </view>
               <view>
                 <view>{{ $t("实际入款") }}：{{ money }}</view>
-                <view>= {{ $common.setNumVnd(money, 1000) }} VND</view>
+                <view>= {{ $common.setNumVnd((money - (serviceFeeRate/100 * money)), 1000) }} VND</view>
               </view>
             </view>
           </view>
@@ -430,7 +430,7 @@ export default {
       recharge_sms: 0, // 是否开启短信验证
       phoneDisab: false, // 禁用手机号输入框
       realName: "",
-      serviceFeeRate: '',//手续费率
+      serviceFeeRate: 0,//手续费率
     };
   },
   watch: {
@@ -792,7 +792,7 @@ export default {
       this.avited_class = index;
       this.currency = item.code;
       this.paymentWay = item.channels;
-      this.serviceFeeRate = item.serviceFeeRate
+      this.serviceFeeRate = item.serviceFeeRate * 1
       console.log(this.paymentWay);
       this.money = "";
       this.bankname = "";
