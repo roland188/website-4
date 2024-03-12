@@ -20,7 +20,7 @@
 export default {
   data() {
     return {
-      speed: 30,
+      speed: 10,
       textWen: this.$t("热门推荐 捕鱼达人 电子游艺 体育赛事 棋牌游戏 彩票游戏 视讯直播 电竞赛事"), // 公告数据
     };
   },
