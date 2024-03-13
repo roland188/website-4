@@ -87,7 +87,7 @@ const getConfing = () => {
         'choibet': {code: '84',currency: '' },
         'phattai68': {code: '84',currency: '' },
         'wynn': {code: '84',currency: '' }, //
-        'dola': {code: '84',currency: '' }
+        'dola789': {code: '84',currency: '' }
     }[imgName]
 }
 

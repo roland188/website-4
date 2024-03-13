@@ -63,6 +63,7 @@
 		<!-- 手机号 -->
 		<view class='regRow phone' v-if='regFlag&&regFlag.phone'>
 			<view v-if='regFlag.phone == 2' class='required'> ★ </view>
+      <view class="codePrefix">{{ $config.codePrefix }}</view>
 			<input type="number" v-model='phone' :placeholder="regFlag.phone == 1 ? $t('请输入手机号码（选填）'):  $t('请输入手机号码')" maxlength="10"
 			 placeholder-class="themeTextTwo" @focus='phoneFocus' @blur="commonblurFn($event,'phone')" @confirm='Register' />
 		</view>
@@ -1221,6 +1222,28 @@ export default {
     margin-bottom: 32upx;
     position: relative;
     color: #fff;
+    
+    &.phone{
+      position: relative;
+      .codePrefix{
+        position: absolute;
+        left: 40rpx;
+        height: 100%;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0 10rpx;
+        border: var(--loginInputBoder);
+        border-left: 0;
+        border-right: 0;
+        color: var(--loginInputColor);
+        background: var(--loginFromBg);
+      }
+      uni-input{
+        padding-left:100rpx;
+      }
+    } 
   }
 
   /* 手机短信验证码 */
