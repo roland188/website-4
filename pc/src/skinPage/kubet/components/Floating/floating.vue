@@ -7,7 +7,7 @@
         <div class="fwDownload">
             <div class="icon tg" @click="jump('tg')"></div>
         </div>
-        <div class="fwDownload">
+        <div class="fwDownload" v-if="projectImgUrl != 'phattai68'">
             <div class="icon fb" @click="jump('fb')"></div>
         </div>
         <!-- <div class="fwDownload">
@@ -65,6 +65,7 @@ export default {
             window:window,
             rebateShow:false, // 是否展示全民返利
             rebateRemind:false, // 全民返利小红点
+            projectImgUrl: window.projectImgUrl,
         }
     },
     created() {
@@ -140,11 +141,20 @@ export default {
             });
         },
         jump(type) {
-            return
-            if (type === 'app') return this.$router.push('/home?scroll=456')
-            const obj = {
-                fb: '',
-                tg: '',
+            if (type === 'app' || type == 'zalo') return
+            let obj = {}
+            if(type == 'yq') {
+                if (!this.$common.getUser()) {
+                    this.$common.openLogin()
+                    return
+                }
+                this.$store.commit('rebate',true)
+                return
+            }
+            if(this.projectImgUrl == 'phattai68'){
+                obj = {
+                    tg: 'https://t.me/cskhphattai1',
+                }
             }
             window.open(obj[type])
         },

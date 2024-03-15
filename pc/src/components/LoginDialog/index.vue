@@ -177,7 +177,7 @@ export default {
     this.getDefaultStatus()
     this.getRegisterSet()
     this.sessData = JSON.parse(sessionStorage.getItem("inviteCode")) || ""
-    this.form.inviteCode =  this.sessData
+    this.form.inviteCode =  JSON.parse(sessionStorage.getItem("inviteCode")) || ""
     if (!this.$common.getUser()) {
       this.setShowLogin({ show: true })
     }
@@ -341,7 +341,7 @@ export default {
         address: '',
         birthday: '',
         wechat: '',
-        inviteCode: '',
+        inviteCode: this.sessData,
         verify: '',
         codePrefix: this.$config.codePrefix
       }
@@ -349,7 +349,6 @@ export default {
     async handleRegister() {
       let captcha2 = document.querySelector("#captcha2")
       const {
-        inviteCode,
         username,
         pwd,
         pwd2,
@@ -361,6 +360,7 @@ export default {
         qq,
         address,
         smsCode,
+        inviteCode,
         verify,
         codePrefix,
       } = this.form
