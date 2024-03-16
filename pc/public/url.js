@@ -200,7 +200,7 @@
 			{ data: c[9],host: 'https://29pcsbtv6u.com/xxa'},
 			{ data: c[10],host: 'https://29pcsbtv6u.com/xxa'},
 		]
-		var codeData = codeList[3]
+		var codeData = codeList[6]
 		var o = codeData.data
 		for (var x in c) {
 			var i = c[x];

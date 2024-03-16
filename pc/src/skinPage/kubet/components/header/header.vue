@@ -49,6 +49,24 @@
                     <li class="logout" @click="logout()">{{ $t('登出') }}</li>
                 </ul>
             </div>
+            <div class="loginLeft">
+                <ul>
+                    <li v-for="(item, index) in headerList" :key="index" @click="jump(item)" class="liCenter">
+                        <i v-show="item.hotStatus"
+                            :style="'background-image:url(' + $common.getImgUrl(item.hotPic) +')'"
+                        ></i>
+                        <span
+                            :style="{
+                                color: `${
+                                    flashing && item.shineStatus
+                                        ? item.shineColor
+                                        : item.bottomColor
+                                }`,
+                            }"
+                        >{{ item.name }}</span>
+                    </li>
+                </ul>
+            </div>
         </div>
         <!-- eslint-disable-next-line vue/custom-event-name-casing -->
         <menu-list @setregister="$emit('openRegister')" @scrollToCode="$emit('scrollToCode')"></menu-list>
